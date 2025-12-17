@@ -9,7 +9,7 @@ export const Experience = () => {
 
   const experiences = [
     {
-      title: "IT Support Specialist",
+      title: "IT Specialist",
       company: "Chimera Group of Companies",
       location: "Dubai, UAE",
       period: "September 2024 – Present",
@@ -19,8 +19,13 @@ export const Experience = () => {
         "Administered Office 365, Outlook, and ERP (user creation, access permissions, password resets)",
         "Email hosting, server configuration, web hosting, and DNS management",
         "Implemented AI automation tools to enhance workflows and streamline routine tasks",
-        "Designed and developed the company's website with SEO best practices",
-        "Monitor website performance, user experience, and technical functionality",
+        "Create, update, and maintain website content using CMS platforms (WordPress, Wix, etc.)",
+        "Monitor website performance, user experience, and implement SEO best practices",
+        "Develop, schedule, and publish engaging content across all social media platforms",
+        "Monitor audience engagement, respond to inquiries, and track performance analytics",
+        "Support in planning and executing Google Ads campaigns (Search, Display, Video, Performance Max)",
+        "Conduct keyword research, create ads, manage budgets, and monitor campaign performance",
+        "Create and publish job postings on various job portals and career platforms",
       ],
     },
     {
