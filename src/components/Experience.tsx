@@ -14,7 +14,7 @@ export const Experience = () => {
       location: "Dubai, UAE",
       period: "September 2024 – Present",
       responsibilities: [
-        "Create, update, and maintain website content using CMS platforms (WordPress, Wix, etc.)",
+        "Create, update, and maintain website content using CMS platforms",
         "Monitor website performance, user experience, and implement SEO best practices",
         "Develop, schedule, and publish engaging content across all social media platforms",
         "Monitor audience engagement, respond to inquiries, and track performance analytics",
