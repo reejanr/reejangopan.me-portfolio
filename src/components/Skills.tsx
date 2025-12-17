@@ -100,7 +100,7 @@ export const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-24 bg-secondary/30 dark" ref={ref}>
+    <section id="skills" className="py-24 bg-muted/50" ref={ref}>
       <div className="container px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -124,7 +124,7 @@ export const Skills = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 + index * 0.05 }}
-              className="group bg-background rounded-2xl p-5 sm:p-6 card-shadow border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-1"
+              className="group bg-card rounded-2xl p-5 sm:p-6 card-shadow border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-1"
             >
               <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                 <category.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
