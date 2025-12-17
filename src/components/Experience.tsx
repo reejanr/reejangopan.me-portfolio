@@ -18,7 +18,7 @@ export const Experience = () => {
         "Monitor website performance, user experience, and implement SEO best practices",
         "Develop, schedule, and publish engaging content across all social media platforms",
         "Monitor audience engagement, respond to inquiries, and track performance analytics",
-        "Support in planning and executing Google Ads campaigns (Search, Display, Video, Performance Max)",
+        "Support in planning and executing Google Ads campaigns",
         "Conduct keyword research, create ads, manage budgets, and monitor campaign performance",
         "Create and publish job postings on various job portals and career platforms",
         "Implemented AI automation tools to enhance workflows and streamline routine tasks",
