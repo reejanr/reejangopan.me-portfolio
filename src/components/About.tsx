@@ -23,7 +23,7 @@ export const About = () => {
   const languages = ["English", "Malayalam", "Tamil", "Hindi"];
 
   return (
-    <section id="about" className="py-24 bg-secondary/30 dark" ref={ref}>
+    <section id="about" className="py-24 bg-muted/50" ref={ref}>
       <div className="container px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
