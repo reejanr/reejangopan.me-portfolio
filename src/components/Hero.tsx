@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowDown, Mail, MapPin, Phone, Linkedin } from "lucide-react";
 import profileImage from "@/assets/profile.jpg";
+
+const LINKEDIN_URL = "https://www.linkedin.com/in/reejan-r-gopan-38a8092b9";
 
 export const Hero = () => {
   return (
@@ -103,20 +105,25 @@ export const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.7 }}
-                className="flex flex-wrap justify-center lg:justify-start gap-4"
+                className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4"
               >
                 <a
-                  href="#contact"
-                  className="px-8 py-3 rounded-lg font-medium text-primary-foreground transition-all duration-300 hover:scale-105"
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 sm:px-8 py-3 rounded-lg font-medium text-primary-foreground transition-all duration-300 hover:scale-105 flex items-center gap-2"
                   style={{ background: "var(--gradient-primary)" }}
                 >
-                  Get in Touch
+                  <Linkedin className="w-4 h-4" />
+                  Hire Me
                 </a>
                 <a
-                  href="#experience"
-                  className="px-8 py-3 rounded-lg font-medium border border-border text-foreground hover:bg-secondary transition-all duration-300"
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 sm:px-8 py-3 rounded-lg font-medium border border-border text-foreground hover:bg-secondary transition-all duration-300 flex items-center gap-2"
                 >
-                  View Experience
+                  Send Message
                 </a>
               </motion.div>
             </div>

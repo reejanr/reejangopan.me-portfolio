@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Mail, MapPin, Phone, Linkedin } from "lucide-react";
+
+const LINKEDIN_URL = "https://www.linkedin.com/in/reejan-r-gopan-38a8092b9";
 
 export const Contact = () => {
   const ref = useRef(null);
@@ -85,14 +87,25 @@ export const Contact = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-center"
+            className="flex flex-col sm:flex-row justify-center gap-4"
           >
             <a
-              href="mailto:Reejanr90@gmail.com"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-medium text-primary-foreground transition-all duration-300 hover:scale-105 elevated-shadow"
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-medium text-primary-foreground transition-all duration-300 hover:scale-105 elevated-shadow"
               style={{ background: "var(--gradient-primary)" }}
             >
-              <Send className="w-5 h-5" />
+              <Linkedin className="w-5 h-5" />
+              Hire Me
+            </a>
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-medium border border-border text-foreground hover:bg-secondary transition-all duration-300"
+            >
+              <Linkedin className="w-5 h-5" />
               Send Message
             </a>
           </motion.div>
