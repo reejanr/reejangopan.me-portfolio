@@ -112,7 +112,7 @@ export const Skills = () => {
           <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mt-4">
             Skills & Technologies
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+          <p className="text-foreground/70 mt-4 max-w-2xl mx-auto">
             A comprehensive skill set spanning IT infrastructure, web development, and digital solutions.
           </p>
         </motion.div>
