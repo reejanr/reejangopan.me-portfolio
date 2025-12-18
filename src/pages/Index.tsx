@@ -8,7 +8,12 @@ import { Footer } from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="dark">
+    <div className="dark" itemScope itemType="https://schema.org/Person">
+      <meta itemProp="name" content="Reejan R Gopan" />
+      <meta itemProp="alternateName" content="Reejan Gopan" />
+      <meta itemProp="alternateName" content="reejangopan" />
+      <meta itemProp="jobTitle" content="IT Specialist" />
+      <meta itemProp="url" content="https://reejangopan.me" />
       <Navbar />
       <main>
         <Hero />

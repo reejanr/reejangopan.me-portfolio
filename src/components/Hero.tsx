@@ -65,8 +65,8 @@ export const Hero = () => {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6"
               >
-                Reejan R{" "}
-                <span className="gradient-text">Gopan</span>
+                <span itemProp="name">Reejan R{" "}
+                <span className="gradient-text">Gopan</span></span>
               </motion.h1>
 
               <motion.p
