@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import profilePic from "@/assets/profile.jpg";
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,11 +37,6 @@ export const Navbar = () => {
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <a href="#" className="flex items-center gap-2">
-              <img 
-                src={profilePic} 
-                alt="Reejan Gopan" 
-                className="w-10 h-10 rounded-full object-cover border-2 border-primary"
-              />
               <span className="font-heading text-xl font-bold text-foreground">
                 Reejan<span className="text-primary">.</span>
               </span>
