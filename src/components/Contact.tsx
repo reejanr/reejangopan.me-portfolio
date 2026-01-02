@@ -15,41 +15,52 @@ export const Contact = () => {
       label: "Email",
       value: "Reejanr90@gmail.com",
       href: "mailto:Reejanr90@gmail.com",
+      itemProp: "email",
     },
     {
       icon: Phone,
       label: "Phone",
       value: "+971 527123154",
       href: "tel:+971527123154",
+      itemProp: "telephone",
     },
     {
       icon: MapPin,
       label: "Location",
       value: "Dubai, UAE",
       href: null,
+      itemProp: "workLocation",
     },
   ];
 
   return (
-    <section id="contact" className="py-24 bg-background dark" ref={ref}>
+    <section 
+      id="contact" 
+      className="py-24 bg-background dark" 
+      ref={ref}
+      aria-label="Contact Reejan Gopan"
+      itemScope
+      itemType="https://schema.org/ContactPage"
+    >
       <div className="container px-6">
-        <motion.div
+        <motion.header
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-medium tracking-widest uppercase text-sm">Contact</span>
+          <span className="text-primary font-medium tracking-widest uppercase text-sm">Get In Touch</span>
           <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mt-4">
-            Let's Connect
+            Contact Reejan Gopan
           </h2>
           <p className="text-muted-foreground mt-4 max-w-xl mx-auto">
-            Interested in working together? Feel free to reach out for collaborations or just a friendly hello.
+            Interested in working with <strong>Reejan R Gopan</strong>? Reach out for 
+            <strong> IT consulting</strong>, <strong>web development</strong>, or <strong>AI automation</strong> projects in <strong>Dubai, UAE</strong>.
           </p>
-        </motion.div>
+        </motion.header>
 
         <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
+          <address className="grid md:grid-cols-3 gap-6 mb-12 not-italic">
             {contactInfo.map((info, index) => (
               <motion.div
                 key={index}
@@ -62,8 +73,10 @@ export const Contact = () => {
                   <a
                     href={info.href}
                     className="block bg-card rounded-2xl p-6 card-shadow border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 text-center"
+                    title={`${info.label} Reejan Gopan`}
+                    itemProp={info.itemProp}
                   >
-                    <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
+                    <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors" aria-hidden="true">
                       <info.icon className="w-6 h-6 text-primary" />
                     </div>
                     <p className="text-sm text-muted-foreground mb-1">{info.label}</p>
@@ -71,23 +84,24 @@ export const Contact = () => {
                   </a>
                 ) : (
                   <div className="bg-card rounded-2xl p-6 card-shadow border border-border text-center">
-                    <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4" aria-hidden="true">
                       <info.icon className="w-6 h-6 text-primary" />
                     </div>
                     <p className="text-sm text-muted-foreground mb-1">{info.label}</p>
-                    <p className="text-foreground font-medium">{info.value}</p>
+                    <p className="text-foreground font-medium" itemProp={info.itemProp}>{info.value}</p>
                   </div>
                 )}
               </motion.div>
             ))}
-          </div>
+          </address>
 
           {/* CTA */}
-          <motion.div
+          <motion.nav
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-col sm:flex-row justify-center gap-4"
+            aria-label="Hire Reejan Gopan"
           >
             <a
               href={LINKEDIN_URL}
@@ -95,20 +109,23 @@ export const Contact = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-medium text-primary-foreground transition-all duration-300 hover:scale-105 elevated-shadow"
               style={{ background: "var(--gradient-primary)" }}
+              title="Hire Reejan Gopan - IT Specialist Dubai"
+              itemProp="sameAs"
             >
-              <Linkedin className="w-5 h-5" />
-              Hire Me
+              <Linkedin className="w-5 h-5" aria-hidden="true" />
+              Hire Reejan Gopan
             </a>
             <a
               href={LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-medium border border-border text-foreground hover:bg-secondary transition-all duration-300"
+              title="Send Message to Reejan Gopan"
             >
-              <Linkedin className="w-5 h-5" />
+              <Linkedin className="w-5 h-5" aria-hidden="true" />
               Send Message
             </a>
-          </motion.div>
+          </motion.nav>
         </div>
       </div>
     </section>

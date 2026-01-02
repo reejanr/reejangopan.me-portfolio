@@ -100,36 +100,51 @@ export const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-24 bg-muted/50" ref={ref}>
+    <section 
+      id="skills" 
+      className="py-24 bg-muted/50" 
+      ref={ref}
+      aria-label="Reejan Gopan Skills and Technologies"
+    >
       <div className="container px-6">
-        <motion.div
+        <motion.header
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-medium tracking-widest uppercase text-sm">Expertise</span>
+          <span className="text-primary font-medium tracking-widest uppercase text-sm">Technical Expertise</span>
           <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mt-4">
-            Skills & Technologies
+            Reejan Gopan's Skills & Technologies
           </h2>
           <p className="text-foreground/70 mt-4 max-w-2xl mx-auto">
-            A comprehensive skill set spanning IT infrastructure, web development, and digital solutions.
+            <strong>Reejan R Gopan</strong> has a comprehensive skill set spanning IT infrastructure, 
+            <strong> web development</strong>, <strong>AI automation</strong>, and digital solutions in <strong>Dubai, UAE</strong>.
           </p>
-        </motion.div>
+        </motion.header>
 
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div 
+          className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
+          itemScope 
+          itemType="https://schema.org/ItemList"
+        >
+          <meta itemProp="name" content="Reejan Gopan's Professional Skills" />
           {skillCategories.map((category, index) => (
-            <motion.div
+            <motion.article
               key={index}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 + index * 0.05 }}
               className="group bg-card rounded-2xl p-5 sm:p-6 card-shadow border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-1"
+              itemProp="itemListElement"
+              itemScope
+              itemType="https://schema.org/ListItem"
             >
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+              <meta itemProp="position" content={String(index + 1)} />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors" aria-hidden="true">
                 <category.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
               </div>
-              <h3 className="font-heading text-base sm:text-lg font-semibold text-foreground mb-3 sm:mb-4">
+              <h3 className="font-heading text-base sm:text-lg font-semibold text-foreground mb-3 sm:mb-4" itemProp="name">
                 {category.title}
               </h3>
               <ul className="space-y-2">
@@ -138,12 +153,12 @@ export const Skills = () => {
                     key={skillIndex}
                     className="text-xs sm:text-sm text-foreground/80 flex items-start gap-2"
                   >
-                    <span className="text-primary mt-0.5">•</span>
-                    {skill}
+                    <span className="text-primary mt-0.5" aria-hidden="true">•</span>
+                    <span itemProp="description">{skill}</span>
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>

@@ -23,47 +23,57 @@ export const About = () => {
   const languages = ["English", "Malayalam", "Tamil", "Hindi"];
 
   return (
-    <section id="about" className="py-24 bg-muted/50" ref={ref}>
+    <section 
+      id="about" 
+      className="py-24 bg-muted/50" 
+      ref={ref}
+      aria-label="About Reejan Gopan - Background and Qualifications"
+    >
       <div className="container px-6">
-        <motion.div
+        <motion.header
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-medium tracking-widest uppercase text-sm">About Me</span>
+          <span className="text-primary font-medium tracking-widest uppercase text-sm">About Reejan Gopan</span>
           <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mt-4">
             Background & Qualifications
           </h2>
-        </motion.div>
+          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+            Learn more about <strong>Reejan R Gopan</strong>'s education, skills, and professional background as an IT Specialist in Dubai.
+          </p>
+        </motion.header>
 
         <div className="max-w-6xl mx-auto grid lg:grid-cols-3 gap-8">
           {/* Objective */}
-          <motion.div
+          <motion.article
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="bg-card rounded-2xl p-8 card-shadow border border-border"
           >
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6" aria-hidden="true">
               <Target className="w-6 h-6 text-primary" />
             </div>
-            <h3 className="font-heading text-xl font-semibold text-foreground mb-4">Objective</h3>
+            <h3 className="font-heading text-xl font-semibold text-foreground mb-4">Career Objective</h3>
             <p className="text-muted-foreground leading-relaxed">
-              Results-driven IT professional seeking challenging roles that leverage technical skills 
+              Results-driven <strong>IT professional</strong> seeking challenging roles that leverage technical skills 
               to drive business success and improve operational efficiency through innovative solutions 
-              and automation.
+              and <strong>AI automation</strong> in <strong>Dubai, UAE</strong>.
             </p>
-          </motion.div>
+          </motion.article>
 
           {/* Education */}
-          <motion.div
+          <motion.article
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="bg-card rounded-2xl p-8 card-shadow border border-border"
+            itemScope 
+            itemType="https://schema.org/EducationalOccupationalCredential"
           >
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6" aria-hidden="true">
               <GraduationCap className="w-6 h-6 text-primary" />
             </div>
             <h3 className="font-heading text-xl font-semibold text-foreground mb-4">Education</h3>
@@ -71,38 +81,38 @@ export const About = () => {
               {education.map((edu, index) => (
                 <div key={index} className="border-l-2 border-primary/30 pl-4">
                   <p className="text-primary text-sm font-medium">{edu.year}</p>
-                  <p className="text-foreground font-medium">{edu.degree}</p>
+                  <p className="text-foreground font-medium" itemProp="credentialCategory">{edu.degree}</p>
                   <p className="text-muted-foreground text-sm">{edu.institution}</p>
                 </div>
               ))}
             </div>
-          </motion.div>
+          </motion.article>
 
           {/* Languages */}
-          <motion.div
+          <motion.article
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="bg-card rounded-2xl p-8 card-shadow border border-border"
           >
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6" aria-hidden="true">
               <Languages className="w-6 h-6 text-primary" />
             </div>
             <h3 className="font-heading text-xl font-semibold text-foreground mb-4">Languages</h3>
-            <div className="flex flex-wrap gap-3">
+            <ul className="flex flex-wrap gap-3" itemProp="knowsLanguage">
               {languages.map((lang, index) => (
-                <span
+                <li
                   key={index}
                   className="px-4 py-2 rounded-full bg-secondary text-secondary-foreground text-sm font-medium border border-border"
                 >
                   {lang}
-                </span>
+                </li>
               ))}
-            </div>
+            </ul>
             <p className="text-muted-foreground text-sm mt-6">
-              Multilingual professional with strong communication skills across diverse cultural contexts.
+              <strong>Reejan Gopan</strong> is a multilingual professional with strong communication skills across diverse cultural contexts.
             </p>
-          </motion.div>
+          </motion.article>
         </div>
       </div>
     </section>
