@@ -55,128 +55,111 @@
     <meta name="geo.position" content="25.2048;55.2708" />
     <meta name="ICBM" content="25.2048, 55.2708" />
     
-    <!-- Structured Data - Person -->
+    <!-- Structured Data - Combined Graph -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "@id": "https://reejangopan.me/#person",
-      "name": "Reejan R Gopan",
-      "alternateName": ["Reejan Gopan", "reejangopan", "Reejan"],
-      "givenName": "Reejan",
-      "familyName": "Gopan",
-      "url": "https://reejangopan.me",
-      "image": "https://reejangopan.me/og-image.jpg",
-      "jobTitle": "IT Specialist",
-      "description": "Reejan Gopan is an IT Specialist and Web Developer based in Dubai, UAE with expertise in website development, AI automation, network administration, and technical support.",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Chimera Group of Companies",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Dubai",
-          "addressCountry": "UAE"
-        }
-      },
-      "alumniOf": {
-        "@type": "CollegeOrUniversity",
-        "name": "Sree Narayana College Of Technology",
-        "address": {
-          "@type": "PostalAddress",
-          "addressRegion": "Kerala",
-          "addressCountry": "India"
-        }
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Dubai",
-        "addressRegion": "Dubai",
-        "addressCountry": "UAE"
-      },
-      "email": "mailto:Reejanr90@gmail.com",
-      "telephone": "+971527123154",
-      "sameAs": [
-        "https://linkedin.com/in/reejan-r-gopan-38a8092b9",
-        "https://www.linkedin.com/in/reejan-r-gopan-38a8092b9"
-      ],
-      "knowsAbout": [
-        "Web Development",
-        "Website Design",
-        "IT Support",
-        "Network Administration",
-        "AI Automation",
-        "Digital Marketing",
-        "SEO",
-        "Google Ads",
-        "Social Media Marketing",
-        "Technical Support",
-        "System Administration",
-        "Microsoft Office 365",
-        "DNS Management",
-        "Web Hosting"
-      ],
-      "hasOccupation": {
-        "@type": "Occupation",
-        "name": "IT Specialist",
-        "occupationLocation": {
-          "@type": "City",
-          "name": "Dubai"
-        },
-        "skills": ["Web Development", "Network Administration", "AI Automation", "Technical Support", "SEO"]
-      }
-    }
-    </script>
-    
-    <!-- Structured Data - WebSite -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "@id": "https://reejangopan.me/#website",
-      "url": "https://reejangopan.me",
-      "name": "Reejan R Gopan - IT Professional Portfolio",
-      "description": "Official portfolio website of Reejan R Gopan, IT Specialist and Web Developer in Dubai, UAE",
-      "publisher": {
-        "@id": "https://reejangopan.me/#person"
-      },
-      "inLanguage": "en-US"
-    }
-    </script>
-    
-    <!-- Structured Data - ProfilePage with Person -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfilePage",
-      "@id": "https://reejangopan.me/#webpage",
-      "url": "https://reejangopan.me",
-      "name": "Reejan Gopan | Reejan R Gopan - IT Professional & Web Developer Dubai UAE",
-      "description": "Reejan Gopan (Reejan R Gopan) is a skilled IT Specialist & Web Developer based in Dubai, UAE.",
-      "isPartOf": {
-        "@id": "https://reejangopan.me/#website"
-      },
-      "mainEntity": {
-        "@id": "https://reejangopan.me/#person"
-      },
-      "primaryImageOfPage": {
-        "@type": "ImageObject",
-        "url": "https://reejangopan.me/og-image.jpg"
-      },
-      "inLanguage": "en-US"
-    }
-    </script>
-    
-    <!-- Structured Data - BreadcrumbList -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
+      "@graph": [
         {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://reejangopan.me/"
+          "@type": "Person",
+          "@id": "https://reejangopan.me/#person",
+          "name": "Reejan R Gopan",
+          "alternateName": ["Reejan Gopan", "reejangopan", "Reejan"],
+          "givenName": "Reejan",
+          "familyName": "Gopan",
+          "url": "https://reejangopan.me",
+          "image": "https://reejangopan.me/og-image.jpg",
+          "jobTitle": "IT Specialist",
+          "description": "Reejan Gopan is an IT Specialist and Web Developer based in Dubai, UAE with expertise in website development, AI automation, network administration, and technical support.",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Chimera Group of Companies",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Dubai",
+              "addressCountry": "UAE"
+            }
+          },
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Sree Narayana College Of Technology",
+            "address": {
+              "@type": "PostalAddress",
+              "addressRegion": "Kerala",
+              "addressCountry": "India"
+            }
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Dubai",
+            "addressRegion": "Dubai",
+            "addressCountry": "UAE"
+          },
+          "email": "mailto:Reejanr90@gmail.com",
+          "telephone": "+971527123154",
+          "sameAs": [
+            "https://linkedin.com/in/reejan-r-gopan-38a8092b9",
+            "https://www.linkedin.com/in/reejan-r-gopan-38a8092b9"
+          ],
+          "knowsAbout": [
+            "Web Development",
+            "Website Design",
+            "IT Support",
+            "Network Administration",
+            "AI Automation",
+            "Digital Marketing",
+            "SEO",
+            "Google Ads",
+            "Social Media Marketing",
+            "Technical Support",
+            "System Administration",
+            "Microsoft Office 365",
+            "DNS Management",
+            "Web Hosting"
+          ],
+          "hasOccupation": {
+            "@type": "Occupation",
+            "name": "IT Specialist",
+            "occupationLocation": {
+              "@type": "City",
+              "name": "Dubai"
+            },
+            "skills": ["Web Development", "Network Administration", "AI Automation", "Technical Support", "SEO"]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://reejangopan.me/#website",
+          "url": "https://reejangopan.me",
+          "name": "Reejan R Gopan - IT Professional Portfolio",
+          "description": "Official portfolio website of Reejan R Gopan, IT Specialist and Web Developer in Dubai, UAE",
+          "publisher": {"@id": "https://reejangopan.me/#person"},
+          "inLanguage": "en-US"
+        },
+        {
+          "@type": "ProfilePage",
+          "@id": "https://reejangopan.me/#webpage",
+          "url": "https://reejangopan.me",
+          "name": "Reejan Gopan | Reejan R Gopan - IT Professional & Web Developer Dubai UAE",
+          "description": "Reejan Gopan (Reejan R Gopan) is a skilled IT Specialist & Web Developer based in Dubai, UAE.",
+          "isPartOf": {"@id": "https://reejangopan.me/#website"},
+          "mainEntity": {"@id": "https://reejangopan.me/#person"},
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://reejangopan.me/og-image.jpg"
+          },
+          "inLanguage": "en-US"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://reejangopan.me/"
+            }
+          ]
         }
       ]
     }
