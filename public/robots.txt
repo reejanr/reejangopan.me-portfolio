@@ -13,4 +13,9 @@ Allow: /
 User-agent: *
 Allow: /
 
+# Explicitly allow favicon crawling
+Allow: /favicon.png
+Allow: /favicon-192.png
+Allow: /favicon-512.png
+
 Sitemap: https://reejangopan.me/sitemap.xml
