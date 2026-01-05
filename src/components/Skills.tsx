@@ -123,12 +123,7 @@ export const Skills = () => {
           </p>
         </motion.header>
 
-        <div 
-          className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
-          itemScope 
-          itemType="https://schema.org/ItemList"
-        >
-          <meta itemProp="name" content="Reejan Gopan's Professional Skills" />
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {skillCategories.map((category, index) => (
             <motion.article
               key={index}
@@ -136,15 +131,11 @@ export const Skills = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 + index * 0.05 }}
               className="group bg-card rounded-2xl p-5 sm:p-6 card-shadow border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-1"
-              itemProp="itemListElement"
-              itemScope
-              itemType="https://schema.org/ListItem"
             >
-              <meta itemProp="position" content={String(index + 1)} />
               <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors" aria-hidden="true">
                 <category.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
               </div>
-              <h3 className="font-heading text-base sm:text-lg font-semibold text-foreground mb-3 sm:mb-4" itemProp="name">
+              <h3 className="font-heading text-base sm:text-lg font-semibold text-foreground mb-3 sm:mb-4">
                 {category.title}
               </h3>
               <ul className="space-y-2">
@@ -154,7 +145,7 @@ export const Skills = () => {
                     className="text-xs sm:text-sm text-foreground/80 flex items-start gap-2"
                   >
                     <span className="text-primary mt-0.5" aria-hidden="true">•</span>
-                    <span itemProp="description">{skill}</span>
+                    <span>{skill}</span>
                   </li>
                 ))}
               </ul>

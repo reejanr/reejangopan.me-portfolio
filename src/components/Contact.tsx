@@ -15,21 +15,18 @@ export const Contact = () => {
       label: "Email",
       value: "Reejanr90@gmail.com",
       href: "mailto:Reejanr90@gmail.com",
-      itemProp: "email",
     },
     {
       icon: Phone,
       label: "Phone",
       value: "+971 527123154",
       href: "tel:+971527123154",
-      itemProp: "telephone",
     },
     {
       icon: MapPin,
       label: "Location",
       value: "Dubai, UAE",
       href: null,
-      itemProp: "workLocation",
     },
   ];
 
@@ -39,8 +36,6 @@ export const Contact = () => {
       className="py-24 bg-background dark" 
       ref={ref}
       aria-label="Contact Reejan Gopan"
-      itemScope
-      itemType="https://schema.org/ContactPage"
     >
       <div className="container px-6">
         <motion.header
@@ -74,7 +69,6 @@ export const Contact = () => {
                     href={info.href}
                     className="block bg-card rounded-2xl p-6 card-shadow border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 text-center"
                     title={`${info.label} Reejan Gopan`}
-                    itemProp={info.itemProp}
                   >
                     <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors" aria-hidden="true">
                       <info.icon className="w-6 h-6 text-primary" />
@@ -88,7 +82,7 @@ export const Contact = () => {
                       <info.icon className="w-6 h-6 text-primary" />
                     </div>
                     <p className="text-sm text-muted-foreground mb-1">{info.label}</p>
-                    <p className="text-foreground font-medium" itemProp={info.itemProp}>{info.value}</p>
+                    <p className="text-foreground font-medium">{info.value}</p>
                   </div>
                 )}
               </motion.div>
@@ -103,15 +97,14 @@ export const Contact = () => {
             className="flex flex-col sm:flex-row justify-center gap-4"
             aria-label="Hire Reejan Gopan"
           >
-            <a
-              href={LINKEDIN_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-medium text-primary-foreground transition-all duration-300 hover:scale-105 elevated-shadow"
-              style={{ background: "var(--gradient-primary)" }}
-              title="Hire Reejan Gopan - IT Specialist Dubai"
-              itemProp="sameAs"
-            >
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-medium text-primary-foreground transition-all duration-300 hover:scale-105 elevated-shadow"
+                style={{ background: "var(--gradient-primary)" }}
+                title="Hire Reejan Gopan - IT Specialist Dubai"
+              >
               <Linkedin className="w-5 h-5" aria-hidden="true" />
               Hire Reejan Gopan
             </a>
