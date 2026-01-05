@@ -70,8 +70,6 @@ export const About = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="bg-card rounded-2xl p-8 card-shadow border border-border"
-            itemScope 
-            itemType="https://schema.org/EducationalOccupationalCredential"
           >
             <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6" aria-hidden="true">
               <GraduationCap className="w-6 h-6 text-primary" />
@@ -81,7 +79,7 @@ export const About = () => {
               {education.map((edu, index) => (
                 <div key={index} className="border-l-2 border-primary/30 pl-4">
                   <p className="text-primary text-sm font-medium">{edu.year}</p>
-                  <p className="text-foreground font-medium" itemProp="credentialCategory">{edu.degree}</p>
+                  <p className="text-foreground font-medium">{edu.degree}</p>
                   <p className="text-muted-foreground text-sm">{edu.institution}</p>
                 </div>
               ))}
@@ -99,7 +97,7 @@ export const About = () => {
               <Languages className="w-6 h-6 text-primary" />
             </div>
             <h3 className="font-heading text-xl font-semibold text-foreground mb-4">Languages</h3>
-            <ul className="flex flex-wrap gap-3" itemProp="knowsLanguage">
+            <ul className="flex flex-wrap gap-3">
               {languages.map((lang, index) => (
                 <li
                   key={index}

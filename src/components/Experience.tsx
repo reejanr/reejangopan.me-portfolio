@@ -81,8 +81,6 @@ export const Experience = () => {
                 className={`relative mb-12 md:mb-16 ${
                   index % 2 === 0 ? "md:pr-[50%] md:text-right" : "md:pl-[50%] md:ml-0"
                 }`}
-                itemScope
-                itemType="https://schema.org/OrganizationRole"
               >
                 {/* Timeline dot */}
                 <div className="absolute left-0 md:left-1/2 top-0 w-4 h-4 rounded-full bg-primary transform md:-translate-x-1/2 border-4 border-background glow-effect" aria-hidden="true" />
@@ -97,25 +95,23 @@ export const Experience = () => {
                         <Briefcase className="w-6 h-6 text-primary" />
                       </div>
                       <div className={index % 2 === 0 ? "md:text-right" : ""}>
-                        <h3 className="font-heading text-xl font-semibold text-foreground" itemProp="roleName">
+                        <h3 className="font-heading text-xl font-semibold text-foreground">
                           {exp.title}
                         </h3>
                         <div className="flex items-center gap-2 text-primary font-medium mt-1">
                           <Building2 className="w-4 h-4" aria-hidden="true" />
-                          <span itemProp="memberOf" itemScope itemType="https://schema.org/Organization">
-                            <span itemProp="name">{exp.company}</span>
-                          </span>
+                          <span>{exp.company}</span>
                         </div>
                       </div>
                     </div>
 
                     {/* Meta info */}
                     <div className={`flex flex-wrap gap-4 text-sm text-muted-foreground mb-4 ${index % 2 === 0 ? "md:justify-end" : ""}`}>
-                      <time className="flex items-center gap-1" itemProp="startDate">
+                      <time className="flex items-center gap-1">
                         <Calendar className="w-4 h-4" aria-hidden="true" />
                         {exp.period}
                       </time>
-                      <span itemProp="location">{exp.location}</span>
+                      <span>{exp.location}</span>
                     </div>
 
                     {/* Responsibilities */}

@@ -43,7 +43,6 @@ export const Hero = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
-              itemProp="image"
             >
               <div className="relative w-56 h-56 lg:w-72 lg:h-72">
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 to-transparent animate-pulse-glow" aria-hidden="true" />
@@ -70,7 +69,7 @@ export const Hero = () => {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="text-primary font-medium tracking-widest uppercase text-sm mb-4"
               >
-                <span itemProp="jobTitle">IT Professional</span> | Web Developer | Dubai UAE
+                <span>IT Professional</span> | Web Developer | Dubai UAE
               </motion.p>
               
               <motion.h1
@@ -79,7 +78,7 @@ export const Hero = () => {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6"
               >
-                <span itemProp="name">Reejan R{" "}
+                <span>Reejan R{" "}
                 <span className="gradient-text">Gopan</span></span>
               </motion.h1>
 
@@ -87,9 +86,8 @@ export const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
-                className="text-muted-foreground text-lg lg:text-xl max-w-xl mb-8 leading-relaxed"
-                itemProp="description"
-              >
+                 className="text-muted-foreground text-lg lg:text-xl max-w-xl mb-8 leading-relaxed"
+               >
                 Detail-oriented <strong>IT Specialist</strong> and <strong>Web Developer</strong> with expertise in 
                 website development, <strong>AI automation</strong>, <strong>network administration</strong>, and technical support. 
                 Driving business success through innovative solutions in <strong>Dubai, UAE</strong>.
@@ -102,14 +100,13 @@ export const Hero = () => {
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className="flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-muted-foreground mb-8 not-italic"
               >
-                <span className="flex items-center gap-2" itemProp="workLocation" itemScope itemType="https://schema.org/Place">
+                <span className="flex items-center gap-2">
                   <MapPin className="w-4 h-4 text-primary" aria-hidden="true" />
-                  <span itemProp="name">Dubai, UAE</span>
+                  <span>Dubai, UAE</span>
                 </span>
                 <a 
                   href="mailto:Reejanr90@gmail.com" 
                   className="flex items-center gap-2 hover:text-primary transition-colors"
-                  itemProp="email"
                   title="Email Reejan Gopan"
                 >
                   <Mail className="w-4 h-4 text-primary" aria-hidden="true" />
@@ -118,7 +115,6 @@ export const Hero = () => {
                 <a 
                   href="tel:+971527123154" 
                   className="flex items-center gap-2 hover:text-primary transition-colors"
-                  itemProp="telephone"
                   title="Call Reejan Gopan"
                 >
                   <Phone className="w-4 h-4 text-primary" aria-hidden="true" />
@@ -141,7 +137,6 @@ export const Hero = () => {
                   className="px-6 sm:px-8 py-3 rounded-lg font-medium text-primary-foreground transition-all duration-300 hover:scale-105 flex items-center gap-2"
                   style={{ background: "var(--gradient-primary)" }}
                   title="Hire Reejan Gopan - Connect on LinkedIn"
-                  itemProp="sameAs"
                 >
                   <Linkedin className="w-4 h-4" aria-hidden="true" />
                   Hire Me
