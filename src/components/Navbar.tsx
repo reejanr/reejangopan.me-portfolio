@@ -36,14 +36,14 @@ export const Navbar = () => {
         <div className="container px-6">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <a href="#" className="flex items-center gap-2">
+            <a href="#home" className="flex items-center gap-2" aria-label="Reejan Gopan - Home">
               <span className="font-heading text-xl font-bold text-foreground">
                 Reejan<span className="text-primary">.</span>
               </span>
             </a>
 
             {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-8">
+            <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
               {navLinks.map((link) => (
                 <a
                   key={link.href}

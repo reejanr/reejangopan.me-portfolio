@@ -29,7 +29,7 @@ const Index = () => {
       </div>
 
       <Navbar />
-      <main role="main">
+      <main id="main-content" role="main">
         <Hero />
         <About />
         <Experience />
