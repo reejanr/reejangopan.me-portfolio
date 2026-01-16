@@ -123,35 +123,60 @@ export const Skills = () => {
           </p>
         </motion.header>
 
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <motion.div 
+          className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.08, delayChildren: 0.2 }
+            }
+          }}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           {skillCategories.map((category, index) => (
             <motion.article
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 + index * 0.05 }}
-              className="group bg-card rounded-2xl p-5 sm:p-6 card-shadow border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-1"
+              variants={{
+                hidden: { opacity: 0, y: 30, scale: 0.95 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0, 
+                  scale: 1,
+                  transition: { duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }
+                }
+              }}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              className="group bg-card rounded-2xl p-5 sm:p-6 card-shadow border border-border hover:border-primary/30 transition-all duration-300"
             >
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors" aria-hidden="true">
+              <motion.div 
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors" 
+                aria-hidden="true"
+                whileHover={{ rotate: 5, scale: 1.1 }}
+              >
                 <category.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
-              </div>
+              </motion.div>
               <h3 className="font-heading text-base sm:text-lg font-semibold text-foreground mb-3 sm:mb-4">
                 {category.title}
               </h3>
               <ul className="space-y-2">
                 {category.skills.map((skill, skillIndex) => (
-                  <li
+                  <motion.li
                     key={skillIndex}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={isInView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ delay: 0.3 + index * 0.1 + skillIndex * 0.05 }}
                     className="text-xs sm:text-sm text-foreground/80 flex items-start gap-2"
                   >
                     <span className="text-primary mt-0.5" aria-hidden="true">•</span>
                     <span>{skill}</span>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
