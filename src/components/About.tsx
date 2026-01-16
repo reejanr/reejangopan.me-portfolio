@@ -45,17 +45,39 @@ export const About = () => {
           </p>
         </motion.header>
 
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-3 gap-8">
+        <motion.div 
+          className="max-w-6xl mx-auto grid lg:grid-cols-3 gap-8"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.15, delayChildren: 0.2 }
+            }
+          }}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           {/* Objective */}
           <motion.article
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="bg-card rounded-2xl p-8 card-shadow border border-border"
+            variants={{
+              hidden: { opacity: 0, y: 40, scale: 0.95 },
+              visible: { 
+                opacity: 1, 
+                y: 0, 
+                scale: 1,
+                transition: { duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }
+              }
+            }}
+            whileHover={{ y: -5 }}
+            className="bg-card rounded-2xl p-8 card-shadow border border-border hover:border-primary/30 transition-colors"
           >
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6" aria-hidden="true">
+            <motion.div 
+              className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6" 
+              aria-hidden="true"
+              whileHover={{ rotate: 10, scale: 1.1 }}
+            >
               <Target className="w-6 h-6 text-primary" />
-            </div>
+            </motion.div>
             <h3 className="font-heading text-xl font-semibold text-foreground mb-4">Career Objective</h3>
             <p className="text-muted-foreground leading-relaxed">
               Results-driven <strong>IT professional</strong> seeking challenging roles that leverage technical skills 
@@ -66,52 +88,84 @@ export const About = () => {
 
           {/* Education */}
           <motion.article
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-card rounded-2xl p-8 card-shadow border border-border"
+            variants={{
+              hidden: { opacity: 0, y: 40, scale: 0.95 },
+              visible: { 
+                opacity: 1, 
+                y: 0, 
+                scale: 1,
+                transition: { duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }
+              }
+            }}
+            whileHover={{ y: -5 }}
+            className="bg-card rounded-2xl p-8 card-shadow border border-border hover:border-primary/30 transition-colors"
           >
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6" aria-hidden="true">
+            <motion.div 
+              className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6" 
+              aria-hidden="true"
+              whileHover={{ rotate: 10, scale: 1.1 }}
+            >
               <GraduationCap className="w-6 h-6 text-primary" />
-            </div>
+            </motion.div>
             <h3 className="font-heading text-xl font-semibold text-foreground mb-4">Education</h3>
             <div className="space-y-4">
               {education.map((edu, index) => (
-                <div key={index} className="border-l-2 border-primary/30 pl-4">
+                <motion.div 
+                  key={index} 
+                  className="border-l-2 border-primary/30 pl-4"
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ delay: 0.4 + index * 0.15 }}
+                >
                   <p className="text-primary text-sm font-medium">{edu.year}</p>
                   <p className="text-foreground font-medium">{edu.degree}</p>
                   <p className="text-muted-foreground text-sm">{edu.institution}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.article>
 
           {/* Languages */}
           <motion.article
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-card rounded-2xl p-8 card-shadow border border-border"
+            variants={{
+              hidden: { opacity: 0, y: 40, scale: 0.95 },
+              visible: { 
+                opacity: 1, 
+                y: 0, 
+                scale: 1,
+                transition: { duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }
+              }
+            }}
+            whileHover={{ y: -5 }}
+            className="bg-card rounded-2xl p-8 card-shadow border border-border hover:border-primary/30 transition-colors"
           >
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6" aria-hidden="true">
+            <motion.div 
+              className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6" 
+              aria-hidden="true"
+              whileHover={{ rotate: 10, scale: 1.1 }}
+            >
               <Languages className="w-6 h-6 text-primary" />
-            </div>
+            </motion.div>
             <h3 className="font-heading text-xl font-semibold text-foreground mb-4">Languages</h3>
             <ul className="flex flex-wrap gap-3">
               {languages.map((lang, index) => (
-                <li
+                <motion.li
                   key={index}
                   className="px-4 py-2 rounded-full bg-secondary text-secondary-foreground text-sm font-medium border border-border"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ delay: 0.5 + index * 0.1 }}
+                  whileHover={{ scale: 1.05 }}
                 >
                   {lang}
-                </li>
+                </motion.li>
               ))}
             </ul>
             <p className="text-muted-foreground text-sm mt-6">
               <strong>Reejan Gopan</strong> is a multilingual professional with strong communication skills across diverse cultural contexts.
             </p>
           </motion.article>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -5,10 +5,14 @@ import { Experience } from "@/components/Experience";
 import { Skills } from "@/components/Skills";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
+import { LoadingScreen } from "@/components/LoadingScreen";
+import { PageTransition } from "@/components/PageTransition";
 
 const Index = () => {
   return (
     <div className="dark">
+      <LoadingScreen />
+      
       {/* Hidden SEO content for search engines */}
       <div className="sr-only" aria-hidden="true">
         <h1>Reejan Gopan - Reejan R Gopan - IT Professional Dubai UAE</h1>
@@ -28,15 +32,17 @@ const Index = () => {
         </ul>
       </div>
 
-      <Navbar />
-      <main id="main-content" role="main">
-        <Hero />
-        <About />
-        <Experience />
-        <Skills />
-        <Contact />
-      </main>
-      <Footer />
+      <PageTransition>
+        <Navbar />
+        <main id="main-content" role="main">
+          <Hero />
+          <About />
+          <Experience />
+          <Skills />
+          <Contact />
+        </main>
+        <Footer />
+      </PageTransition>
     </div>
   );
 };

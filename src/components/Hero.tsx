@@ -32,17 +32,18 @@ export const Hero = () => {
       <div className="container relative z-10 px-6 py-20">
         <div className="max-w-5xl mx-auto">
           <motion.article 
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
             className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20"
           >
             {/* Profile Image */}
             <motion.figure 
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
               className="relative"
+              whileHover={{ scale: 1.02 }}
             >
               <div className="relative w-56 h-56 lg:w-72 lg:h-72">
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 to-transparent animate-pulse-glow" aria-hidden="true" />
@@ -64,28 +65,41 @@ export const Hero = () => {
             {/* Content */}
             <header className="text-center lg:text-left flex-1">
               <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
                 className="text-primary font-medium tracking-widest uppercase text-sm mb-4"
               >
                 <span>IT Professional</span> | Web Developer | Dubai UAE
               </motion.p>
               
               <motion.h1
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
+                transition={{ duration: 0.7, delay: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
                 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6"
               >
-                <span>Reejan R{" "}
-                <span className="gradient-text">Gopan</span></span>
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.9 }}
+                >
+                  Reejan R{" "}
+                </motion.span>
+                <motion.span 
+                  className="gradient-text"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 1 }}
+                >
+                  Gopan
+                </motion.span>
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
+                transition={{ duration: 0.6, delay: 1.1, ease: "easeOut" }}
                  className="text-muted-foreground text-lg lg:text-xl max-w-xl mb-8 leading-relaxed"
                >
                 Detail-oriented <strong>IT Specialist</strong> and <strong>Web Developer</strong> with expertise in 
@@ -97,7 +111,7 @@ export const Hero = () => {
               <motion.address
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
+                transition={{ duration: 0.6, delay: 1.2, ease: "easeOut" }}
                 className="flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-muted-foreground mb-8 not-italic"
               >
                 <span className="flex items-center gap-2">
@@ -126,30 +140,34 @@ export const Hero = () => {
               <motion.nav
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.7 }}
+                transition={{ duration: 0.6, delay: 1.3, ease: "easeOut" }}
                 className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4"
                 aria-label="Contact Reejan Gopan"
               >
-                <a
+                <motion.a
                   href={LINKEDIN_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 sm:px-8 py-3 rounded-lg font-medium text-primary-foreground transition-all duration-300 hover:scale-105 flex items-center gap-2"
+                  className="px-6 sm:px-8 py-3 rounded-lg font-medium text-primary-foreground transition-all duration-300 flex items-center gap-2"
                   style={{ background: "var(--gradient-primary)" }}
                   title="Hire Reejan Gopan - Connect on LinkedIn"
+                  whileHover={{ scale: 1.05, boxShadow: "0 0 30px hsl(185 70% 50% / 0.4)" }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   <Linkedin className="w-4 h-4" aria-hidden="true" />
                   Hire Me
-                </a>
-                <a
+                </motion.a>
+                <motion.a
                   href={LINKEDIN_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-6 sm:px-8 py-3 rounded-lg font-medium border border-border text-foreground hover:bg-secondary transition-all duration-300 flex items-center gap-2"
                   title="Send Message to Reejan Gopan"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   Send Message
-                </a>
+                </motion.a>
               </motion.nav>
             </header>
           </motion.article>
@@ -157,19 +175,25 @@ export const Hero = () => {
 
         {/* Scroll indicator */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.5 }}
           className="absolute bottom-10 left-1/2 -translate-x-1/2"
         >
-          <a 
+          <motion.a 
             href="#about" 
             className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
             aria-label="Scroll to learn more about Reejan Gopan"
+            whileHover={{ y: 5 }}
           >
             <span className="text-xs uppercase tracking-widest">Scroll</span>
-            <ArrowDown className="w-4 h-4 animate-bounce" aria-hidden="true" />
-          </a>
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <ArrowDown className="w-4 h-4" aria-hidden="true" />
+            </motion.div>
+          </motion.a>
         </motion.div>
       </div>
     </section>
