@@ -19,62 +19,62 @@ export const Skills = () => {
   const skillCategories = [
     {
       icon: Monitor,
-      title: "IT Support",
+      title: "IT Infrastructure",
       skills: [
+        "Systems Management",
         "Hardware & Software Troubleshooting",
-        "System Installation & Configuration",
-        "Microsoft Office, Office365, Outlook",
-        "CCTV System Design & Implementation",
+        "Virtual Private Server (VPS)",
+        "Microsoft 365 Administration",
       ],
     },
     {
       icon: Network,
-      title: "Networking",
+      title: "Web & Hosting",
       skills: [
-        "Basic Networking",
-        "Email Hosting & Server Configuration",
-        "Web Hosting & DNS Management",
-        "ERP Administration",
+        "WordPress Design & Development",
+        "Wix Website Builder",
+        "Email Hosting & Management",
+        "DNS Management",
       ],
     },
     {
       icon: Code,
       title: "Web Development",
       skills: [
-        "Website Design",
+        "Website Design & Maintenance",
         "Responsive & Mobile-Friendly Design",
-        "MySQL Database",
-        "SEO Implementation",
-      ],
-    },
-    {
-      icon: Palette,
-      title: "Design",
-      skills: [
-        "UX Design",
-        "UI Design",
-        "User Experience Optimization",
-        "Visual Design",
-      ],
-    },
-    {
-      icon: Bot,
-      title: "AI & Automation",
-      skills: [
-        "AI Automation Tools",
-        "Workflow Automation",
-        "Process Optimization",
-        "AI-Driven Solutions",
+        "MySQL Databases",
+        "CMS Platforms",
       ],
     },
     {
       icon: BarChart3,
       title: "Digital Marketing",
       skills: [
+        "Google Ads Management",
+        "Meta Ads (Facebook/Instagram)",
+        "Search Engine Optimization (SEO)",
+        "Social Media Operations",
+      ],
+    },
+    {
+      icon: Bot,
+      title: "SEO & Analytics",
+      skills: [
+        "On-Page Optimization",
+        "Off-Page SEO",
+        "Data Analysis & Reporting",
         "Google Analytics",
-        "Google Ads",
-        "Social Media Marketing",
-        "Analytics & Reporting",
+      ],
+    },
+    {
+      icon: Palette,
+      title: "Design",
+      skills: [
+        "UX/UI Design",
+        "Visual Design",
+        "User Experience Optimization",
+        "Brand Identity",
       ],
     },
     {
@@ -94,7 +94,7 @@ export const Skills = () => {
         "Antivirus Security",
         "Access Permissions",
         "Group Policies",
-        "System Maintenance",
+        "System Optimization",
       ],
     },
   ];
@@ -118,8 +118,8 @@ export const Skills = () => {
             Reejan Gopan's Skills & Technologies
           </h2>
           <p className="text-foreground/70 mt-4 max-w-2xl mx-auto">
-            <strong>Reejan R Gopan</strong> has a comprehensive skill set spanning IT infrastructure, 
-            <strong> web development</strong>, <strong>AI automation</strong>, and digital solutions in <strong>Dubai, UAE</strong>.
+            <strong>Reejan R Gopan</strong> specializes in website management, SEO strategy, Google Ads, Meta Ads, 
+            social media operations, system optimization, email hosting, VPS setup, and scalable IT infrastructure development in <strong>Dubai, UAE</strong>.
           </p>
         </motion.header>
 
