@@ -49,8 +49,8 @@ export const Hero = () => {
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 to-transparent animate-pulse-glow" aria-hidden="true" />
                 <img
                   src={profileImage}
-                  alt="Reejan R Gopan - IT Specialist and Web Developer in Dubai UAE"
-                  title="Reejan Gopan - IT Professional"
+                  alt="Reejan R Gopan - IT Administrator at USF GROUP LLC in Dubai UAE"
+                  title="Reejan Gopan - IT Administrator"
                   className="w-full h-full object-cover rounded-full border-2 border-primary/30 relative z-10"
                   loading="eager"
                   width="288"
@@ -58,7 +58,7 @@ export const Hero = () => {
                 />
               </div>
               <figcaption className="sr-only">
-                Professional photo of Reejan R Gopan, IT Specialist based in Dubai, UAE
+                Professional photo of Reejan R Gopan, IT Administrator at USF GROUP LLC, Dubai, UAE
               </figcaption>
             </motion.figure>
 
@@ -70,7 +70,7 @@ export const Hero = () => {
                 transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
                 className="text-primary font-medium tracking-widest uppercase text-sm mb-4"
               >
-                <span>IT Professional</span> | Web Developer | Dubai UAE
+                <span>IT Administrator</span> | USF GROUP LLC | Dubai UAE
               </motion.p>
               
               <motion.h1
@@ -102,9 +102,9 @@ export const Hero = () => {
                 transition={{ duration: 0.6, delay: 1.1, ease: "easeOut" }}
                  className="text-muted-foreground text-lg lg:text-xl max-w-xl mb-8 leading-relaxed"
                >
-                Detail-oriented <strong>IT Specialist</strong> and <strong>Web Developer</strong> with expertise in 
-                website development, <strong>AI automation</strong>, <strong>network administration</strong>, and technical support. 
-                Driving business success through innovative solutions in <strong>Dubai, UAE</strong>.
+                <strong>IT Administrator</strong> at <strong>USF GROUP LLC</strong> specializing in 
+                website management, <strong>SEO strategy</strong>, <strong>Google Ads</strong>, Meta Ads, 
+                social media operations, VPS setup, and scalable <strong>IT infrastructure</strong> in <strong>Dubai, UAE</strong>.
               </motion.p>
 
               {/* Contact Info */}
