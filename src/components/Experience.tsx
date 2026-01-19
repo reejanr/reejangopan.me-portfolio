@@ -9,23 +9,36 @@ export const Experience = () => {
 
   const experiences = [
     {
+      title: "IT Administrator",
+      company: "USF GROUP LLC",
+      location: "Dubai, UAE",
+      period: "January 2025 – Present",
+      responsibilities: [
+        "Overseeing website management, SEO strategy, and digital presence optimization",
+        "Managing Google Ads and Meta Ads campaigns for maximum ROI",
+        "Handling social media operations and content strategy across platforms",
+        "System optimization and scalable IT infrastructure development",
+        "Email hosting configuration and VPS setup management",
+        "DNS management and domain administration",
+        "WordPress and Wix website design and maintenance",
+        "Data analysis and performance reporting for digital initiatives",
+        "Microsoft 365 administration and user management",
+      ],
+    },
+    {
       title: "IT Specialist",
       company: "Chimera Group of Companies",
       location: "Dubai, UAE",
-      period: "September 2024 – Present",
+      period: "September 2024 – December 2024",
       responsibilities: [
-        "Create, update, and maintain website content using CMS platforms",
-        "Monitor website performance, user experience, and implement SEO best practices",
-        "Develop, schedule, and publish engaging content across all social media platforms",
-        "Monitor audience engagement, respond to inquiries, and track performance analytics",
-        "Support in planning and executing Google Ads campaigns",
-        "Conduct keyword research, create ads, manage budgets, and monitor campaign performance",
-        "Create and publish job postings on various job portals and career platforms",
-        "Implemented AI automation tools to enhance workflows and streamline routine tasks",
+        "Created, updated, and maintained website content using CMS platforms",
+        "Monitored website performance, user experience, and implemented SEO best practices",
+        "Developed, scheduled, and published engaging content across social media platforms",
+        "Supported planning and execution of Google Ads campaigns",
+        "Implemented AI automation tools to enhance workflows and streamline tasks",
         "Troubleshooting and resolving technical issues with hardware, software, and networks",
         "Managed Windows-based systems, CCTV, Printers, Biometric devices, and network infrastructure",
-        "Administered Office 365, Outlook, and ERP (user creation, access permissions, password resets)",
-        "Email hosting, server configuration, web hosting, and DNS management",
+        "Administered Office 365, Outlook, and ERP systems",
       ],
     },
     {
@@ -63,7 +76,7 @@ export const Experience = () => {
             Reejan Gopan's Work Experience
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            Professional experience of <strong>Reejan R Gopan</strong> as an IT Specialist in Dubai and Network Administrator at TCS.
+            Professional experience of <strong>Reejan R Gopan</strong> as an IT Administrator at USF GROUP LLC, IT Specialist at Chimera Group, and Network Administrator at TCS.
           </p>
         </motion.header>
 
