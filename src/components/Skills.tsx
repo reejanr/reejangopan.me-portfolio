@@ -9,7 +9,11 @@ import {
   BarChart3, 
   Palette,
   Server,
-  Shield
+  Shield,
+  Rocket,
+  Zap,
+  GitBranch,
+  Search
 } from "lucide-react";
 
 export const Skills = () => {
@@ -17,6 +21,57 @@ export const Skills = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const skillCategories = [
+    {
+      icon: Code,
+      title: "Frontend Development",
+      skills: [
+        "React.js with TypeScript",
+        "Component-based Architecture & State Management",
+        "Tailwind CSS for Responsive Design",
+        "shadcn/ui for Accessible UI Components",
+        "Form Handling & Validation",
+      ],
+    },
+    {
+      icon: GitBranch,
+      title: "Deployment & CI/CD",
+      skills: [
+        "Git-based Workflows (GitHub)",
+        "Continuous Deployment",
+        "Environment Variables & Production Builds",
+        "Preview Deployments for Testing",
+      ],
+    },
+    {
+      icon: Search,
+      title: "SEO & Marketing",
+      skills: [
+        "On-page SEO: Meta Tags & Structured Data",
+        "Google Ads Integration & Tracking",
+        "Website Analytics & Performance Monitoring",
+        "Optimizing Pages for Search Visibility",
+      ],
+    },
+    {
+      icon: Zap,
+      title: "Web Performance",
+      skills: [
+        "Fast-loading Static & Hybrid Websites",
+        "Asset Optimization (Images, Scripts, Styles)",
+        "Semantic HTML & Accessibility (WCAG)",
+        "Core Web Vitals Optimization",
+      ],
+    },
+    {
+      icon: Bot,
+      title: "AI-Assisted Development",
+      skills: [
+        "AI Workflows to Accelerate Development",
+        "Translating Business Requirements to Features",
+        "Debugging & Refactoring AI-generated Code",
+        "Rapid Prototyping & Iteration",
+      ],
+    },
     {
       icon: Monitor,
       title: "IT Infrastructure",
@@ -32,18 +87,8 @@ export const Skills = () => {
       title: "Web & Hosting",
       skills: [
         "WordPress Design & Development",
-        "Wix Website Builder",
         "Email Hosting & Management",
         "DNS Management",
-      ],
-    },
-    {
-      icon: Code,
-      title: "Web Development",
-      skills: [
-        "Website Design & Maintenance",
-        "Responsive & Mobile-Friendly Design",
-        "MySQL Databases",
         "CMS Platforms",
       ],
     },
@@ -53,18 +98,8 @@ export const Skills = () => {
       skills: [
         "Google Ads Management",
         "Meta Ads (Facebook/Instagram)",
-        "Search Engine Optimization (SEO)",
         "Social Media Operations",
-      ],
-    },
-    {
-      icon: Bot,
-      title: "SEO & Analytics",
-      skills: [
-        "On-Page Optimization",
-        "Off-Page SEO",
-        "Data Analysis & Reporting",
-        "Google Analytics",
+        "Content Strategy",
       ],
     },
     {
