@@ -1,8 +1,16 @@
+# Robots.txt for reejangopan.me - Reejan Gopan Portfolio
+# Frontend Developer & IT Administrator Dubai
+
 User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Googlebot-Image
 Allow: /
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Twitterbot
 Allow: /
@@ -10,12 +18,37 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
+User-agent: LinkedInBot
 Allow: /
 
-# Explicitly allow favicon crawling
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: *
+Allow: /
+Crawl-delay: 2
+
+# Explicitly allow important resources
 Allow: /favicon.png
 Allow: /favicon-192.png
 Allow: /favicon-512.png
+Allow: /og-image.jpg
+Allow: /apple-touch-icon.png
 
+# Disallow admin/private paths (none exist, but good practice)
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_/
+
+# Sitemap location
 Sitemap: https://reejangopan.me/sitemap.xml
+
+# Host declaration
+Host: https://reejangopan.me

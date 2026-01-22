@@ -8,6 +8,8 @@ export const Hero = () => {
   return (
     <section 
       id="home" 
+      itemScope 
+      itemType="https://schema.org/Person"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background dark"
       aria-label="Reejan Gopan - IT Professional Introduction"
     >
@@ -49,12 +51,13 @@ export const Hero = () => {
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 to-transparent animate-pulse-glow" aria-hidden="true" />
                 <img
                   src={profileImage}
-                  alt="Reejan Gopan - IT Administrator at USF GROUP LLC Dubai UAE"
-                  title="Reejan Gopan - IT Administrator"
+                  alt="Reejan Gopan - Frontend Developer & IT Administrator at USF GROUP LLC Dubai UAE"
+                  title="Reejan Gopan - Frontend Developer & IT Administrator Dubai"
                   className="w-full h-full object-cover rounded-full border-2 border-primary/30 relative z-10"
                   loading="eager"
                   width="288"
                   height="288"
+                  itemProp="image"
                 />
               </div>
               <figcaption className="sr-only">
@@ -70,7 +73,7 @@ export const Hero = () => {
                 transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
                 className="text-primary font-medium tracking-widest uppercase text-sm mb-4"
               >
-                <span>IT Administrator</span> | USF GROUP LLC | Dubai UAE
+                <span>Frontend Developer</span> & <span>IT Administrator</span> | USF GROUP LLC | Dubai UAE
               </motion.p>
               
               <motion.h1
@@ -100,11 +103,11 @@ export const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.1, ease: "easeOut" }}
-                 className="text-muted-foreground text-lg lg:text-xl max-w-xl mb-8 leading-relaxed"
-               >
-                <strong>IT Administrator</strong> at USF GROUP LLC with expertise in 
-                website management, <strong>SEO strategy</strong>, <strong>Google Ads</strong>, <strong>Meta Ads</strong>, 
-                VPS setup, email hosting, and scalable <strong>IT infrastructure</strong> in <strong>Dubai, UAE</strong>.
+                className="text-muted-foreground text-lg lg:text-xl max-w-xl mb-8 leading-relaxed"
+              >
+                <strong>Frontend Developer</strong> & <strong>IT Administrator</strong> at USF GROUP LLC with expertise in 
+                <strong> React</strong>, <strong>TypeScript</strong>, <strong>Tailwind CSS</strong>, <strong>SEO strategy</strong>, <strong>Google Ads</strong>, <strong>Meta Ads</strong>, 
+                VPS setup, and scalable <strong>IT infrastructure</strong> in <strong>Dubai, UAE</strong>.
               </motion.p>
 
               {/* Contact Info */}
