@@ -14,6 +14,10 @@ export const Experience = () => {
       location: "Dubai, UAE",
       period: "January 2025 – Present",
       responsibilities: [
+        "Frontend development using React, TypeScript, Tailwind CSS, and modern UI libraries",
+        "Building and deploying real-world business websites with dynamic forms and database integrations",
+        "Implementing automated email workflows and production-ready web solutions",
+        "AI-assisted development workflows for rapid prototyping and delivery",
         "Overseeing website management, SEO strategy, and digital presence optimization",
         "Managing Google Ads and Meta Ads campaigns for maximum ROI",
         "Handling social media operations and content strategy across platforms",
