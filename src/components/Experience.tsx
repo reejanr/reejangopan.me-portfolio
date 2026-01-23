@@ -79,8 +79,8 @@ export const Experience = () => {
           <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mt-4">
             Reejan Gopan's Work Experience
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            Professional experience of <strong>Reejan R Gopan</strong> as an IT Administrator at USF GROUP LLC, IT Specialist at Chimera Group, and Network Administrator at TCS.
+          <p className="text-foreground/70 mt-4 max-w-2xl mx-auto">
+            Professional experience of <strong className="text-foreground">Reejan R Gopan</strong> as an IT Administrator at USF GROUP LLC, IT Specialist at Chimera Group, and Network Administrator at TCS.
           </p>
         </motion.header>
 
@@ -123,7 +123,7 @@ export const Experience = () => {
                     </div>
 
                     {/* Meta info */}
-                    <div className={`flex flex-wrap gap-4 text-sm text-muted-foreground mb-4 ${index % 2 === 0 ? "md:justify-end" : ""}`}>
+                    <div className={`flex flex-wrap gap-4 text-sm text-foreground/70 mb-4 ${index % 2 === 0 ? "md:justify-end" : ""}`}>
                       <time className="flex items-center gap-1">
                         <Calendar className="w-4 h-4" aria-hidden="true" />
                         {exp.period}
@@ -132,7 +132,7 @@ export const Experience = () => {
                     </div>
 
                     {/* Responsibilities */}
-                    <ul className={`space-y-2 text-muted-foreground ${index % 2 === 0 ? "md:text-right" : ""}`}>
+                    <ul className={`space-y-2 text-foreground/70 ${index % 2 === 0 ? "md:text-right" : ""}`}>
                       {exp.responsibilities.map((resp, respIndex) => (
                         <li key={respIndex} className={`flex gap-2 ${index % 2 === 0 ? "md:flex-row-reverse" : ""}`}>
                           <span className="text-primary mt-1.5 shrink-0" aria-hidden="true">•</span>
