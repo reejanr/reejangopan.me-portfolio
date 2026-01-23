@@ -40,7 +40,7 @@ export const About = () => {
           <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mt-4">
             Background & Qualifications
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+          <p className="text-foreground/80 mt-4 max-w-2xl mx-auto">
             Learn more about <strong>Reejan R Gopan</strong>'s education, skills, and professional background as an IT Specialist in Dubai.
           </p>
         </motion.header>
@@ -79,10 +79,10 @@ export const About = () => {
               <Target className="w-6 h-6 text-primary" />
             </motion.div>
             <h3 className="font-heading text-xl font-semibold text-foreground mb-4">Career Objective</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              Results-driven <strong>IT professional</strong> seeking challenging roles that leverage technical skills 
+            <p className="text-foreground/70 leading-relaxed">
+              Results-driven <strong className="text-foreground">IT professional</strong> seeking challenging roles that leverage technical skills 
               to drive business success and improve operational efficiency through innovative solutions 
-              and <strong>AI automation</strong> in <strong>Dubai, UAE</strong>.
+              and <strong className="text-foreground">AI automation</strong> in <strong className="text-foreground">Dubai, UAE</strong>.
             </p>
           </motion.article>
 
@@ -119,7 +119,7 @@ export const About = () => {
                 >
                   <p className="text-primary text-sm font-medium">{edu.year}</p>
                   <p className="text-foreground font-medium">{edu.degree}</p>
-                  <p className="text-muted-foreground text-sm">{edu.institution}</p>
+                  <p className="text-foreground/70 text-sm">{edu.institution}</p>
                 </motion.div>
               ))}
             </div>
@@ -161,8 +161,8 @@ export const About = () => {
                 </motion.li>
               ))}
             </ul>
-            <p className="text-muted-foreground text-sm mt-6">
-              <strong>Reejan Gopan</strong> is a multilingual professional with strong communication skills across diverse cultural contexts.
+            <p className="text-foreground/70 text-sm mt-6">
+              <strong className="text-foreground">Reejan Gopan</strong> is a multilingual professional with strong communication skills across diverse cultural contexts.
             </p>
           </motion.article>
         </motion.div>
