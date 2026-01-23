@@ -48,9 +48,9 @@ export const Contact = () => {
           <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mt-4">
             Contact Reejan Gopan
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-xl mx-auto">
-            Interested in working with <strong>Reejan R Gopan</strong>? Reach out for 
-            <strong> IT consulting</strong>, <strong>web development</strong>, or <strong>AI automation</strong> projects in <strong>Dubai, UAE</strong>.
+          <p className="text-foreground/70 mt-4 max-w-xl mx-auto">
+            Interested in working with <strong className="text-foreground">Reejan R Gopan</strong>? Reach out for 
+            <strong className="text-foreground"> IT consulting</strong>, <strong className="text-foreground">web development</strong>, or <strong className="text-foreground">AI automation</strong> projects in <strong className="text-foreground">Dubai, UAE</strong>.
           </p>
         </motion.header>
 
@@ -73,7 +73,7 @@ export const Contact = () => {
                     <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors" aria-hidden="true">
                       <info.icon className="w-6 h-6 text-primary" />
                     </div>
-                    <p className="text-sm text-muted-foreground mb-1">{info.label}</p>
+                    <p className="text-sm text-foreground/70 mb-1">{info.label}</p>
                     <p className="text-foreground font-medium">{info.value}</p>
                   </a>
                 ) : (
@@ -81,7 +81,7 @@ export const Contact = () => {
                     <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4" aria-hidden="true">
                       <info.icon className="w-6 h-6 text-primary" />
                     </div>
-                    <p className="text-sm text-muted-foreground mb-1">{info.label}</p>
+                    <p className="text-sm text-foreground/70 mb-1">{info.label}</p>
                     <p className="text-foreground font-medium">{info.value}</p>
                   </div>
                 )}
