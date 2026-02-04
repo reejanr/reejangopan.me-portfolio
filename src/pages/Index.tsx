@@ -2,16 +2,25 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
 import { Experience } from "@/components/Experience";
+import { Projects } from "@/components/Projects";
 import { Skills } from "@/components/Skills";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { PageTransition } from "@/components/PageTransition";
+import { ParticleBackground } from "@/components/ParticleBackground";
+import { CustomCursor } from "@/components/CustomCursor";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { ScrollProgress } from "@/components/ScrollProgress";
 
 const Index = () => {
   return (
     <div className="dark">
       <LoadingScreen />
+      <CustomCursor />
+      <ParticleBackground />
+      <ScrollProgress />
+      <ThemeToggle />
       
       {/* Hidden SEO content for search engines - Enhanced for maximum visibility */}
       <div className="sr-only" aria-hidden="true">
@@ -52,6 +61,7 @@ const Index = () => {
           <Hero />
           <About />
           <Experience />
+          <Projects />
           <Skills />
           <Contact />
         </main>
