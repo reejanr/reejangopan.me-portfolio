@@ -25,7 +25,7 @@ export const About = () => {
   return (
     <section 
       id="about" 
-      className="py-24 bg-muted/50" 
+      className="py-24 bg-background dark" 
       ref={ref}
       aria-label="About Reejan Gopan - Background and Qualifications"
     >

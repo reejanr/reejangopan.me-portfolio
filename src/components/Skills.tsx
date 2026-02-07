@@ -137,7 +137,7 @@ export const Skills = () => {
   return (
     <section 
       id="skills" 
-      className="py-24 bg-muted/50" 
+      className="py-24 bg-background dark" 
       ref={ref}
       aria-label="Reejan Gopan Skills and Technologies"
     >
