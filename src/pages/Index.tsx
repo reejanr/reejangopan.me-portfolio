@@ -10,7 +10,7 @@ import { LoadingScreen } from "@/components/LoadingScreen";
 import { PageTransition } from "@/components/PageTransition";
 import { ParticleBackground } from "@/components/ParticleBackground";
 import { CustomCursor } from "@/components/CustomCursor";
-import { ThemeToggle } from "@/components/ThemeToggle";
+
 import { ScrollProgress } from "@/components/ScrollProgress";
 
 const Index = () => {
@@ -20,7 +20,7 @@ const Index = () => {
       <CustomCursor />
       <ParticleBackground />
       <ScrollProgress />
-      <ThemeToggle />
+      
       
       {/* Hidden SEO content for search engines - Enhanced for maximum visibility */}
       <div className="sr-only" aria-hidden="true">
