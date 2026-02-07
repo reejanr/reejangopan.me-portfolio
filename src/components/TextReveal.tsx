@@ -9,7 +9,7 @@ interface TextRevealProps {
 
 export const TextReveal = ({ children, className = "", delay = 0 }: TextRevealProps) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
     <div ref={ref} className={`overflow-hidden ${className}`}>
@@ -37,7 +37,7 @@ interface WordRevealProps {
 
 export const WordReveal = ({ text, className = "", wordClassName = "", delay = 0 }: WordRevealProps) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
   const words = text.split(" ");
 
   return (
@@ -75,13 +75,16 @@ interface CharacterRevealProps {
 
 export const CharacterReveal = ({ text, className = "", delay = 0 }: CharacterRevealProps) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
   const characters = text.split("");
 
   return (
     <motion.span
       ref={ref}
-      className={className}
+      className={`${className} inline`}
+      initial={{ opacity: 0 }}
+      animate={isInView ? { opacity: 1 } : {}}
+      transition={{ duration: 0.3, delay }}
     >
       {characters.map((char, index) => (
         <motion.span
@@ -93,7 +96,7 @@ export const CharacterReveal = ({ text, className = "", delay = 0 }: CharacterRe
             delay: delay + index * 0.02,
             ease: "easeOut",
           }}
-          className="inline-block"
+          style={{ display: "inline" }}
         >
           {char === " " ? "\u00A0" : char}
         </motion.span>

@@ -136,41 +136,41 @@ export const Hero = () => {
               <motion.p
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
-                className="text-primary font-medium tracking-widest uppercase text-sm mb-4"
+                transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+                className="text-primary font-medium tracking-widest uppercase text-xs sm:text-sm mb-4"
               >
                 <span>Frontend Developer</span> & <span>IT Administrator</span> | USF GROUP LLC | Dubai UAE
               </motion.p>
               
               <motion.h1
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
-                className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6"
+                transition={{ duration: 0.6, delay: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
+                className="font-heading text-3xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight"
               >
-                <CharacterReveal text="Reejan R " delay={0.9} />
+                <CharacterReveal text="Reejan R " delay={0.6} />
                 <span className="gradient-text">
-                  <CharacterReveal text="Gopan" delay={1.1} />
+                  <CharacterReveal text="Gopan" delay={0.8} />
                 </span>
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.1, ease: "easeOut" }}
-                className="text-muted-foreground text-lg lg:text-xl max-w-xl mb-8 leading-relaxed"
+                transition={{ duration: 0.6, delay: 0.9, ease: "easeOut" }}
+                className="text-foreground/70 text-base sm:text-lg lg:text-xl max-w-xl mb-8 leading-relaxed"
               >
-                <strong>Frontend Developer</strong> & <strong>IT Administrator</strong> at USF GROUP LLC with expertise in 
-                <strong> React</strong>, <strong>TypeScript</strong>, <strong>Tailwind CSS</strong>, <strong>SEO strategy</strong>, <strong>Google Ads</strong>, <strong>Meta Ads</strong>, 
-                VPS setup, and scalable <strong>IT infrastructure</strong> in <strong>Dubai, UAE</strong>.
+                <strong className="text-foreground">Frontend Developer</strong> & <strong className="text-foreground">IT Administrator</strong> at USF GROUP LLC with expertise in 
+                <strong className="text-foreground"> React</strong>, <strong className="text-foreground">TypeScript</strong>, <strong className="text-foreground">Tailwind CSS</strong>, <strong className="text-foreground">SEO strategy</strong>, <strong className="text-foreground">Google Ads</strong>, <strong className="text-foreground">Meta Ads</strong>, 
+                VPS setup, and scalable <strong className="text-foreground">IT infrastructure</strong> in <strong className="text-foreground">Dubai, UAE</strong>.
               </motion.p>
 
               {/* Contact Info */}
               <motion.address
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.2, ease: "easeOut" }}
-                className="flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-muted-foreground mb-8 not-italic"
+                transition={{ duration: 0.6, delay: 1.0, ease: "easeOut" }}
+                className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 text-sm text-foreground/70 mb-8 not-italic"
               >
                 <span className="flex items-center gap-2">
                   <MapPin className="w-4 h-4 text-primary" aria-hidden="true" />

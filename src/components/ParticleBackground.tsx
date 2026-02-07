@@ -16,7 +16,8 @@ export const ParticleBackground = () => {
   const animationRef = useRef<number>();
 
   const initParticles = useCallback((width: number, height: number) => {
-    const particleCount = Math.min(100, Math.floor((width * height) / 15000));
+    const isMobile = width < 768;
+    const particleCount = isMobile ? Math.min(30, Math.floor((width * height) / 25000)) : Math.min(100, Math.floor((width * height) / 15000));
     particlesRef.current = [];
     
     for (let i = 0; i < particleCount; i++) {

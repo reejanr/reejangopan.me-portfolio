@@ -126,8 +126,13 @@ const GlowingSphere = () => {
 };
 
 export const FloatingGeometry = () => {
+  // Hide 3D on mobile/tablet for performance
+  if (typeof window !== "undefined" && window.innerWidth < 768) {
+    return null;
+  }
+
   return (
-    <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 1 }}>
+    <div className="absolute inset-0 pointer-events-none hidden md:block" style={{ zIndex: 1 }}>
       <Canvas
         camera={{ position: [0, 0, 6], fov: 45 }}
         dpr={[1, 2]}
