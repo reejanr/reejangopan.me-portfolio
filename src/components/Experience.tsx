@@ -5,7 +5,7 @@ import { Briefcase, Building2, Calendar } from "lucide-react";
 
 export const Experience = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, amount: 0.05 });
 
   const experiences = [
     {
@@ -85,62 +85,60 @@ export const Experience = () => {
         </motion.header>
 
         <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-primary/50 to-transparent transform md:-translate-x-1/2" aria-hidden="true" />
+          <div className="relative pl-6 sm:pl-8 md:pl-0">
+            {/* Timeline line - left on mobile, center on md+ */}
+            <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-primary/50 to-transparent md:-translate-x-1/2" aria-hidden="true" />
 
             {experiences.map((exp, index) => (
               <motion.article
                 key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.2 + index * 0.2 }}
-                className={`relative mb-12 md:mb-16 ${
-                  index % 2 === 0 ? "md:pr-[50%] md:text-right" : "md:pl-[50%] md:ml-0"
+                className={`relative mb-10 sm:mb-12 md:mb-16 md:w-[calc(50%-2rem)] ${
+                  index % 2 === 0 ? "md:ml-0 md:mr-auto" : "md:ml-auto"
                 }`}
               >
                 {/* Timeline dot */}
-                <div className="absolute left-0 md:left-1/2 top-0 w-4 h-4 rounded-full bg-primary transform md:-translate-x-1/2 border-4 border-background glow-effect" aria-hidden="true" />
+                <div className={`absolute top-3 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-primary border-4 border-background glow-effect -left-[calc(1.5rem+1px)] sm:-left-[calc(2rem+1px)] md:left-auto ${
+                  index % 2 === 0 ? "md:-right-[2.25rem]" : "md:-left-[2.25rem]"
+                }`} aria-hidden="true" />
 
-                <div
-                  className={`ml-8 md:ml-0 ${index % 2 === 0 ? "md:mr-8" : "md:ml-8"}`}
-                >
-                  <div className="bg-card rounded-2xl p-6 md:p-8 card-shadow border border-border hover:border-primary/30 transition-colors">
-                    {/* Header */}
-                    <div className={`flex flex-wrap items-start gap-4 mb-4 ${index % 2 === 0 ? "md:justify-end" : ""}`}>
-                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0" aria-hidden="true">
-                        <Briefcase className="w-6 h-6 text-primary" />
-                      </div>
-                      <div className={index % 2 === 0 ? "md:text-right" : ""}>
-                        <h3 className="font-heading text-xl font-semibold text-foreground">
-                          {exp.title}
-                        </h3>
-                        <div className="flex items-center gap-2 text-primary font-medium mt-1">
-                          <Building2 className="w-4 h-4" aria-hidden="true" />
-                          <span>{exp.company}</span>
-                        </div>
+                <div className="bg-card rounded-2xl p-5 sm:p-6 md:p-8 card-shadow border border-border hover:border-primary/30 transition-colors">
+                  {/* Header */}
+                  <div className="flex flex-wrap items-start gap-3 sm:gap-4 mb-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0" aria-hidden="true">
+                      <Briefcase className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-heading text-lg sm:text-xl font-semibold text-foreground">
+                        {exp.title}
+                      </h3>
+                      <div className="flex items-center gap-2 text-primary font-medium mt-1">
+                        <Building2 className="w-4 h-4" aria-hidden="true" />
+                        <span className="text-sm sm:text-base">{exp.company}</span>
                       </div>
                     </div>
-
-                    {/* Meta info */}
-                    <div className={`flex flex-wrap gap-4 text-sm text-foreground/70 mb-4 ${index % 2 === 0 ? "md:justify-end" : ""}`}>
-                      <time className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4" aria-hidden="true" />
-                        {exp.period}
-                      </time>
-                      <span>{exp.location}</span>
-                    </div>
-
-                    {/* Responsibilities */}
-                    <ul className={`space-y-2 text-foreground/70 ${index % 2 === 0 ? "md:text-right" : ""}`}>
-                      {exp.responsibilities.map((resp, respIndex) => (
-                        <li key={respIndex} className={`flex gap-2 ${index % 2 === 0 ? "md:flex-row-reverse" : ""}`}>
-                          <span className="text-primary mt-1.5 shrink-0" aria-hidden="true">•</span>
-                          <span className="text-sm leading-relaxed">{resp}</span>
-                        </li>
-                      ))}
-                    </ul>
                   </div>
+
+                  {/* Meta info */}
+                  <div className="flex flex-wrap gap-3 sm:gap-4 text-sm text-foreground/70 mb-4">
+                    <time className="flex items-center gap-1">
+                      <Calendar className="w-4 h-4 shrink-0" aria-hidden="true" />
+                      {exp.period}
+                    </time>
+                    <span>{exp.location}</span>
+                  </div>
+
+                  {/* Responsibilities */}
+                  <ul className="space-y-2 text-foreground/70">
+                    {exp.responsibilities.map((resp, respIndex) => (
+                      <li key={respIndex} className="flex gap-2">
+                        <span className="text-primary mt-1.5 shrink-0" aria-hidden="true">•</span>
+                        <span className="text-xs sm:text-sm leading-relaxed">{resp}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </motion.article>
             ))}

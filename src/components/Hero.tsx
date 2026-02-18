@@ -4,7 +4,6 @@ import { useRef } from "react";
 import profileImage from "@/assets/profile.jpg";
 import { FloatingGeometry } from "./FloatingGeometry";
 import { MagneticButton } from "./MagneticButton";
-import { CharacterReveal } from "./TextReveal";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/reejan-r-gopan-38a8092b9";
 
@@ -35,12 +34,12 @@ export const Hero = () => {
         aria-hidden="true"
       />
       
-      {/* 3D Floating Geometry */}
+      {/* 3D Floating Geometry - desktop only */}
       <FloatingGeometry />
       
       {/* Glow effect */}
       <motion.div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] md:w-[800px] md:h-[800px] pointer-events-none"
         style={{ 
           background: "var(--gradient-glow)",
           y,
@@ -49,30 +48,32 @@ export const Hero = () => {
         aria-hidden="true"
       />
 
-      {/* Geometric accents with parallax */}
-      <motion.div 
-        className="absolute top-20 right-20 w-64 h-64 border border-primary/10 rounded-full animate-float" 
-        style={{ y: useTransform(scrollYProgress, [0, 1], [0, 100]) }}
-        aria-hidden="true" 
-      />
-      <motion.div 
-        className="absolute bottom-32 left-16 w-32 h-32 border border-primary/20 rotate-45" 
-        style={{ y: useTransform(scrollYProgress, [0, 1], [0, 50]) }}
-        aria-hidden="true" 
-      />
-      <motion.div 
-        className="absolute top-1/3 left-10 w-2 h-2 bg-primary rounded-full animate-pulse" 
-        style={{ y: useTransform(scrollYProgress, [0, 1], [0, 150]) }}
-        aria-hidden="true" 
-      />
-      <motion.div 
-        className="absolute bottom-1/4 right-1/4 w-3 h-3 bg-primary/50 rounded-full animate-pulse" 
-        style={{ y: useTransform(scrollYProgress, [0, 1], [0, 80]) }}
-        aria-hidden="true" 
-      />
+      {/* Geometric accents - hidden on mobile for performance */}
+      <div className="hidden md:block">
+        <motion.div 
+          className="absolute top-20 right-20 w-64 h-64 border border-primary/10 rounded-full animate-float" 
+          style={{ y: useTransform(scrollYProgress, [0, 1], [0, 100]) }}
+          aria-hidden="true" 
+        />
+        <motion.div 
+          className="absolute bottom-32 left-16 w-32 h-32 border border-primary/20 rotate-45" 
+          style={{ y: useTransform(scrollYProgress, [0, 1], [0, 50]) }}
+          aria-hidden="true" 
+        />
+        <motion.div 
+          className="absolute top-1/3 left-10 w-2 h-2 bg-primary rounded-full animate-pulse" 
+          style={{ y: useTransform(scrollYProgress, [0, 1], [0, 150]) }}
+          aria-hidden="true" 
+        />
+        <motion.div 
+          className="absolute bottom-1/4 right-1/4 w-3 h-3 bg-primary/50 rounded-full animate-pulse" 
+          style={{ y: useTransform(scrollYProgress, [0, 1], [0, 80]) }}
+          aria-hidden="true" 
+        />
+      </div>
 
       <motion.div 
-        className="container relative z-10 px-6 py-20"
+        className="container relative z-10 px-4 sm:px-6 py-16 sm:py-20"
         style={{ opacity }}
       >
         <div className="max-w-5xl mx-auto">
@@ -80,7 +81,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
-            className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20"
+            className="flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-20"
           >
             {/* Profile Image with enhanced effects */}
             <motion.figure 
@@ -90,7 +91,7 @@ export const Hero = () => {
               className="relative"
               whileHover={{ scale: 1.02 }}
             >
-              <div className="relative w-56 h-56 lg:w-72 lg:h-72">
+              <div className="relative w-44 h-44 sm:w-56 sm:h-56 lg:w-72 lg:h-72">
                 {/* Animated rings */}
                 <motion.div 
                   className="absolute -inset-4 rounded-full border border-primary/20"
@@ -132,12 +133,12 @@ export const Hero = () => {
             </motion.figure>
 
             {/* Content */}
-            <header className="text-center lg:text-left flex-1">
+            <header className="text-center lg:text-left flex-1 w-full">
               <motion.p
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-                className="text-primary font-medium tracking-widest uppercase text-xs sm:text-sm mb-4"
+                className="text-primary font-medium tracking-widest uppercase text-xs sm:text-sm mb-3 sm:mb-4"
               >
                 <span>Frontend Developer</span> & <span>IT Administrator</span> | USF GROUP LLC | Dubai UAE
               </motion.p>
@@ -146,19 +147,17 @@ export const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
-                className="font-heading text-3xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight"
+                className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 leading-tight"
               >
-                <CharacterReveal text="Reejan R " delay={0.6} />
-                <span className="gradient-text">
-                  <CharacterReveal text="Gopan" delay={0.8} />
-                </span>
+                <span className="block text-foreground">Reejan R</span>
+                <span className="block gradient-text">Gopan</span>
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.9, ease: "easeOut" }}
-                className="text-foreground/70 text-base sm:text-lg lg:text-xl max-w-xl mb-8 leading-relaxed"
+                transition={{ duration: 0.6, delay: 0.7, ease: "easeOut" }}
+                className="text-foreground/70 text-sm sm:text-base lg:text-xl max-w-xl mb-6 sm:mb-8 leading-relaxed"
               >
                 <strong className="text-foreground">Frontend Developer</strong> & <strong className="text-foreground">IT Administrator</strong> at USF GROUP LLC with expertise in 
                 <strong className="text-foreground"> React</strong>, <strong className="text-foreground">TypeScript</strong>, <strong className="text-foreground">Tailwind CSS</strong>, <strong className="text-foreground">SEO strategy</strong>, <strong className="text-foreground">Google Ads</strong>, <strong className="text-foreground">Meta Ads</strong>, 
