@@ -1,42 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-  <!-- Reejan Gopan Portfolio Sitemap - reejangopan.me - System Administrator Dubai -->
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://reejangopan.me/</loc>
-    <lastmod>2026-02-18</lastmod>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://reejangopan.me/og-image.jpg</image:loc>
-      <image:title>Reejan Gopan - System Administrator & IT Administrator Dubai UAE</image:title>
-      <image:caption>Reejan Gopan — System Administrator, IT Administrator & Frontend Developer at USF GROUP LLC Dubai - reejangopan.me</image:caption>
+      <image:title>Reejan Gopan - System Administrator &amp; IT Administrator Dubai UAE</image:title>
+      <image:caption>Reejan Gopan — System Administrator, IT Administrator &amp; Frontend Developer at USF GROUP LLC Dubai</image:caption>
     </image:image>
-  </url>
-  <url>
-    <loc>https://reejangopan.me/#about</loc>
-    <lastmod>2026-02-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://reejangopan.me/#experience</loc>
-    <lastmod>2026-02-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://reejangopan.me/#skills</loc>
-    <lastmod>2026-02-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://reejangopan.me/#contact</loc>
-    <lastmod>2026-02-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.95</priority>
   </url>
 </urlset>
