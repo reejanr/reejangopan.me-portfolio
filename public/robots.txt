@@ -1,5 +1,5 @@
-# Robots.txt for reejangopan.me - Reejan Gopan Portfolio
-# Frontend Developer & IT Administrator Dubai
+# Robots.txt for reejangopan.me
+# System Administrator Dubai | Reejan Gopan - Frontend Developer
 
 User-agent: Googlebot
 Allow: /
@@ -35,20 +35,20 @@ User-agent: *
 Allow: /
 Crawl-delay: 2
 
-# Explicitly allow important resources
+# Allow important resources
 Allow: /favicon.png
 Allow: /favicon-192.png
 Allow: /favicon-512.png
 Allow: /og-image.jpg
 Allow: /apple-touch-icon.png
 
-# Disallow admin/private paths (none exist, but good practice)
+# Disallow private paths
 Disallow: /api/
 Disallow: /admin/
 Disallow: /_/
 
-# Sitemap location
+# Sitemap
 Sitemap: https://reejangopan.me/sitemap.xml
 
-# Host declaration
+# Host
 Host: https://reejangopan.me
