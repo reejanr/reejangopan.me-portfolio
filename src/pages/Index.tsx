@@ -20,11 +20,6 @@ const Index = () => {
       <ParticleBackground />
       <ScrollProgress />
 
-      {/* SEO H1 - visually hidden but crawlable (no aria-hidden) */}
-      <h1 className="sr-only">
-        Reejan Gopan — System Administrator &amp; Frontend Developer in Dubai, UAE
-      </h1>
-
       <PageTransition>
         <Navbar />
         <main id="main-content" role="main">
