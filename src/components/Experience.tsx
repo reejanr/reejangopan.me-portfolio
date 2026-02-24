@@ -9,7 +9,7 @@ export const Experience = () => {
 
   const experiences = [
     {
-      title: "IT Administrator",
+      title: "System Administrator & IT Administrator",
       company: "USF GROUP LLC",
       location: "Dubai, UAE",
       period: "January 2025 – Present",
@@ -21,9 +21,9 @@ export const Experience = () => {
         "Overseeing website management, SEO strategy, and digital presence optimization",
         "Managing Google Ads and Meta Ads campaigns for maximum ROI",
         "Handling social media operations and content strategy across platforms",
-        "System optimization and scalable IT infrastructure development",
-        "Email hosting configuration and VPS setup management",
-        "DNS management and domain administration",
+        "System administration including Windows Server, Active Directory, and Group Policies",
+        "IT infrastructure management, VPS setup, and scalable server architecture",
+        "Email hosting configuration, DNS management, and domain administration",
         "WordPress and Wix website design and maintenance",
         "Data analysis and performance reporting for digital initiatives",
         "Microsoft 365 administration and user management",

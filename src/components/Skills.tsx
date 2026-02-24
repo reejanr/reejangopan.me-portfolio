@@ -74,22 +74,22 @@ export const Skills = () => {
     },
     {
       icon: Monitor,
-      title: "IT Infrastructure",
+      title: "System Administration",
       skills: [
-        "Systems Management",
+        "Windows Server Administration",
+        "Microsoft 365 & Active Directory",
+        "Virtual Private Server (VPS) Management",
         "Hardware & Software Troubleshooting",
-        "Virtual Private Server (VPS)",
-        "Microsoft 365 Administration",
       ],
     },
     {
       icon: Network,
-      title: "Web & Hosting",
+      title: "Network & Hosting",
       skills: [
-        "WordPress Design & Development",
+        "DNS Management & Configuration",
         "Email Hosting & Management",
-        "DNS Management",
-        "CMS Platforms",
+        "Network Infrastructure & Firewall",
+        "WordPress & CMS Platforms",
       ],
     },
     {
