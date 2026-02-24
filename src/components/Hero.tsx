@@ -143,15 +143,15 @@ export const Hero = () => {
                 <span>System Administrator Dubai</span> | <span>Frontend Developer</span> | USF GROUP LLC | UAE
               </motion.p>
               
-              <motion.h2
+              <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
                 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 leading-tight"
               >
-                <span className="block text-foreground">Reejan R</span>
+                <span className="block text-foreground">Reejan</span>
                 <span className="block gradient-text">Gopan</span>
-              </motion.h2>
+              </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
