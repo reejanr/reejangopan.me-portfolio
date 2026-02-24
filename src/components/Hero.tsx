@@ -143,7 +143,7 @@ export const Hero = () => {
                 <span>System Administrator Dubai</span> | <span>Frontend Developer</span> | USF GROUP LLC | UAE
               </motion.p>
               
-              <motion.h1
+              <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
@@ -151,7 +151,7 @@ export const Hero = () => {
               >
                 <span className="block text-foreground">Reejan R</span>
                 <span className="block gradient-text">Gopan</span>
-              </motion.h1>
+              </motion.h2>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}

@@ -80,9 +80,9 @@ export const About = () => {
             </motion.div>
             <h3 className="font-heading text-xl font-semibold text-foreground mb-4">Career Objective</h3>
             <p className="text-foreground/70 leading-relaxed">
-              Results-driven <strong className="text-foreground">IT professional</strong> seeking challenging roles that leverage technical skills 
-              to drive business success and improve operational efficiency through innovative solutions 
-              and <strong className="text-foreground">AI automation</strong> in <strong className="text-foreground">Dubai, UAE</strong>.
+              Experienced <strong className="text-foreground">System Administrator in Dubai</strong> and <strong className="text-foreground">Frontend Developer in UAE</strong> seeking 
+              challenging roles that leverage IT infrastructure, Windows Server, Microsoft 365, and modern web development skills 
+              to drive business success through innovative solutions and <strong className="text-foreground">AI automation</strong>.
             </p>
           </motion.article>
 
