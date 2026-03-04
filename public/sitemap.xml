@@ -3,13 +3,19 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://reejangopan.me/</loc>
-    <lastmod>2026-02-24</lastmod>
+    <lastmod>2026-03-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://reejangopan.me/og-image.jpg</image:loc>
-      <image:title>System Administrator Dubai - Reejan Gopan IT Administrator &amp; Frontend Developer UAE</image:title>
-      <image:caption>Reejan Gopan — System Administrator, IT Administrator &amp; Frontend Developer at USF GROUP LLC Dubai UAE - reejangopan.me</image:caption>
+      <image:title>Reejan Gopan - System Administrator &amp; Frontend Developer Dubai UAE</image:title>
+      <image:caption>Reejan R Gopan — System Administrator, IT Administrator &amp; Frontend Developer at USF GROUP LLC Dubai UAE</image:caption>
     </image:image>
+  </url>
+  <url>
+    <loc>https://reejangopan.me/llms.txt</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>

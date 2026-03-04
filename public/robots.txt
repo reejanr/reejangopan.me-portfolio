@@ -2,5 +2,30 @@
 User-agent: *
 Allow: /
 
+# AI Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Cohere-ai
+Allow: /
+
 # Sitemap
 Sitemap: https://reejangopan.me/sitemap.xml
+
+# LLMs.txt
+# https://reejangopan.me/llms.txt
