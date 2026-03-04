@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
+import { forwardRef } from "react";
 
-export const Footer = () => {
+export const Footer = forwardRef<HTMLElement>((_, ref) => {
   const currentYear = new Date().getFullYear();
   
   return (
