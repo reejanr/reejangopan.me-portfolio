@@ -152,7 +152,7 @@ export const Skills = () => {
         >
           <span className="text-primary font-medium tracking-widest uppercase text-sm">Technical Expertise</span>
           <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mt-4">
-            Reejan Gopan's Skills & Technologies
+            Reejan Gopan's Digital Marketing & Technical Skills
           </h2>
           <p className="text-foreground/70 mt-4 max-w-2xl mx-auto">
             <strong>Reejan R Gopan</strong> specializes in website management, SEO strategy, Google Ads, Meta Ads, 
