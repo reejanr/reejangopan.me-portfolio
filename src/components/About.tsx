@@ -81,9 +81,10 @@ export const About = () => {
             </motion.div>
             <h3 className="font-heading text-xl font-semibold text-foreground mb-4">Career Objective</h3>
             <p className="text-foreground/70 leading-relaxed">
-              Experienced <strong className="text-foreground">System Administrator in Dubai</strong> and <strong className="text-foreground">Frontend Developer in UAE</strong> seeking 
-              challenging roles that leverage IT infrastructure, Windows Server, Microsoft 365, and modern web development skills 
-              to drive business success through innovative solutions and <strong className="text-foreground">AI automation</strong>.
+              Experienced <strong className="text-foreground">Digital Marketing Expert</strong>, <strong className="text-foreground">System Administrator in Dubai</strong> and <strong className="text-foreground">Frontend Developer in UAE</strong> seeking 
+              challenging roles that leverage digital marketing expertise, IT infrastructure management, Windows Server, Microsoft 365, and modern web development skills 
+              to drive business success through innovative solutions, <strong className="text-foreground">SEO strategy</strong>, and <strong className="text-foreground">AI automation</strong>. 
+              Serving clients across <strong className="text-foreground">Dubai, UAE, and India</strong>.
             </p>
           </motion.article>
 
