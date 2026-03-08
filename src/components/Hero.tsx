@@ -208,8 +208,7 @@ export const Hero = () => {
                   strength={0.2}
                 >
                   <span 
-                    className="flex items-center gap-2 px-6 sm:px-8 py-3 rounded-lg font-medium text-primary-foreground"
-                    style={{ background: "var(--gradient-primary)" }}
+                    className="flex items-center gap-2 px-6 sm:px-8 py-3 rounded-lg font-medium text-primary-foreground bg-gradient-primary"
                   >
                     <Linkedin className="w-4 h-4" aria-hidden="true" />
                     Hire Me
