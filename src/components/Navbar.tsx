@@ -49,6 +49,7 @@ export const Navbar = () => {
                 <a
                   key={link.href}
                   href={link.href}
+                  title={link.title}
                   className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group"
                 >
                   {link.label}
