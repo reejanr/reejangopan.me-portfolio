@@ -140,7 +140,7 @@ export const Hero = () => {
                 transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
                 className="text-primary font-medium tracking-widest uppercase text-xs sm:text-sm mb-3 sm:mb-4"
               >
-                <span>Top Digital Marketing Expert</span> | <span>System Administrator Dubai</span> | <span>Frontend Developer</span> | USF GROUP LLC | Dubai & India
+                <span>Top Digital Marketing Expert</span> | <span>Google Ads Expert</span> | <span>System Administrator Dubai</span> | <span>Frontend Developer</span> | USF GROUP LLC | Dubai & India
               </motion.p>
               
               <motion.h1
