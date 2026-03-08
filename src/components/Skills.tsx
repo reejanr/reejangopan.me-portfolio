@@ -96,10 +96,12 @@ export const Skills = () => {
       icon: BarChart3,
       title: "Digital Marketing",
       skills: [
-        "Google Ads Management",
-        "Meta Ads (Facebook/Instagram)",
-        "Social Media Operations",
-        "Content Strategy",
+        "SEO Strategy & On-page Optimization",
+        "Google Ads PPC Campaign Management",
+        "Meta Ads (Facebook & Instagram)",
+        "Google Analytics & Search Console",
+        "Social Media Marketing & Content Strategy",
+        "Local SEO for Dubai & India",
       ],
     },
     {
