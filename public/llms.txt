@@ -1,92 +1,113 @@
-# Reejan R Gopan
+# Reejan R Gopan — System Administrator, Digital Marketing Expert & Frontend Developer
 
-> Dubai-based System Administrator, IT Administrator & Frontend Developer at USF Group LLC.
+> Dubai-based IT professional, Digital Marketing Specialist, and Frontend Developer at USF Group LLC.
 
-## About
+## Personal Information
 
-Reejan R Gopan is a Dubai-based IT professional currently serving as a System and IT Administrator at USF Group LLC. He combines deep expertise in IT infrastructure management with modern frontend web development and digital marketing skills.
+- **Full Name:** Reejan R Gopan
+- **Location:** Dubai, United Arab Emirates
+- **Nationality:** Indian (Kerala, India)
+- **Website:** https://reejangopan.me
+- **Email:** Reejanr90@gmail.com
+- **Phone:** +971 527123154
+- **LinkedIn:** https://linkedin.com/in/reejan-r-gopan-38a8092b9
 
-- Full Name: Reejan R Gopan
-- Location: Dubai, United Arab Emirates
-- Nationality: Indian (Kerala)
-- Website: https://reejangopan.me
-- Email: Reejanr90@gmail.com
-- Phone: +971 527123154
-- LinkedIn: https://linkedin.com/in/reejan-r-gopan-38a8092b9
+## Professional Background
 
-## Current Role
+Reejan R Gopan is a Dubai-based IT professional currently serving as a System and IT Administrator at USF Group LLC. He manages IT infrastructure and website operations, specializing in both administrative and development tasks. He is also a skilled digital marketing professional with expertise in SEO, Google Ads, Meta Ads, and social media operations across Dubai, UAE, and India.
 
-**System Administrator & IT Administrator at USF Group LLC, Dubai, UAE**
+### Current Roles at USF Group LLC, Dubai
 
-Reejan manages IT infrastructure and website operations at USF Group, specializing in both administrative and development tasks. His responsibilities include:
+1. **System Administrator & IT Administrator**
+   - Windows Server administration (2016/2019/2022)
+   - Microsoft 365 / Office 365 setup, configuration, and user management
+   - Active Directory and Group Policy management
+   - VPS setup, configuration, and management
+   - DNS management and domain configuration
+   - Email hosting setup and administration (cPanel, Plesk)
+   - CCTV system installation and management
+   - Biometric device setup and management
+   - Network configuration, firewall, and troubleshooting
+   - IT hardware and software procurement
+   - Data backup and disaster recovery solutions
+   - Antivirus and endpoint security management
+   - ERP system administration
 
-- Windows Server administration and maintenance
-- Microsoft 365 setup, configuration, and user management
-- Active Directory and Group Policy management
-- VPS setup, configuration, and management
-- DNS management and domain configuration
-- Email hosting setup and administration
-- CCTV system installation and management
-- Biometric device setup and management
-- Network configuration and troubleshooting
-- IT hardware and software procurement
-- Data backup and recovery solutions
-- Antivirus and security management
-- ERP system administration
-- Website management and maintenance
+2. **Frontend Developer**
+   - React.js with TypeScript development
+   - Tailwind CSS for responsive design
+   - shadcn/ui component library integration
+   - Building and deploying production-ready business websites
+   - Automated email workflows and dynamic form handling
+   - AI-assisted development workflows for rapid prototyping
+   - Git-based CI/CD deployment
+
+3. **Digital Marketing Specialist**
+   - Search Engine Optimization (SEO) — On-page, Technical, and Local SEO
+   - Google Ads management and optimization
+   - Meta Ads (Facebook & Instagram advertising campaigns)
+   - Google Analytics and Google Search Console management
+   - Social media operations and content strategy
+   - Website analytics and performance reporting
+   - Local SEO targeting Dubai, UAE, and India markets
 
 ## Core Expertise
 
 ### IT Administration
-- Windows Server Administration (2016/2019/2022)
-- Microsoft 365 / Office 365 Administration
-- Active Directory & Group Policies
-- DNS Management & Domain Configuration
-- VPS Setup & Server Management
-- Email Hosting & Configuration (cPanel, Plesk)
-- Network Administration & Firewall Configuration
-- CCTV Systems & Biometric Device Management
-- IT Support & Troubleshooting
-- Hardware & Software Procurement
-- Data Backup & Disaster Recovery
-- Antivirus & Endpoint Security
+- Expert in Windows Server, Microsoft 365, DNS management, and email hosting
+- Active Directory, Group Policies, VPN, DHCP, TCP/IP, LAN/WAN
+- Server hardening, SSL certificates, IIS, Apache
+- CCTV, biometric devices, printers, and networking equipment
+- Data backup, disaster recovery, antivirus security
 
 ### Web Development
-- React.js
-- TypeScript
-- Tailwind CSS
-- shadcn/ui Component Library
-- HTML5 & CSS3
-- JavaScript (ES6+)
-- Responsive Web Design
-- WordPress Design & Development
-- AI-Assisted Development (Lovable, Cursor)
-- Git & Version Control
-- CI/CD Deployment
+- Proficient in React.js, TypeScript, Tailwind CSS, HTML5, CSS3, JavaScript (ES6+)
+- shadcn/ui, Framer Motion, Three.js for modern UI
+- WordPress design and development
+- AI-assisted development using Lovable and Cursor
+- SEO-optimized, accessible, responsive web applications
+- Static Site Generation (SSG) and Server-Side Rendering (SSR)
 
 ### Digital Marketing
-- Search Engine Optimization (SEO)
-- Google Ads Management
-- Meta Ads (Facebook & Instagram Ads)
-- Google Analytics & Search Console
-- Social Media Operations & Strategy
-- Content Marketing
-- On-Page & Technical SEO
-- Local SEO (Dubai & UAE focused)
+- Knowledgeable in SEO, Google Ads, and Meta Ads
+- Google Analytics and Search Console for data-driven decisions
+- Social media marketing and content strategy
+- Local SEO for Dubai, Abu Dhabi, Sharjah, and Indian markets
+- Conversion rate optimization and ROI-driven campaigns
+- Brand identity and online reputation management
 
-## Education
+## Education & Notable Achievements
 
 ### Bachelor of Computer Application (BCA)
 - **University:** Kerala University
 - **College:** Sree Narayana College of Technology, Kollam, Kerala, India
-- **Degree:** Bachelor of Computer Application
+- **Period:** 2021–2024
 
 ### Schooling
 - **School:** Nedumgolam Govt: H.S., Kollam, Kerala, India
 
-## Notable Achievements & Recognition
-
+### Technical Recognition
 - **Kerala State IT Fair Participant (2019):** Participated in the HSS/VHSS Animation category at the Kerala State IT Fair, organized by the Government of Kerala.
+
+## Previous Work Experience
+
+### IT Procurement & Support — Chimera Group of Companies, Dubai, UAE
+**September 2024 – December 2024**
+- Acquired and managed technology hardware, software, and services
+- Vendor negotiation and contract compliance
+- Asset tracking systems and IT inventory management
+- Windows-based systems, CCTV, printers, biometric devices, and network infrastructure
+- Office 365, Outlook, and ERP systems administration
+- AI automation tools to enhance workflows
+
+### Network Administrator — TCS ION (Tata Consultancy Services), Kerala, India
+**March 2024 – September 2024**
+- Network configuration and server maintenance
+- Network performance monitoring and connectivity troubleshooting
+- End-user support for hardware and software issues
+- Network layout documentation and hardware inventory
+- Router, switch, firewall, and server administration
+- Software installations and data backups
 
 ## Technical Skills Summary
 
@@ -98,27 +119,36 @@ Reejan manages IT infrastructure and website operations at USF Group, specializi
 | Server Management | VPS, cPanel, Plesk, IIS, Apache |
 | Security | Antivirus, Endpoint Protection, Backup & Recovery |
 | Frontend | React, TypeScript, Tailwind CSS, HTML, CSS, JavaScript |
-| CMS | WordPress |
-| Marketing | SEO, Google Ads, Meta Ads, Analytics |
+| CMS | WordPress, Wix |
+| Digital Marketing | SEO, Google Ads, Meta Ads, Google Analytics, Search Console |
 | Hardware | CCTV, Biometric Devices, Printers, Networking Equipment |
 | Tools | Git, VS Code, Figma, Canva, Microsoft Office Suite |
+| Languages | English, Malayalam, Tamil, Hindi |
 
 ## Services Offered
 
-1. **System Administration** — Windows Server setup, Active Directory, Group Policies, IT infrastructure management
+1. **System Administration** — Windows Server setup, Active Directory, Group Policies, IT infrastructure management in Dubai
 2. **IT Support & Troubleshooting** — Hardware/software troubleshooting, network issues, system maintenance
 3. **Microsoft 365 Administration** — Tenant setup, user management, email configuration, security policies
 4. **VPS & Server Management** — VPS provisioning, DNS setup, SSL certificates, server hardening
 5. **Frontend Web Development** — Modern responsive websites using React, TypeScript, and Tailwind CSS
-6. **SEO & Digital Marketing** — On-page SEO, Google Ads campaigns, Meta Ads, analytics and reporting
+6. **SEO & Digital Marketing** — On-page SEO, Google Ads campaigns, Meta Ads, analytics and reporting for Dubai & India
 7. **Website Management** — WordPress development, hosting management, domain configuration
 8. **Network & Security** — Firewall setup, antivirus deployment, CCTV and biometric systems
+9. **Social Media Marketing** — Content strategy, audience engagement, paid advertising on Facebook & Instagram
+10. **Google Ads Management** — PPC campaigns, keyword research, conversion tracking, ROI optimization
 
 ## Professional Summary
 
-Reejan R Gopan is an experienced IT professional based in Dubai, UAE, with a strong foundation in system administration, network management, and frontend web development. He holds a Bachelor of Computer Application from Kerala University (Sree Narayana College of Technology, Kollam). At USF Group LLC, he oversees the complete IT infrastructure including Windows Server environments, Microsoft 365 administration, VPS and DNS management, email hosting, CCTV and biometric systems, and website operations. He also builds modern, responsive business websites using React, TypeScript, and Tailwind CSS, and manages digital marketing campaigns through SEO, Google Ads, and Meta Ads. He was recognized as a participant in the 2019 Kerala State IT Fair in the HSS/VHSS Animation category, organized by the Government of Kerala.
+Reejan R Gopan is an experienced IT professional based in Dubai, UAE, with a strong foundation in system administration, network management, digital marketing, and frontend web development. He holds a Bachelor of Computer Application from Kerala University (Sree Narayana College of Technology, Kollam). He previously attended Nedumgolam Govt: H.S. in Kollam, Kerala. At USF Group LLC, he oversees the complete IT infrastructure including Windows Server environments, Microsoft 365 administration, VPS and DNS management, email hosting, CCTV and biometric systems, and website operations. He builds modern, responsive business websites using React, TypeScript, and Tailwind CSS, and manages digital marketing campaigns through SEO, Google Ads, and Meta Ads for clients in Dubai, UAE, and India. He was recognized as a participant in the 2019 Kerala State IT Fair in the HSS/VHSS Animation category, organized by the Government of Kerala.
+
+## Geographic Service Areas
+
+- **Primary:** Dubai, Abu Dhabi, Sharjah, United Arab Emirates
+- **Secondary:** Kerala, India (remote IT consulting and web development)
+- **Remote:** Global clients for frontend development and digital marketing
 
 ---
 
-*Last updated: March 4, 2026*
+*Last updated: March 8, 2026*
 *Source: https://reejangopan.me*

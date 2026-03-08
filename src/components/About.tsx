@@ -10,13 +10,14 @@ export const About = () => {
   const education = [
     {
       degree: "BCA (Bachelor of Computer Applications)",
-      institution: "Sree Narayana College Of Technology, Kerala, India",
+      institution: "Sree Narayana College Of Technology, Kollam — Kerala University, India",
       year: "2021-2024",
     },
     {
-      degree: "Higher Secondary",
-      institution: "Kerala State Board, India",
+      degree: "Higher Secondary (HSS)",
+      institution: "Nedumgolam Govt: H.S., Kollam, Kerala, India",
       year: "2019-2021",
+      note: "Participant — Kerala State IT Fair 2019 (HSS/VHSS Animation), Government of Kerala",
     },
   ];
 
@@ -41,7 +42,7 @@ export const About = () => {
             Background & Qualifications
           </h2>
           <p className="text-foreground/80 mt-4 max-w-2xl mx-auto">
-            Learn more about <strong>Reejan R Gopan</strong>'s education, skills, and professional background as an IT Specialist in Dubai.
+            Learn more about <strong>Reejan R Gopan</strong>'s education, achievements, and professional background as a Digital Marketing Expert & IT Specialist in Dubai and India.
           </p>
         </motion.header>
 
@@ -80,9 +81,10 @@ export const About = () => {
             </motion.div>
             <h3 className="font-heading text-xl font-semibold text-foreground mb-4">Career Objective</h3>
             <p className="text-foreground/70 leading-relaxed">
-              Experienced <strong className="text-foreground">System Administrator in Dubai</strong> and <strong className="text-foreground">Frontend Developer in UAE</strong> seeking 
-              challenging roles that leverage IT infrastructure, Windows Server, Microsoft 365, and modern web development skills 
-              to drive business success through innovative solutions and <strong className="text-foreground">AI automation</strong>.
+              Experienced <strong className="text-foreground">Digital Marketing Expert</strong>, <strong className="text-foreground">System Administrator in Dubai</strong> and <strong className="text-foreground">Frontend Developer in UAE</strong> seeking 
+              challenging roles that leverage digital marketing expertise, IT infrastructure management, Windows Server, Microsoft 365, and modern web development skills 
+              to drive business success through innovative solutions, <strong className="text-foreground">SEO strategy</strong>, and <strong className="text-foreground">AI automation</strong>. 
+              Serving clients across <strong className="text-foreground">Dubai, UAE, and India</strong>.
             </p>
           </motion.article>
 
@@ -120,6 +122,9 @@ export const About = () => {
                   <p className="text-primary text-sm font-medium">{edu.year}</p>
                   <p className="text-foreground font-medium">{edu.degree}</p>
                   <p className="text-foreground/70 text-sm">{edu.institution}</p>
+                  {(edu as any).note && (
+                    <p className="text-primary/80 text-xs mt-1 font-medium">{(edu as any).note}</p>
+                  )}
                 </motion.div>
               ))}
             </div>

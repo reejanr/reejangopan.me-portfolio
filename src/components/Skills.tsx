@@ -96,10 +96,12 @@ export const Skills = () => {
       icon: BarChart3,
       title: "Digital Marketing",
       skills: [
-        "Google Ads Management",
-        "Meta Ads (Facebook/Instagram)",
-        "Social Media Operations",
-        "Content Strategy",
+        "SEO Strategy & On-page Optimization",
+        "Google Ads PPC Campaign Management",
+        "Meta Ads (Facebook & Instagram)",
+        "Google Analytics & Search Console",
+        "Social Media Marketing & Content Strategy",
+        "Local SEO for Dubai & India",
       ],
     },
     {
@@ -150,11 +152,11 @@ export const Skills = () => {
         >
           <span className="text-primary font-medium tracking-widest uppercase text-sm">Technical Expertise</span>
           <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mt-4">
-            Reejan Gopan's Skills & Technologies
+            Reejan Gopan's Digital Marketing & Technical Skills
           </h2>
           <p className="text-foreground/70 mt-4 max-w-2xl mx-auto">
-            <strong>Reejan R Gopan</strong> specializes in website management, SEO strategy, Google Ads, Meta Ads, 
-            social media operations, system optimization, email hosting, VPS setup, and scalable IT infrastructure development in <strong>Dubai, UAE</strong>.
+            <strong>Reejan R Gopan</strong> specializes in digital marketing (SEO, Google Ads, Meta Ads), system administration, 
+            website management, social media operations, VPS setup, and scalable IT infrastructure development in <strong>Dubai, UAE</strong> and <strong>India</strong>.
           </p>
         </motion.header>
 

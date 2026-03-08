@@ -36,9 +36,9 @@ const services = [
   },
   {
     icon: Megaphone,
-    title: "Google Ads & Digital Marketing",
+    title: "Digital Marketing Dubai & India",
     description:
-      "Google Ads management, Meta Ads campaigns, social media marketing, and analytics-driven digital marketing services in Dubai to maximize ROI for businesses in UAE.",
+      "Top digital marketing services in Dubai and India — Google Ads PPC management, Meta Ads (Facebook & Instagram) campaigns, SEO strategy, social media marketing, Google Analytics setup, conversion tracking, and ROI-driven advertising for businesses across UAE and India.",
   },
 ];
 
@@ -51,7 +51,7 @@ export const Services = () => {
       id="services"
       className="py-24 bg-background dark"
       ref={ref}
-      aria-label="System Administrator & Frontend Developer Services in Dubai UAE"
+      aria-label="Digital Marketing, System Administration & Frontend Developer Services in Dubai UAE and India"
     >
       <div className="container px-6">
         <motion.header
@@ -64,13 +64,13 @@ export const Services = () => {
             What I Offer
           </span>
           <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mt-4">
-            System Administrator & IT Services in Dubai
+            Digital Marketing & IT Services in Dubai
           </h2>
           <p className="text-foreground/70 mt-4 max-w-2xl mx-auto">
             <strong className="text-foreground">Reejan Gopan</strong> provides
-            professional system administration, IT administration, frontend
-            development, and digital marketing services in{" "}
-            <strong className="text-foreground">Dubai, UAE</strong>.
+            top digital marketing, SEO, Google Ads, Meta Ads, system administration, frontend
+            development, and IT infrastructure services in{" "}
+            <strong className="text-foreground">Dubai, UAE</strong> and <strong className="text-foreground">India</strong>.
           </p>
         </motion.header>
 

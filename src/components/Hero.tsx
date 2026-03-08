@@ -118,8 +118,8 @@ export const Hero = () => {
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 to-transparent animate-pulse-glow" aria-hidden="true" />
                 <img
                   src={profileImage}
-                  alt="Reejan Gopan - Frontend Developer & IT Administrator at USF GROUP LLC Dubai UAE"
-                  title="Reejan Gopan - Frontend Developer & IT Administrator Dubai"
+                  alt="Reejan Gopan - Digital Marketing Expert, System Administrator & Frontend Developer Dubai UAE India"
+                  title="Reejan Gopan - Best Digital Marketing Professional Dubai"
                   className="w-full h-full object-cover rounded-full border-2 border-primary/30 relative z-10"
                   loading="eager"
                   width="288"
@@ -140,7 +140,7 @@ export const Hero = () => {
                 transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
                 className="text-primary font-medium tracking-widest uppercase text-xs sm:text-sm mb-3 sm:mb-4"
               >
-                <span>System Administrator Dubai</span> | <span>Frontend Developer</span> | USF GROUP LLC | UAE
+                <span>Digital Marketing Expert</span> | <span>System Administrator Dubai</span> | <span>Frontend Developer</span> | USF GROUP LLC | UAE & India
               </motion.p>
               
               <motion.h1
@@ -159,10 +159,10 @@ export const Hero = () => {
                 transition={{ duration: 0.6, delay: 0.7, ease: "easeOut" }}
                 className="text-foreground/70 text-sm sm:text-base lg:text-xl max-w-xl mb-6 sm:mb-8 leading-relaxed"
               >
-                <strong className="text-foreground">System Administrator</strong> & <strong className="text-foreground">Frontend Developer</strong> at USF GROUP LLC, Dubai UAE. Expert in 
+                <strong className="text-foreground">Digital Marketing Expert</strong>, <strong className="text-foreground">System Administrator</strong> & <strong className="text-foreground">Frontend Developer</strong> at USF GROUP LLC, Dubai UAE. Expert in 
+                <strong className="text-foreground">SEO</strong>, <strong className="text-foreground">Google Ads</strong>, <strong className="text-foreground">Meta Ads</strong>, 
                 <strong className="text-foreground">Windows Server</strong>, <strong className="text-foreground">Microsoft 365</strong>, <strong className="text-foreground">React</strong>, <strong className="text-foreground">TypeScript</strong>, 
-                <strong className="text-foreground">VPS</strong>, <strong className="text-foreground">DNS</strong>, <strong className="text-foreground">SEO</strong>, <strong className="text-foreground">Google Ads</strong>, <strong className="text-foreground">Meta Ads</strong>, 
-                and scalable <strong className="text-foreground">IT infrastructure</strong>.
+                and scalable <strong className="text-foreground">IT infrastructure</strong>. Serving businesses in <strong className="text-foreground">Dubai</strong> & <strong className="text-foreground">India</strong>.
               </motion.p>
 
               {/* Contact Info */}
