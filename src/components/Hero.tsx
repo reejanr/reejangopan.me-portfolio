@@ -177,12 +177,12 @@ export const Hero = () => {
                   <span>Dubai, UAE</span>
                 </span>
                 <a 
-                  href="mailto:Reejanr90@gmail.com" 
+                  href={getMailtoHref()} 
                   className="flex items-center gap-2 hover:text-primary transition-colors"
                   title="Email Reejan Gopan"
                 >
                   <Mail className="w-4 h-4 text-primary" aria-hidden="true" />
-                  Reejanr90@gmail.com
+                  {getEmail()}
                 </a>
                 <a 
                   href="tel:+971527123154" 

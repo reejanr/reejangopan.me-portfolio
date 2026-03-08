@@ -14,8 +14,8 @@ export const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "Reejanr90@gmail.com",
-      href: "mailto:Reejanr90@gmail.com",
+      value: getEmail(),
+      href: getMailtoHref(),
     },
     {
       icon: Phone,
