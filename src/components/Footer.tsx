@@ -107,6 +107,24 @@ export const Footer = forwardRef<HTMLElement>((_, ref) => {
             </a>
           </nav>
 
+          {/* Social Sharing */}
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground">
+            <Share2 className="w-4 h-4" aria-hidden="true" />
+            <span>Share this page:</span>
+            {shareLinks.map((link, index) => (
+              <a
+                key={index}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors underline-offset-2 hover:underline"
+                title={`Share on ${link.label}`}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+
           {/* External Authority Links */}
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground">
             <span>Find me on:</span>

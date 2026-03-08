@@ -109,7 +109,7 @@ export const Contact = () => {
               Hire Reejan Gopan
             </a>
             <a
-              href="mailto:Reejanr90@gmail.com"
+              href={getMailtoHref()}
               className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-medium border border-border text-foreground hover:bg-secondary transition-all duration-300"
               title="Email Reejan Gopan"
             >
