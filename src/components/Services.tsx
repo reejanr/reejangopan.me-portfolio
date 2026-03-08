@@ -51,7 +51,7 @@ export const Services = () => {
       id="services"
       className="py-24 bg-background dark"
       ref={ref}
-      aria-label="System Administrator & Frontend Developer Services in Dubai UAE"
+      aria-label="Digital Marketing, System Administration & Frontend Developer Services in Dubai UAE and India"
     >
       <div className="container px-6">
         <motion.header
