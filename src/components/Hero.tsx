@@ -30,7 +30,7 @@ export const Hero = () => {
       {/* Background gradient */}
       <div 
         className="absolute inset-0 opacity-60"
-        style={{ background: "var(--gradient-hero)" }}
+        className="absolute inset-0 opacity-60 bg-gradient-hero"
         aria-hidden="true"
       />
       
