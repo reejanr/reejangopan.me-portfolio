@@ -149,8 +149,8 @@ export const Hero = () => {
                 transition={{ duration: 0.6, delay: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
                 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 leading-tight"
               >
-                <span className="block text-foreground">Reejan</span>
-                <span className="block gradient-text">Gopan</span>
+                <span className="block text-foreground">Reejan Gopan</span>
+                <span className="block gradient-text text-2xl sm:text-3xl lg:text-4xl mt-2">IT & Marketing Professional</span>
               </motion.h1>
 
               <motion.p
