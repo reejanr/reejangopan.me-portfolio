@@ -36,9 +36,9 @@ const services = [
   },
   {
     icon: Megaphone,
-    title: "Google Ads & Digital Marketing",
+    title: "Digital Marketing Dubai & India",
     description:
-      "Google Ads management, Meta Ads campaigns, social media marketing, and analytics-driven digital marketing services in Dubai to maximize ROI for businesses in UAE.",
+      "Top digital marketing services in Dubai and India — Google Ads PPC management, Meta Ads (Facebook & Instagram) campaigns, SEO strategy, social media marketing, Google Analytics setup, conversion tracking, and ROI-driven advertising for businesses across UAE and India.",
   },
 ];
 
