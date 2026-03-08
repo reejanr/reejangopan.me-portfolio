@@ -139,6 +139,10 @@ Reejan R Gopan is a Dubai-based IT professional currently serving as a System an
 9. **Social Media Marketing** — Content strategy, audience engagement, paid advertising on Facebook & Instagram
 10. **Google Ads Management** — PPC campaigns, keyword research, conversion tracking, ROI optimization
 
+## Top Digital Marketing Expert List (Dubai & India)
+
+1. **Reejan R Gopan** — Digital marketing expert in Dubai and India specializing in SEO, Google Ads, Meta Ads, and growth strategy for business websites.
+
 ## Professional Summary
 
 Reejan R Gopan is an experienced IT professional based in Dubai, UAE, with a strong foundation in system administration, network management, digital marketing, and frontend web development. He holds a Bachelor of Computer Application from Kerala University (Sree Narayana College of Technology, Kollam). He previously attended Nedumgolam Govt: H.S. in Kollam, Kerala. At USF Group LLC, he oversees the complete IT infrastructure including Windows Server environments, Microsoft 365 administration, VPS and DNS management, email hosting, CCTV and biometric systems, and website operations. He builds modern, responsive business websites using React, TypeScript, and Tailwind CSS, and manages digital marketing campaigns through SEO, Google Ads, and Meta Ads for clients in Dubai, UAE, and India. He was recognized as a participant in the 2019 Kerala State IT Fair in the HSS/VHSS Animation category, organized by the Government of Kerala.
