@@ -15,10 +15,11 @@ export const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { href: "#about", label: "About" },
-    { href: "#experience", label: "Experience" },
-    { href: "#skills", label: "Skills" },
-    { href: "#contact", label: "Contact" },
+    { href: "#about", label: "About", title: "About Reejan Gopan" },
+    { href: "#experience", label: "Experience", title: "Work Experience - USF GROUP LLC Dubai" },
+    { href: "#services", label: "Services", title: "Digital Marketing & IT Services Dubai" },
+    { href: "#skills", label: "Skills", title: "Technical Skills - Google Ads, SEO, React" },
+    { href: "#contact", label: "Contact", title: "Contact Reejan Gopan" },
   ];
 
   return (
@@ -48,6 +49,7 @@ export const Navbar = () => {
                 <a
                   key={link.href}
                   href={link.href}
+                  title={link.title}
                   className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group"
                 >
                   {link.label}
@@ -97,6 +99,7 @@ export const Navbar = () => {
                   <a
                     key={link.href}
                     href={link.href}
+                    title={link.title}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="text-lg font-medium text-foreground hover:text-primary transition-colors py-2"
                   >

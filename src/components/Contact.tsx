@@ -94,7 +94,7 @@ export const Contact = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row justify-center gap-4"
+            className="flex flex-col sm:flex-row justify-center gap-4 mb-12"
             aria-label="Hire Reejan Gopan"
           >
               <a
@@ -109,16 +109,33 @@ export const Contact = () => {
               Hire Reejan Gopan
             </a>
             <a
-              href={LINKEDIN_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:Reejanr90@gmail.com"
               className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-medium border border-border text-foreground hover:bg-secondary transition-all duration-300"
-              title="Send Message to Reejan Gopan"
+              title="Email Reejan Gopan"
             >
-              <Linkedin className="w-5 h-5" aria-hidden="true" />
-              Send Message
+              <Mail className="w-5 h-5" aria-hidden="true" />
+              Send Email
             </a>
           </motion.nav>
+
+          {/* Quick Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="text-center"
+          >
+            <p className="text-sm text-muted-foreground mb-4">Quick Links</p>
+            <nav className="flex flex-wrap justify-center gap-4 text-sm" aria-label="Quick navigation links">
+              <a href="#about" className="text-foreground hover:text-primary transition-colors" title="About Reejan Gopan">About</a>
+              <span className="text-border">•</span>
+              <a href="#experience" className="text-foreground hover:text-primary transition-colors" title="Reejan Gopan Experience">Experience</a>
+              <span className="text-border">•</span>
+              <a href="#services" className="text-foreground hover:text-primary transition-colors" title="Digital Marketing Services Dubai">Services</a>
+              <span className="text-border">•</span>
+              <a href="#skills" className="text-foreground hover:text-primary transition-colors" title="Technical Skills">Skills</a>
+            </nav>
+          </motion.div>
         </div>
       </div>
     </section>
