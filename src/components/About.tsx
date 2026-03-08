@@ -42,7 +42,7 @@ export const About = () => {
             Background & Qualifications
           </h2>
           <p className="text-foreground/80 mt-4 max-w-2xl mx-auto">
-            Learn more about <strong>Reejan R Gopan</strong>'s education, skills, and professional background as an IT Specialist in Dubai.
+            Learn more about <strong>Reejan R Gopan</strong>'s education, achievements, and professional background as a Digital Marketing Expert & IT Specialist in Dubai and India.
           </p>
         </motion.header>
 
