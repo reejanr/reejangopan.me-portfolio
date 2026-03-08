@@ -3,6 +3,7 @@ import { ArrowDown, Mail, MapPin, Phone, Linkedin, Sparkles } from "lucide-react
 import { useRef } from "react";
 import profileImage from "@/assets/profile.jpg";
 import { FloatingGeometry } from "./FloatingGeometry";
+import { getEmail, getMailtoHref } from "@/lib/email";
 import { MagneticButton } from "./MagneticButton";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/reejan-r-gopan-38a8092b9";
