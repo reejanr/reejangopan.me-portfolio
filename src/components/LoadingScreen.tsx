@@ -44,8 +44,7 @@ export const LoadingScreen = () => {
             {/* Loading Bar */}
             <div className="w-48 h-1 bg-muted rounded-full overflow-hidden">
               <motion.div
-                className="h-full rounded-full"
-                style={{ background: "var(--gradient-primary)" }}
+                className="h-full rounded-full bg-gradient-primary"
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}
                 transition={{ duration: 1.2, ease: "easeInOut" }}

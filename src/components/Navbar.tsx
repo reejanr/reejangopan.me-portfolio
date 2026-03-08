@@ -60,8 +60,7 @@ export const Navbar = () => {
                 href="https://www.linkedin.com/in/reejan-r-gopan-38a8092b9"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2 rounded-lg text-sm font-medium text-primary-foreground transition-all duration-300 hover:scale-105"
-                style={{ background: "var(--gradient-primary)" }}
+                className="px-5 py-2 rounded-lg text-sm font-medium text-primary-foreground transition-all duration-300 hover:scale-105 bg-gradient-primary"
               >
                 Hire Me
               </a>
@@ -110,8 +109,7 @@ export const Navbar = () => {
                   href="https://www.linkedin.com/in/reejan-r-gopan-38a8092b9"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3 rounded-lg text-center font-medium text-primary-foreground mt-4"
-                  style={{ background: "var(--gradient-primary)" }}
+                  className="px-6 py-3 rounded-lg text-center font-medium text-primary-foreground mt-4 bg-gradient-primary"
                 >
                   Hire Me
                 </a>

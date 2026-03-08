@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Mail, MapPin, Phone, Linkedin } from "lucide-react";
+import { getEmail, getMailtoHref } from "@/lib/email";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/reejan-r-gopan-38a8092b9";
 
@@ -13,8 +14,8 @@ export const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "Reejanr90@gmail.com",
-      href: "mailto:Reejanr90@gmail.com",
+      value: getEmail(),
+      href: getMailtoHref(),
     },
     {
       icon: Phone,
@@ -101,15 +102,14 @@ export const Contact = () => {
                 href={LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-medium text-primary-foreground transition-all duration-300 hover:scale-105 elevated-shadow"
-                style={{ background: "var(--gradient-primary)" }}
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-medium text-primary-foreground transition-all duration-300 hover:scale-105 elevated-shadow bg-gradient-primary"
                 title="Hire Reejan Gopan - IT Specialist Dubai"
               >
               <Linkedin className="w-5 h-5" aria-hidden="true" />
               Hire Reejan Gopan
             </a>
             <a
-              href="mailto:Reejanr90@gmail.com"
+              href={getMailtoHref()}
               className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-medium border border-border text-foreground hover:bg-secondary transition-all duration-300"
               title="Email Reejan Gopan"
             >

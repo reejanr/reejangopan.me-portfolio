@@ -3,6 +3,7 @@ import { ArrowDown, Mail, MapPin, Phone, Linkedin, Sparkles } from "lucide-react
 import { useRef } from "react";
 import profileImage from "@/assets/profile.jpg";
 import { FloatingGeometry } from "./FloatingGeometry";
+import { getEmail, getMailtoHref } from "@/lib/email";
 import { MagneticButton } from "./MagneticButton";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/reejan-r-gopan-38a8092b9";
@@ -29,8 +30,7 @@ export const Hero = () => {
     >
       {/* Background gradient */}
       <div 
-        className="absolute inset-0 opacity-60"
-        style={{ background: "var(--gradient-hero)" }}
+        className="absolute inset-0 opacity-60 bg-gradient-hero"
         aria-hidden="true"
       />
       
@@ -177,12 +177,12 @@ export const Hero = () => {
                   <span>Dubai, UAE</span>
                 </span>
                 <a 
-                  href="mailto:Reejanr90@gmail.com" 
+                  href={getMailtoHref()} 
                   className="flex items-center gap-2 hover:text-primary transition-colors"
                   title="Email Reejan Gopan"
                 >
                   <Mail className="w-4 h-4 text-primary" aria-hidden="true" />
-                  Reejanr90@gmail.com
+                  {getEmail()}
                 </a>
                 <a 
                   href="tel:+971527123154" 
@@ -208,8 +208,7 @@ export const Hero = () => {
                   strength={0.2}
                 >
                   <span 
-                    className="flex items-center gap-2 px-6 sm:px-8 py-3 rounded-lg font-medium text-primary-foreground"
-                    style={{ background: "var(--gradient-primary)" }}
+                    className="flex items-center gap-2 px-6 sm:px-8 py-3 rounded-lg font-medium text-primary-foreground bg-gradient-primary"
                   >
                     <Linkedin className="w-4 h-4" aria-hidden="true" />
                     Hire Me
