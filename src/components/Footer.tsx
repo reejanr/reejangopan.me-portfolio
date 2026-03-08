@@ -1,16 +1,25 @@
 import { motion } from "framer-motion";
 import { forwardRef } from "react";
-import { Linkedin, Mail, Phone, Github, Twitter } from "lucide-react";
+import { Linkedin, Mail, Phone, Share2 } from "lucide-react";
+import { getMailtoHref } from "@/lib/email";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/reejan-r-gopan-38a8092b9";
+const SITE_URL = "https://reejangopan.me";
 
 export const Footer = forwardRef<HTMLElement>((_, ref) => {
   const currentYear = new Date().getFullYear();
   
   const socialLinks = [
     { icon: Linkedin, href: LINKEDIN_URL, label: "LinkedIn Profile - Reejan Gopan" },
-    { icon: Mail, href: "mailto:Reejanr90@gmail.com", label: "Email Reejan Gopan" },
+    { icon: Mail, href: getMailtoHref(), label: "Email Reejan Gopan" },
     { icon: Phone, href: "tel:+971527123154", label: "Call Reejan Gopan" },
+  ];
+
+  const shareLinks = [
+    { label: "LinkedIn", href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(SITE_URL)}` },
+    { label: "Twitter", href: `https://twitter.com/intent/tweet?url=${encodeURIComponent(SITE_URL)}&text=${encodeURIComponent("Check out Reejan Gopan - Digital Marketing & IT Expert in Dubai")}` },
+    { label: "Facebook", href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(SITE_URL)}` },
+    { label: "WhatsApp", href: `https://wa.me/?text=${encodeURIComponent("Reejan Gopan - Digital Marketing & IT Expert Dubai " + SITE_URL)}` },
   ];
   
   return (
