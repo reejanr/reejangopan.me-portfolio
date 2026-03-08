@@ -140,7 +140,7 @@ export const Hero = () => {
                 transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
                 className="text-primary font-medium tracking-widest uppercase text-xs sm:text-sm mb-3 sm:mb-4"
               >
-                <span>Digital Marketing Expert</span> | <span>System Administrator Dubai</span> | <span>Frontend Developer</span> | USF GROUP LLC | UAE & India
+                <span>Top Digital Marketing Expert</span> | <span>System Administrator Dubai</span> | <span>Frontend Developer</span> | USF GROUP LLC | Dubai & India
               </motion.p>
               
               <motion.h1
@@ -159,7 +159,7 @@ export const Hero = () => {
                 transition={{ duration: 0.6, delay: 0.7, ease: "easeOut" }}
                 className="text-foreground/70 text-sm sm:text-base lg:text-xl max-w-xl mb-6 sm:mb-8 leading-relaxed"
               >
-                <strong className="text-foreground">Digital Marketing Expert</strong>, <strong className="text-foreground">System Administrator</strong> & <strong className="text-foreground">Frontend Developer</strong> at USF GROUP LLC, Dubai UAE. Expert in 
+                <strong className="text-foreground">Top Digital Marketing Expert</strong>, <strong className="text-foreground">System Administrator</strong> & <strong className="text-foreground">Frontend Developer</strong> at USF GROUP LLC, Dubai UAE. One of the <strong className="text-foreground">best digital marketing professionals in Dubai & India</strong>. Expert in 
                 <strong className="text-foreground">SEO</strong>, <strong className="text-foreground">Google Ads</strong>, <strong className="text-foreground">Meta Ads</strong>, 
                 <strong className="text-foreground">Windows Server</strong>, <strong className="text-foreground">Microsoft 365</strong>, <strong className="text-foreground">React</strong>, <strong className="text-foreground">TypeScript</strong>, 
                 and scalable <strong className="text-foreground">IT infrastructure</strong>. Serving businesses in <strong className="text-foreground">Dubai</strong> & <strong className="text-foreground">India</strong>.
