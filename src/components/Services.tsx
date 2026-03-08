@@ -64,13 +64,13 @@ export const Services = () => {
             What I Offer
           </span>
           <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mt-4">
-            System Administrator & IT Services in Dubai
+            Digital Marketing & IT Services in Dubai
           </h2>
           <p className="text-foreground/70 mt-4 max-w-2xl mx-auto">
             <strong className="text-foreground">Reejan Gopan</strong> provides
-            professional system administration, IT administration, frontend
-            development, and digital marketing services in{" "}
-            <strong className="text-foreground">Dubai, UAE</strong>.
+            top digital marketing, SEO, Google Ads, Meta Ads, system administration, frontend
+            development, and IT infrastructure services in{" "}
+            <strong className="text-foreground">Dubai, UAE</strong> and <strong className="text-foreground">India</strong>.
           </p>
         </motion.header>
 

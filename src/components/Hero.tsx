@@ -118,8 +118,8 @@ export const Hero = () => {
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 to-transparent animate-pulse-glow" aria-hidden="true" />
                 <img
                   src={profileImage}
-                  alt="Reejan Gopan - Frontend Developer & IT Administrator at USF GROUP LLC Dubai UAE"
-                  title="Reejan Gopan - Frontend Developer & IT Administrator Dubai"
+                  alt="Reejan Gopan - Digital Marketing Expert, System Administrator & Frontend Developer Dubai UAE India"
+                  title="Reejan Gopan - Best Digital Marketing Professional Dubai"
                   className="w-full h-full object-cover rounded-full border-2 border-primary/30 relative z-10"
                   loading="eager"
                   width="288"
