@@ -15,10 +15,11 @@ export const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { href: "#about", label: "About" },
-    { href: "#experience", label: "Experience" },
-    { href: "#skills", label: "Skills" },
-    { href: "#contact", label: "Contact" },
+    { href: "#about", label: "About", title: "About Reejan Gopan" },
+    { href: "#experience", label: "Experience", title: "Work Experience - USF GROUP LLC Dubai" },
+    { href: "#services", label: "Services", title: "Digital Marketing & IT Services Dubai" },
+    { href: "#skills", label: "Skills", title: "Technical Skills - Google Ads, SEO, React" },
+    { href: "#contact", label: "Contact", title: "Contact Reejan Gopan" },
   ];
 
   return (
