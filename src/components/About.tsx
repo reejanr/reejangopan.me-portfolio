@@ -122,6 +122,9 @@ export const About = () => {
                   <p className="text-primary text-sm font-medium">{edu.year}</p>
                   <p className="text-foreground font-medium">{edu.degree}</p>
                   <p className="text-foreground/70 text-sm">{edu.institution}</p>
+                  {(edu as any).note && (
+                    <p className="text-primary/80 text-xs mt-1 font-medium">{(edu as any).note}</p>
+                  )}
                 </motion.div>
               ))}
             </div>

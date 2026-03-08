@@ -155,8 +155,8 @@ export const Skills = () => {
             Reejan Gopan's Digital Marketing & Technical Skills
           </h2>
           <p className="text-foreground/70 mt-4 max-w-2xl mx-auto">
-            <strong>Reejan R Gopan</strong> specializes in website management, SEO strategy, Google Ads, Meta Ads, 
-            social media operations, system optimization, email hosting, VPS setup, and scalable IT infrastructure development in <strong>Dubai, UAE</strong>.
+            <strong>Reejan R Gopan</strong> specializes in digital marketing (SEO, Google Ads, Meta Ads), system administration, 
+            website management, social media operations, VPS setup, and scalable IT infrastructure development in <strong>Dubai, UAE</strong> and <strong>India</strong>.
           </p>
         </motion.header>
 
