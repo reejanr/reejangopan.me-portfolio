@@ -159,8 +159,8 @@ export const Hero = () => {
                 transition={{ duration: 0.6, delay: 0.7, ease: "easeOut" }}
                 className="text-foreground/70 text-sm sm:text-base lg:text-xl max-w-xl mb-6 sm:mb-8 leading-relaxed"
               >
-                <strong className="text-foreground">Top Digital Marketing Expert</strong> & <strong className="text-foreground">Google Ads Expert</strong>, <strong className="text-foreground">System Administrator</strong> & <strong className="text-foreground">Frontend Developer</strong> at USF GROUP LLC, Dubai UAE. One of the <strong className="text-foreground">best Google Ads experts and digital marketing professionals in Dubai & India</strong>. Expert in 
-                <strong className="text-foreground">SEO</strong>, <strong className="text-foreground">Google Ads PPC</strong>, <strong className="text-foreground">Meta Ads</strong>, 
+                <strong className="text-foreground">System Administrator</strong> & <strong className="text-foreground">Frontend Developer</strong> at USF GROUP LLC, Dubai UAE. Experienced in 
+                <strong className="text-foreground">SEO</strong>, <strong className="text-foreground">Google Ads</strong>, <strong className="text-foreground">Meta Ads</strong>, 
                 <strong className="text-foreground">Windows Server</strong>, <strong className="text-foreground">Microsoft 365</strong>, <strong className="text-foreground">React</strong>, <strong className="text-foreground">TypeScript</strong>, 
                 and scalable <strong className="text-foreground">IT infrastructure</strong>. Serving businesses in <strong className="text-foreground">Dubai</strong> & <strong className="text-foreground">India</strong>.
               </motion.p>
