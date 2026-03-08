@@ -99,6 +99,7 @@ export const Navbar = () => {
                   <a
                     key={link.href}
                     href={link.href}
+                    title={link.title}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="text-lg font-medium text-foreground hover:text-primary transition-colors py-2"
                   >
