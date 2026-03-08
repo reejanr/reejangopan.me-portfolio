@@ -10,13 +10,14 @@ export const About = () => {
   const education = [
     {
       degree: "BCA (Bachelor of Computer Applications)",
-      institution: "Sree Narayana College Of Technology, Kerala, India",
+      institution: "Sree Narayana College Of Technology, Kollam — Kerala University, India",
       year: "2021-2024",
     },
     {
-      degree: "Higher Secondary",
-      institution: "Kerala State Board, India",
+      degree: "Higher Secondary (HSS)",
+      institution: "Nedumgolam Govt: H.S., Kollam, Kerala, India",
       year: "2019-2021",
+      note: "Participant — Kerala State IT Fair 2019 (HSS/VHSS Animation), Government of Kerala",
     },
   ];
 
