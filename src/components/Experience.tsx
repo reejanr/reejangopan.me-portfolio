@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Briefcase, Building2, Calendar, MapPin, ChevronDown, ChevronUp } from "lucide-react";
+import { Briefcase, Building2, Calendar, MapPin, ChevronDown } from "lucide-react";
 
 export const Experience = () => {
   const ref = useRef(null);
