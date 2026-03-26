@@ -1,4 +1,4 @@
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Server, Code, Globe, Shield, Cloud, Megaphone } from "lucide-react";
@@ -42,44 +42,6 @@ const services = [
   },
 ];
 
-const TiltCard = ({ children, className }: { children: React.ReactNode; className?: string }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const mouseXSpring = useSpring(x, { stiffness: 300, damping: 30 });
-  const mouseYSpring = useSpring(y, { stiffness: 300, damping: 30 });
-
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["8deg", "-8deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-8deg", "8deg"]);
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const px = (e.clientX - rect.left) / rect.width - 0.5;
-    const py = (e.clientY - rect.top) / rect.height - 0.5;
-    x.set(px);
-    y.set(py);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  return (
-    <motion.div
-      ref={ref}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-};
-
 export const Services = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.05 });
@@ -87,29 +49,24 @@ export const Services = () => {
   return (
     <section
       id="services"
-      className="section-spacing bg-background dark noise-bg"
+      className="py-24 bg-background dark"
       ref={ref}
       aria-label="Digital Marketing, System Administration & Frontend Developer Services in Dubai UAE and India"
     >
-      <div className="container px-6 relative z-10">
+      <div className="container px-6">
         <motion.header
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
-          className="text-center mb-20"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
         >
-          <motion.span 
-            className="inline-block text-primary font-medium tracking-[0.25em] uppercase text-xs px-4 py-1.5 rounded-full glass border border-primary/20 mb-6"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ delay: 0.1 }}
-          >
+          <span className="text-primary font-medium tracking-widest uppercase text-sm">
             What I Offer
-          </motion.span>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mt-4">
+          </span>
+          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mt-4">
             Digital Marketing & IT Services in Dubai
           </h2>
-          <p className="text-muted-foreground mt-5 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
+          <p className="text-foreground/70 mt-4 max-w-2xl mx-auto">
             <strong className="text-foreground">Reejan Gopan</strong> provides
             top digital marketing, SEO, Google Ads, Meta Ads, system administration, frontend
             development, and IT infrastructure services in{" "}
@@ -130,7 +87,7 @@ export const Services = () => {
           animate={isInView ? "visible" : "hidden"}
         >
           {services.map((service, index) => (
-            <motion.div
+            <motion.article
               key={index}
               variants={{
                 hidden: { opacity: 0, y: 30, scale: 0.95 },
@@ -138,36 +95,28 @@ export const Services = () => {
                   opacity: 1,
                   y: 0,
                   scale: 1,
-                  transition: { duration: 0.6, ease: [0.25, 0.4, 0.25, 1] },
+                  transition: {
+                    duration: 0.5,
+                    ease: [0.25, 0.4, 0.25, 1],
+                  },
                 },
               }}
+              whileHover={{ y: -5 }}
+              className="bg-card rounded-2xl p-6 card-shadow border border-border hover:border-primary/30 transition-all duration-300"
             >
-              <TiltCard className="h-full perspective-1000">
-                <article className="h-full glass-card rounded-2xl p-6 sm:p-7 hover:border-primary/30 transition-all duration-500 hover-glow group relative overflow-hidden">
-                  {/* Glow accent */}
-                  <div 
-                    className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl pointer-events-none" 
-                    style={{ background: "radial-gradient(circle, hsl(var(--primary) / 0.15), transparent)" }}
-                    aria-hidden="true"
-                  />
-                  
-                  <div className="relative z-10">
-                    <div
-                      className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/15 transition-colors"
-                      aria-hidden="true"
-                    >
-                      <service.icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <h3 className="font-heading text-lg font-semibold text-foreground mb-3">
-                      {service.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {service.description}
-                    </p>
-                  </div>
-                </article>
-              </TiltCard>
-            </motion.div>
+              <div
+                className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4"
+                aria-hidden="true"
+              >
+                <service.icon className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-heading text-lg font-semibold text-foreground mb-3">
+                {service.title}
+              </h3>
+              <p className="text-sm text-foreground/70 leading-relaxed">
+                {service.description}
+              </p>
+            </motion.article>
           ))}
         </motion.div>
       </div>
