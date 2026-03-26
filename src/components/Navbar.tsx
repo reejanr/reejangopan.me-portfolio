@@ -27,46 +27,43 @@ export const Navbar = () => {
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.6 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "bg-background/80 backdrop-blur-lg border-b border-border"
+            ? "glass-strong shadow-lg"
             : "bg-transparent"
         }`}
       >
         <div className="container px-6">
           <div className="flex items-center justify-between h-16 md:h-20">
-            {/* Logo */}
             <a href="#home" className="flex items-center gap-2" aria-label="Reejan Gopan - Home">
               <span className="font-heading text-xl font-bold text-foreground">
-                Reejan<span className="text-primary">.</span>
+                Reejan<span className="gradient-text">.</span>
               </span>
             </a>
 
-            {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
+            <nav className="hidden md:flex items-center gap-1" aria-label="Main navigation">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   title={link.title}
-                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group"
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-300 px-4 py-2 rounded-lg hover:bg-primary/5 relative group"
                 >
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-accent transition-all duration-300 group-hover:w-3/4 rounded-full" />
                 </a>
               ))}
               <a
                 href="https://www.linkedin.com/in/reejan-r-gopan-38a8092b9"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2 rounded-lg text-sm font-medium text-primary-foreground transition-all duration-300 hover:scale-105 bg-gradient-primary"
+                className="ml-4 px-5 py-2 rounded-xl text-sm font-medium text-primary-foreground transition-all duration-300 hover:scale-105 bg-gradient-primary hover-glow"
               >
                 Hire Me
               </a>
             </nav>
 
-            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden p-2 text-foreground hover:text-primary transition-colors"
@@ -78,43 +75,51 @@ export const Navbar = () => {
         </div>
       </motion.header>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
             className="fixed inset-0 z-40 md:hidden"
           >
             <div
-              className="absolute inset-0 bg-background/80 backdrop-blur-lg"
+              className="absolute inset-0 bg-background/60 backdrop-blur-2xl"
               onClick={() => setIsMobileMenuOpen(false)}
             />
-            <div className="absolute top-16 left-0 right-0 bg-card border-b border-border p-6">
-              <nav className="flex flex-col gap-4">
-                {navLinks.map((link) => (
-                  <a
+            <motion.div
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -20, opacity: 0 }}
+              transition={{ duration: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
+              className="absolute top-16 left-4 right-4 glass-strong rounded-2xl p-6"
+            >
+              <nav className="flex flex-col gap-2">
+                {navLinks.map((link, index) => (
+                  <motion.a
                     key={link.href}
                     href={link.href}
                     title={link.title}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-lg font-medium text-foreground hover:text-primary transition-colors py-2"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                    className="text-lg font-medium text-foreground hover:text-primary transition-colors py-3 px-4 rounded-xl hover:bg-primary/5"
                   >
                     {link.label}
-                  </a>
+                  </motion.a>
                 ))}
                 <a
                   href="https://www.linkedin.com/in/reejan-r-gopan-38a8092b9"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3 rounded-lg text-center font-medium text-primary-foreground mt-4 bg-gradient-primary"
+                  className="px-6 py-3 rounded-xl text-center font-medium text-primary-foreground mt-2 bg-gradient-primary"
                 >
                   Hire Me
                 </a>
               </nav>
-            </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
