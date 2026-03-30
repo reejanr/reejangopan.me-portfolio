@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowDown, Mail, MapPin, Phone, Linkedin, Sparkles } from "lucide-react";
+import { ArrowDown, Mail, MapPin, Phone, Linkedin, ArrowUpRight } from "lucide-react";
 import { useRef } from "react";
 import profileImage from "@/assets/profile.jpg";
 import { FloatingGeometry } from "./FloatingGeometry";
@@ -7,6 +7,19 @@ import { getEmail, getMailtoHref } from "@/lib/email";
 import { MagneticButton } from "./MagneticButton";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/reejan-r-gopan-38a8092b9";
+
+const StatusBadge = () => (
+  <motion.div
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.3, duration: 0.5 }}
+    className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-primary/20 text-sm"
+  >
+    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+    <span className="text-muted-foreground">Available for hire</span>
+    <span className="text-primary font-medium">Dubai, UAE</span>
+  </motion.div>
+);
 
 export const Hero = () => {
   const sectionRef = useRef(null);
@@ -17,7 +30,6 @@ export const Hero = () => {
 
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.9]);
 
   return (
     <section 
@@ -28,94 +40,49 @@ export const Hero = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background dark"
       aria-label="Reejan Gopan - IT Professional Introduction"
     >
-      {/* Background gradient */}
-      <div 
-        className="absolute inset-0 opacity-60 bg-gradient-hero"
-        aria-hidden="true"
-      />
+      {/* Grid background */}
+      <div className="absolute inset-0 bg-grid opacity-40" aria-hidden="true" />
       
-      {/* 3D Floating Geometry - desktop only */}
+      {/* Hero gradient */}
+      <div className="absolute inset-0 bg-gradient-hero" aria-hidden="true" />
+      
+      {/* Glow orbs */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-primary/5 blur-[120px] pointer-events-none" aria-hidden="true" />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-neon-purple/5 blur-[100px] pointer-events-none" aria-hidden="true" />
+      
       <FloatingGeometry />
-      
-      {/* Glow effect */}
-      <motion.div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] md:w-[800px] md:h-[800px] pointer-events-none"
-        style={{ 
-          background: "var(--gradient-glow)",
-          y,
-          scale,
-        }}
-        aria-hidden="true"
-      />
-
-      {/* Geometric accents - hidden on mobile for performance */}
-      <div className="hidden md:block">
-        <motion.div 
-          className="absolute top-20 right-20 w-64 h-64 border border-primary/10 rounded-full animate-float" 
-          style={{ y: useTransform(scrollYProgress, [0, 1], [0, 100]) }}
-          aria-hidden="true" 
-        />
-        <motion.div 
-          className="absolute bottom-32 left-16 w-32 h-32 border border-primary/20 rotate-45" 
-          style={{ y: useTransform(scrollYProgress, [0, 1], [0, 50]) }}
-          aria-hidden="true" 
-        />
-        <motion.div 
-          className="absolute top-1/3 left-10 w-2 h-2 bg-primary rounded-full animate-pulse" 
-          style={{ y: useTransform(scrollYProgress, [0, 1], [0, 150]) }}
-          aria-hidden="true" 
-        />
-        <motion.div 
-          className="absolute bottom-1/4 right-1/4 w-3 h-3 bg-primary/50 rounded-full animate-pulse" 
-          style={{ y: useTransform(scrollYProgress, [0, 1], [0, 80]) }}
-          aria-hidden="true" 
-        />
-      </div>
 
       <motion.div 
         className="container relative z-10 px-4 sm:px-6 py-16 sm:py-20"
         style={{ opacity }}
       >
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <motion.article 
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
             className="flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-20"
           >
-            {/* Profile Image with enhanced effects */}
+            {/* Profile Image */}
             <motion.figure 
-              initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
               className="relative"
               whileHover={{ scale: 1.02 }}
             >
               <div className="relative w-44 h-44 sm:w-56 sm:h-56 lg:w-72 lg:h-72">
-                {/* Animated rings */}
+                {/* Neon ring */}
                 <motion.div 
-                  className="absolute -inset-4 rounded-full border border-primary/20"
+                  className="absolute -inset-3 rounded-full neon-border"
                   animate={{ rotate: 360 }}
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                   aria-hidden="true"
                 />
-                <motion.div 
-                  className="absolute -inset-8 rounded-full border border-primary/10"
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                  aria-hidden="true"
-                />
                 
-                {/* Floating icons around profile */}
-                <motion.div
-                  className="absolute -top-4 -right-4 p-2 rounded-full bg-card border border-border shadow-lg"
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <Sparkles className="w-4 h-4 text-primary" />
-                </motion.div>
+                {/* Gradient glow behind */}
+                <div className="absolute -inset-6 rounded-full bg-gradient-primary opacity-10 blur-2xl animate-pulse-glow" aria-hidden="true" />
                 
-                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 to-transparent animate-pulse-glow" aria-hidden="true" />
                 <img
                   src={profileImage}
                   alt="Reejan Gopan - Digital Marketing Expert, System Administrator & Frontend Developer Dubai UAE India"
@@ -126,6 +93,15 @@ export const Hero = () => {
                   height="288"
                   itemProp="image"
                 />
+                
+                {/* Status indicator */}
+                <motion.div
+                  className="absolute -bottom-2 left-1/2 -translate-x-1/2 z-20 px-3 py-1 rounded-full glass text-xs font-medium text-primary whitespace-nowrap"
+                  animate={{ y: [0, -5, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  ✦ Open to work
+                </motion.div>
               </div>
               <figcaption className="sr-only">
                 Professional photo of Reejan Gopan, IT Administrator at USF GROUP LLC, Dubai UAE
@@ -134,92 +110,75 @@ export const Hero = () => {
 
             {/* Content */}
             <header className="text-center lg:text-left flex-1 w-full">
-              <motion.p
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-                className="text-primary font-medium tracking-widest uppercase text-xs sm:text-sm mb-3 sm:mb-4"
-              >
-                <span>Digital Marketing</span> | <span>System Administrator</span> | <span>Frontend Developer</span> | USF GROUP LLC | Dubai & India
-              </motion.p>
+              <StatusBadge />
               
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
-                className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 leading-tight"
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="font-heading text-4xl sm:text-5xl lg:text-7xl font-bold text-foreground mt-6 mb-4 leading-[1.1] tracking-tight"
               >
-                <span className="block text-foreground">Reejan Gopan</span>
-                <span className="block gradient-text text-2xl sm:text-3xl lg:text-4xl mt-2">IT & Marketing Professional</span>
+                <span className="block">Reejan Gopan</span>
+                <span className="block gradient-text text-2xl sm:text-3xl lg:text-4xl mt-3 font-semibold">
+                  IT & Marketing Professional
+                </span>
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.7, ease: "easeOut" }}
-                className="text-foreground/70 text-sm sm:text-base lg:text-xl max-w-xl mb-6 sm:mb-8 leading-relaxed"
+                transition={{ duration: 0.6, delay: 0.7 }}
+                className="text-muted-foreground text-sm sm:text-base lg:text-lg max-w-xl mb-8 leading-relaxed"
               >
-                <strong className="text-foreground">System Administrator</strong> & <strong className="text-foreground">Frontend Developer</strong> at USF GROUP LLC, Dubai UAE. Experienced in 
-                <strong className="text-foreground">SEO</strong>, <strong className="text-foreground">Google Ads</strong>, <strong className="text-foreground">Meta Ads</strong>, 
-                <strong className="text-foreground">Windows Server</strong>, <strong className="text-foreground">Microsoft 365</strong>, <strong className="text-foreground">React</strong>, <strong className="text-foreground">TypeScript</strong>, 
-                and scalable <strong className="text-foreground">IT infrastructure</strong>. Serving businesses in <strong className="text-foreground">Dubai</strong> & <strong className="text-foreground">India</strong>.
+                <strong className="text-foreground">System Administrator</strong> & <strong className="text-foreground">Frontend Developer</strong> at USF GROUP LLC, Dubai.
+                Specializing in <strong className="text-foreground">SEO</strong>, <strong className="text-foreground">Google Ads</strong>, <strong className="text-foreground">React</strong>, and scalable <strong className="text-foreground">IT infrastructure</strong>.
               </motion.p>
 
-              {/* Contact Info */}
+              {/* Contact chips */}
               <motion.address
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.0, ease: "easeOut" }}
-                className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 text-sm text-foreground/70 mb-8 not-italic"
+                transition={{ duration: 0.6, delay: 0.9 }}
+                className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-3 text-sm mb-8 not-italic"
               >
-                <span className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-primary" aria-hidden="true" />
-                  <span>Dubai, UAE</span>
-                </span>
-                <a 
-                  href={getMailtoHref()} 
-                  className="flex items-center gap-2 hover:text-primary transition-colors"
-                  title="Email Reejan Gopan"
-                >
-                  <Mail className="w-4 h-4 text-primary" aria-hidden="true" />
-                  {getEmail()}
-                </a>
-                <a 
-                  href="tel:+971527123154" 
-                  className="flex items-center gap-2 hover:text-primary transition-colors"
-                  title="Call Reejan Gopan"
-                >
-                  <Phone className="w-4 h-4 text-primary" aria-hidden="true" />
-                  +971 527123154
-                </a>
+                {[
+                  { icon: MapPin, text: "Dubai, UAE", href: null },
+                  { icon: Mail, text: getEmail(), href: getMailtoHref() },
+                  { icon: Phone, text: "+971 527123154", href: "tel:+971527123154" },
+                ].map((item, i) => {
+                  const Tag = item.href ? 'a' : 'span';
+                  return (
+                    <Tag
+                      key={i}
+                      {...(item.href ? { href: item.href } : {})}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg glass text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      <item.icon className="w-3.5 h-3.5 text-primary" aria-hidden="true" />
+                      {item.text}
+                    </Tag>
+                  );
+                })}
               </motion.address>
 
-              {/* CTA Buttons with Magnetic Effect */}
+              {/* CTA Buttons */}
               <motion.nav
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.3, ease: "easeOut" }}
+                transition={{ duration: 0.6, delay: 1.1 }}
                 className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4"
                 aria-label="Contact Reejan Gopan"
               >
-                <MagneticButton
-                  href={LINKEDIN_URL}
-                  className="px-6 sm:px-8 py-3 rounded-lg font-medium text-primary-foreground transition-all duration-300 flex items-center gap-2"
-                  strength={0.2}
-                >
-                  <span 
-                    className="flex items-center gap-2 px-6 sm:px-8 py-3 rounded-lg font-medium text-primary-foreground bg-gradient-primary"
-                  >
+                <MagneticButton href={LINKEDIN_URL} strength={0.2}>
+                  <span className="flex items-center gap-2 px-6 sm:px-8 py-3.5 rounded-xl font-semibold text-primary-foreground bg-gradient-primary neon-glow text-sm">
                     <Linkedin className="w-4 h-4" aria-hidden="true" />
                     Hire Me
+                    <ArrowUpRight className="w-3.5 h-3.5" />
                   </span>
                 </MagneticButton>
-                <MagneticButton
-                  href={LINKEDIN_URL}
-                  className="px-6 sm:px-8 py-3 rounded-lg font-medium border border-border text-foreground hover:bg-secondary transition-all duration-300 flex items-center gap-2"
-                  strength={0.2}
-                >
-                  Send Message
+                <MagneticButton href={LINKEDIN_URL} strength={0.2}>
+                  <span className="flex items-center gap-2 px-6 sm:px-8 py-3.5 rounded-xl font-medium glass text-foreground hover:border-primary/30 transition-all text-sm neon-border">
+                    Send Message
+                  </span>
                 </MagneticButton>
               </motion.nav>
             </header>
@@ -228,8 +187,8 @@ export const Hero = () => {
 
         {/* Scroll indicator */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.5 }}
           className="absolute bottom-10 left-1/2 -translate-x-1/2"
         >
@@ -239,12 +198,17 @@ export const Hero = () => {
             aria-label="Scroll to learn more about Reejan Gopan"
             whileHover={{ y: 5 }}
           >
-            <span className="text-xs uppercase tracking-widest">Scroll</span>
+            <span className="text-[10px] uppercase tracking-[0.2em] font-medium">Explore</span>
             <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              className="w-6 h-10 rounded-full border border-primary/30 flex items-start justify-center p-1.5"
             >
-              <ArrowDown className="w-4 h-4" aria-hidden="true" />
+              <motion.div
+                animate={{ y: [0, 12, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                className="w-1 h-2 rounded-full bg-primary"
+              />
             </motion.div>
           </motion.a>
         </motion.div>
