@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowDown, Mail, MapPin, Phone, Linkedin, ArrowUpRight } from "lucide-react";
+import { Mail, MapPin, Phone, Linkedin, ArrowUpRight } from "lucide-react";
 import { useRef } from "react";
 import profileImage from "@/assets/profile.jpg";
 import { FloatingGeometry } from "./FloatingGeometry";
