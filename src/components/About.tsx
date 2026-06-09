@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { GraduationCap, Languages, Target, Award, Calendar } from "lucide-react";
+import { GraduationCap, Languages, Target, Award, Calendar, Sparkles } from "lucide-react";
 
 export const About = () => {
   const ref = useRef(null);
@@ -24,9 +24,18 @@ export const About = () => {
 
   const stats = [
     { value: "3+", label: "Years Experience" },
-    { value: "10+", label: "Projects Delivered" },
-    { value: "3", label: "Companies" },
+    { value: "10+", label: "Systems Delivered" },
+    { value: "1", label: "Live Product" },
     { value: "4", label: "Languages" },
+  ];
+
+  const paragraphs = [
+    "I am an Information Technology Administrator specializing in enterprise systems, IT infrastructure, business applications, process automation, digital operations, and AI-assisted development.",
+    "My work extends beyond traditional IT administration, combining technology, business operations, automation, and digital transformation to create efficient, scalable, and reliable solutions that support organizational growth.",
+    "At USF Group, I manage and optimize the organization's technology ecosystem, including enterprise applications, workforce management systems, Microsoft 365 administration, VPS and server infrastructure, email hosting, DNS management, website operations, SEO, digital marketing technologies, and business process automation. I am responsible for improving operational efficiency, ensuring system reliability, and supporting technology-driven business growth.",
+    "I lead the development, implementation, and maintenance of business-critical solutions that streamline operations and improve productivity. One of my key projects is Waqti, a workforce management platform developed for USF Group that simplifies attendance tracking, workforce administration, operational reporting, and employee management. The platform is actively used within the organization and is available as a mobile application on Google Play.",
+    "I embrace modern AI-assisted development workflows to rapidly design, build, deploy, and improve business applications. By combining technical expertise with business understanding, I transform ideas into practical solutions that create measurable value and support long-term organizational success.",
+    "I am passionate about leveraging technology to solve business challenges, optimize processes, and build scalable systems that improve efficiency and drive digital transformation.",
   ];
 
   return (
@@ -50,11 +59,10 @@ export const About = () => {
             About Me
           </span>
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mt-4">
-            Background & Qualifications
+            Technology, Systems & Business Impact
           </h2>
         </motion.header>
 
-        {/* Stats Row */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -73,9 +81,7 @@ export const About = () => {
           ))}
         </motion.div>
 
-        {/* Bento Grid */}
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-          {/* Objective - spans 2 on lg */}
           <motion.article
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -87,16 +93,15 @@ export const About = () => {
               <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center" aria-hidden="true">
                 <Target className="w-5 h-5 text-primary-foreground" />
               </div>
-              <h3 className="font-heading text-lg font-semibold text-foreground">Career Objective</h3>
+              <h3 className="font-heading text-lg font-semibold text-foreground">Who I Am</h3>
             </div>
-            <p className="text-muted-foreground leading-relaxed">
-              Experienced <strong className="text-foreground">Digital Marketing Expert</strong>, <strong className="text-foreground">System Administrator</strong> and <strong className="text-foreground">Frontend Developer</strong> seeking 
-              challenging roles that leverage digital marketing expertise, IT infrastructure management, and modern web development skills 
-              to drive business success through innovative solutions in <strong className="text-foreground">Dubai, UAE</strong> and <strong className="text-foreground">India</strong>.
-            </p>
+            <div className="space-y-4 text-muted-foreground leading-relaxed text-sm sm:text-[15px]">
+              {paragraphs.slice(0, 3).map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
           </motion.article>
 
-          {/* Languages */}
           <motion.article
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -126,7 +131,26 @@ export const About = () => {
             </div>
           </motion.article>
 
-          {/* Education - spans full width */}
+          <motion.article
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.35 }}
+            whileHover={{ y: -4 }}
+            className="lg:col-span-3 rounded-2xl p-6 sm:p-8 glass-card neon-border hover:bg-card/40 transition-all"
+          >
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center" aria-hidden="true">
+                <Sparkles className="w-5 h-5 text-primary-foreground" />
+              </div>
+              <h3 className="font-heading text-lg font-semibold text-foreground">Building Practical Solutions</h3>
+            </div>
+            <div className="space-y-4 text-muted-foreground leading-relaxed text-sm sm:text-[15px]">
+              {paragraphs.slice(3).map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+          </motion.article>
+
           <motion.article
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}

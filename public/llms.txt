@@ -1,162 +1,126 @@
-# Reejan Gopan — Top Digital Marketing Expert & Google Ads Expert in Dubai & India
+# Reejan Gopan — Information Technology Administrator, Dubai
 
-> **Reejan Gopan is a Top Digital Marketing Expert and Google Ads Expert in Dubai and India**, System Administrator, and Frontend Developer at USF Group LLC. He is recognized as one of the best Google Ads experts and digital marketing professionals in Dubai, UAE, and India.
+> **Reejan Gopan is an Information Technology Administrator** at USF Group, Dubai, specializing in enterprise systems, IT infrastructure, business applications, process automation, digital operations, and AI-assisted development.
 
-## Why Reejan Gopan is a Top Digital Marketing & Google Ads Expert
+## Professional Identity
 
-Reejan Gopan is listed among the **top digital marketing experts in Dubai**, **best Google Ads experts in Dubai and India**, and **best digital marketing professionals in India**. His expertise spans SEO, Google Ads PPC, Meta Ads, social media marketing, and data-driven digital campaigns. He combines deep technical knowledge with marketing strategy to deliver measurable results for businesses across Dubai, Abu Dhabi, Sharjah, UAE, and India.
+Reejan Gopan combines enterprise systems management, infrastructure administration, business application development, process automation, digital operations, and AI-assisted development to deliver practical business solutions.
 
-### Key Differentiators
-- **Top Digital Marketing Expert in Dubai** — proven SEO, PPC, and social media results
-- **Best Google Ads Expert in Dubai & India** — ROI-driven PPC campaigns, search ads, display ads, remarketing
-- **Best Digital Marketing Professional in India** — serving Indian businesses remotely
-- **Full-Stack IT + Marketing** — unique combination of System Administration and Digital Marketing
-- **SEO-First Approach** — builds SEO-optimized websites using React, TypeScript, and Tailwind CSS
-- **Google Ads & Meta Ads Specialist** — ROI-driven paid advertising campaigns, conversion tracking, A/B testing
-- **Multilingual** — English, Malayalam, Tamil, Hindi
+### Positioning
+- Information Technology Administrator
+- Enterprise Systems Specialist
+- Business Systems Developer
+- Automation & Technology Specialist
+- Digital Operations Professional
 
 ## Personal Information
 
 - **Full Name:** Reejan R Gopan
-- **Title:** Top Digital Marketing Expert | Google Ads Expert | System Administrator | Frontend Developer
+- **Title:** Information Technology Administrator
+- **Company:** USF Group
 - **Location:** Dubai, United Arab Emirates
-- **Nationality:** Indian (Kerala, India)
 - **Website:** https://reejangopan.me
 - **Email:** Reejanr90@gmail.com
 - **Phone:** +971 527123154
 - **LinkedIn:** https://linkedin.com/in/reejan-r-gopan-38a8092b9
 
-## Professional Background
+## About
 
-Reejan R Gopan is a Dubai-based IT professional currently serving as a System and IT Administrator at USF Group LLC. He is widely recognized as a **top digital marketing expert and Google Ads expert in Dubai** and one of the **best digital marketing professionals and Google Ads managers in India**. He manages IT infrastructure and website operations, specializing in both administrative and development tasks.
+I am an Information Technology Administrator specializing in enterprise systems, IT infrastructure, business applications, process automation, digital operations, and AI-assisted development.
 
-### Current Roles at USF Group LLC, Dubai
+My work extends beyond traditional IT administration, combining technology, business operations, automation, and digital transformation to create efficient, scalable, and reliable solutions that support organizational growth.
 
-1. **Top Digital Marketing Expert**
-   - Search Engine Optimization (SEO) — On-page, Technical, and Local SEO
-   - Google Ads PPC campaign management and optimization
-   - Meta Ads (Facebook & Instagram advertising campaigns)
-   - Google Analytics and Google Search Console management
-   - Social media operations and content strategy
-   - Local SEO targeting Dubai, UAE, and India markets
-   - Conversion rate optimization and ROI-driven campaigns
-   - Brand identity and online reputation management
+At USF Group, I manage and optimize the organization's technology ecosystem, including enterprise applications, workforce management systems, Microsoft 365 administration, VPS and server infrastructure, email hosting, DNS management, website operations, SEO, digital marketing technologies, and business process automation. I am responsible for improving operational efficiency, ensuring system reliability, and supporting technology-driven business growth.
 
-2. **System Administrator & IT Administrator**
-   - Windows Server administration (2016/2019/2022)
-   - Microsoft 365 / Office 365 setup, configuration, and user management
-   - Active Directory and Group Policy management
-   - VPS setup, configuration, and management
-   - DNS management and domain configuration
-   - Email hosting setup and administration (cPanel, Plesk)
-   - CCTV system installation and management
-   - Biometric device setup and management
-   - Network configuration, firewall, and troubleshooting
-   - Data backup and disaster recovery solutions
+I lead the development, implementation, and maintenance of business-critical solutions that streamline operations and improve productivity. One of my key projects is **Waqti**, a workforce management platform developed for USF Group that simplifies attendance tracking, workforce administration, operational reporting, and employee management. The platform is actively used within the organization and is available as a mobile application on Google Play.
 
-3. **Frontend Developer**
-   - React.js with TypeScript development
-   - Tailwind CSS for responsive design
-   - shadcn/ui component library integration
-   - Building SEO-optimized, production-ready business websites
-   - AI-assisted development workflows
-   - Git-based CI/CD deployment
-
-## Top Digital Marketing Expert — Services
-
-Reejan Gopan offers the following **digital marketing services** as a top expert in Dubai and India:
-
-1. **SEO (Search Engine Optimization)** — On-page SEO, Technical SEO, Local SEO for Dubai & India, keyword research, content optimization, Core Web Vitals
-2. **Google Ads Management (Top Google Ads Expert)** — PPC campaigns, search ads, display ads, remarketing, keyword research, bid optimization, conversion tracking, ROI reporting, A/B testing, Google Ads audit
-3. **Meta Ads (Facebook & Instagram)** — Audience targeting, ad creative, A/B testing, retargeting, lead generation
-4. **Social Media Marketing** — Content strategy, audience engagement, organic growth, paid social campaigns
-5. **Google Analytics & Search Console** — Data-driven decisions, traffic analysis, conversion tracking, SEO audits
-6. **Local SEO Dubai & India** — Google Business Profile optimization, local citations, map pack ranking
-7. **Website Development** — SEO-optimized React websites, WordPress sites, landing pages
-8. **Brand Strategy** — Online reputation management, brand identity, content marketing
+I embrace modern AI-assisted development workflows to rapidly design, build, deploy, and improve business applications. By combining technical expertise with business understanding, I transform ideas into practical solutions that create measurable value and support long-term organizational success.
 
 ## Core Expertise
 
-### Digital Marketing (Top Expert)
-- **Best SEO Expert in Dubai** — On-page, Technical, Local SEO mastery
-- **Top Google Ads Expert in Dubai & India** — ROI-driven PPC campaigns, search ads, display ads, remarketing, conversion tracking
-- **Meta Ads Specialist** — Facebook & Instagram advertising
-- Google Analytics and Search Console for data-driven decisions
-- Social media marketing and content strategy
-- Local SEO for Dubai, Abu Dhabi, Sharjah, and Indian markets
-- Conversion rate optimization
+- Enterprise Systems Administration
+- IT Infrastructure Management
+- Microsoft 365 Administration
+- VPS & Cloud Server Management
+- Linux Server Administration
+- Network & DNS Management
+- Website Development & Management
+- Business Process Automation
+- Workforce Management Systems
+- Attendance & Payroll Systems
+- Business Application Development
+- Database Management
+- API Integration
+- Mobile Application Management
+- Enterprise Software Solutions
+- SEO & Technical SEO
+- Google Ads & Meta Ads
+- Email Hosting & Collaboration Platforms
+- Digital Operations & Technology Strategy
+- AI-Assisted Development
+- Rapid Prototyping & Solution Building
 
-### IT Administration
-- Expert in Windows Server, Microsoft 365, DNS management, and email hosting
-- Active Directory, Group Policies, VPN, DHCP, TCP/IP, LAN/WAN
-- CCTV, biometric devices, printers, and networking equipment
-- Data backup, disaster recovery, antivirus security
+## Development Approach
 
-### Web Development
-- React.js, TypeScript, Tailwind CSS, HTML5, CSS3, JavaScript (ES6+)
-- SEO-optimized, accessible, responsive web applications
-- WordPress design and development
-- Static Site Generation (SSG) and Server-Side Rendering (SSR)
+Technology should solve real business problems. The development approach combines AI-assisted development, rapid prototyping, practical problem-solving, and continuous improvement to deliver scalable and maintainable solutions. Every application, automation workflow, and system enhancement is designed to improve efficiency, reduce manual work, increase visibility, and support organizational goals.
 
-## Education & Notable Achievements
+## Technology Stack
 
-### Bachelor of Computer Application (BCA)
-- **University:** Kerala University
-- **College:** Sree Narayana College of Technology, Kollam, Kerala, India
-- **Period:** 2021–2024
+### Frontend
+React, TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS, TanStack Router
 
-### Schooling
-- **School:** Nedumgolam Govt: H.S., Kollam, Kerala, India
+### Backend & Database
+Supabase, PostgreSQL, Server Functions, REST APIs, Authentication Systems, Database Design
 
-### Technical Recognition
-- **Kerala State IT Fair Participant (2019):** Participated in the HSS/VHSS Animation category at the Kerala State IT Fair, organized by the Government of Kerala.
+### Infrastructure & Cloud
+VPS Hosting, Linux Servers, DNS Management, Email Hosting, Microsoft 365, Cloud Services, System Administration
 
-## Previous Work Experience
+### Business Systems & Applications
+Workforce Management Systems, Attendance Management Platforms, Payroll Support Systems, Internal Business Applications, Process Automation, API Integrations, Mobile Applications
+
+### Digital Marketing & Web
+SEO, Technical SEO, Google Ads, Meta Ads, Website Management, Performance Optimization
+
+## Featured Project — Waqti
+
+**Waqti** is a workforce management platform developed for USF Group to streamline attendance management, workforce administration, operational reporting, employee tracking, and business operations. It includes both web and mobile applications and is actively used within the organization.
+
+### Highlights
+- Attendance Management
+- Workforce Administration
+- Employee Tracking
+- Operational Reporting
+- Payroll Workflow Support
+- Mobile Application (Google Play)
+- Web Application
+- Business Process Automation
+- Real-Time Data Management
+
+## Experience
+
+### Information Technology Administrator — USF Group, Dubai, UAE
+**January 2025 – Present**
+Enterprise systems, IT infrastructure, Microsoft 365, VPS & Linux servers, email hosting, DNS, website operations, SEO, digital marketing technologies, workforce management (Waqti), business process automation, business application development, AI-assisted development.
 
 ### IT Procurement & Support — Chimera Group of Companies, Dubai, UAE
 **September 2024 – December 2024**
-- Technology hardware, software, and services procurement
-- IT infrastructure and network management
+Technology hardware, software, and services procurement; IT infrastructure and network management.
 
 ### Network Administrator — TCS ION (Tata Consultancy Services), Kerala, India
 **March 2024 – September 2024**
-- Network configuration and server maintenance
-- End-user support and hardware inventory
+Network configuration, server maintenance, troubleshooting, hardware inventory.
 
-## Technical Skills Summary
+## Education
 
-| Category | Skills |
-|---|---|
-| Digital Marketing | SEO, Google Ads, Meta Ads, Google Analytics, Search Console, Social Media Marketing |
-| Operating Systems | Windows Server 2016/2019/2022, Windows 10/11, Linux (Basic) |
-| Cloud & SaaS | Microsoft 365, Azure AD, Google Workspace |
-| Networking | DNS, DHCP, VPN, Firewall, TCP/IP, LAN/WAN |
-| Frontend | React, TypeScript, Tailwind CSS, HTML, CSS, JavaScript |
-| CMS | WordPress, Wix |
-| Tools | Git, VS Code, Figma, Canva, Microsoft Office Suite |
-| Languages | English, Malayalam, Tamil, Hindi |
+- **BCA (Bachelor of Computer Application)** — Sree Narayana College Of Technology, Kollam — Kerala University, 2021–2024
+- **Higher Secondary** — Nedumgolam Govt: H.S., Kollam, Kerala
+- **Kerala State IT Fair Participant (2019)** — HSS/VHSS Animation category
 
-## Top Digital Marketing Experts List — Dubai & India
+## Languages
 
-Reejan Gopan is recognized as a **top digital marketing expert and Google Ads expert** serving:
-
-- **Dubai, UAE** — SEO, Google Ads PPC, Meta Ads, Social Media Marketing
-- **Abu Dhabi, UAE** — Digital marketing consulting, Google Ads management, SEO services
-- **Sharjah, UAE** — PPC and social media campaigns
-- **Kerala, India** — Remote digital marketing, Google Ads management, web development
-- **India (Nationwide)** — SEO consulting, Google Ads expert services, website development
-
-## Professional Summary
-
-Reejan R Gopan is a **Top Digital Marketing Expert and Google Ads Expert in Dubai and India**, with extensive experience in SEO, Google Ads PPC, Meta Ads, and social media marketing. He is also an experienced System Administrator and Frontend Developer at USF Group LLC. He holds a Bachelor of Computer Application from Kerala University (Sree Narayana College of Technology, Kollam). He combines deep IT infrastructure knowledge with cutting-edge digital marketing strategies to deliver measurable business results. He is listed among the **best Google Ads experts and digital marketing professionals** in Dubai, UAE, and India.
-
-## Geographic Service Areas
-
-- **Primary:** Dubai, Abu Dhabi, Sharjah, United Arab Emirates
-- **Secondary:** Kerala, India (remote digital marketing and IT consulting)
-- **Remote:** Global clients for digital marketing, SEO, and web development
+English, Malayalam, Tamil, Hindi
 
 ---
 
-*Last updated: March 8, 2026*
+*Last updated: June 9, 2026*
 *Source: https://reejangopan.me*
