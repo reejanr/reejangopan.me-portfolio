@@ -1,234 +1,137 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef, useState } from "react";
-import { ExternalLink, Github, ArrowRight } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { Smartphone, Globe, ArrowUpRight, CheckCircle2 } from "lucide-react";
 
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  tags: string[];
-  image: string;
-  liveUrl?: string;
-  githubUrl?: string;
-  featured: boolean;
-}
-
-const projects: Project[] = [
-  {
-    id: 1,
-    title: "E-Commerce Platform",
-    description: "Full-stack e-commerce solution with React, TypeScript, and modern payment integration. Features include cart management, user authentication, and real-time inventory.",
-    tags: ["React", "TypeScript", "Tailwind CSS", "Stripe"],
-    image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop",
-    liveUrl: "#",
-    githubUrl: "#",
-    featured: true,
-  },
-  {
-    id: 2,
-    title: "AI Dashboard Analytics",
-    description: "Interactive analytics dashboard with real-time data visualization, AI-powered insights, and customizable reporting features.",
-    tags: ["React", "D3.js", "Node.js", "MongoDB"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-    liveUrl: "#",
-    featured: true,
-  },
-  {
-    id: 3,
-    title: "Task Management App",
-    description: "Collaborative project management tool with real-time updates, drag-and-drop functionality, and team collaboration features.",
-    tags: ["Next.js", "Prisma", "PostgreSQL", "Socket.io"],
-    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop",
-    liveUrl: "#",
-    githubUrl: "#",
-    featured: false,
-  },
-  {
-    id: 4,
-    title: "Social Media Dashboard",
-    description: "Unified social media management platform with scheduling, analytics, and multi-platform posting capabilities.",
-    tags: ["React", "GraphQL", "AWS", "Redis"],
-    image: "https://images.unsplash.com/photo-1432888622747-4eb9a8f2e2a2?w=800&h=600&fit=crop",
-    liveUrl: "#",
-    featured: false,
-  },
+const highlights = [
+  "Attendance Management",
+  "Workforce Administration",
+  "Employee Tracking",
+  "Operational Reporting",
+  "Payroll Workflow Support",
+  "Mobile Application",
+  "Web Application",
+  "Business Process Automation",
+  "Real-Time Data Management",
 ];
 
-const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const cardRef = useRef(null);
-  const isInView = useInView(cardRef, { once: true, margin: "-50px" });
-
-  return (
-    <motion.article
-      ref={cardRef}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.1, ease: [0.25, 0.4, 0.25, 1] }}
-      className={`relative group ${project.featured ? "md:col-span-2" : ""}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div className="relative overflow-hidden rounded-2xl bg-card border border-border h-full">
-        {/* Image */}
-        <div className="relative aspect-video overflow-hidden">
-          <motion.img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-full object-cover"
-            animate={{ scale: isHovered ? 1.05 : 1 }}
-            transition={{ duration: 0.4 }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
-          
-          {/* Overlay with links */}
-          <motion.div
-            className="absolute inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center gap-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: isHovered ? 1 : 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            {project.liveUrl && (
-              <motion.a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 rounded-full bg-primary text-primary-foreground hover:scale-110 transition-transform"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: isHovered ? 0 : 20, opacity: isHovered ? 1 : 0 }}
-                transition={{ delay: 0.1 }}
-                aria-label={`View ${project.title} live`}
-              >
-                <ExternalLink className="w-5 h-5" />
-              </motion.a>
-            )}
-            {project.githubUrl && (
-              <motion.a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 rounded-full bg-secondary text-secondary-foreground hover:scale-110 transition-transform"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: isHovered ? 0 : 20, opacity: isHovered ? 1 : 0 }}
-                transition={{ delay: 0.2 }}
-                aria-label={`View ${project.title} source code`}
-              >
-                <Github className="w-5 h-5" />
-              </motion.a>
-            )}
-          </motion.div>
-        </div>
-
-        {/* Content */}
-        <div className="p-6">
-          <div className="flex items-start justify-between gap-4 mb-3">
-            <h3 className="font-heading text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
-              {project.title}
-            </h3>
-            {project.featured && (
-              <span className="px-2 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary">
-                Featured
-              </span>
-            )}
-          </div>
-          
-          <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-            {project.description}
-          </p>
-
-          {/* Tags */}
-          <div className="flex flex-wrap gap-2">
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-    </motion.article>
-  );
-};
+const stack = ["React", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL", "REST APIs", "Mobile App"];
 
 export const Projects = () => {
-  const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.05 });
 
   return (
     <section
       id="projects"
-      ref={sectionRef}
-      className="py-24 lg:py-32 bg-background relative overflow-hidden"
-      aria-label="Featured Projects by Reejan Gopan"
+      ref={ref}
+      className="py-24 sm:py-32 bg-background dark relative overflow-hidden"
+      aria-label="Featured Project — Waqti Workforce Management Platform"
     >
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" aria-hidden="true" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" aria-hidden="true" />
+      <div className="absolute inset-0 bg-grid opacity-30" aria-hidden="true" />
+      <div className="absolute top-1/3 right-0 w-96 h-96 rounded-full bg-primary/5 blur-[140px] pointer-events-none" aria-hidden="true" />
 
-      <div className="container px-6 relative z-10">
+      <div className="container px-6 relative">
         <motion.header
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <motion.span
-            initial={{ opacity: 0, y: 10 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.1 }}
-            className="text-primary font-medium tracking-widest uppercase text-sm mb-4 block"
-          >
-            My Work
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.2 }}
-            className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6"
-          >
-            Featured <span className="gradient-text">Projects</span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.3 }}
-            className="text-muted-foreground max-w-2xl mx-auto text-lg"
-          >
-            Explore a selection of my recent work showcasing modern web development,
-            creative design, and innovative solutions.
-          </motion.p>
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-xs font-medium text-primary uppercase tracking-wider mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+            Featured Project
+          </span>
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mt-4">
+            Waqti — Workforce Management Platform
+          </h2>
+          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-sm sm:text-base">
+            A business-critical platform actively used at USF Group — available on web and as a mobile application on Google Play.
+          </p>
         </motion.header>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {projects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
-          ))}
-        </div>
-
-        {/* View More */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.6 }}
-          className="text-center mt-12"
-        >
-          <motion.a
-            href="https://github.com/reejan"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium text-primary border border-primary/30 hover:bg-primary/10 transition-colors group"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+        <div className="max-w-6xl mx-auto">
+          <motion.article
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="rounded-3xl p-6 sm:p-10 glass-card neon-border overflow-hidden relative"
           >
-            View All Projects
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </motion.a>
-        </motion.div>
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-violet-500/5 pointer-events-none" aria-hidden="true" />
+
+            <div className="relative grid lg:grid-cols-5 gap-8 lg:gap-12 items-start">
+              <div className="lg:col-span-3 space-y-6">
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    Live in production
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium glass">
+                    <Smartphone className="w-3.5 h-3.5 text-primary" />
+                    Web + Mobile
+                  </span>
+                </div>
+
+                <div className="space-y-4 text-muted-foreground text-sm sm:text-[15px] leading-relaxed">
+                  <p>
+                    <strong className="text-foreground">Waqti</strong> is a workforce management platform developed for USF Group to streamline attendance management, workforce administration, operational reporting, employee tracking, and business operations.
+                  </p>
+                  <p>
+                    The platform includes both web and mobile applications and is actively used within the organization. It helps improve operational efficiency, workforce visibility, reporting accuracy, and overall productivity through automation and centralized management.
+                  </p>
+                </div>
+
+                <div>
+                  <p className="text-xs font-medium uppercase tracking-wider text-primary mb-3">Technology Stack</p>
+                  <div className="flex flex-wrap gap-2">
+                    {stack.map((s, i) => (
+                      <span key={i} className="px-3 py-1.5 rounded-lg text-xs font-medium glass text-foreground/80 border border-primary/10">
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-3 pt-2">
+                  <a
+                    href="https://play.google.com/store"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-semibold text-primary-foreground bg-gradient-primary neon-glow text-sm hover:opacity-90 transition-all"
+                  >
+                    <Smartphone className="w-4 h-4" />
+                    Google Play
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-medium glass neon-border text-foreground hover:bg-card/50 transition-all text-sm"
+                  >
+                    <Globe className="w-4 h-4" />
+                    Discuss a project
+                  </a>
+                </div>
+              </div>
+
+              <div className="lg:col-span-2">
+                <p className="text-xs font-medium uppercase tracking-wider text-primary mb-4">Project Highlights</p>
+                <ul className="space-y-2.5">
+                  {highlights.map((h, i) => (
+                    <motion.li
+                      key={i}
+                      initial={{ opacity: 0, x: -8 }}
+                      animate={isInView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ delay: 0.3 + i * 0.04 }}
+                      className="flex items-center gap-2.5 text-sm text-foreground/85"
+                    >
+                      <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
+                      {h}
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </motion.article>
+        </div>
       </div>
     </section>
   );

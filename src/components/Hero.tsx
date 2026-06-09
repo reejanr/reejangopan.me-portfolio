@@ -16,7 +16,7 @@ const StatusBadge = () => (
     className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-primary/20 text-sm"
   >
     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-    <span className="text-muted-foreground">Available for hire</span>
+    <span className="text-muted-foreground">Available for work</span>
     <span className="text-primary font-medium">Dubai, UAE</span>
   </motion.div>
 );
@@ -37,15 +37,10 @@ export const Hero = () => {
       itemScope 
       itemType="https://schema.org/Person"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background dark"
-      aria-label="Reejan Gopan - IT Professional Introduction"
+      aria-label="Reejan Gopan - Information Technology Administrator"
     >
-      {/* Grid background */}
       <div className="absolute inset-0 bg-grid opacity-40" aria-hidden="true" />
-      
-      {/* Hero gradient */}
       <div className="absolute inset-0 bg-gradient-hero" aria-hidden="true" />
-      
-      {/* Glow orbs */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-primary/5 blur-[120px] pointer-events-none" aria-hidden="true" />
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-neon-purple/5 blur-[100px] pointer-events-none" aria-hidden="true" />
       
@@ -62,7 +57,6 @@ export const Hero = () => {
             transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
             className="flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-20"
           >
-            {/* Profile Image */}
             <motion.figure 
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -71,21 +65,18 @@ export const Hero = () => {
               whileHover={{ scale: 1.02 }}
             >
               <div className="relative w-44 h-44 sm:w-56 sm:h-56 lg:w-72 lg:h-72">
-                {/* Neon ring */}
                 <motion.div 
                   className="absolute -inset-3 rounded-full neon-border"
                   animate={{ rotate: 360 }}
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                   aria-hidden="true"
                 />
-                
-                {/* Gradient glow behind */}
                 <div className="absolute -inset-6 rounded-full bg-gradient-primary opacity-10 blur-2xl animate-pulse-glow" aria-hidden="true" />
                 
                 <img
                   src={profileImage}
-                  alt="Reejan Gopan - Digital Marketing Expert, System Administrator & Frontend Developer Dubai UAE India"
-                  title="Reejan Gopan - Best Digital Marketing Professional Dubai"
+                  alt="Reejan Gopan - Information Technology Administrator at USF Group, Dubai UAE"
+                  title="Reejan Gopan - IT Administrator & Business Systems Developer"
                   className="w-full h-full object-cover rounded-full border-2 border-primary/30 relative z-10"
                   loading="eager"
                   width="288"
@@ -93,7 +84,6 @@ export const Hero = () => {
                   itemProp="image"
                 />
                 
-                {/* Status indicator */}
                 <motion.div
                   className="absolute -bottom-2 left-1/2 -translate-x-1/2 z-20 px-3 py-1 rounded-full glass text-xs font-medium text-primary whitespace-nowrap"
                   animate={{ y: [0, -5, 0] }}
@@ -103,11 +93,10 @@ export const Hero = () => {
                 </motion.div>
               </div>
               <figcaption className="sr-only">
-                Professional photo of Reejan Gopan, IT Administrator at USF GROUP LLC, Dubai UAE
+                Reejan Gopan, Information Technology Administrator at USF Group, Dubai UAE
               </figcaption>
             </motion.figure>
 
-            {/* Content */}
             <header className="text-center lg:text-left flex-1 w-full">
               <StatusBadge />
               
@@ -119,9 +108,18 @@ export const Hero = () => {
               >
                 <span className="block">Reejan Gopan</span>
                 <span className="block gradient-text text-2xl sm:text-3xl lg:text-4xl mt-3 font-semibold">
-                  IT & Marketing Professional
+                  Information Technology Administrator
                 </span>
               </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.65 }}
+                className="text-primary/90 text-xs sm:text-sm font-medium uppercase tracking-wider mb-4"
+              >
+                Enterprise Systems · IT Infrastructure · Business Applications · Process Automation · Digital Operations
+              </motion.p>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -129,11 +127,9 @@ export const Hero = () => {
                 transition={{ duration: 0.6, delay: 0.7 }}
                 className="text-muted-foreground text-sm sm:text-base lg:text-lg max-w-xl mb-8 leading-relaxed"
               >
-                <strong className="text-foreground">System Administrator</strong> & <strong className="text-foreground">Frontend Developer</strong> at USF GROUP LLC, Dubai.
-                Specializing in <strong className="text-foreground">SEO</strong>, <strong className="text-foreground">Google Ads</strong>, <strong className="text-foreground">React</strong>, and scalable <strong className="text-foreground">IT infrastructure</strong>.
+                Driving business growth through technology, enterprise systems, automation, business applications, and scalable infrastructure at <strong className="text-foreground">USF Group, Dubai</strong>.
               </motion.p>
 
-              {/* Contact chips */}
               <motion.address
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -159,13 +155,12 @@ export const Hero = () => {
                 })}
               </motion.address>
 
-              {/* CTA Buttons */}
               <motion.nav
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.1 }}
                 className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4"
-                aria-label="Contact Reejan Gopan"
+                aria-label="Primary actions"
               >
                 <MagneticButton href={LINKEDIN_URL} strength={0.2}>
                   <span className="flex items-center gap-2 px-6 sm:px-8 py-3.5 rounded-xl font-semibold text-primary-foreground bg-gradient-primary neon-glow text-sm">
@@ -174,9 +169,9 @@ export const Hero = () => {
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </span>
                 </MagneticButton>
-                <MagneticButton href={LINKEDIN_URL} strength={0.2}>
+                <MagneticButton href="#projects" strength={0.2}>
                   <span className="flex items-center gap-2 px-6 sm:px-8 py-3.5 rounded-xl font-medium glass text-foreground hover:border-primary/30 transition-all text-sm neon-border">
-                    Send Message
+                    View Project
                   </span>
                 </MagneticButton>
               </motion.nav>
@@ -184,7 +179,6 @@ export const Hero = () => {
           </motion.article>
         </div>
 
-        {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -194,7 +188,7 @@ export const Hero = () => {
           <motion.a 
             href="#about" 
             className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-            aria-label="Scroll to learn more about Reejan Gopan"
+            aria-label="Scroll to learn more"
             whileHover={{ y: 5 }}
           >
             <span className="text-[10px] uppercase tracking-[0.2em] font-medium">Explore</span>

@@ -4,19 +4,23 @@ import { Briefcase, Building2, Calendar, MapPin } from "lucide-react";
 
 const experiences = [
   {
-    title: "System Administrator & IT Administrator",
-    company: "USF GROUP LLC",
+    title: "Information Technology Administrator",
+    company: "USF Group",
     location: "Dubai, UAE",
     period: "January 2025 – Present",
     current: true,
     responsibilities: [
-      "Frontend development using React, TypeScript, Tailwind CSS",
-      "Building production-ready business websites with database integrations",
-      "AI-assisted development for rapid prototyping",
-      "Managing Google Ads and Meta Ads campaigns",
-      "System administration: Windows Server, Active Directory, Group Policies",
-      "IT infrastructure, VPS setup, DNS & email hosting",
-      "Microsoft 365 administration and user management",
+      "Enterprise systems & IT infrastructure management",
+      "Microsoft 365 administration",
+      "VPS, Linux servers & cloud services",
+      "Email hosting, DNS & network management",
+      "Workforce management platform (Waqti) — web & mobile",
+      "Business process automation & internal tools",
+      "Attendance, workforce & operational reporting systems",
+      "Business application development with React & TypeScript",
+      "Database design & API integrations (Supabase, PostgreSQL)",
+      "Website operations, SEO & digital marketing technologies",
+      "AI-assisted development & rapid prototyping",
     ],
   },
   {
@@ -26,23 +30,23 @@ const experiences = [
     period: "Sep 2024 – Dec 2024",
     current: false,
     responsibilities: [
-      "Technology hardware, software, and services procurement",
+      "Technology hardware, software & services procurement",
       "Vendor negotiation and contract compliance",
       "IT asset tracking and inventory management",
-      "Troubleshooting hardware, software, and networks",
+      "Hardware, software & network troubleshooting",
       "Office 365, ERP systems, CCTV & biometric devices",
     ],
   },
   {
     title: "Network Administrator",
-    company: "TCS ION (Tata Consultancy)",
+    company: "TCS ION (Tata Consultancy Services)",
     location: "Kerala, India",
     period: "Mar 2024 – Sep 2024",
     current: false,
     responsibilities: [
-      "Network configuration and server maintenance",
-      "Network monitoring and connectivity troubleshooting",
-      "Router, switch, firewall administration",
+      "Network configuration & server maintenance",
+      "Network monitoring & connectivity troubleshooting",
+      "Router, switch & firewall administration",
       "Software installations and data backups",
     ],
   },
@@ -88,13 +92,11 @@ export const Experience = () => {
               className="rounded-2xl p-6 sm:p-8 glass-card neon-border hover:bg-card/40 transition-all"
             >
               <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6">
-                {/* Icon */}
                 <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center shrink-0">
                   <Briefcase className="w-6 h-6 text-primary-foreground" />
                 </div>
                 
                 <div className="flex-1 min-w-0">
-                  {/* Header */}
                   <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
                     <div>
                       <h3 className="font-heading text-lg sm:text-xl font-semibold text-foreground">{exp.title}</h3>
@@ -110,7 +112,6 @@ export const Experience = () => {
                     )}
                   </div>
 
-                  {/* Meta */}
                   <div className="flex flex-wrap gap-3 text-xs text-muted-foreground mb-4">
                     <span className="flex items-center gap-1.5">
                       <Calendar className="w-3.5 h-3.5" aria-hidden="true" />
@@ -122,7 +123,6 @@ export const Experience = () => {
                     </span>
                   </div>
 
-                  {/* Responsibilities as chips */}
                   <div className="flex flex-wrap gap-2">
                     {exp.responsibilities.map((resp, ri) => (
                       <span
