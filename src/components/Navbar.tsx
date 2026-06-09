@@ -11,7 +11,7 @@ export const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
       
-      const sections = ["contact", "skills", "services", "experience", "about", "home"];
+      const sections = ["contact", "skills", "projects", "approach", "services", "experience", "about", "home"];
       for (const id of sections) {
         const el = document.getElementById(id);
         if (el && el.getBoundingClientRect().top <= 150) {
@@ -27,8 +27,9 @@ export const Navbar = () => {
   const navLinks = [
     { href: "#about", label: "About", title: "About Reejan Gopan" },
     { href: "#experience", label: "Experience", title: "Work Experience" },
-    { href: "#services", label: "Services", title: "Services" },
-    { href: "#skills", label: "Skills", title: "Skills" },
+    { href: "#services", label: "Expertise", title: "Core Expertise" },
+    { href: "#projects", label: "Project", title: "Featured Project — Waqti" },
+    { href: "#skills", label: "Stack", title: "Technology Stack" },
     { href: "#contact", label: "Contact", title: "Contact" },
   ];
 

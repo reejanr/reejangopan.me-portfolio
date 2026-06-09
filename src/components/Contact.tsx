@@ -39,10 +39,10 @@ export const Contact = () => {
             Contact
           </span>
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mt-4">
-            Let's Work Together
+            Let's Build Something That Works
           </h2>
           <p className="text-muted-foreground mt-4 max-w-md mx-auto text-sm sm:text-base">
-            Ready to collaborate? Reach out for IT consulting, web development, or digital marketing projects.
+            IT administration, business application development, automation, or digital operations — get in touch to discuss your project.
           </p>
         </motion.header>
 

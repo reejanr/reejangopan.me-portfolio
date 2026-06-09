@@ -17,9 +17,9 @@ export const Footer = forwardRef<HTMLElement>((_, ref) => {
 
   const shareLinks = [
     { label: "LinkedIn", href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(SITE_URL)}` },
-    { label: "Twitter", href: `https://twitter.com/intent/tweet?url=${encodeURIComponent(SITE_URL)}&text=${encodeURIComponent("Check out Reejan Gopan - Digital Marketing & IT Expert in Dubai")}` },
+    { label: "Twitter", href: `https://twitter.com/intent/tweet?url=${encodeURIComponent(SITE_URL)}&text=${encodeURIComponent("Reejan Gopan — Information Technology Administrator, Dubai")}` },
     { label: "Facebook", href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(SITE_URL)}` },
-    { label: "WhatsApp", href: `https://wa.me/?text=${encodeURIComponent("Reejan Gopan - Digital Marketing & IT Expert Dubai " + SITE_URL)}` },
+    { label: "WhatsApp", href: `https://wa.me/?text=${encodeURIComponent("Reejan Gopan — IT Administrator & Business Systems Developer " + SITE_URL)}` },
   ];
   
   return (
@@ -69,13 +69,20 @@ export const Footer = forwardRef<HTMLElement>((_, ref) => {
 
           {/* Nav links */}
           <nav className="flex flex-wrap items-center justify-center gap-6 md:gap-8" aria-label="Footer navigation">
-            {["About", "Experience", "Services", "Skills", "Contact"].map((item) => (
+            {[
+              { label: "About", href: "#about" },
+              { label: "Experience", href: "#experience" },
+              { label: "Expertise", href: "#services" },
+              { label: "Project", href: "#projects" },
+              { label: "Stack", href: "#skills" },
+              { label: "Contact", href: "#contact" },
+            ].map((item) => (
               <a 
-                key={item}
-                href={`#${item.toLowerCase()}`} 
+                key={item.label}
+                href={item.href} 
                 className="text-sm text-muted-foreground hover:text-primary transition-colors"
               >
-                {item}
+                {item.label}
               </a>
             ))}
           </nav>
