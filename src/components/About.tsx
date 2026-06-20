@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { GraduationCap, Languages, Target, Award, Calendar, Sparkles } from "lucide-react";
+import { GraduationCap, Languages, Sparkles, Calendar, Award } from "lucide-react";
 
 export const About = () => {
   const ref = useRef(null);
@@ -8,184 +8,138 @@ export const About = () => {
 
   const education = [
     {
-      degree: "BCA (Bachelor of Computer Applications)",
+      degree: "BCA — Bachelor of Computer Applications",
       institution: "Sree Narayana College Of Technology, Kollam — Kerala University",
-      year: "2021-2024",
+      year: "2021 — 2024",
     },
     {
       degree: "Higher Secondary (HSS)",
       institution: "Nedumgolam Govt: H.S., Kollam, Kerala",
-      year: "2019-2021",
+      year: "2019 — 2021",
       note: "Participant — Kerala State IT Fair 2019",
     },
   ];
 
   const languages = ["English", "Malayalam", "Tamil", "Hindi"];
 
-  const stats = [
-    { value: "3+", label: "Years Experience" },
-    { value: "10+", label: "Systems Delivered" },
-    { value: "1", label: "Live Product" },
-    { value: "4", label: "Languages" },
-  ];
-
   const paragraphs = [
     "I am an Information Technology Administrator specializing in enterprise systems, IT infrastructure, business applications, process automation, digital operations, and AI-assisted development.",
     "My work extends beyond traditional IT administration, combining technology, business operations, automation, and digital transformation to create efficient, scalable, and reliable solutions that support organizational growth.",
-    "At USF Group, I manage and optimize the organization's technology ecosystem, including enterprise applications, workforce management systems, Microsoft 365 administration, VPS and server infrastructure, email hosting, DNS management, website operations, SEO, digital marketing technologies, and business process automation. I am responsible for improving operational efficiency, ensuring system reliability, and supporting technology-driven business growth.",
-    "I lead the development, implementation, and maintenance of business-critical solutions that streamline operations and improve productivity. One of my key projects is Waqti, a workforce management platform developed for USF Group that simplifies attendance tracking, workforce administration, operational reporting, and employee management. The platform is actively used within the organization and is available as a mobile application on Google Play.",
-    "I embrace modern AI-assisted development workflows to rapidly design, build, deploy, and improve business applications. By combining technical expertise with business understanding, I transform ideas into practical solutions that create measurable value and support long-term organizational success.",
-    "I am passionate about leveraging technology to solve business challenges, optimize processes, and build scalable systems that improve efficiency and drive digital transformation.",
+    "At USF Group, I manage and optimize the organization's technology ecosystem — enterprise applications, workforce management systems, Microsoft 365 administration, VPS and server infrastructure, email hosting, DNS, website operations, SEO, digital marketing technologies, and business process automation.",
+    "I lead the development, implementation, and maintenance of business-critical solutions that streamline operations and improve productivity. By combining technical expertise with business understanding, I transform ideas into practical solutions that create measurable value.",
   ];
 
   return (
-    <section 
-      id="about" 
-      className="py-24 sm:py-32 bg-background dark relative overflow-hidden" 
+    <section
+      id="about"
       ref={ref}
+      className="relative py-28 sm:py-36 overflow-hidden"
       aria-label="About Reejan Gopan"
     >
-      <div className="absolute inset-0 bg-dots opacity-30" aria-hidden="true" />
-      
-      <div className="container px-6 relative">
+      <div className="absolute inset-0 bg-dots opacity-60" aria-hidden="true" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-2/3 hairline" />
+
+      <div className="container relative">
         <motion.header
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-3xl mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-xs font-medium text-primary uppercase tracking-wider mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-            About Me
+          <span className="eyebrow mb-5">
+            <span className="w-1 h-1 rounded-full bg-primary" /> 01 — About
           </span>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mt-4">
-            Technology, Systems & Business Impact
+          <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl tracking-tight text-balance leading-[1.02] mt-4">
+            <span className="gradient-text">Technology, systems &</span>{" "}
+            <span className="italic text-foreground/70">measurable business impact.</span>
           </h2>
         </motion.header>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12"
-        >
-          {stats.map((stat, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ y: -4 }}
-              className="text-center p-5 rounded-2xl glass-card hover:border-primary/20 transition-all"
-            >
-              <p className="font-heading text-3xl sm:text-4xl font-bold gradient-text">{stat.value}</p>
-              <p className="text-xs sm:text-sm text-muted-foreground mt-1">{stat.label}</p>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        <div className="grid grid-cols-12 gap-4 sm:gap-5">
+          {/* Lead narrative — large bento */}
           <motion.article
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            whileHover={{ y: -4 }}
-            className="lg:col-span-2 rounded-2xl p-6 sm:p-8 glass-card neon-border hover:bg-card/40 transition-all"
-          >
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center" aria-hidden="true">
-                <Target className="w-5 h-5 text-primary-foreground" />
-              </div>
-              <h3 className="font-heading text-lg font-semibold text-foreground">Who I Am</h3>
-            </div>
-            <div className="space-y-4 text-muted-foreground leading-relaxed text-sm sm:text-[15px]">
-              {paragraphs.slice(0, 3).map((p, i) => (
-                <p key={i}>{p}</p>
-              ))}
-            </div>
-          </motion.article>
-
-          <motion.article
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            whileHover={{ y: -4 }}
-            className="rounded-2xl p-6 sm:p-8 glass-card neon-border hover:bg-card/40 transition-all"
-          >
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center" aria-hidden="true">
-                <Languages className="w-5 h-5 text-primary-foreground" />
-              </div>
-              <h3 className="font-heading text-lg font-semibold text-foreground">Languages</h3>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {languages.map((lang, i) => (
-                <motion.span
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ delay: 0.5 + i * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
-                  className="px-4 py-2 rounded-full glass text-sm font-medium text-foreground border border-primary/10 hover:border-primary/30 transition-colors"
-                >
-                  {lang}
-                </motion.span>
-              ))}
-            </div>
-          </motion.article>
-
-          <motion.article
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.35 }}
-            whileHover={{ y: -4 }}
-            className="lg:col-span-3 rounded-2xl p-6 sm:p-8 glass-card neon-border hover:bg-card/40 transition-all"
-          >
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center" aria-hidden="true">
-                <Sparkles className="w-5 h-5 text-primary-foreground" />
-              </div>
-              <h3 className="font-heading text-lg font-semibold text-foreground">Building Practical Solutions</h3>
-            </div>
-            <div className="space-y-4 text-muted-foreground leading-relaxed text-sm sm:text-[15px]">
-              {paragraphs.slice(3).map((p, i) => (
-                <p key={i}>{p}</p>
-              ))}
-            </div>
-          </motion.article>
-
-          <motion.article
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            whileHover={{ y: -4 }}
-            className="lg:col-span-3 rounded-2xl p-6 sm:p-8 glass-card neon-border hover:bg-card/40 transition-all"
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="col-span-12 lg:col-span-8 rounded-3xl p-7 sm:p-10 glass-card ring-soft"
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center" aria-hidden="true">
-                <GraduationCap className="w-5 h-5 text-primary-foreground" />
-              </div>
-              <h3 className="font-heading text-lg font-semibold text-foreground">Education</h3>
+              <span className="w-9 h-9 rounded-full bg-foreground/[0.04] border border-foreground/10 flex items-center justify-center">
+                <Sparkles className="w-4 h-4 text-primary" />
+              </span>
+              <span className="eyebrow !text-foreground/60">The role</span>
             </div>
-            <div className="grid sm:grid-cols-2 gap-4">
-              {education.map((edu, i) => (
-                <motion.div 
-                  key={i}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: 0.5 + i * 0.15 }}
-                  className="p-4 rounded-xl bg-secondary/30 border border-border/50 hover:border-primary/20 transition-colors"
+            <div className="space-y-5 text-[15px] sm:text-base text-foreground/70 leading-relaxed">
+              {paragraphs.map((p, i) => (
+                <p key={i} className={i === 0 ? "text-foreground/85 text-lg sm:text-xl font-light leading-relaxed" : ""}>
+                  {p}
+                </p>
+              ))}
+            </div>
+          </motion.article>
+
+          {/* Languages */}
+          <motion.article
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="col-span-12 sm:col-span-6 lg:col-span-4 rounded-3xl p-7 sm:p-8 glass-card ring-soft flex flex-col"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <span className="w-9 h-9 rounded-full bg-foreground/[0.04] border border-foreground/10 flex items-center justify-center">
+                <Languages className="w-4 h-4 text-primary" />
+              </span>
+              <span className="eyebrow !text-foreground/60">Languages</span>
+            </div>
+            <p className="font-heading text-3xl text-foreground/90 mb-6 leading-tight">
+              Communicating across <span className="italic text-foreground/60">four</span> languages.
+            </p>
+            <div className="flex flex-wrap gap-2 mt-auto">
+              {languages.map((lang) => (
+                <span
+                  key={lang}
+                  className="px-3.5 py-1.5 rounded-full text-xs text-foreground/80 bg-foreground/[0.04] border border-foreground/10"
                 >
-                  <div className="flex items-center gap-2 text-primary text-xs font-medium mb-2">
-                    <Calendar className="w-3.5 h-3.5" />
+                  {lang}
+                </span>
+              ))}
+            </div>
+          </motion.article>
+
+          {/* Education */}
+          <motion.article
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="col-span-12 rounded-3xl p-7 sm:p-10 glass-card ring-soft"
+          >
+            <div className="flex items-center gap-3 mb-8">
+              <span className="w-9 h-9 rounded-full bg-foreground/[0.04] border border-foreground/10 flex items-center justify-center">
+                <GraduationCap className="w-4 h-4 text-primary" />
+              </span>
+              <span className="eyebrow !text-foreground/60">Education</span>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
+              {education.map((edu, i) => (
+                <div
+                  key={i}
+                  className="rounded-2xl p-5 sm:p-6 bg-foreground/[0.02] border border-foreground/[0.06] hover:border-primary/20 transition-colors"
+                >
+                  <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-foreground/55 mb-3">
+                    <Calendar className="w-3 h-3" />
                     {edu.year}
                   </div>
-                  <p className="text-foreground font-medium text-sm">{edu.degree}</p>
-                  <p className="text-muted-foreground text-xs mt-1">{edu.institution}</p>
+                  <p className="font-heading text-xl text-foreground/95 leading-snug mb-1.5">
+                    {edu.degree}
+                  </p>
+                  <p className="text-sm text-foreground/55">{edu.institution}</p>
                   {edu.note && (
-                    <p className="flex items-center gap-1.5 text-primary/80 text-xs mt-2 font-medium">
+                    <p className="flex items-center gap-1.5 text-xs text-primary/80 mt-3">
                       <Award className="w-3 h-3" />
                       {edu.note}
                     </p>
                   )}
-                </motion.div>
+                </div>
               ))}
             </div>
           </motion.article>
