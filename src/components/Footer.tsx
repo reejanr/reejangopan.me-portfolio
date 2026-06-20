@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { forwardRef } from "react";
-import { Linkedin, Mail, Phone, Share2, Heart } from "lucide-react";
-import { getMailtoHref } from "@/lib/email";
+import { Linkedin, Share2, Heart } from "lucide-react";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/reejan-r-gopan-38a8092b9";
 const SITE_URL = "https://reejangopan.me";
@@ -11,9 +10,8 @@ export const Footer = forwardRef<HTMLElement>((_, ref) => {
   
   const socialLinks = [
     { icon: Linkedin, href: LINKEDIN_URL, label: "LinkedIn" },
-    { icon: Mail, href: getMailtoHref(), label: "Email" },
-    { icon: Phone, href: "tel:+971527123154", label: "Phone" },
   ];
+
 
   const shareLinks = [
     { label: "LinkedIn", href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(SITE_URL)}` },

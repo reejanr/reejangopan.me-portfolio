@@ -1,7 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Mail, MapPin, Phone, Linkedin, ArrowUpRight, Send } from "lucide-react";
-import { getEmail, getMailtoHref } from "@/lib/email";
+import { MapPin, Linkedin, ArrowUpRight } from "lucide-react";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/reejan-r-gopan-38a8092b9";
 
@@ -10,10 +9,10 @@ export const Contact = () => {
   const isInView = useInView(ref, { once: true, amount: 0.05 });
 
   const contactInfo = [
-    { icon: Mail, label: "Email", value: getEmail(), href: getMailtoHref(), color: "from-cyan-500/20 to-blue-500/20" },
-    { icon: Phone, label: "Phone", value: "+971 527123154", href: "tel:+971527123154", color: "from-violet-500/20 to-purple-500/20" },
-    { icon: MapPin, label: "Location", value: "Dubai, UAE", href: null, color: "from-emerald-500/20 to-teal-500/20" },
+    { icon: Linkedin, label: "LinkedIn", value: "Connect on LinkedIn", href: LINKEDIN_URL, color: "from-cyan-500/20 to-blue-500/20", external: true },
+    { icon: MapPin, label: "Location", value: "Dubai, UAE", href: null, color: "from-emerald-500/20 to-teal-500/20", external: false },
   ];
+
 
   return (
     <section 
@@ -48,7 +47,7 @@ export const Contact = () => {
 
         <div className="max-w-4xl mx-auto">
           {/* Contact Cards */}
-          <address className="grid sm:grid-cols-3 gap-4 mb-12 not-italic">
+          <address className="grid sm:grid-cols-2 gap-4 mb-12 not-italic max-w-2xl mx-auto">
             {contactInfo.map((info, index) => {
               const content = (
                 <div className="group relative overflow-hidden rounded-2xl p-6 glass-card neon-border hover:bg-card/40 transition-all text-center">
@@ -72,7 +71,12 @@ export const Contact = () => {
                   whileHover={{ y: -4 }}
                 >
                   {info.href ? (
-                    <a href={info.href} title={`${info.label} Reejan Gopan`} className="block">
+                    <a
+                      href={info.href}
+                      title={`${info.label} Reejan Gopan`}
+                      className="block"
+                      {...(info.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    >
                       {content}
                     </a>
                   ) : content}
@@ -96,17 +100,10 @@ export const Contact = () => {
               title="Hire Reejan Gopan"
             >
               <Linkedin className="w-4.5 h-4.5" aria-hidden="true" />
-              Hire Me
+              Connect on LinkedIn
               <ArrowUpRight className="w-4 h-4" />
             </a>
-            <a
-              href={getMailtoHref()}
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl font-medium glass neon-border text-foreground hover:bg-card/50 transition-all text-sm"
-              title="Email Reejan Gopan"
-            >
-              <Send className="w-4 h-4" aria-hidden="true" />
-              Send Email
-            </a>
+
           </motion.div>
         </div>
       </div>

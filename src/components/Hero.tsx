@@ -1,9 +1,8 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Mail, MapPin, Phone, Linkedin, ArrowUpRight } from "lucide-react";
+import { MapPin, Linkedin, ArrowUpRight } from "lucide-react";
 import { useRef } from "react";
 import profileImage from "@/assets/profile.jpg";
 import { FloatingGeometry } from "./FloatingGeometry";
-import { getEmail, getMailtoHref } from "@/lib/email";
 import { MagneticButton } from "./MagneticButton";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/reejan-r-gopan-38a8092b9";
@@ -138,8 +137,7 @@ export const Hero = () => {
               >
                 {[
                   { icon: MapPin, text: "Dubai, UAE", href: null },
-                  { icon: Mail, text: getEmail(), href: getMailtoHref() },
-                  { icon: Phone, text: "+971 527123154", href: "tel:+971527123154" },
+                  { icon: Linkedin, text: "LinkedIn", href: LINKEDIN_URL },
                 ].map((item, i) => {
                   const Tag = item.href ? 'a' : 'span';
                   return (
