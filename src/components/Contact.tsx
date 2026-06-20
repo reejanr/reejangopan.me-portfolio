@@ -1,7 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Mail, MapPin, Phone, Linkedin, ArrowUpRight, Send } from "lucide-react";
-import { getEmail, getMailtoHref } from "@/lib/email";
+import { MapPin, Linkedin, ArrowUpRight } from "lucide-react";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/reejan-r-gopan-38a8092b9";
 
@@ -10,10 +9,10 @@ export const Contact = () => {
   const isInView = useInView(ref, { once: true, amount: 0.05 });
 
   const contactInfo = [
-    { icon: Mail, label: "Email", value: getEmail(), href: getMailtoHref(), color: "from-cyan-500/20 to-blue-500/20" },
-    { icon: Phone, label: "Phone", value: "+971 527123154", href: "tel:+971527123154", color: "from-violet-500/20 to-purple-500/20" },
-    { icon: MapPin, label: "Location", value: "Dubai, UAE", href: null, color: "from-emerald-500/20 to-teal-500/20" },
+    { icon: Linkedin, label: "LinkedIn", value: "Connect on LinkedIn", href: LINKEDIN_URL, color: "from-cyan-500/20 to-blue-500/20", external: true },
+    { icon: MapPin, label: "Location", value: "Dubai, UAE", href: null, color: "from-emerald-500/20 to-teal-500/20", external: false },
   ];
+
 
   return (
     <section 
