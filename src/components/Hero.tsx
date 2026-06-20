@@ -138,8 +138,7 @@ export const Hero = () => {
               >
                 {[
                   { icon: MapPin, text: "Dubai, UAE", href: null },
-                  { icon: Mail, text: getEmail(), href: getMailtoHref() },
-                  { icon: Phone, text: "+971 527123154", href: "tel:+971527123154" },
+                  { icon: Linkedin, text: "LinkedIn", href: LINKEDIN_URL },
                 ].map((item, i) => {
                   const Tag = item.href ? 'a' : 'span';
                   return (
