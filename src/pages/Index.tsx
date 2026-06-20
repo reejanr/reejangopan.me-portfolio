@@ -10,16 +10,12 @@ import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { PageTransition } from "@/components/PageTransition";
-import { ParticleBackground } from "@/components/ParticleBackground";
-import { CustomCursor } from "@/components/CustomCursor";
 import { ScrollProgress } from "@/components/ScrollProgress";
 
 const Index = () => {
   return (
-    <div className="dark">
+    <div className="dark bg-background text-foreground min-h-screen overflow-x-hidden">
       <LoadingScreen />
-      <CustomCursor />
-      <ParticleBackground />
       <ScrollProgress />
 
       <PageTransition>
