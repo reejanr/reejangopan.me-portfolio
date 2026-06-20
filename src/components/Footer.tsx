@@ -1,121 +1,119 @@
 import { motion } from "framer-motion";
 import { forwardRef } from "react";
-import { Linkedin, Share2, Heart } from "lucide-react";
+import { Linkedin, Share2, ArrowUpRight } from "lucide-react";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/reejan-r-gopan-38a8092b9";
 const SITE_URL = "https://reejangopan.me";
 
 export const Footer = forwardRef<HTMLElement>((_, ref) => {
   const currentYear = new Date().getFullYear();
-  
-  const socialLinks = [
-    { icon: Linkedin, href: LINKEDIN_URL, label: "LinkedIn" },
-  ];
-
 
   const shareLinks = [
     { label: "LinkedIn", href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(SITE_URL)}` },
     { label: "Twitter", href: `https://twitter.com/intent/tweet?url=${encodeURIComponent(SITE_URL)}&text=${encodeURIComponent("Reejan Gopan — Information Technology Administrator, Dubai")}` },
-    { label: "Facebook", href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(SITE_URL)}` },
     { label: "WhatsApp", href: `https://wa.me/?text=${encodeURIComponent("Reejan Gopan — IT Administrator & Business Systems Developer " + SITE_URL)}` },
   ];
-  
+
+  const navLinks = [
+    { label: "About", href: "#about" },
+    { label: "Experience", href: "#experience" },
+    { label: "Expertise", href: "#services" },
+    { label: "Work", href: "#projects" },
+    { label: "Stack", href: "#skills" },
+    { label: "Contact", href: "#contact" },
+  ];
+
   return (
-    <footer 
-      className="py-16 border-t border-border/50 bg-background dark relative" 
+    <footer
+      ref={ref}
+      className="relative pt-20 pb-10 border-t border-foreground/[0.06] overflow-hidden"
       role="contentinfo"
       itemScope
       itemType="https://schema.org/WPFooter"
     >
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/[0.02] to-transparent" aria-hidden="true" />
-      
-      <div className="container px-6 relative">
+      <div className="absolute inset-x-0 top-0 h-px hairline" />
+
+      <div className="container relative">
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex flex-col gap-8"
+          transition={{ duration: 0.7 }}
+          className="grid grid-cols-12 gap-10 mb-14"
         >
-          {/* Top */}
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <a href="#home" className="flex items-center gap-2 group" aria-label="Back to top">
-              <div className="w-8 h-8 rounded-lg bg-gradient-primary flex items-center justify-center">
-                <span className="text-sm font-bold text-primary-foreground">R</span>
+          {/* Brand */}
+          <div className="col-span-12 md:col-span-5">
+            <a href="#home" className="inline-flex items-center gap-2.5 mb-5" aria-label="Back to top">
+              <div className="w-9 h-9 rounded-full bg-gradient-primary flex items-center justify-center">
+                <span className="font-heading text-lg text-primary-foreground -mt-0.5">R</span>
               </div>
-              <span className="font-heading text-lg font-bold text-foreground group-hover:text-primary transition-colors">
-                Reejan
-              </span>
+              <span className="font-heading text-2xl text-foreground tracking-tight">Reejan Gopan</span>
             </a>
-
-            <nav className="flex items-center gap-3" aria-label="Social links">
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  target={social.href.startsWith("http") ? "_blank" : undefined}
-                  rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="w-10 h-10 rounded-xl glass flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/20 transition-all"
-                  aria-label={social.label}
-                  title={social.label}
-                >
-                  <social.icon className="w-4.5 h-4.5" />
-                </a>
-              ))}
-            </nav>
-          </div>
-
-          {/* Nav links */}
-          <nav className="flex flex-wrap items-center justify-center gap-6 md:gap-8" aria-label="Footer navigation">
-            {[
-              { label: "About", href: "#about" },
-              { label: "Experience", href: "#experience" },
-              { label: "Expertise", href: "#services" },
-              { label: "Project", href: "#projects" },
-              { label: "Stack", href: "#skills" },
-              { label: "Contact", href: "#contact" },
-            ].map((item) => (
-              <a 
-                key={item.label}
-                href={item.href} 
-                className="text-sm text-muted-foreground hover:text-primary transition-colors"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-
-          {/* Social Sharing */}
-          <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-muted-foreground">
-            <Share2 className="w-3.5 h-3.5" aria-hidden="true" />
-            <span>Share:</span>
-            {shareLinks.map((link, index) => (
-              <a
-                key={index}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-2.5 py-1 rounded-md glass hover:text-primary hover:border-primary/20 transition-all"
-                title={`Share on ${link.label}`}
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-
-          {/* Copyright */}
-          <div className="flex flex-col items-center gap-2 pt-6 border-t border-border/50">
-            <p className="text-xs text-muted-foreground flex items-center gap-1.5">
-              © {currentYear} <span itemProp="name">Reejan R Gopan</span> · Made with <Heart className="w-3 h-3 text-primary" /> in Dubai
+            <p className="text-sm text-foreground/55 max-w-sm leading-relaxed">
+              Information Technology Administrator combining enterprise systems, business application development, automation and digital operations at USF Group, Dubai.
             </p>
-            <a 
-              href="https://reejangopan.me" 
-              className="text-xs text-primary hover:underline"
+          </div>
+
+          {/* Nav */}
+          <div className="col-span-6 md:col-span-3">
+            <p className="eyebrow !text-foreground/45 mb-4">Navigate</p>
+            <ul className="space-y-2.5">
+              {navLinks.map((item) => (
+                <li key={item.label}>
+                  <a
+                    href={item.href}
+                    className="text-sm text-foreground/70 hover:text-foreground transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Connect */}
+          <div className="col-span-6 md:col-span-4">
+            <p className="eyebrow !text-foreground/45 mb-4">Connect</p>
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors group mb-5"
             >
-              reejangopan.me
+              <Linkedin className="w-4 h-4" />
+              <span className="font-heading text-lg">LinkedIn</span>
+              <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </a>
+            <div>
+              <p className="text-[11px] uppercase tracking-[0.18em] text-foreground/45 mb-2 flex items-center gap-1.5">
+                <Share2 className="w-3 h-3" /> Share
+              </p>
+              <div className="flex flex-wrap gap-1.5">
+                {shareLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-2.5 py-1 rounded-full text-xs text-foreground/70 bg-foreground/[0.04] border border-foreground/10 hover:border-primary/25 hover:text-foreground transition-colors"
+                    title={`Share on ${link.label}`}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </motion.div>
+
+        <div className="pt-8 border-t border-foreground/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-foreground/45">
+            © {currentYear} <span itemProp="name">Reejan R Gopan</span> · All rights reserved.
+          </p>
+          <p className="text-xs text-foreground/45">
+            Crafted in Dubai · <a href="https://reejangopan.me" className="text-foreground/70 hover:text-primary transition-colors">reejangopan.me</a>
+          </p>
+        </div>
       </div>
     </footer>
   );

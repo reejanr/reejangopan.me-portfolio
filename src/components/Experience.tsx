@@ -1,13 +1,13 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Briefcase, Building2, Calendar, MapPin } from "lucide-react";
+import { Building2, Calendar, MapPin } from "lucide-react";
 
 const experiences = [
   {
     title: "Information Technology Administrator",
     company: "USF Group",
     location: "Dubai, UAE",
-    period: "January 2025 – Present",
+    period: "Jan 2025 — Present",
     current: true,
     responsibilities: [
       "Enterprise systems & IT infrastructure management",
@@ -16,7 +16,6 @@ const experiences = [
       "Email hosting, DNS & network management",
       "Workforce management platform (Waqti) — web & mobile",
       "Business process automation & internal tools",
-      "Attendance, workforce & operational reporting systems",
       "Business application development with React & TypeScript",
       "Database design & API integrations (Supabase, PostgreSQL)",
       "Website operations, SEO & digital marketing technologies",
@@ -27,7 +26,7 @@ const experiences = [
     title: "IT Procurement & Support",
     company: "Chimera Group of Companies",
     location: "Dubai, UAE",
-    period: "Sep 2024 – Dec 2024",
+    period: "Sep 2024 — Dec 2024",
     current: false,
     responsibilities: [
       "Technology hardware, software & services procurement",
@@ -41,7 +40,7 @@ const experiences = [
     title: "Network Administrator",
     company: "TCS ION (Tata Consultancy Services)",
     location: "Kerala, India",
-    period: "Mar 2024 – Sep 2024",
+    period: "Mar 2024 — Sep 2024",
     current: false,
     responsibilities: [
       "Network configuration & server maintenance",
@@ -57,86 +56,90 @@ export const Experience = () => {
   const isInView = useInView(ref, { once: true, amount: 0.05 });
 
   return (
-    <section 
-      id="experience" 
-      className="py-24 sm:py-32 bg-background dark relative overflow-hidden" 
+    <section
+      id="experience"
       ref={ref}
+      className="relative py-28 sm:py-36 overflow-hidden"
       aria-label="Work Experience"
     >
-      <div className="absolute inset-0 bg-grid opacity-30" aria-hidden="true" />
-      
-      <div className="container px-6 relative">
+      <div className="absolute inset-0 bg-grid opacity-50" aria-hidden="true" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-2/3 hairline" />
+
+      <div className="container relative">
         <motion.header
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-3xl mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-xs font-medium text-primary uppercase tracking-wider mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-            Career
+          <span className="eyebrow mb-5">
+            <span className="w-1 h-1 rounded-full bg-primary" /> 02 — Career
           </span>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mt-4">
-            Work Experience
+          <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.02] mt-4">
+            <span className="gradient-text">A career built on</span>{" "}
+            <span className="italic text-foreground/70">systems that ship.</span>
           </h2>
         </motion.header>
 
-        <div className="max-w-4xl mx-auto space-y-5">
-          {experiences.map((exp, index) => (
-            <motion.article
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.15 + index * 0.15 }}
-              whileHover={{ y: -4 }}
-              className="rounded-2xl p-6 sm:p-8 glass-card neon-border hover:bg-card/40 transition-all"
-            >
-              <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6">
-                <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center shrink-0">
-                  <Briefcase className="w-6 h-6 text-primary-foreground" />
-                </div>
-                
-                <div className="flex-1 min-w-0">
-                  <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
-                    <div>
-                      <h3 className="font-heading text-lg sm:text-xl font-semibold text-foreground">{exp.title}</h3>
-                      <div className="flex items-center gap-2 text-primary font-medium text-sm mt-1">
-                        <Building2 className="w-3.5 h-3.5" aria-hidden="true" />
-                        {exp.company}
+        <div className="max-w-5xl">
+          <div className="relative">
+            {/* Timeline rail */}
+            <div className="absolute left-3 sm:left-4 top-2 bottom-2 w-px bg-gradient-to-b from-primary/40 via-foreground/10 to-transparent" />
+
+            <div className="space-y-5 sm:space-y-7">
+              {experiences.map((exp, index) => (
+                <motion.article
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.7, delay: 0.1 + index * 0.12, ease: [0.16, 1, 0.3, 1] }}
+                  className="relative pl-12 sm:pl-14"
+                >
+                  <div className="absolute left-1.5 sm:left-2.5 top-7 w-3 h-3 rounded-full bg-background border-2 border-primary/60 shadow-[0_0_0_4px_hsl(var(--background))]" />
+
+                  <div className="rounded-3xl p-6 sm:p-8 glass-card ring-soft">
+                    <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
+                      <div>
+                        <h3 className="font-heading text-2xl sm:text-3xl text-foreground tracking-tight leading-tight">
+                          {exp.title}
+                        </h3>
+                        <div className="flex items-center gap-2 text-primary/90 text-sm mt-2">
+                          <Building2 className="w-3.5 h-3.5" aria-hidden="true" />
+                          {exp.company}
+                        </div>
                       </div>
+                      {exp.current && (
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-medium uppercase tracking-[0.15em] bg-emerald-400/10 text-emerald-300 border border-emerald-400/20">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                          Current
+                        </span>
+                      )}
                     </div>
-                    {exp.current && (
-                      <span className="px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20">
-                        Current
-                      </span>
-                    )}
-                  </div>
 
-                  <div className="flex flex-wrap gap-3 text-xs text-muted-foreground mb-4">
-                    <span className="flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5" aria-hidden="true" />
-                      {exp.period}
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      <MapPin className="w-3.5 h-3.5" aria-hidden="true" />
-                      {exp.location}
-                    </span>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2">
-                    {exp.responsibilities.map((resp, ri) => (
-                      <span
-                        key={ri}
-                        className="px-3 py-1.5 rounded-lg bg-secondary/40 text-xs text-foreground/70 border border-border/50 hover:border-primary/20 hover:text-foreground transition-colors"
-                      >
-                        {resp}
+                    <div className="flex flex-wrap gap-x-5 gap-y-1 text-xs text-foreground/55 mb-5">
+                      <span className="flex items-center gap-1.5">
+                        <Calendar className="w-3 h-3" /> {exp.period}
                       </span>
-                    ))}
+                      <span className="flex items-center gap-1.5">
+                        <MapPin className="w-3 h-3" /> {exp.location}
+                      </span>
+                    </div>
+
+                    <div className="flex flex-wrap gap-1.5">
+                      {exp.responsibilities.map((resp, ri) => (
+                        <span
+                          key={ri}
+                          className="px-3 py-1.5 rounded-full text-[12px] text-foreground/75 bg-foreground/[0.03] border border-foreground/[0.08] hover:border-primary/20 hover:text-foreground transition-colors"
+                        >
+                          {resp}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </div>
-            </motion.article>
-          ))}
+                </motion.article>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

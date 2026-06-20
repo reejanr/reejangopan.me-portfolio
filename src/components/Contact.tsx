@@ -8,103 +8,80 @@ export const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.05 });
 
-  const contactInfo = [
-    { icon: Linkedin, label: "LinkedIn", value: "Connect on LinkedIn", href: LINKEDIN_URL, color: "from-cyan-500/20 to-blue-500/20", external: true },
-    { icon: MapPin, label: "Location", value: "Dubai, UAE", href: null, color: "from-emerald-500/20 to-teal-500/20", external: false },
-  ];
-
-
   return (
-    <section 
-      id="contact" 
-      className="py-24 sm:py-32 bg-background dark relative overflow-hidden" 
+    <section
+      id="contact"
       ref={ref}
+      className="relative py-32 sm:py-40 overflow-hidden"
       aria-label="Contact"
     >
-      <div className="absolute inset-0 bg-dots opacity-30" aria-hidden="true" />
-      
-      {/* Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/3 blur-[150px] pointer-events-none" aria-hidden="true" />
-      
-      <div className="container px-6 relative">
-        <motion.header
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-xs font-medium text-primary uppercase tracking-wider mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-            Contact
-          </span>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mt-4">
-            Let's Build Something That Works
-          </h2>
-          <p className="text-muted-foreground mt-4 max-w-md mx-auto text-sm sm:text-base">
-            IT administration, business application development, automation, or digital operations — get in touch to discuss your project.
-          </p>
-        </motion.header>
+      <div className="absolute inset-0 bg-aurora opacity-80" aria-hidden="true" />
+      <div className="absolute inset-0 bg-grid opacity-40" aria-hidden="true" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-primary/[0.07] blur-[150px] pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-2/3 hairline" />
 
-        <div className="max-w-4xl mx-auto">
-          {/* Contact Cards */}
-          <address className="grid sm:grid-cols-2 gap-4 mb-12 not-italic max-w-2xl mx-auto">
-            {contactInfo.map((info, index) => {
-              const content = (
-                <div className="group relative overflow-hidden rounded-2xl p-6 glass-card neon-border hover:bg-card/40 transition-all text-center">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${info.color} opacity-0 group-hover:opacity-100 transition-opacity`} aria-hidden="true" />
-                  <div className="relative z-10">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-primary flex items-center justify-center mx-auto mb-4" aria-hidden="true">
-                      <info.icon className="w-6 h-6 text-primary-foreground" />
-                    </div>
-                    <p className="text-xs text-muted-foreground mb-1 uppercase tracking-wider">{info.label}</p>
-                    <p className="text-foreground font-medium text-sm">{info.value}</p>
-                  </div>
-                </div>
-              );
-
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
-                  whileHover={{ y: -4 }}
-                >
-                  {info.href ? (
-                    <a
-                      href={info.href}
-                      title={`${info.label} Reejan Gopan`}
-                      className="block"
-                      {...(info.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    >
-                      {content}
-                    </a>
-                  ) : content}
-                </motion.div>
-              );
-            })}
-          </address>
-
-          {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
+      <div className="container relative">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.span
+            initial={{ opacity: 0, y: 12 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row justify-center gap-4"
+            transition={{ duration: 0.7 }}
+            className="eyebrow justify-center mb-6"
+          >
+            <span className="w-1 h-1 rounded-full bg-primary" /> 07 — Contact
+          </motion.span>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 24 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="font-heading text-5xl sm:text-6xl lg:text-7xl tracking-tight leading-[0.98] text-balance mb-8"
+          >
+            <span className="gradient-text">Let's build something</span>{" "}
+            <span className="italic text-foreground/70">that works.</span>
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.25 }}
+            className="text-foreground/65 text-base sm:text-lg max-w-xl mx-auto leading-relaxed mb-12"
+          >
+            IT administration, business application development, automation, or digital
+            operations — get in touch to discuss your project.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex flex-wrap justify-center gap-3 mb-16"
           >
             <a
               href={LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-primary-foreground bg-gradient-primary neon-glow hover:opacity-90 transition-all text-sm"
-              title="Hire Reejan Gopan"
+              className="btn-primary !px-7 !py-3.5"
+              title="Connect with Reejan Gopan on LinkedIn"
             >
-              <Linkedin className="w-4.5 h-4.5" aria-hidden="true" />
+              <Linkedin className="w-4 h-4" />
               Connect on LinkedIn
-              <ArrowUpRight className="w-4 h-4" />
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
-
+            <a href="#projects" className="btn-ghost !px-7 !py-3.5">
+              See featured work
+            </a>
           </motion.div>
+
+          <motion.address
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.55 }}
+            className="not-italic inline-flex items-center gap-3 px-5 py-2.5 rounded-full glass text-xs uppercase tracking-[0.18em] text-foreground/65"
+          >
+            <MapPin className="w-3.5 h-3.5 text-primary" />
+            Dubai, United Arab Emirates
+          </motion.address>
         </div>
       </div>
     </section>
