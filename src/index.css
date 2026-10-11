@@ -234,8 +234,14 @@ img, svg { max-width: 100%; }
 
 /* ---------- ticker ---------- */
 .ticker { overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 28px 0; }
-.track { display: flex; gap: 48px; width: max-content; font-size: clamp(36px, 6vw, 80px); font-weight: 700; letter-spacing: -0.04em; line-height: 1; white-space: nowrap; }
-.track + .track { margin-top: 16px; }
+.marquee { overflow: hidden; }
+.marquee + .marquee { margin-top: 16px; }
+.track { display: flex; width: max-content; font-size: clamp(36px, 6vw, 80px); font-weight: 700; letter-spacing: -0.04em; line-height: 1.05; white-space: nowrap; }
+.track > span { padding-right: clamp(32px, 4vw, 56px); }
+.track.run { animation: marquee 60s linear infinite; }
+.track.run.rev { animation-direction: reverse; animation-duration: 72s; }
+.ticker:hover .track.run { animation-play-state: paused; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .track .o { color: transparent; -webkit-text-stroke: 1px var(--outline); }
 
 /* ---------- project rows ---------- */
@@ -373,8 +379,6 @@ img, svg { max-width: 100%; }
   .progress { animation: prog linear both; animation-timeline: scroll(root); }
   .proj::after { animation: draw linear both; animation-timeline: view(); animation-range: entry 10% cover 35%; }
   .proj .scanl { animation: scanx linear both; animation-timeline: view(); animation-range: entry 40% cover 60%; }
-  .tk-l { animation: tkl linear both; animation-timeline: view(); animation-range: cover 0% cover 100%; }
-  .tk-r { animation: tkr linear both; animation-timeline: view(); animation-range: cover 0% cover 100%; }
   .hero-out { animation: heroout linear both; animation-timeline: scroll(root); animation-range: 0 100vh; }
   .sk { animation: skin linear both; animation-timeline: view(); animation-range: entry 0% cover 30%; }
   .sk:nth-child(4n + 2) { animation-range: entry 8% cover 34%; }
@@ -409,8 +413,6 @@ img, svg { max-width: 100%; }
 @keyframes prog { to { transform: scaleX(1); } }
 @keyframes draw { to { transform: scaleX(1); } }
 @keyframes scanx { from { background-position: -60% 0; } to { background-position: 160% 0; } }
-@keyframes tkl { from { transform: translateX(5%); } to { transform: translateX(-35%); } }
-@keyframes tkr { from { transform: translateX(-35%); } to { transform: translateX(5%); } }
 @keyframes heroout { to { transform: translateY(-60px) scale(0.97); opacity: 0.25; } }
 @keyframes skin { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
 @keyframes rail { to { transform: scaleY(1); } }
@@ -421,7 +423,7 @@ img, svg { max-width: 100%; }
 /* ---------- responsive: tablet ---------- */
 @media (max-width: 1024px) {
   .hero-grid { grid-template-columns: minmax(0, 1fr); }
-  .net { width: 100%; right: 0; }
+  .net { display: none; }
   .stackgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .stats, .ct, .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -482,3 +484,17 @@ img, svg { max-width: 100%; }
 .theme-btn .ic-moon { display: none; }
 [data-theme="light"] .theme-btn .ic-sun { display: none; }
 [data-theme="light"] .theme-btn .ic-moon { display: block; }
+
+/* ---------- FAQ ---------- */
+.faq { border-top: 1px solid var(--line); }
+.faq:last-child { border-bottom: 1px solid var(--line); }
+.faq summary {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  min-height: 64px; padding: 18px 0; cursor: pointer; list-style: none;
+  font-size: clamp(18px, 2vw, 22px); font-weight: 600; letter-spacing: -0.02em;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary:hover { color: var(--acc-ink); }
+.faq-ic { flex: 0 0 auto; color: var(--acc-ink); transition: transform 0.3s; }
+.faq[open] .faq-ic { transform: rotate(90deg); }
+.faq p { margin: 0 0 22px; max-width: 760px; font-size: 16px; line-height: 1.7; color: var(--muted); }

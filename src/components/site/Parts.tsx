@@ -119,14 +119,21 @@ export function Network() {
 }
 
 export function Ticker({ a, b }: { a: string[]; b: string[] }) {
+  // Each row is rendered twice so the loop is seamless (the track moves by exactly half its width).
+  const row = (items: string[], cls: string, outlineEven: boolean) => (
+    <div className="marquee" aria-hidden="true">
+      <div className={`track disp ${cls}`}>
+        {[...items, ...items].map((t, i) => (
+          <span key={t + i} className={(i % 2 === 0) === outlineEven ? "o" : undefined}>{t}</span>
+        ))}
+      </div>
+    </div>
+  );
   return (
     <section className="ticker" aria-label="Technologies">
-      <div className="track disp tk-l" aria-hidden="true">
-        {a.map((t, i) => <span key={t + i} className={i % 2 ? "o" : undefined}>{t}</span>)}
-      </div>
-      <div className="track disp tk-r" aria-hidden="true">
-        {b.map((t, i) => <span key={t + i} className={i % 2 ? undefined : "o"}>{t}</span>)}
-      </div>
+      <p className="sr-only">Technologies: {[...a, ...b].join(", ")}.</p>
+      {row(a, "run", false)}
+      {row(b, "run rev", true)}
     </section>
   );
 }

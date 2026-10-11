@@ -112,7 +112,7 @@ export const projects: Project[] = [
     link: { label: "Visit usfdemolition.com", href: "https://usfdemolition.com" },
     seoTitle: "USF Demolition Digital Platform — Case Study",
     seoDescription:
-      "Case study: a React, TypeScript and Vite corporate platform with 200+ prerendered routes, technical SEO, GA4 conversion tracking and Core Web Vitals optimisation.",
+      "Case study: React and Vite corporate platform with 200+ prerendered routes, technical SEO, GA4 conversion tracking and Core Web Vitals work.",
     keywords: ["technical SEO", "prerendering", "React website", "Core Web Vitals", "Vercel", "Cloudflare"],
   },
   {
@@ -137,7 +137,7 @@ export const projects: Project[] = [
     outcomes: ["Live market-data processing for XAUUSD and BTCUSD", "Strategy logic covered by automated tests"],
     seoTitle: "XAUUSD & BTCUSD Trading Analysis Platform (Python, Flask)",
     seoDescription:
-      "Case study: a Python, Flask and Pandas service analysing live XAUUSD and BTCUSD data with multi-timeframe processing, strategy filters, news integration and automated tests.",
+      "Case study: Python, Flask and Pandas service analysing live XAUUSD and BTCUSD data with multi-timeframe logic, news filters and automated tests.",
     keywords: ["Python Flask", "Pandas", "trading signals", "XAUUSD", "BTCUSD", "data engineering"],
   },
   {
@@ -279,8 +279,54 @@ export const languages = [
 ];
 
 export const nav = [
+  { to: "/about", label: "About" },
   { to: "/projects", label: "Projects" },
   { to: "/experience", label: "Experience" },
   { to: "/skills", label: "Skills" },
   { to: "/contact", label: "Contact" },
+];
+
+export const about = {
+  intro:
+    "I’m Reejan R Gopan, a Software & Systems Engineer based in Dubai. I build production business systems — workforce management, attendance, payroll and ERP platforms — and manage the infrastructure, security, websites, analytics and digital platforms behind them.",
+  paragraphs: [
+    "My work combines software engineering with real-world business operations. Instead of focusing only on code or only on IT administration, I work across the complete technology lifecycle — from understanding the business problem to running the system in production and improving it.",
+    "At USF Group in Dubai I built WAQTI, a workforce platform used for real field operations, and the company’s web platform with 200+ prerendered routes. Alongside development I administer Microsoft 365 for 50+ users, Windows Server and Active Directory, hosting, DNS and corporate email.",
+    "Before that I worked in IT procurement and support at Chimera Group in Dubai, and as a Network Administrator at TCS iON in India — the infrastructure foundation that shapes how I design and secure software today.",
+  ],
+  lifecycle: [
+    "Identify the problem", "Design the solution", "Build the application", "Design the database",
+    "Secure the platform", "Deploy", "Monitor", "Optimise", "Support users", "Improve the process",
+  ],
+  differentiators: [
+    { title: "Business + engineering", text: "I understand both the operational workflow and the technical implementation, so systems fit how people actually work." },
+    { title: "End-to-end ownership", text: "Comfortable moving from requirement gathering to production deployment, monitoring and support." },
+    { title: "Production experience", text: "My projects are used by real employees, supervisors and administrators — not tutorials." },
+    { title: "Security by design", text: "Role-based access, Row Level Security, server-side authorisation and audit trails are part of the architecture, not an afterthought." },
+  ],
+  direction:
+    "My direction is toward full-stack engineering, cloud and DevOps, and AI-enabled enterprise systems — designing and operating complete platforms from infrastructure to application.",
+};
+
+export const faqs = [
+  {
+    q: "Who is Reejan R Gopan?",
+    a: "Reejan R Gopan is a Software & Systems Engineer based in Dubai, UAE. He builds production business applications, workforce platforms, automation tools and digital systems, and has 2+ years of experience across full-stack development, cloud infrastructure and enterprise IT in the UAE and India.",
+  },
+  {
+    q: "What has Reejan built?",
+    a: "Key projects include WAQTI, a workforce management platform for attendance, overtime, leave and payroll; the USF Demolition digital platform with 200+ prerendered routes and technical SEO; a Python trading analysis platform for XAUUSD and BTCUSD; IT infrastructure deployments for Dubai SMBs; and an internal ERP platform.",
+  },
+  {
+    q: "Which technologies does Reejan work with?",
+    a: "React, TypeScript, JavaScript, Python, Node.js, PostgreSQL, Supabase, Next.js, AWS, Microsoft Azure, Docker, Vercel, Cloudflare, Microsoft 365, Entra ID, Windows Server and Active Directory.",
+  },
+  {
+    q: "Is Reejan open to new roles?",
+    a: "Yes — Reejan is open to Software Engineer, Full-Stack Developer, Cloud Engineer and Systems Engineer roles in Dubai and the UAE.",
+  },
+  {
+    q: "How can I contact Reejan R Gopan?",
+    a: "Email reejanr90@gmail.com, call +971 52 712 3154, or connect on LinkedIn. His CV can be downloaded from reejangopan.me.",
+  },
 ];

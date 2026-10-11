@@ -6,7 +6,18 @@ const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
 const toAbsolute = (p) => path.resolve(__dirname, p)
 const SITE_URL = 'https://reejangopan.me'
 
-const template = fs.readFileSync(toAbsolute('dist/index.html'), 'utf-8')
+// Preload the two fonts used above the fold (heading + body) so the first paint
+// uses the right typefaces and the hero heading (the LCP element) is not delayed.
+const assets = fs.readdirSync(toAbsolute('dist/assets'))
+const preloads = [/^bricolage-grotesque-latin-wght-normal-.*\.woff2$/, /^geist-sans-latin-400-normal-.*\.woff2$/]
+  .map((re) => assets.find((f) => re.test(f)))
+  .filter(Boolean)
+  .map((f) => `<link rel="preload" href="/assets/${f}" as="font" type="font/woff2" crossorigin />`)
+  .join('\n    ')
+
+const template = fs
+  .readFileSync(toAbsolute('dist/index.html'), 'utf-8')
+  .replace('<!--app-head-->', `${preloads}\n    <!--app-head-->`)
 const { render, head, routes } = await import('./dist/server/entry-server.js')
 
 const write = (file, html) => {

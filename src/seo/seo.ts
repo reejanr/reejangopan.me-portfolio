@@ -1,11 +1,12 @@
 import {
-  SITE_URL, profile, projects, experience, coreStack, certifications, education,
+  SITE_URL, profile, projects, experience, coreStack, certifications, education, faqs,
 } from "@/data/site";
 
 // Every route the site serves. prerender.js renders each one to static HTML
 // and builds sitemap.xml from this list.
 export const routes: string[] = [
   "/",
+  "/about",
   "/projects",
   ...projects.map((p) => `/projects/${p.slug}`),
   "/experience",
@@ -40,11 +41,7 @@ const person = {
   email: `mailto:${profile.email}`,
   telephone: profile.phoneHref.replace("tel:", ""),
   address: { "@type": "PostalAddress", addressLocality: "Dubai", addressCountry: "AE" },
-  worksFor: {
-    "@type": "Organization",
-    name: "USF Group (USF Demolition Works LLC)",
-    url: "https://usfdemolition.com",
-  },
+  worksFor: { "@id": `${SITE_URL}/#employer` },
   alumniOf: {
     "@type": "CollegeOrUniversity",
     name: education.school,
@@ -85,8 +82,11 @@ const breadcrumbs = (items: { name: string; path: string }[]) => ({
   })),
 });
 
+const BUILT = new Date().toISOString().slice(0, 10);
+
 const page = (type: string, path: string, name: string, description: string, extra: object = {}) => ({
   "@type": type,
+  dateModified: BUILT,
   "@id": `${abs(path)}#webpage`,
   url: abs(path),
   name,
@@ -97,7 +97,15 @@ const page = (type: string, path: string, name: string, description: string, ext
   ...extra,
 });
 
-const graph = (...nodes: object[]) => [{ "@context": "https://schema.org", "@graph": [website, person, ...nodes] }];
+const employer = {
+  "@type": "Organization",
+  "@id": `${SITE_URL}/#employer`,
+  name: "USF Group (USF Demolition Works LLC)",
+  url: "https://usfdemolition.com",
+  address: { "@type": "PostalAddress", addressLocality: "Dubai", addressCountry: "AE" },
+};
+
+const graph = (...nodes: object[]) => [{ "@context": "https://schema.org", "@graph": [website, person, employer, ...nodes] }];
 
 export function getHead(rawPath: string): Head {
   const path = rawPath.replace(/\/+$/, "") || "/";
@@ -113,10 +121,31 @@ export function getHead(rawPath: string): Head {
     };
   }
 
+  if (path === "/about") {
+    const title = `About ${profile.name} — Software Engineer, Dubai`;
+    const description =
+      "About Reejan R Gopan, a Dubai-based Software & Systems Engineer building workforce, payroll and ERP systems and running the cloud, security and IT behind them.";
+    return {
+      title, description, path, ogType: "profile",
+      keywords: ["Reejan Gopan", "Reejan R Gopan", "Software Engineer Dubai", "Systems Engineer UAE"],
+      jsonLd: graph(
+        page("AboutPage", path, title, description, { mainEntity: { "@id": `${SITE_URL}/#person` } }),
+        {
+          "@type": "FAQPage",
+          "@id": `${abs(path)}#faq`,
+          mainEntity: faqs.map((f) => ({
+            "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        },
+        breadcrumbs([{ name: "About", path }]),
+      ),
+    };
+  }
+
   if (path === "/projects") {
     const title = `Projects — ${profile.name}, Software Engineer`;
     const description =
-      "Selected projects by Reejan R Gopan: the WAQTI workforce platform, the USF Demolition web platform, a Python trading analysis system, IT infrastructure and an internal ERP.";
+      "Projects by Reejan R Gopan: WAQTI workforce platform, USF Demolition web platform, a Python trading analysis system, IT infrastructure and an ERP.";
     return {
       title, description, path, ogType: "website",
       jsonLd: graph(
@@ -135,7 +164,7 @@ export function getHead(rawPath: string): Head {
 
   const project = projects.find((p) => path === `/projects/${p.slug}`);
   if (project) {
-    const title = `${project.seoTitle} | ${profile.name}`;
+    const title = project.seoTitle.length <= 44 ? `${project.seoTitle} | ${profile.name}` : project.seoTitle;
     return {
       title, description: project.seoDescription, path, ogType: "article", keywords: project.keywords,
       jsonLd: graph(
@@ -160,7 +189,7 @@ export function getHead(rawPath: string): Head {
   if (path === "/experience") {
     const title = `Experience — ${profile.name}, ${profile.title}`;
     const description =
-      "Work experience of Reejan R Gopan: IT Systems & Digital Transformation Administrator at USF Group Dubai, IT Procurement & Support at Chimera Group, Network Administrator at TCS iON.";
+      "Experience of Reejan R Gopan: IT Systems & Digital Transformation at USF Group Dubai, IT support at Chimera Group and network admin at TCS iON.";
     return {
       title, description, path, ogType: "profile",
       jsonLd: graph(
@@ -181,7 +210,7 @@ export function getHead(rawPath: string): Head {
   if (path === "/skills") {
     const title = `Skills & Tech Stack — ${profile.name}`;
     const description =
-      "Tech stack of Reejan R Gopan: React, TypeScript, Python, Node.js, PostgreSQL, Supabase, AWS, Azure, Docker, Microsoft 365 and Windows Server, plus certifications and education.";
+      "Reejan R Gopan's tech stack: React, TypeScript, Python, Node.js, PostgreSQL, Supabase, AWS, Azure, Docker, Microsoft 365 and Windows Server.";
     return {
       title, description, path, ogType: "website",
       jsonLd: graph(page("WebPage", path, title, description), breadcrumbs([{ name: "Skills", path }])),
@@ -191,7 +220,7 @@ export function getHead(rawPath: string): Head {
   if (path === "/contact") {
     const title = `Contact ${profile.name} — Software Engineer in Dubai`;
     const description =
-      "Contact Reejan R Gopan, Software & Systems Engineer in Dubai, UAE — email, phone, LinkedIn and CV download. Open to Software, Full-Stack, Cloud and Systems roles.";
+      "Contact Reejan R Gopan, Software & Systems Engineer in Dubai — email, phone, LinkedIn and CV. Open to Software, Full-Stack, Cloud and Systems roles.";
     return {
       title, description, path, ogType: "website",
       jsonLd: graph(page("ContactPage", path, title, description), breadcrumbs([{ name: "Contact", path }])),
