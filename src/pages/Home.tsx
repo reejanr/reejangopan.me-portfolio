@@ -2,9 +2,12 @@ import { Link } from "react-router-dom";
 import { coreStack, experience, profile, projects, services, stats } from "@/data/site";
 import { CodeWindow, ContactCta, Network, ProjectRow, Rich, SectionHead, Ticker } from "@/components/site/Parts";
 import { ArrowRight, ArrowUpRight, Download } from "@/components/site/Icons";
+import { useDubaiTime, useScramble } from "@/components/site/fx";
 
 export default function Home() {
   const current = experience[0];
+  const nameRef = useScramble<HTMLSpanElement>(profile.name, 350);
+  const time = useDubaiTime();
   return (
     <>
       <section className="hero" aria-labelledby="hero-title">
@@ -14,10 +17,10 @@ export default function Home() {
           <div className="hero-grid">
             <div>
               <p className="pill in" style={{ margin: 0 }}>
-                <span className="dot" />{profile.location} · Open to {profile.openTo}
+                <span className="dot" />{profile.location}{time && <span className="clock"> · {time} GST</span>} · Open to {profile.openTo}
               </p>
               <h1 id="hero-title" className="disp h1" style={{ marginTop: 28 }}>
-                <span className="ln"><span>{profile.name}</span></span>{" "}
+                <span className="ln"><span ref={nameRef}>{profile.name}</span></span>{" "}
                 <span className="in d1" style={{ display: "block", marginTop: 18, fontSize: "clamp(24px, 2.6vw, 34px)", lineHeight: 1.2, letterSpacing: "-0.02em", fontWeight: 600 }}>
                   Software &amp; Systems <span className="serif acc" style={{ fontSize: "1.12em" }}>Engineer</span>
                 </span>
@@ -109,7 +112,7 @@ export default function Home() {
           />
           <ul className="stackgrid" style={{ listStyle: "none", margin: 0, padding: 0 }}>
             {coreStack.map((t, i) => (
-              <li key={t} className="sk">
+              <li key={t} className="sk spot">
                 <span className="sk-i">{String(i + 1).padStart(2, "0")}</span>
                 <span className="disp sk-t">{t}</span>
               </li>
@@ -128,7 +131,7 @@ export default function Home() {
           <ul className="svc-grid">
             {services.map((s) => (
               <li key={s.id} className="rv">
-                <Link to={`/services#${s.id}`} className="svc-card">
+                <Link to={`/services#${s.id}`} className="svc-card spot">
                   <span className="disp svc-card-t">{s.title}</span>
                   <span className="svc-card-d">{s.tools.slice(0, 4).join(" · ")}</span>
                 </Link>

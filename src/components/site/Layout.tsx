@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { nav, profile, projects } from "@/data/site";
 import { useSeo } from "@/seo/useSeo";
+import { usePointerFx } from "./fx";
 import { ArrowUp, Close, Download, Menu, Moon, Sun } from "./Icons";
 
 function toggleTheme() {
@@ -141,10 +142,15 @@ function useScrollProgress(pctRef: React.RefObject<HTMLSpanElement>) {
 }
 
 export function Layout({ children }: { children: ReactNode }) {
+  const { pathname, hash } = useLocation();
   const pctRef = useRef<HTMLSpanElement>(null);
   useScrollProgress(pctRef);
-  const { pathname, hash } = useLocation();
+  usePointerFx();
   useSeo();
+  // Animate page changes after the first load only (the first paint stays instant for LCP).
+  const firstPath = useRef<string | null>(null);
+  if (firstPath.current === null) firstPath.current = pathname;
+  const navigated = pathname !== firstPath.current;
 
   useEffect(() => {
     if (!hash) window.scrollTo(0, 0);
@@ -155,7 +161,7 @@ export function Layout({ children }: { children: ReactNode }) {
     <div id="top">
       <a className="skip-link" href="#main">Skip to content</a>
       <Nav />
-      <main id="main">{children}</main>
+      <main id="main" key={pathname} className={navigated ? "page-in" : undefined}>{children}</main>
       <Footer />
       <div className="hud" aria-hidden="true">
         <span>scroll</span>

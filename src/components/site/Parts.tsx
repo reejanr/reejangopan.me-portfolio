@@ -45,7 +45,7 @@ export function Breadcrumbs({ items }: { items: { name: string; to?: string }[] 
 export function ProjectRow({ p, i, headingLevel = 3 }: { p: Project; i: number; headingLevel?: 2 | 3 }) {
   const H = headingLevel === 2 ? "h2" : "h3";
   return (
-    <Link className="proj rv" to={`/projects/${p.slug}`} aria-label={`${p.name} — read case study`}>
+    <Link className="proj rv spot" to={`/projects/${p.slug}`} aria-label={`${p.name} — read case study`}>
       <span className="scanl" aria-hidden="true" />
       <span className="proj-n">{String(i + 1).padStart(2, "0")}</span>
       <div>

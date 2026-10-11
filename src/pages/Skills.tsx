@@ -19,7 +19,7 @@ export default function Skills() {
           <h2 className="mono faint" style={{ margin: "56px 0 16px" }}>Daily drivers</h2>
           <ul className="stackgrid" style={{ listStyle: "none", margin: 0, padding: 0 }}>
             {coreStack.map((t, i) => (
-              <li key={t} className="sk">
+              <li key={t} className="sk spot">
                 <span className="sk-i">{String(i + 1).padStart(2, "0")}</span>
                 <span className="disp sk-t">{t}</span>
               </li>

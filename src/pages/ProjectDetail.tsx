@@ -98,11 +98,11 @@ export default function ProjectDetail() {
 
       <nav className="section-sm" aria-label="More projects">
         <div className="wrap pager">
-          <Link to={`/projects/${prev.slug}`}>
+          <Link to={`/projects/${prev.slug}`} className="spot">
             <span className="mono faint" style={{ display: "inline-flex", alignItems: "center", gap: 8 }}><ArrowLeft size={14} /> Previous</span>
             <span className="disp" style={{ display: "block", marginTop: 10, fontSize: 20, fontWeight: 600 }}>{prev.name}</span>
           </Link>
-          <Link to={`/projects/${next.slug}`} className="next">
+          <Link to={`/projects/${next.slug}`} className="next spot">
             <span className="mono faint" style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>Next <ArrowRight size={14} /></span>
             <span className="disp" style={{ display: "block", marginTop: 10, fontSize: 20, fontWeight: 600 }}>{next.name}</span>
           </Link>
