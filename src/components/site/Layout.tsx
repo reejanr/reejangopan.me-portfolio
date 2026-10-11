@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { nav, profile, projects } from "@/data/site";
 import { useSeo } from "@/seo/useSeo";
@@ -113,12 +113,40 @@ function Footer() {
   );
 }
 
+// Writes scroll progress (0–100) into --p on <html> and into the HUD readout.
+// Plain scroll events, so it works in every browser.
+function useScrollProgress(pctRef: React.RefObject<HTMLSpanElement>) {
+  useEffect(() => {
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const el = document.scrollingElement || document.documentElement;
+      const max = el.scrollHeight - el.clientHeight;
+      const p = max > 0 ? Math.min(1, Math.max(0, el.scrollTop / max)) : 0;
+      document.documentElement.style.setProperty("--p", p.toFixed(4));
+      if (pctRef.current) pctRef.current.textContent = String(Math.round(p * 100));
+    };
+    const onScroll = () => { if (!frame) frame = requestAnimationFrame(update); };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      cancelAnimationFrame(frame);
+    };
+  }, [pctRef]);
+}
+
 export function Layout({ children }: { children: ReactNode }) {
+  const pctRef = useRef<HTMLSpanElement>(null);
+  useScrollProgress(pctRef);
   const { pathname, hash } = useLocation();
   useSeo();
 
   useEffect(() => {
     if (!hash) window.scrollTo(0, 0);
+    window.dispatchEvent(new Event("scroll"));
   }, [pathname, hash]);
 
   return (
@@ -130,7 +158,7 @@ export function Layout({ children }: { children: ReactNode }) {
       <div className="hud" aria-hidden="true">
         <span>scroll</span>
         <span className="bar"><span /></span>
-        <span className="pct" />
+        <span className="pct" ref={pctRef}>0</span>
         <span>%</span>
       </div>
     </div>

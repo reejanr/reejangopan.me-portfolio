@@ -349,8 +349,18 @@ img, svg { max-width: 100%; }
 .footer li a:hover { color: var(--acc-ink); }
 .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 13.5px; color: var(--faint); }
 
-/* ---------- scroll HUD ---------- */
-.hud { display: none; }
+/* ---------- scroll HUD (driven by useScrollProgress) ---------- */
+.hud {
+  display: flex; align-items: center; gap: 10px; position: fixed; z-index: 60;
+  right: max(20px, env(safe-area-inset-right)); bottom: max(20px, env(safe-area-inset-bottom));
+  padding: 9px 14px; border-radius: 12px; border: 1px solid var(--line-2); background: var(--nav-bg);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--faint);
+}
+.hud .pct { color: var(--fg); min-width: 3ch; text-align: right; font-variant-numeric: tabular-nums; }
+.hud .bar { width: 64px; height: 3px; border-radius: 3px; background: var(--line-2); overflow: hidden; }
+.hud .bar > span, .progress { transform: scaleX(var(--p, 0)); transition: transform 0.15s linear; }
+.hud .bar > span { display: block; height: 100%; background: var(--acc); transform-origin: 0 50%; }
 
 /* ---------- load-in animations (time based) ---------- */
 .in { animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
@@ -376,7 +386,6 @@ img, svg { max-width: 100%; }
   .rv.s3 { animation-range: entry 20% cover 38%; }
   .hw { animation: hw linear both; animation-timeline: view(); animation-range: entry 0% cover 30%; }
   .cmt { animation: typev steps(var(--c)) both; animation-timeline: view(); animation-range: entry 30% cover 32%; }
-  .progress { animation: prog linear both; animation-timeline: scroll(root); }
   .proj::after { animation: draw linear both; animation-timeline: view(); animation-range: entry 10% cover 35%; }
   .proj .scanl { animation: scanx linear both; animation-timeline: view(); animation-range: entry 40% cover 60%; }
   .hero-out { animation: heroout linear both; animation-timeline: scroll(root); animation-range: 0 100vh; }
@@ -394,18 +403,6 @@ img, svg { max-width: 100%; }
   .wm { animation: wm linear both; animation-timeline: view(); animation-range: cover 0% cover 100%; }
   .grow { animation: grow linear both; animation-timeline: view(); animation-range: entry 0% cover 40%; }
 
-  .hud {
-    display: flex; align-items: center; gap: 10px; position: fixed; z-index: 60;
-    right: max(20px, env(safe-area-inset-right)); bottom: max(20px, env(safe-area-inset-bottom));
-    padding: 9px 14px; border-radius: 12px; border: 1px solid var(--line-2); background: var(--nav-bg);
-    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-    font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--faint);
-    animation: hud linear both; animation-timeline: scroll(root); counter-reset: sp var(--sp);
-  }
-  .hud .pct { color: var(--fg); min-width: 3ch; text-align: right; }
-  .hud .pct::before { content: counter(sp); }
-  .hud .bar { width: 64px; height: 3px; border-radius: 3px; background: var(--line-2); overflow: hidden; }
-  .hud .bar > span { display: block; height: 100%; background: var(--acc); transform-origin: 0 50%; transform: scaleX(0); animation: prog linear both; animation-timeline: scroll(root); }
 }
 @keyframes rv { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: none; } }
 @keyframes hw { from { clip-path: inset(0 100% 0 0); transform: translateY(16px); } to { clip-path: inset(0 0 0 0); transform: none; } }
