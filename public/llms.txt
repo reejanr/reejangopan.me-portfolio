@@ -1,126 +1,33 @@
-# Reejan Gopan — Information Technology Administrator, Dubai
+# Reejan R Gopan — Software & Systems Engineer, Dubai
 
-> **Reejan Gopan is an Information Technology Administrator** at USF Group, Dubai, specializing in enterprise systems, IT infrastructure, business applications, process automation, digital operations, and AI-assisted development.
+> Software & Systems Engineer in Dubai, UAE. Builds production business applications, workforce platforms, automation tools and digital systems with React, TypeScript, PostgreSQL, Supabase and Python. 2+ years across full-stack development, cloud infrastructure and enterprise IT in the UAE and India.
 
-## Professional Identity
+- Website: https://reejangopan.me
+- Email: reejanr90@gmail.com
+- Phone: +971 52 712 3154
+- LinkedIn: https://www.linkedin.com/in/reejan-r-gopan-38a8092b9
+- CV: https://reejangopan.me/Reejan_R_Gopan_CV.pdf
+- Open to: Software, Full-Stack, Cloud and Systems roles
 
-Reejan Gopan combines enterprise systems management, infrastructure administration, business application development, process automation, digital operations, and AI-assisted development to deliver practical business solutions.
+## Pages
+- [Home](https://reejangopan.me/)
+- [Projects](https://reejangopan.me/projects)
+- [Experience](https://reejangopan.me/experience)
+- [Skills](https://reejangopan.me/skills)
+- [Contact](https://reejangopan.me/contact)
 
-### Positioning
-- Information Technology Administrator
-- Enterprise Systems Specialist
-- Business Systems Developer
-- Automation & Technology Specialist
-- Digital Operations Professional
-
-## Personal Information
-
-- **Full Name:** Reejan R Gopan
-- **Title:** Information Technology Administrator
-- **Company:** USF Group
-- **Location:** Dubai, United Arab Emirates
-- **Website:** https://reejangopan.me
-- **Email:** Reejanr90@gmail.com
-- **Phone:** +971 527123154
-- **LinkedIn:** https://linkedin.com/in/reejan-r-gopan-38a8092b9
-
-## About
-
-I am an Information Technology Administrator specializing in enterprise systems, IT infrastructure, business applications, process automation, digital operations, and AI-assisted development.
-
-My work extends beyond traditional IT administration, combining technology, business operations, automation, and digital transformation to create efficient, scalable, and reliable solutions that support organizational growth.
-
-At USF Group, I manage and optimize the organization's technology ecosystem, including enterprise applications, workforce management systems, Microsoft 365 administration, VPS and server infrastructure, email hosting, DNS management, website operations, SEO, digital marketing technologies, and business process automation. I am responsible for improving operational efficiency, ensuring system reliability, and supporting technology-driven business growth.
-
-I lead the development, implementation, and maintenance of business-critical solutions that streamline operations and improve productivity. One of my key projects is **Waqti**, a workforce management platform developed for USF Group that simplifies attendance tracking, workforce administration, operational reporting, and employee management. The platform is actively used within the organization and is available as a mobile application on Google Play.
-
-I embrace modern AI-assisted development workflows to rapidly design, build, deploy, and improve business applications. By combining technical expertise with business understanding, I transform ideas into practical solutions that create measurable value and support long-term organizational success.
-
-## Core Expertise
-
-- Enterprise Systems Administration
-- IT Infrastructure Management
-- Microsoft 365 Administration
-- VPS & Cloud Server Management
-- Linux Server Administration
-- Network & DNS Management
-- Website Development & Management
-- Business Process Automation
-- Workforce Management Systems
-- Attendance & Payroll Systems
-- Business Application Development
-- Database Management
-- API Integration
-- Mobile Application Management
-- Enterprise Software Solutions
-- SEO & Technical SEO
-- Google Ads & Meta Ads
-- Email Hosting & Collaboration Platforms
-- Digital Operations & Technology Strategy
-- AI-Assisted Development
-- Rapid Prototyping & Solution Building
-
-## Development Approach
-
-Technology should solve real business problems. The development approach combines AI-assisted development, rapid prototyping, practical problem-solving, and continuous improvement to deliver scalable and maintainable solutions. Every application, automation workflow, and system enhancement is designed to improve efficiency, reduce manual work, increase visibility, and support organizational goals.
-
-## Technology Stack
-
-### Frontend
-React, TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS, TanStack Router
-
-### Backend & Database
-Supabase, PostgreSQL, Server Functions, REST APIs, Authentication Systems, Database Design
-
-### Infrastructure & Cloud
-VPS Hosting, Linux Servers, DNS Management, Email Hosting, Microsoft 365, Cloud Services, System Administration
-
-### Business Systems & Applications
-Workforce Management Systems, Attendance Management Platforms, Payroll Support Systems, Internal Business Applications, Process Automation, API Integrations, Mobile Applications
-
-### Digital Marketing & Web
-SEO, Technical SEO, Google Ads, Meta Ads, Website Management, Performance Optimization
-
-## Featured Project — Waqti
-
-**Waqti** is a workforce management platform developed for USF Group to streamline attendance management, workforce administration, operational reporting, employee tracking, and business operations. It includes both web and mobile applications and is actively used within the organization.
-
-### Highlights
-- Attendance Management
-- Workforce Administration
-- Employee Tracking
-- Operational Reporting
-- Payroll Workflow Support
-- Mobile Application (Google Play)
-- Web Application
-- Business Process Automation
-- Real-Time Data Management
+## Projects
+- [WAQTI — Workforce Management Platform](https://reejangopan.me/projects/waqti-workforce-management-platform): attendance, overtime, leave and payroll platform for a multi-site construction business (React, TypeScript, Supabase, PostgreSQL, Android).
+- [USF Demolition Digital Platform](https://reejangopan.me/projects/usf-demolition-digital-platform): corporate site with 200+ prerendered routes, technical SEO, GA4 conversion tracking and performance optimisation.
+- [Trading Analysis Platform](https://reejangopan.me/projects/xauusd-btcusd-trading-analysis-platform): Python/Flask XAUUSD and BTCUSD analysis with multi-timeframe processing, strategy filters, news integration and automated tests.
+- [Enterprise IT Infrastructure for Dubai SMBs](https://reejangopan.me/projects/enterprise-it-infrastructure-dubai-smbs): Windows Server, Active Directory, Microsoft 365, VPN and endpoint security; 40% faster setup.
+- [Internal ERP Platform](https://reejangopan.me/projects/internal-erp-platform): HR, employees, payroll, operations and accounting workflows (React, TypeScript, PostgreSQL).
 
 ## Experience
+- IT Systems & Digital Transformation Administrator — USF Group (USF Demolition Works LLC), Dubai — 01/2025 to present
+- IT Procurement & Support Specialist — Chimera Group, Dubai — 09/2024 to 12/2024
+- Network Administrator — Tata Consultancy Services (TCS iON), India — 03/2024 to 09/2024
 
-### Information Technology Administrator — USF Group, Dubai, UAE
-**January 2025 – Present**
-Enterprise systems, IT infrastructure, Microsoft 365, VPS & Linux servers, email hosting, DNS, website operations, SEO, digital marketing technologies, workforce management (Waqti), business process automation, business application development, AI-assisted development.
-
-### IT Procurement & Support — Chimera Group of Companies, Dubai, UAE
-**September 2024 – December 2024**
-Technology hardware, software, and services procurement; IT infrastructure and network management.
-
-### Network Administrator — TCS ION (Tata Consultancy Services), Kerala, India
-**March 2024 – September 2024**
-Network configuration, server maintenance, troubleshooting, hardware inventory.
-
-## Education
-
-- **BCA (Bachelor of Computer Application)** — Sree Narayana College Of Technology, Kollam — Kerala University, 2021–2024
-- **Higher Secondary** — Nedumgolam Govt: H.S., Kollam, Kerala
-- **Kerala State IT Fair Participant (2019)** — HSS/VHSS Animation category
-
-## Languages
-
-English, Malayalam, Tamil, Hindi
-
----
-
-*Last updated: June 9, 2026*
-*Source: https://reejangopan.me*
+## Education & certifications
+- BCA — Sree Narayana College of Technology, University of Kerala (2021–2024)
+- Microsoft 365 Certified: Fundamentals (MS-900); Google Ads Search; Google Analytics 4

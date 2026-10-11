@@ -2,14 +2,14 @@ import { createRoot, hydrateRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App.tsx";
 
-// Premium editorial typography
-import "@fontsource/instrument-serif/400.css";
+// Self-hosted fonts (unicode-range subsets: browsers only download what a page uses)
+import "@fontsource-variable/bricolage-grotesque";
+import "@fontsource/geist-sans/400.css";
+import "@fontsource/geist-sans/500.css";
+import "@fontsource/geist-sans/600.css";
+import "@fontsource/jetbrains-mono/400.css";
+import "@fontsource/jetbrains-mono/500.css";
 import "@fontsource/instrument-serif/400-italic.css";
-import "@fontsource/work-sans/300.css";
-import "@fontsource/work-sans/400.css";
-import "@fontsource/work-sans/500.css";
-import "@fontsource/work-sans/600.css";
-import "@fontsource/work-sans/700.css";
 
 import "./index.css";
 
@@ -20,7 +20,7 @@ const app = (
   </BrowserRouter>
 );
 
-if (import.meta.env.PROD) {
+if (root.firstElementChild) {
   hydrateRoot(root, app);
 } else {
   createRoot(root).render(app);

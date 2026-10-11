@@ -1,73 +1,31 @@
-# Welcome to your Lovable project
+# reejangopan.me
 
-## Project info
+Portfolio of Reejan R Gopan — Software & Systems Engineer, Dubai.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+React + TypeScript + Vite, prerendered to static HTML for every route.
 
-## How can I edit this code?
+## Editing content
 
-There are several ways of editing your application.
+All text, projects, experience, skills and certifications live in **`src/data/site.ts`**.
+Page titles, descriptions and structured data (JSON-LD) are generated from it in `src/seo/seo.ts`.
 
-**Use Lovable**
+Adding a project: add an entry to `projects` in `src/data/site.ts` — it automatically gets its own
+page at `/projects/<slug>`, appears in the project list, footer, sitemap and structured data.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+## Commands
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+npm install
+npm run dev      # local development
+npm run build    # client + server bundles, then prerender every route and write sitemap.xml
+npm run preview  # serve the production build
 ```
 
-**Edit a file directly in GitHub**
+## SEO
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- Every route is prerendered to static HTML (`/route.html` and `/route/index.html`) with its own
+  `<title>`, meta description, canonical URL, Open Graph/Twitter tags and JSON-LD
+  (`Person`, `WebSite`, `ProfilePage`, `CollectionPage`, `BreadcrumbList`, project pages).
+- `sitemap.xml` is generated at build time from the same route list; `robots.txt` points to it.
+- `404.html` is rendered with `noindex`.
+- `public/llms.txt` is a plain-text profile for AI crawlers.

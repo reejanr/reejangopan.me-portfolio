@@ -1,0 +1,286 @@
+// Single source of truth for all portfolio content, page metadata and structured data.
+
+export const SITE_URL = "https://reejangopan.me";
+
+export const profile = {
+  name: "Reejan R Gopan",
+  givenName: "Reejan",
+  familyName: "Gopan",
+  title: "Software & Systems Engineer",
+  tagline:
+    "I build production business applications, workforce platforms, automation tools, and digital systems.",
+  summary:
+    "2+ years across full-stack development, cloud infrastructure and enterprise IT in the UAE and India — solving real operational problems from workforce attendance and payroll to business websites and cloud deployments.",
+  location: "Dubai, UAE",
+  openTo: "Software, Full-Stack, Cloud & Systems roles",
+  email: "reejanr90@gmail.com",
+  phone: "+971 52 712 3154",
+  phoneHref: "tel:+971527123154",
+  linkedin: "https://www.linkedin.com/in/reejan-r-gopan-38a8092b9",
+  cv: "/Reejan_R_Gopan_CV.pdf",
+};
+
+export const stats = [
+  { value: 2, suffix: "+", label: "Years in software, cloud & enterprise IT" },
+  { value: 50, suffix: "+", label: "Microsoft 365 users administered" },
+  { value: 99, suffix: "%+", label: "Uptime across servers, hosting & email" },
+  { value: 5, prefix: "~", suffix: "h", label: "Manual work saved weekly with Python & LLM automation" },
+];
+
+export type Project = {
+  slug: string;
+  name: string;
+  short: string;
+  category: string;
+  status: string;
+  period: string;
+  role: string;
+  result?: string;
+  stack: string[];
+  overview: string[];
+  problem?: string;
+  features: { title: string; text: string }[];
+  outcomes: string[];
+  link?: { label: string; href: string };
+  seoTitle: string;
+  seoDescription: string;
+  keywords: string[];
+};
+
+export const projects: Project[] = [
+  {
+    slug: "waqti-workforce-management-platform",
+    name: "WAQTI — Workforce Management Platform",
+    short:
+      "Production attendance, overtime, leave and payroll platform used for real field operations.",
+    category: "Enterprise application",
+    status: "In production",
+    period: "2025 — present",
+    role: "Design, full-stack development, database & deployment",
+    result: "Digitised attendance for site supervisors across multiple project sites",
+    stack: ["React", "TypeScript", "Supabase", "PostgreSQL", "PWA", "Android"],
+    overview: [
+      "WAQTI is a workforce management platform built for a multi-site construction and demolition business. It replaces paper attendance and manual calculations with a supervisor Android app, a progressive web app and a web dashboard on one PostgreSQL core.",
+      "It covers the workforce lifecycle from check-in to payroll, and is designed so supervisors on site need as few taps as possible.",
+    ],
+    problem:
+      "Attendance was tracked on paper, overtime was recorded by hand and pay was calculated manually across several project sites — slow, error-prone and hard to audit.",
+    features: [
+      { title: "Attendance", text: "GPS-based check-in with nearest-site detection, selfie capture and face verification, shift and night-shift handling, late, early-out and absence tracking." },
+      { title: "Supervisor operations", text: "Bulk check-in and check-out for crews, site attendance, active-worker views and overtime sessions — built to minimise actions on site." },
+      { title: "Overtime engine", text: "Normal, additional, Sunday and public-holiday overtime with sessions, approvals, claims and audit logs." },
+      { title: "Leave", text: "Employee leave requests, annual and labour leave, Document Controller processing and admin approvals." },
+      { title: "Payroll", text: "Attendance-based daily salary, absence deductions, overtime calculation, payslips and payroll-period closing." },
+      { title: "Security & data", text: "PostgreSQL data model for staff, sites and attendance on Supabase, Row Level Security, server-side RPC, role authorisation and audit logging." },
+    ],
+    outcomes: [
+      "Attendance digitised for site supervisors across multiple project sites",
+      "Six operational roles served: Admin, Employee, Supervisor, Engineer, HSE and Document Controller",
+      "Web, PWA and Android clients on a single PostgreSQL source of truth",
+    ],
+    seoTitle: "WAQTI Workforce Management Platform — Case Study",
+    seoDescription:
+      "Case study: WAQTI, a React, TypeScript and Supabase/PostgreSQL workforce platform for attendance, overtime, leave and payroll, built by Reejan R Gopan in Dubai.",
+    keywords: ["workforce management software", "attendance app", "payroll system", "Supabase", "PostgreSQL", "React"],
+  },
+  {
+    slug: "usf-demolition-digital-platform",
+    name: "USF Demolition Digital Platform",
+    short:
+      "Corporate web platform with 200+ prerendered routes, technical SEO, analytics, conversion tracking and performance optimization.",
+    category: "Web platform",
+    status: "Live",
+    period: "2025 — present",
+    role: "Design, development, SEO, analytics & deployment",
+    result: "200+ prerendered routes · CI/CD via GitHub",
+    stack: ["React", "TypeScript", "Tailwind CSS", "Vite", "Vercel", "Cloudflare"],
+    overview: [
+      "The corporate website for USF Demolition Works LLC — a fast, search-optimised platform covering demolition services, projects, equipment, tenders, vendor registration and careers.",
+      "Every route is prerendered to static HTML for speed and indexability, and deployed through GitHub to Vercel behind Cloudflare.",
+    ],
+    features: [
+      { title: "Prerendered architecture", text: "200+ statically prerendered routes for fast first paint and complete indexing." },
+      { title: "Technical SEO", text: "Sitemap architecture, robots directives, canonical URLs, metadata and JSON-LD structured data across service and location pages." },
+      { title: "Analytics & conversions", text: "GA4 and Google Tag Manager tracking for form submissions, calls, click-to-call, WhatsApp, directions and outbound clicks." },
+      { title: "Performance", text: "Core Web Vitals work on LCP, FCP, blocking time, image optimisation, lazy loading and transfer size, with a mobile-first focus." },
+    ],
+    outcomes: [
+      "200+ prerendered, indexable routes",
+      "CI/CD from GitHub to Vercel and Cloudflare",
+      "Technical SEO, GA4 tracking and Google Ads supporting organic and paid traffic in Dubai and Abu Dhabi",
+    ],
+    link: { label: "Visit usfdemolition.com", href: "https://usfdemolition.com" },
+    seoTitle: "USF Demolition Digital Platform — Case Study",
+    seoDescription:
+      "Case study: a React, TypeScript and Vite corporate platform with 200+ prerendered routes, technical SEO, GA4 conversion tracking and Core Web Vitals optimisation.",
+    keywords: ["technical SEO", "prerendering", "React website", "Core Web Vitals", "Vercel", "Cloudflare"],
+  },
+  {
+    slug: "xauusd-btcusd-trading-analysis-platform",
+    name: "Trading Analysis Platform",
+    short:
+      "Python-based XAUUSD/BTCUSD analysis system with multi-timeframe processing, strategy filtering, news integration and automated testing.",
+    category: "FinTech / data",
+    status: "Built & tested",
+    period: "2025",
+    role: "Design & development",
+    stack: ["Python", "Flask", "Pandas", "REST APIs"],
+    overview: [
+      "A Flask web service that processes live gold (XAUUSD) and Bitcoin (BTCUSD) market data and generates trading signals from technical confluence across timeframes.",
+    ],
+    features: [
+      { title: "Multi-timeframe engine", text: "H1/H4 analysis with market structure, trading sessions, risk/reward and strategy filters." },
+      { title: "Signal hygiene", text: "Cooldowns and duplicate-signal suppression to keep output clean." },
+      { title: "News integration", text: "Economic-news checks with caching that can block signals around high-impact events." },
+      { title: "Data engineering & tests", text: "CSV and Parquet ingestion of historical data with safeguards against future-data leakage, backed by automated tests." },
+    ],
+    outcomes: ["Live market-data processing for XAUUSD and BTCUSD", "Strategy logic covered by automated tests"],
+    seoTitle: "XAUUSD & BTCUSD Trading Analysis Platform (Python, Flask)",
+    seoDescription:
+      "Case study: a Python, Flask and Pandas service analysing live XAUUSD and BTCUSD data with multi-timeframe processing, strategy filters, news integration and automated tests.",
+    keywords: ["Python Flask", "Pandas", "trading signals", "XAUUSD", "BTCUSD", "data engineering"],
+  },
+  {
+    slug: "enterprise-it-infrastructure-dubai-smbs",
+    name: "Enterprise IT Infrastructure for Dubai SMBs",
+    short:
+      "Deployed servers, Active Directory, Microsoft 365, email, VPN and endpoint security for small and mid-size businesses.",
+    category: "Infrastructure",
+    status: "Delivered",
+    period: "2024 — present",
+    role: "Systems engineering & deployment",
+    result: "40% faster IT setup with standard checklists and configuration scripts",
+    stack: ["Windows Server", "Active Directory", "Microsoft 365", "Entra ID", "VPN"],
+    overview: [
+      "End-to-end IT foundations for small and mid-size businesses in Dubai: servers, identity, email, collaboration, remote access and endpoint protection.",
+    ],
+    features: [
+      { title: "Identity & directory", text: "Active Directory, Group Policy and Microsoft Entra ID with Conditional Access." },
+      { title: "Collaboration", text: "Microsoft 365, Exchange Online, SharePoint and Teams rollouts." },
+      { title: "Network & access", text: "VPN, firewalls and secure remote access." },
+      { title: "Repeatable deployments", text: "Standard checklists and configuration scripts for consistent, faster setups." },
+    ],
+    outcomes: ["IT setup time reduced by 40%", "Consistent, documented deployments across businesses"],
+    seoTitle: "Enterprise IT Infrastructure for Dubai SMBs — Case Study",
+    seoDescription:
+      "Windows Server, Active Directory, Microsoft 365, Entra ID, VPN and endpoint security deployments for Dubai SMBs — 40% faster setup through standardised scripts.",
+    keywords: ["IT infrastructure Dubai", "Microsoft 365 administrator", "Active Directory", "Windows Server"],
+  },
+  {
+    slug: "internal-erp-platform",
+    name: "Internal ERP Platform",
+    short:
+      "Business-management platform covering HR, employees, payroll, operations and accounting workflows.",
+    category: "Enterprise application",
+    status: "In development",
+    period: "2025 — present",
+    role: "Architecture & full-stack development",
+    stack: ["React", "TypeScript", "PostgreSQL"],
+    overview: [
+      "An integrated operations platform that brings company workflows into one system instead of many disconnected tools.",
+    ],
+    features: [
+      { title: "People", text: "Employee records, HR workflows and payroll." },
+      { title: "Operations", text: "Operational processes, documents and project administration." },
+      { title: "Finance", text: "Accounting workflows, with integration options such as Zoho Books and UAE e-invoicing under evaluation." },
+      { title: "Reporting", text: "Management dashboards on a relational PostgreSQL core." },
+    ],
+    outcomes: ["One relational source of truth for company operations"],
+    seoTitle: "Internal ERP Platform (React, TypeScript, PostgreSQL)",
+    seoDescription:
+      "An internal ERP platform for HR, employees, payroll, operations and accounting workflows, built with React, TypeScript and PostgreSQL by Reejan R Gopan.",
+    keywords: ["ERP development", "HR system", "payroll", "PostgreSQL", "React"],
+  },
+];
+
+export const experience = [
+  {
+    role: "IT Systems & Digital Transformation Administrator",
+    company: "USF Group (USF Demolition Works LLC)",
+    location: "Dubai, UAE",
+    period: "01/2025 — Present",
+    start: "2025-01",
+    current: true,
+    points: [
+      "Developed **Waqti**, a workforce attendance app (Android + web) in React, TypeScript and Supabase/PostgreSQL, digitising attendance for site supervisors across multiple project sites.",
+      "Built and deployed **usfdemolition.com** with React, TypeScript and Tailwind — CI/CD through GitHub, hosted on Vercel and Cloudflare.",
+      "Administered **Microsoft 365 for 50+ users** — provisioning, licensing, Exchange Online, SharePoint, Teams and Conditional Access in Entra ID.",
+      "Managed Windows Server 2019/2022, Active Directory, Group Policy, DNS, DHCP, VPS hosting and corporate email at **99%+ uptime**.",
+      "Automated reporting and IT ticket categorisation with Python, LLM APIs and GitHub Copilot, **saving ~5 hours a week**.",
+      "Ran technical SEO, GA4 tracking and Google Ads for demolition services in Dubai and Abu Dhabi; enforced endpoint security, access reviews and patching.",
+    ],
+  },
+  {
+    role: "IT Procurement & Support Specialist",
+    company: "Chimera Group",
+    location: "Dubai, UAE",
+    period: "09/2024 — 12/2024",
+    start: "2024-09",
+    current: false,
+    points: [
+      "Procured IT hardware, licences and enterprise services through competitive tendering, **reducing purchasing costs**.",
+      "Managed the full IT asset lifecycle — procurement, tagging, inventory and disposal.",
+      "Administered Office 365 accounts, mailboxes and security settings; supported ERP operations.",
+      "Level 1 & 2 support for networks, workstations, CCTV and biometric access; coordinated ISPs to meet SLAs.",
+    ],
+  },
+  {
+    role: "Network Administrator",
+    company: "Tata Consultancy Services (TCS iON)",
+    location: "India",
+    period: "03/2024 — 09/2024",
+    start: "2024-03",
+    current: false,
+    points: [
+      "Configured and maintained Cisco routers, managed switches and firewall rules.",
+      "Monitored network performance and resolved incidents to minimise downtime.",
+      "OS patching, antivirus updates, scheduled backup and recovery.",
+      "Documented network topology, SOPs and IT asset records for audits.",
+    ],
+  },
+];
+
+export const coreStack = [
+  "React", "TypeScript", "Python", "Node.js", "PostgreSQL", "Supabase",
+  "Next.js", "AWS", "Azure", "Docker", "Microsoft 365", "Windows Server",
+];
+
+export const toolkit = [
+  { label: "Languages", value: "TypeScript, JavaScript, Python, SQL, C#, C++, Java, PHP, Dart" },
+  { label: "Frontend", value: "React, Next.js, Tailwind CSS, shadcn/ui, HTML5, CSS3, Flutter, responsive design" },
+  { label: "Backend", value: "Node.js, Express, Flask, ASP.NET Core, REST APIs, microservices" },
+  { label: "Databases", value: "PostgreSQL, Supabase, MySQL, MongoDB, Firestore, Pinecone" },
+  { label: "Cloud", value: "AWS (Lambda, S3, EC2, ELB, Kinesis), Microsoft Azure, Vercel, Cloudflare, Netlify" },
+  { label: "DevOps", value: "Git, GitHub, CI/CD pipelines, Docker, Linux (Ubuntu), environment configuration" },
+  { label: "Generative AI & ML", value: "LLMs, Google Gemini, Vertex AI, RAG, vector search, embeddings, Sentence Transformers, prompt engineering, GitHub Copilot" },
+  { label: "Systems administration", value: "Windows Server 2019/2022, Active Directory, Group Policy, DNS, DHCP, Microsoft 365, Entra ID, Exchange Online, SharePoint, Teams, Intune" },
+  { label: "Networking & security", value: "TCP/IP, LAN/WAN, VPN, firewalls, Cisco routers & switches, SSL/TLS, Conditional Access, endpoint security, patch management" },
+  { label: "Testing & analytics", value: "Selenium, GA4, Google Search Console, technical SEO, Google Ads" },
+];
+
+export const expanding = ["C#", "ASP.NET Core", "Docker", "Azure"];
+
+export const education = {
+  degree: "Bachelor of Computer Applications (BCA)",
+  school: "Sree Narayana College of Technology, University of Kerala",
+  location: "Kerala, India",
+  period: "2021 — 2024",
+};
+
+export const certifications = [
+  { name: "Microsoft 365 Certified: Fundamentals (MS-900)", issuer: "Microsoft" },
+  { name: "Google Ads Search Certification", issuer: "Google Skillshop" },
+  { name: "Google Analytics 4 Certification", issuer: "Google Skillshop" },
+];
+
+export const languages = [
+  { name: "English", level: "Professional" },
+  { name: "Malayalam", level: "Native" },
+];
+
+export const nav = [
+  { to: "/projects", label: "Projects" },
+  { to: "/experience", label: "Experience" },
+  { to: "/skills", label: "Skills" },
+  { to: "/contact", label: "Contact" },
+];

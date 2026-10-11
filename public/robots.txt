@@ -1,58 +1,6 @@
-# robots.txt for reejangopan.me
-# Reejan R Gopan — System Administrator, Digital Marketing Expert & Frontend Developer in Dubai, UAE
-
+# robots.txt — reejangopan.me
 User-agent: *
 Allow: /
+Disallow: /404
 
-# Google
-User-agent: Googlebot
-Allow: /
-
-User-agent: Googlebot-Image
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-# Bing
-User-agent: Bingbot
-Allow: /
-
-User-agent: msnbot
-Allow: /
-
-# AI Crawlers
-User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: Anthropic-ai
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Cohere-ai
-Allow: /
-
-User-agent: Google-InspectionTool
-Allow: /
-
-# Yandex
-User-agent: YandexBot
-Allow: /
-
-# DuckDuckGo
-User-agent: DuckDuckBot
-Allow: /
-
-# Sitemap
 Sitemap: https://reejangopan.me/sitemap.xml
-
-# LLMs.txt — Structured profile for AI crawlers
-# https://reejangopan.me/llms.txt

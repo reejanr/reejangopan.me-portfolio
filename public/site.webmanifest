@@ -1,7 +1,7 @@
 {
-  "name": "Reejan Gopan",
+  "name": "Reejan R Gopan \u2014 Software & Systems Engineer",
   "short_name": "Reejan Gopan",
-  "description": "Reejan Gopan — Top Digital Marketing Expert, System Administrator & Frontend Developer in Dubai, UAE & India",
+  "description": "Software & Systems Engineer in Dubai building production business applications, workforce platforms, automation tools and digital systems.",
   "icons": [
     {
       "src": "/favicon.png",
@@ -41,8 +41,7 @@
   ],
   "start_url": "/",
   "scope": "/",
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
-  "display": "standalone",
-  "orientation": "portrait-primary"
+  "theme_color": "#0a0b0d",
+  "background_color": "#0a0b0d",
+  "display": "standalone"
 }
