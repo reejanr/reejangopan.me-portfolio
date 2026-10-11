@@ -18,7 +18,7 @@ const preloads = [/^bricolage-grotesque-latin-wght-normal-.*\.woff2$/, /^geist-s
 const template = fs
   .readFileSync(toAbsolute('dist/index.html'), 'utf-8')
   .replace('<!--app-head-->', `${preloads}\n    <!--app-head-->`)
-const { render, head, routes } = await import('./dist/server/entry-server.js')
+const { render, head, routes, llmsTxt, llmsFullTxt } = await import('./dist/server/entry-server.js')
 
 const write = (file, html) => {
   const abs = toAbsolute(file)
@@ -63,3 +63,8 @@ ${routes
 `
 fs.writeFileSync(toAbsolute('dist/sitemap.xml'), sitemap)
 console.log(`sitemap.xml: ${routes.length} urls`)
+
+// Plain-text profiles for AI assistants and AI search, generated from the same content.
+fs.writeFileSync(toAbsolute('dist/llms.txt'), llmsTxt())
+fs.writeFileSync(toAbsolute('dist/llms-full.txt'), llmsFullTxt())
+console.log('llms.txt + llms-full.txt written')

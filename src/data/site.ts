@@ -4,6 +4,8 @@ export const SITE_URL = "https://reejangopan.me";
 
 export const profile = {
   name: "Reejan R Gopan",
+  // Every form of the name people search for. Used in structured data, copy and llms.txt.
+  alternateNames: ["Reejan Gopan", "Reejan", "Reejan R. Gopan"],
   givenName: "Reejan",
   familyName: "Gopan",
   title: "Software & Systems Engineer",
@@ -18,6 +20,7 @@ export const profile = {
   phoneHref: "tel:+971527123154",
   linkedin: "https://www.linkedin.com/in/reejan-r-gopan-38a8092b9",
   cv: "/Reejan_R_Gopan_CV.pdf",
+  github: "https://github.com/reejanr",
 };
 
 export const stats = [
@@ -280,6 +283,7 @@ export const languages = [
 
 export const nav = [
   { to: "/about", label: "About" },
+  { to: "/services", label: "Services" },
   { to: "/projects", label: "Projects" },
   { to: "/experience", label: "Experience" },
   { to: "/skills", label: "Skills" },
@@ -288,7 +292,7 @@ export const nav = [
 
 export const about = {
   intro:
-    "I’m Reejan R Gopan, a Software & Systems Engineer based in Dubai. I build production business systems — workforce management, attendance, payroll and ERP platforms — and manage the infrastructure, security, websites, analytics and digital platforms behind them.",
+    "I’m Reejan R Gopan — also written Reejan Gopan — a Software & Systems Engineer based in Dubai. I build production business systems — workforce management, attendance, payroll and ERP platforms — and manage the infrastructure, security, websites, analytics and digital platforms behind them.",
   paragraphs: [
     "My work combines software engineering with real-world business operations. Instead of focusing only on code or only on IT administration, I work across the complete technology lifecycle — from understanding the business problem to running the system in production and improving it.",
     "At USF Group in Dubai I built WAQTI, a workforce platform used for real field operations, and the company’s web platform with 200+ prerendered routes. Alongside development I administer Microsoft 365 for 50+ users, Windows Server and Active Directory, hosting, DNS and corporate email.",
@@ -314,6 +318,14 @@ export const faqs = [
     a: "Reejan R Gopan is a Software & Systems Engineer based in Dubai, UAE. He builds production business applications, workforce platforms, automation tools and digital systems, and has 2+ years of experience across full-stack development, cloud infrastructure and enterprise IT in the UAE and India.",
   },
   {
+    q: "Are Reejan Gopan and Reejan R Gopan the same person?",
+    a: "Yes. Reejan R Gopan also goes by Reejan Gopan or simply Reejan. It is the same Dubai-based Software & Systems Engineer, and reejangopan.me is his official website.",
+  },
+  {
+    q: "What services does Reejan Gopan offer?",
+    a: "Full-stack web application development; workforce, payroll and ERP systems; PostgreSQL and Supabase back ends; cloud and DevOps on AWS, Azure and Vercel; AI automation with LLM APIs; Microsoft 365 and IT infrastructure; and technical SEO and web performance.",
+  },
+  {
     q: "What has Reejan built?",
     a: "Key projects include WAQTI, a workforce management platform for attendance, overtime, leave and payroll; the USF Demolition digital platform with 200+ prerendered routes and technical SEO; a Python trading analysis platform for XAUUSD and BTCUSD; IT infrastructure deployments for Dubai SMBs; and an internal ERP platform.",
   },
@@ -329,4 +341,91 @@ export const faqs = [
     q: "How can I contact Reejan R Gopan?",
     a: "Email reejanr90@gmail.com, call +971 52 712 3154, or connect on LinkedIn. His CV can be downloaded from reejangopan.me.",
   },
+];
+
+export type Service = {
+  id: string;
+  title: string;
+  searchTerms: string[];
+  text: string;
+  points: string[];
+  tools: string[];
+  related: string[]; // project slugs
+};
+
+// Each service maps to real work, so every keyword is backed by a project or role.
+export const services: Service[] = [
+  {
+    id: "full-stack-development",
+    title: "Full-stack web application development",
+    searchTerms: ["Full-Stack Developer Dubai", "React developer Dubai", "TypeScript developer UAE", "web application developer UAE"],
+    text: "Production web and mobile applications built with React, TypeScript and Next.js on Node.js, Express or Supabase back ends — designed around how the business actually works.",
+    points: ["Dashboards, portals and internal tools", "Progressive web apps and Android clients", "Responsive, mobile-first interfaces", "CI/CD from GitHub to Vercel and Cloudflare"],
+    tools: ["React", "TypeScript", "Next.js", "Node.js", "Express", "Tailwind CSS", "Flutter"],
+    related: ["waqti-workforce-management-platform", "usf-demolition-digital-platform"],
+  },
+  {
+    id: "business-systems",
+    title: "Workforce, payroll & ERP software",
+    searchTerms: ["workforce management software developer", "attendance system developer UAE", "payroll software developer Dubai", "ERP developer UAE"],
+    text: "Business systems that replace paper and spreadsheets: attendance with GPS and selfie check-in, overtime engines, leave, payroll and HR workflows, and integrated ERP modules.",
+    points: ["Attendance, overtime and leave workflows", "Attendance-based payroll and payslips", "Role-based access for supervisors, HR and admins", "Audit trails and reporting"],
+    tools: ["React", "TypeScript", "Supabase", "PostgreSQL", "PWA", "Android"],
+    related: ["waqti-workforce-management-platform", "internal-erp-platform"],
+  },
+  {
+    id: "backend-databases",
+    title: "Back-end, database & API engineering",
+    searchTerms: ["Supabase developer", "PostgreSQL developer Dubai", "REST API developer UAE", "Node.js developer Dubai"],
+    text: "Relational data models, secure APIs and server-side business logic — with Row Level Security, role authorisation and audit logging built in from the start.",
+    points: ["PostgreSQL schema design and query optimisation", "Supabase auth, RLS and server-side RPC", "REST APIs and third-party integrations", "Migrations, backups and data quality"],
+    tools: ["PostgreSQL", "Supabase", "Node.js", "Express", "Flask", "ASP.NET Core", "MySQL", "MongoDB"],
+    related: ["waqti-workforce-management-platform", "xauusd-btcusd-trading-analysis-platform"],
+  },
+  {
+    id: "cloud-devops",
+    title: "Cloud, DevOps & deployment",
+    searchTerms: ["Cloud Engineer Dubai", "AWS developer UAE", "Azure engineer Dubai", "DevOps engineer UAE"],
+    text: "Deploying and running applications in production — hosting, CI/CD, domains, DNS, SSL and CDN — on AWS, Microsoft Azure, Vercel and Cloudflare.",
+    points: ["CI/CD pipelines with GitHub", "AWS Lambda, S3, EC2, ELB and Kinesis", "Docker and Linux (Ubuntu) environments", "Domains, DNS, SSL, CDN and 99%+ uptime"],
+    tools: ["AWS", "Microsoft Azure", "Vercel", "Cloudflare", "Docker", "Linux", "GitHub"],
+    related: ["usf-demolition-digital-platform", "enterprise-it-infrastructure-dubai-smbs"],
+  },
+  {
+    id: "ai-automation",
+    title: "AI automation & LLM integration",
+    searchTerms: ["AI automation Dubai", "LLM integration developer", "Python automation engineer UAE", "RAG developer"],
+    text: "Python and LLM-powered automation for real operations — from reporting and IT ticket categorisation (saving ~5 hours a week) to retrieval-augmented assistants over company data.",
+    points: ["Workflow and reporting automation in Python", "LLM APIs, Google Gemini and Vertex AI", "RAG with embeddings and Pinecone vector search", "Prompt engineering and AI-assisted development"],
+    tools: ["Python", "Google Gemini", "Vertex AI", "Pinecone", "Sentence Transformers", "GitHub Copilot"],
+    related: ["xauusd-btcusd-trading-analysis-platform"],
+  },
+  {
+    id: "microsoft-365-it",
+    title: "Microsoft 365 & IT infrastructure",
+    searchTerms: ["Microsoft 365 administrator Dubai", "Systems Engineer Dubai", "IT infrastructure engineer UAE", "Active Directory administrator"],
+    text: "Identity, collaboration and infrastructure for growing businesses — Microsoft 365 for 50+ users, Entra ID, Windows Server, Active Directory, networking and endpoint security.",
+    points: ["Microsoft 365, Exchange Online, SharePoint and Teams", "Entra ID, Conditional Access, MFA and Intune", "Windows Server 2019/2022, Active Directory and Group Policy", "Networking, VPN, firewalls and patch management"],
+    tools: ["Microsoft 365", "Entra ID", "Intune", "Windows Server", "Active Directory", "Cisco"],
+    related: ["enterprise-it-infrastructure-dubai-smbs"],
+  },
+  {
+    id: "technical-seo",
+    title: "Technical SEO & web performance",
+    searchTerms: ["technical SEO Dubai", "Core Web Vitals optimisation", "website performance UAE", "GA4 conversion tracking"],
+    text: "Websites engineered to be found and to convert: prerendering, structured data, sitemaps, Core Web Vitals and GA4 conversion tracking for forms, calls and WhatsApp.",
+    points: ["Prerendered, crawlable architectures", "Schema markup and sitemap architecture", "Core Web Vitals (LCP, FCP, CLS) optimisation", "GA4, Tag Manager and Google Ads tracking"],
+    tools: ["GA4", "Google Tag Manager", "Search Console", "Google Ads", "Lighthouse"],
+    related: ["usf-demolition-digital-platform"],
+  },
+];
+
+// Search phrases the site targets — every one is backed by a project, role or service above.
+export const seoKeywords = [
+  "Reejan R Gopan", "Reejan Gopan", "Reejan",
+  "Software Engineer Dubai", "Systems Engineer Dubai", "Full-Stack Developer Dubai", "React Developer Dubai",
+  "TypeScript Developer UAE", "Supabase Developer", "PostgreSQL Developer Dubai", "Node.js Developer Dubai",
+  "Cloud Engineer Dubai", "AWS Developer UAE", "Azure Engineer Dubai", "Microsoft 365 Administrator Dubai",
+  "Workforce Management Software Developer", "ERP Developer UAE", "Payroll Software Developer Dubai",
+  "AI Automation Dubai", "Python Developer Dubai", "Technical SEO Dubai", "Web Application Developer UAE",
 ];

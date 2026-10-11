@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { coreStack, experience, profile, projects, stats } from "@/data/site";
+import { coreStack, experience, profile, projects, services, stats } from "@/data/site";
 import { CodeWindow, ContactCta, Network, ProjectRow, Rich, SectionHead, Ticker } from "@/components/site/Parts";
 import { ArrowRight, ArrowUpRight, Download } from "@/components/site/Icons";
 
@@ -112,6 +112,26 @@ export default function Home() {
               <li key={t} className="sk">
                 <span className="sk-i">{String(i + 1).padStart(2, "0")}</span>
                 <span className="disp sk-t">{t}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="section" aria-labelledby="svc-title">
+        <div className="wrap">
+          <SectionHead
+            n="04" label="services"
+            title={<span id="svc-title">What I <span className="serif acc">build &amp; run</span></span>}
+            aside={<Link className="text-link" to="/services">All services <ArrowRight /></Link>}
+          />
+          <ul className="svc-grid">
+            {services.map((s) => (
+              <li key={s.id} className="rv">
+                <Link to={`/services#${s.id}`} className="svc-card">
+                  <span className="disp svc-card-t">{s.title}</span>
+                  <span className="svc-card-d">{s.tools.slice(0, 4).join(" · ")}</span>
+                </Link>
               </li>
             ))}
           </ul>

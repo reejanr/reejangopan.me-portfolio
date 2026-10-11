@@ -4,6 +4,7 @@ import App from "./App";
 import { getHead, headToHtml, routes } from "./seo/seo";
 
 export { routes };
+export { llmsTxt, llmsFullTxt } from "./seo/llms";
 
 export function render(url: string) {
   return ReactDOMServer.renderToString(

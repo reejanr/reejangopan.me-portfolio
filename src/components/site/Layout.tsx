@@ -74,7 +74,7 @@ function Footer() {
           <div>
             <Link to="/" className="brand"><span className="acc">~/</span>reejan<span className="faint">.dev</span></Link>
             <p className="body" style={{ margin: "14px 0 0", maxWidth: 340 }}>
-              {profile.name} — {profile.title} in {profile.location}. {profile.tagline}
+              {profile.name} (Reejan Gopan) — {profile.title} in {profile.location}. {profile.tagline}
             </p>
           </div>
           <div>
@@ -97,7 +97,8 @@ function Footer() {
             <ul>
               <li><a href={`mailto:${profile.email}`}>Email</a></li>
               <li><a href={profile.phoneHref}>Phone</a></li>
-              <li><a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+              <li><a href={profile.linkedin} target="_blank" rel="noopener noreferrer me">LinkedIn</a></li>
+              <li><a href={profile.github} target="_blank" rel="noopener noreferrer me">GitHub</a></li>
               <li><a href={profile.cv} download>Download CV</a></li>
             </ul>
           </div>

@@ -497,3 +497,16 @@ img, svg { max-width: 100%; }
 .faq-ic { flex: 0 0 auto; color: var(--acc-ink); transition: transform 0.3s; }
 .faq[open] .faq-ic { transform: rotate(90deg); }
 .faq p { margin: 0 0 22px; max-width: 760px; font-size: 16px; line-height: 1.7; color: var(--muted); }
+
+/* ---------- services ---------- */
+.svc-block { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 24px; padding: 40px 0; border-top: 1px solid var(--line); scroll-margin-top: 96px; }
+.svc-block:last-of-type { border-bottom: 1px solid var(--line); }
+.svc-points { list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 32px; }
+.svc-points li { display: flex; gap: 10px; font-size: 15.5px; line-height: 1.5; color: var(--fg-2); }
+.svc-points svg { flex: 0 0 auto; margin-top: 4px; color: var(--acc-ink); }
+.svc-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 12px; }
+.svc-card { display: flex; flex-direction: column; justify-content: space-between; gap: 18px; height: 100%; min-height: 150px; padding: 22px; border: 1px solid var(--line); border-radius: 18px; background: var(--bg-2); transition: border-color 0.3s, background 0.3s, transform 0.3s; }
+.svc-card-t { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; }
+.svc-card-d { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--faint); }
+@media (hover: hover) { .svc-card:hover { border-color: var(--acc-ink); background: var(--surface); transform: translateY(-3px); } .svc-card:hover .svc-card-t { color: var(--acc-ink); } }
+@media (max-width: 760px) { .svc-block { grid-template-columns: minmax(0, 1fr); gap: 8px; } .svc-points { grid-template-columns: minmax(0, 1fr); } }

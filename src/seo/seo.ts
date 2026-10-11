@@ -1,5 +1,6 @@
 import {
   SITE_URL, profile, projects, experience, coreStack, certifications, education, faqs,
+  services, seoKeywords, toolkit,
 } from "@/data/site";
 
 // Every route the site serves. prerender.js renders each one to static HTML
@@ -7,6 +8,7 @@ import {
 export const routes: string[] = [
   "/",
   "/about",
+  "/services",
   "/projects",
   ...projects.map((p) => `/projects/${p.slug}`),
   "/experience",
@@ -33,7 +35,7 @@ const person = {
   name: profile.name,
   givenName: profile.givenName,
   familyName: profile.familyName,
-  alternateName: ["Reejan Gopan", "Reejan"],
+  alternateName: profile.alternateNames,
   jobTitle: profile.title,
   description: `${profile.title} in Dubai. ${profile.tagline}`,
   url: SITE_URL,
@@ -53,13 +55,19 @@ const person = {
     credentialCategory: "certification",
     recognizedBy: { "@type": "Organization", name: c.issuer },
   })),
-  knowsAbout: [
+  knowsAbout: Array.from(new Set([
     ...coreStack,
-    "Full-stack development", "Workforce management systems", "Technical SEO",
-    "Microsoft Entra ID", "Active Directory", "Cloud infrastructure", "Process automation",
-  ],
+    ...toolkit.flatMap((t) => t.value.split(/,\s*/)).map((v) => v.replace(/\s*\(.*?\)/, "")),
+    "Full-stack development", "Workforce management systems", "Payroll systems", "ERP development",
+    "Cloud infrastructure", "DevOps", "AI automation", "Technical SEO",
+  ])),
+  makesOffer: services.map((s) => ({
+    "@type": "Offer",
+    itemOffered: { "@type": "Service", name: s.title, description: s.text, areaServed: "United Arab Emirates" },
+  })),
+  homeLocation: { "@type": "City", name: "Dubai" },
   knowsLanguage: ["English", "Malayalam"],
-  sameAs: [profile.linkedin],
+  sameAs: [profile.linkedin, profile.github],
 };
 
 const website = {
@@ -116,18 +124,18 @@ export function getHead(rawPath: string): Head {
       "Software & Systems Engineer in Dubai building production business apps, workforce platforms and cloud systems with React, TypeScript, PostgreSQL and Python.";
     return {
       title, description, path, ogType: "profile",
-      keywords: ["Software Engineer Dubai", "Full-Stack Developer UAE", "Systems Engineer Dubai", "React developer Dubai", profile.name],
+      keywords: seoKeywords,
       jsonLd: graph(page("ProfilePage", path, title, description, { mainEntity: { "@id": `${SITE_URL}/#person` } })),
     };
   }
 
   if (path === "/about") {
-    const title = `About ${profile.name} — Software Engineer, Dubai`;
+    const title = `About Reejan Gopan (${profile.name}) — Dubai`;
     const description =
       "About Reejan R Gopan, a Dubai-based Software & Systems Engineer building workforce, payroll and ERP systems and running the cloud, security and IT behind them.";
     return {
       title, description, path, ogType: "profile",
-      keywords: ["Reejan Gopan", "Reejan R Gopan", "Software Engineer Dubai", "Systems Engineer UAE"],
+      keywords: [...profile.alternateNames, profile.name, "Software Engineer Dubai", "Systems Engineer UAE"],
       jsonLd: graph(
         page("AboutPage", path, title, description, { mainEntity: { "@id": `${SITE_URL}/#person` } }),
         {
@@ -138,6 +146,38 @@ export function getHead(rawPath: string): Head {
           })),
         },
         breadcrumbs([{ name: "About", path }]),
+      ),
+    };
+  }
+
+  if (path === "/services") {
+    const title = `Services — ${profile.name}, Software Engineer Dubai`;
+    const description =
+      "Full-stack development, workforce and ERP software, Supabase/PostgreSQL, AWS and Azure, AI automation, Microsoft 365 and technical SEO in Dubai, UAE.";
+    return {
+      title, description, path, ogType: "website",
+      keywords: services.flatMap((s) => s.searchTerms),
+      jsonLd: graph(
+        page("CollectionPage", path, title, description, {
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: services.map((s, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              item: {
+                "@type": "Service",
+                "@id": `${abs(path)}#${s.id}`,
+                name: s.title,
+                description: s.text,
+                serviceType: s.title,
+                provider: { "@id": `${SITE_URL}/#person` },
+                areaServed: [{ "@type": "City", name: "Dubai" }, { "@type": "Country", name: "United Arab Emirates" }],
+                url: `${abs(path)}#${s.id}`,
+              },
+            })),
+          },
+        }),
+        breadcrumbs([{ name: "Services", path }]),
       ),
     };
   }
