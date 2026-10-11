@@ -581,13 +581,13 @@ p a.acc:hover, .body a.acc:hover { text-decoration-thickness: 2px; }
 @keyframes chatping { 0% { opacity: 0.7; transform: scale(1); } 100% { opacity: 0; transform: scale(1.25); } }
 .chat-panel {
   position: fixed; z-index: 80; right: max(20px, env(safe-area-inset-right)); bottom: calc(max(20px, env(safe-area-inset-bottom)) + 64px);
-  width: min(400px, calc(100vw - 40px)); height: min(600px, calc(100vh - 140px)); display: flex; flex-direction: column;
+  width: min(400px, calc(100vw - 40px)); height: min(640px, calc(100vh - 140px)); display: flex; flex-direction: column;
   background: var(--bg-2); border: 1px solid var(--line-2); border-radius: 22px; overflow: hidden; box-shadow: var(--shadow);
   animation: chatin 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) both; transform-origin: 100% 100%;
 }
 @keyframes chatin { from { opacity: 0; transform: translateY(12px) scale(0.96); } to { opacity: 1; transform: none; } }
 .chat-head { display: flex; align-items: center; gap: 12px; padding: 14px 14px 14px 16px; border-bottom: 1px solid var(--line); background: var(--surface); }
-.chat-avatar { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 12px; background: var(--acc); color: var(--on-acc); flex: 0 0 auto; }
+.chat-avatar { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 12px; background: var(--surface-2); border: 1px solid var(--line-2); color: var(--fg); flex: 0 0 auto; }
 .chat-title { margin: 0; font: 600 16px/1.2 "Bricolage Grotesque Variable", system-ui, sans-serif; letter-spacing: -0.01em; }
 .chat-sub { margin: 3px 0 0; display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--faint); }
 .chat-sub .dot { width: 6px; height: 6px; }
@@ -621,3 +621,25 @@ p a.acc:hover, .body a.acc:hover { text-decoration-thickness: 2px; }
   .chat-panel { inset: 0; width: auto; height: auto; border-radius: 0; border: 0; padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom); z-index: 120; }
 }
 @media print { .chat-launch, .chat-panel { display: none !important; } }
+
+/* ---------- Ree, the assistant avatar ---------- */
+.bot-av { display: block; color: var(--fg); overflow: visible; }
+.bot-head { fill: var(--acc); }
+.bot-ear { fill: var(--acc); opacity: 0.8; }
+.bot-visor { fill: #0a0b0d; }
+.bot-eye { fill: var(--acc); }
+.bot-ant { fill: var(--acc); animation: antpulse 2.4s ease-in-out infinite; transform-origin: 20px 4px; }
+.bot-eyes { animation: blink 4.5s infinite; transform-origin: 20px 19.5px; }
+@keyframes blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0.1); } }
+@keyframes antpulse { 50% { opacity: 0.45; transform: scale(0.75); } }
+.chat-launch .bot-av { color: var(--on-acc); }
+.chat-launch .bot-head, .chat-launch .bot-ear, .chat-launch .bot-ant { fill: #0a0b0d; }
+.chat-launch .bot-visor { fill: var(--acc); }
+.chat-launch .bot-eye { fill: #0a0b0d; }
+.chat-launch-av { display: inline-flex; }
+.chat-welcome { display: flex; align-items: flex-end; gap: 10px; }
+.chat-welcome .bot-av { flex: 0 0 auto; margin-bottom: 2px; }
+.chat-topics { display: flex; gap: 6px; padding: 10px 12px; overflow-x: auto; border-bottom: 1px solid var(--line); background: var(--bg-2); scrollbar-width: none; }
+.chat-topics::-webkit-scrollbar { display: none; }
+.chat-topic { flex: 0 0 auto; min-height: 32px; padding: 5px 12px; border-radius: 999px; border: 1px solid var(--line-2); background: var(--surface); color: var(--fg-2); font: 500 12.5px/1.2 "Geist Sans", system-ui, sans-serif; cursor: pointer; white-space: nowrap; transition: border-color 0.2s, color 0.2s; }
+.chat-topic:hover { border-color: var(--acc-ink); color: var(--acc-ink); }

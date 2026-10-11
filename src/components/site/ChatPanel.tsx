@@ -1,8 +1,8 @@
 import { Fragment, useEffect, useRef, useState, type FormEvent, type KeyboardEvent, type ReactNode } from "react";
 import { profile } from "@/data/site";
-import { answerLocally } from "@/chat/engine";
+import { answerLocally, PERSONAS, topics } from "@/chat/engine";
 import { Close } from "./Icons";
-import { Spark } from "./ChatWidget";
+import { BotAvatar } from "./ChatWidget";
 
 // Loaded on demand when the chat opens, so it adds nothing to page load.
 // Answers come first from the free in-browser knowledge base (src/chat); only questions
@@ -11,12 +11,7 @@ import { Spark } from "./ChatWidget";
 type Msg = { role: "user" | "assistant"; content: string; suggestions?: string[] };
 type AiState = "unknown" | "on" | "off";
 
-const STARTERS = [
-  "What has Reejan built?",
-  "Is he open to new roles?",
-  "What's his experience with Supabase?",
-  "Explain Row Level Security",
-];
+const TOPICS = topics();
 
 // Minimal, safe rendering: **bold**, links for URLs and emails, line breaks via CSS.
 function render(text: string): ReactNode[] {
@@ -154,6 +149,26 @@ export default function ChatPanel({ onClose }: { onClose: () => void }) {
     }
   }
 
+  // Visitor picked who they are: show the tailored answer (no network, no guessing).
+  async function choosePersona(id: string) {
+    const p = PERSONAS.find((x) => x.id === id);
+    if (!p || busy) return;
+    setMessages((m) => [...m, { role: "user", content: p.label }, { role: "assistant", content: "" }]);
+    setBusy(true);
+    try {
+      await reveal(p.a, p.next);
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  // Topic menu: list that topic's questions as tappable chips.
+  function chooseTopic(id: string) {
+    const t = TOPICS.find((x) => x.id === id);
+    if (!t || busy) return;
+    setMessages((m) => [...m, { role: "assistant", content: `**${t.label}** — pick a question, or type your own:`, suggestions: t.asks }]);
+  }
+
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
     void ask(input);
@@ -171,24 +186,35 @@ export default function ChatPanel({ onClose }: { onClose: () => void }) {
   return (
     <section id="chat-panel" className="chat-panel" role="dialog" aria-modal="false" aria-labelledby="chat-title">
       <header className="chat-head">
-        <span className="chat-avatar" aria-hidden="true"><Spark /></span>
+        <span className="chat-avatar" aria-hidden="true"><BotAvatar size={32} /></span>
         <div>
-          <h2 id="chat-title" className="chat-title">Ask about Reejan</h2>
-          <p className="chat-sub"><span className="dot" />{ai === "on" ? "Knowledge base + AI" : "Instant answers from his knowledge base"}</p>
+          <h2 id="chat-title" className="chat-title">Ree · Reejan's AI assistant</h2>
+          <p className="chat-sub"><span className="dot" />Built by Reejan · {ai === "on" ? "knowledge base + AI" : "instant answers"}</p>
         </div>
         <button type="button" className="icon-btn chat-close" aria-label="Close chat" onClick={onClose}>
           <Close size={18} />
         </button>
       </header>
 
+      <nav className="chat-topics" aria-label="Chat topics">
+        {TOPICS.map((t) => (
+          <button key={t.id} type="button" className="chat-topic" onClick={() => chooseTopic(t.id)}>{t.label}</button>
+        ))}
+      </nav>
+
       <div className="chat-list" ref={listRef} aria-live="polite">
-        <div className="chat-msg bot">
-          Hi! Ask me anything about Reejan's experience, projects, skills and availability — or about the technologies he works with.
+        <div className="chat-welcome">
+          <BotAvatar size={44} />
+          <div className="chat-msg bot">
+            Hi, I'm <strong>Ree</strong> — the assistant Reejan designed and built for this site. I know his projects, skills and
+            experience, and I can help with tech stacks, scaling, planning a website or app, and automating a business.
+            <br /><br />Who's visiting today?
+          </div>
         </div>
         {messages.length === 0 && (
           <div className="chat-suggest">
-            {STARTERS.map((s) => (
-              <button key={s} type="button" className="chat-chip" onClick={() => void ask(s)}>{s}</button>
+            {PERSONAS.map((p) => (
+              <button key={p.id} type="button" className="chat-chip" onClick={() => void choosePersona(p.id)}>{p.label}</button>
             ))}
           </div>
         )}
@@ -231,7 +257,7 @@ export default function ChatPanel({ onClose }: { onClose: () => void }) {
           <Send />
         </button>
       </form>
-      <p className="chat-note">Answers come from Reejan's own site content. For anything important, email {profile.email}.</p>
+      <p className="chat-note">Ree answers from Reejan's knowledge base and can make mistakes. For anything important, email {profile.email}.</p>
     </section>
   );
 }

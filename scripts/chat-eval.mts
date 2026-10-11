@@ -1,7 +1,8 @@
 // Regression check for the free in-browser chat assistant.
-// Run: npx tsx scripts/chat-eval.mts   (expects 56/56)
+// Run: npx tsx scripts/chat-eval.mts   (every case must pass)
 import { pathToFileURL } from "node:url";
-const { answerLocally, search } = await import(pathToFileURL(process.cwd() + "/src/chat/engine.ts").href);
+const { answerLocally, search, topics, PERSONAS } = await import(pathToFileURL(process.cwd() + "/src/chat/engine.ts").href);
+const { guides } = await import(pathToFileURL(process.cwd() + "/src/chat/guides.ts").href);
 const cases: [string, string][] = [
   ["who is reejan", "about"], ["Tell me about Reejan Gopan", "about"], ["is reejan gopan same as reejan r gopan", "faq-1|names"],
   ["how can i contact him", "faq-6|contact"], ["what's his email", "contact"], ["phone number?", "contact"], ["download resume", "cv"],
@@ -18,7 +19,17 @@ const cases: [string, string][] = [
   ["expereince with pyhton", "t-Python"], ["typscript", "t-TypeScript"], ["core web vitals", "t-Core Web Vitals"],
   ["does he know kotlin", "?"], ["what's the weather today", "?"], ["hello", "smalltalk"], ["thanks!", "smalltalk"],
   ["does he know C#", "t-C#"], ["c++", "t-C++"], ["node.js", "t-Node.js"], ["what is ci/cd", "t-CI/CD"], ["seo", "t-Technical SEO"],
-  ["vpn setup", "t-VPN|p-enterprise"], ["results achievements", "impact"], ["does he know mongodb", "t-MongoDB"], ["flutter apps", "t-Flutter"],
+  ["vpn setup", "t-VPN|p-enterprise"],
+  ["best tech stack for an ecommerce store", "g-stacks"], ["which stack for a saas startup", "g-stacks"], ["how to build a mobile app", "g-stacks"],
+  ["how do i scale my web app", "g-scaling"], ["my database is slow", "g-scaling|t-Database indexing"], ["what is caching", "g-scaling"], ["how to make my website faster", "g-scaling"],
+  ["what do i need before building a website", "g-planning"], ["how much does a website cost", "g-planning"], ["how long to build an app", "g-planning"],
+  ["setup business email and domain", "g-planning"], ["how to improve seo", "g-planning"], ["microsoft 365 vs google workspace", "g-startup"],
+  ["how can i automate my business", "g-startup"], ["what software does a startup need", "g-startup"], ["automate payroll and attendance", "g-startup"],
+  ["cybersecurity for small business", "g-security"], ["monolith vs microservices", "g-stacks"], ["node or python for backend", "g-stacks"],
+  ["who built you", "smalltalk"], ["who made this chatbot", "bot|smalltalk"], ["how does this chatbot work", "bot-how"],
+  ["I'm a recruiter", "persona-recruiter"], ["I'm hiring / a recruiter", "persona-recruiter"], ["I need a website or app", "persona-client"],
+  ["I'm a developer / student", "persona-developer"], ["Just exploring", "persona-exploring"], ["I'm starting a business", "persona-founder"], ["i need a website for my business", "persona-client|g-planning|g-stacks"], ["i am starting a business", "persona-founder"],
+ ["results achievements", "impact"], ["does he know mongodb", "t-MongoDB"], ["flutter apps", "t-Flutter"],
 ];
 let pass = 0;
 for (const [q, want] of cases) {
@@ -34,3 +45,15 @@ for (const [q, want] of cases) {
   console.log(`${ok ? "ok " : "BAD"} ${q.padEnd(42)} -> ${id.padEnd(34)} conf=${a.confident} score=${top?.score.toFixed(2) ?? "-"} cov=${top?.coverage.toFixed(2) ?? "-"}`);
 }
 console.log(`\n${pass}/${cases.length} correct`);
+
+// Every question offered in the topic menu, persona replies and guide follow-ups must be answerable,
+// and every guide must be the top answer for its own title.
+const offered = new Set<string>();
+topics().forEach((t: { asks: string[] }) => t.asks.forEach((a) => offered.add(a)));
+PERSONAS.forEach((p: { next: string[] }) => p.next.forEach((a) => offered.add(a)));
+guides.forEach((g: { next?: string[] }) => g.next?.forEach((a) => offered.add(a)));
+const unanswerable = [...offered].filter((q) => !answerLocally(q).confident);
+const misrouted = guides.filter((g: { ask: string }) => search(g.ask, 1)[0]?.doc.ask !== g.ask).map((g: { ask: string }) => g.ask);
+console.log(`${offered.size - unanswerable.length}/${offered.size} offered questions answerable; ${guides.length - misrouted.length}/${guides.length} guides reachable by title`);
+[...unanswerable, ...misrouted].forEach((q) => console.log("  FIX:", q));
+if (pass < cases.length || unanswerable.length || misrouted.length) process.exit(1);

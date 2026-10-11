@@ -37,10 +37,14 @@ Works **free, with no API key**. Answers come from a knowledge base that runs in
 - `src/chat/engine.ts` builds a search index (BM25 with synonyms, typo tolerance and light stemming) from
   everything in `src/data/site.ts` — profile, projects, experience, services, skills, FAQs — plus
   `src/chat/techKnowledge.ts`, a bank of ~100 short explanations of the technologies Reejan uses
-  (each with a "how Reejan uses it" line backed by his CV).
+  (each with a "how Reejan uses it" line backed by his CV), and `src/chat/guides.ts` — 44 practical
+  guides: choosing a tech stack per project type and why, scaling, planning a website or app, startup
+  tooling and business automation, and security.
+- "Ree", the assistant (built by Reejan), greets visitors by type — recruiter, client, founder,
+  developer — and offers a topic menu; every menu question is checked by the eval script.
 - The chat panel and knowledge base load only when someone opens the chat (code-split, ~16 KB gzipped).
 - Adding knowledge: add an entry to `techKnowledge.ts`, or edit `site.ts` — new projects, services and
-  skills become answerable automatically. Re-check with `npx tsx scripts/chat-eval.mts`.
+  skills become answerable automatically. Re-check with `npx tsx scripts/chat-eval.mts` (fails if any test or menu question breaks).
 
 **Optional AI upgrade.** Questions the knowledge base can't answer confidently go to `api/chat.ts`
 (Claude, via a Vercel Function) — but only when `ANTHROPIC_API_KEY` is set. Without a key the bot simply

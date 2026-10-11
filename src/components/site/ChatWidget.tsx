@@ -4,10 +4,20 @@ import { Close } from "./Icons";
 // The panel (and its knowledge base + search engine) loads only when someone opens the chat.
 const ChatPanel = lazy(() => import("./ChatPanel"));
 
-export const Spark = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M12 3l1.9 5.6L19.5 10l-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.4z" />
-    <path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z" />
+// "Ree" — the assistant's avatar: a small robot whose eyes blink and antenna pulses.
+export const BotAvatar = ({ size = 28 }: { size?: number }) => (
+  <svg className="bot-av" width={size} height={size} viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+    <line x1="20" y1="4.5" x2="20" y2="9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    <circle className="bot-ant" cx="20" cy="4" r="2.6" />
+    <rect x="3" y="18" width="3" height="7" rx="1.5" className="bot-ear" />
+    <rect x="34" y="18" width="3" height="7" rx="1.5" className="bot-ear" />
+    <rect x="6" y="9" width="28" height="25" rx="9" className="bot-head" />
+    <rect x="10" y="14" width="20" height="11" rx="5.5" className="bot-visor" />
+    <g className="bot-eyes">
+      <circle cx="15.5" cy="19.5" r="2.1" className="bot-eye" />
+      <circle cx="24.5" cy="19.5" r="2.1" className="bot-eye" />
+    </g>
+    <path d="M16.5 28.5 q3.5 2.4 7 0" fill="none" stroke="#0a0b0d" strokeWidth="1.8" strokeLinecap="round" />
   </svg>
 );
 
@@ -28,8 +38,8 @@ export function ChatWidget() {
         onPointerEnter={preload}
         onFocus={preload}
       >
-        {open ? <Close size={18} /> : <Spark />}
-        <span className="chat-launch-t">{open ? "Close" : "Ask AI about Reejan"}</span>
+        {open ? <Close size={18} /> : <span className="chat-launch-av"><BotAvatar size={26} /></span>}
+        <span className="chat-launch-t">{open ? "Close" : "Ask Ree about Reejan"}</span>
       </button>
       {open && (
         <Suspense fallback={<div className="chat-panel chat-loading" aria-busy="true" />}>
