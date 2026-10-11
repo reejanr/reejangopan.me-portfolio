@@ -68,34 +68,64 @@ export function Rich({ text }: { text: string }) {
   return <>{parts.map((s, i) => (i % 2 ? <strong key={i}>{s}</strong> : s))}</>;
 }
 
+type Line = { n: number; t: number; d: number; c: ReactNode };
+
+// Each line is revealed by a cover sliding off it (--n steps over --t seconds, after --d).
+const typed = (l: Line, i: number) => (
+  <span key={i} className="tl" style={{ ["--n" as string]: l.n, ["--t" as string]: `${l.t}s`, ["--d" as string]: `${l.d}s` }}>
+    {l.c}
+  </span>
+);
+
+const S = ({ children }: { children: ReactNode }) => <span className="s">"{children}"</span>;
+const P = ({ children }: { children: ReactNode }) => <span className="p">{children}</span>;
+
 export function CodeWindow() {
-  const lines: { n: number; t: number; d: number; c: ReactNode }[] = [
-    { n: 16, t: 0.35, d: 0.6, c: <><span className="k">const</span> <span className="v">reejan</span> <span className="p">=</span> <span className="p">{"{"}</span></> },
-    { n: 38, t: 0.75, d: 1.0, c: <>{"  role"}<span className="p">:</span> <span className="s">"Software &amp; Systems Engineer"</span><span className="p">,</span></> },
-    { n: 32, t: 0.65, d: 1.8, c: <>{"  stack"}<span className="p">:</span> <span className="p">[</span><span className="s">"React"</span><span className="p">,</span> <span className="s">"TypeScript"</span><span className="p">,</span></> },
-    { n: 40, t: 0.8, d: 2.5, c: <>{"    "}<span className="s">"PostgreSQL"</span><span className="p">,</span> <span className="s">"Supabase"</span><span className="p">,</span> <span className="s">"Python"</span><span className="p">],</span></> },
-    { n: 25, t: 0.5, d: 3.35, c: <>{"  cloud"}<span className="p">:</span> <span className="p">[</span><span className="s">"AWS"</span><span className="p">,</span> <span className="s">"Azure"</span><span className="p">],</span></> },
-    { n: 22, t: 0.45, d: 3.9, c: <>{"  based"}<span className="p">:</span> <span className="s">"Dubai, UAE"</span><span className="p">,</span></> },
-    { n: 2, t: 0.05, d: 4.4, c: <span className="p">{"};"}</span> },
-    { n: 1, t: 0.01, d: 4.5, c: " " },
-    { n: 15, t: 0.35, d: 4.9, c: <><span className="p">$</span> npm run build</> },
-    { n: 25, t: 0.01, d: 5.7, c: <><span className="ok">✓</span> 200+ routes prerendered</> },
-    { n: 15, t: 0.35, d: 6.1, c: <><span className="p">$</span> deploy --prod</> },
-    { n: 20, t: 0.01, d: 6.9, c: <><span className="ok">✓</span> live in production</> },
+  const code: Line[] = [
+    { n: 16, t: 0.35, d: 0.6, c: <><span className="k">const</span> <span className="v">reejan</span> <P>=</P> <P>{"{"}</P></> },
+    { n: 38, t: 0.75, d: 1.0, c: <>{"  role"}<P>:</P> <S>Software &amp; Systems Engineer</S><P>,</P></> },
+    { n: 32, t: 0.65, d: 1.8, c: <>{"  stack"}<P>:</P> <P>[</P><S>React</S><P>,</P> <S>TypeScript</S><P>,</P></> },
+    { n: 40, t: 0.8, d: 2.5, c: <>{"    "}<S>PostgreSQL</S><P>,</P> <S>Supabase</S><P>,</P> <S>Python</S><P>],</P></> },
+    { n: 36, t: 0.7, d: 3.35, c: <>{"  cloud"}<P>:</P> <P>[</P><S>AWS</S><P>,</P> <S>Azure</S><P>,</P> <S>Vercel</S><P>],</P></> },
+    { n: 35, t: 0.7, d: 4.1, c: <>{"  shipped"}<P>:</P> <P>[</P><S>WAQTI</S><P>,</P> <S>USF</S><P>,</P> <S>ERP</S><P>],</P></> },
+    { n: 22, t: 0.45, d: 5.05, c: <>{"  based"}<P>:</P> <S>Dubai, UAE</S><P>,</P></> },
+    { n: 18, t: 0.4, d: 5.55, c: <>{"  available"}<P>:</P> <span className="k">true</span><P>,</P></> },
+    { n: 2, t: 0.05, d: 6.0, c: <P>{"};"}</P> },
   ];
+  const term: Line[] = [
+    { n: 15, t: 0.35, d: 6.4, c: <><P>$</P> npm run build</> },
+    { n: 25, t: 0.01, d: 7.0, c: <><span className="ok">✓</span> 200+ routes prerendered</> },
+    { n: 15, t: 0.35, d: 7.4, c: <><P>$</P> deploy --prod</> },
+    { n: 20, t: 0.01, d: 8.0, c: <><span className="ok">✓</span> live in production</> },
+  ];
+
   return (
-    <div className="ide">
+    <div
+      className="ide"
+      role="img"
+      aria-label="Code editor: reejan.ts — role Software & Systems Engineer; stack React, TypeScript, PostgreSQL, Supabase, Python; cloud AWS, Azure, Vercel; shipped WAQTI, USF Demolition platform, ERP; based in Dubai, UAE; available. Terminal: build and deploy to production."
+    >
       <div className="ide-bar">
         <i /><i /><i />
-        <span className="code-font" style={{ marginLeft: 10, fontSize: 12, color: "#8e939a" }}>reejan.ts</span>
+        <div className="ide-tabs">
+          <span className="ide-tab on">reejan.ts</span>
+          <span className="ide-tab">stack.json</span>
+          <span className="ide-tab">deploy.sh</span>
+        </div>
       </div>
-      <div className="code" role="img" aria-label="Code snippet: role Software & Systems Engineer; stack React, TypeScript, PostgreSQL, Supabase, Python; cloud AWS, Azure; based in Dubai, UAE.">
-        {lines.map((l, i) => (
-          <span key={i} className="tl" style={{ ["--n" as string]: l.n, ["--t" as string]: `${l.t}s`, ["--d" as string]: `${l.d}s` }}>
-            {l.c}
-          </span>
+      <div className="code">
+        {code.map((l, i) => (
+          <div key={i} className="code-row"><span className="lnum">{i + 1}</span>{typed(l, i)}</div>
         ))}
-        <span style={{ display: "block" }}><span className="p">$</span> <span className="caret" /></span>
+      </div>
+      <div className="term">
+        <div className="term-h"><b>Terminal</b><span>Output</span><span>Problems</span></div>
+        {term.map(typed)}
+        <span style={{ display: "block" }}><P>$</P> <span className="caret" /></span>
+      </div>
+      <div className="status">
+        <span><span>⎇ main</span><span className="okc">✓ 0 problems</span></span>
+        <span><span>TypeScript</span><span>UTF-8</span><span>Ln 9, Col 3</span></span>
       </div>
     </div>
   );
