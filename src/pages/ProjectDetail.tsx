@@ -61,7 +61,7 @@ export default function ProjectDetail() {
         <section className="section-sm" aria-labelledby="built">
           <div className="wrap">
             <SectionHead n="02" label="what-i-built" title={<span id="built">What I <span className="serif acc">built</span></span>} />
-            <div className="feat-grid">
+            <div className="feat-grid stagger">
               {p.features.map((f) => (
                 <div key={f.title} className="feat">
                   <h3 className="disp">{f.title}</h3>
@@ -78,7 +78,7 @@ export default function ProjectDetail() {
               <Comment n="03" label="results" />
               <h2 id="results" className="disp h2 hw">Results</h2>
             </div>
-            <ul className="checks">
+            <ul className="checks stagger">
               {p.outcomes.map((o) => <li key={o}><Check size={16} />{o}</li>)}
             </ul>
           </div>
@@ -87,7 +87,7 @@ export default function ProjectDetail() {
         <section className="section-sm" aria-labelledby="tech">
           <div className="wrap">
             <h2 id="tech" className="mono faint" style={{ margin: "0 0 16px" }}>Technology</h2>
-            <div className="tags">{p.stack.map((t) => <span key={t} className="tag">{t}</span>)}</div>
+            <div className="tags stagger">{p.stack.map((t) => <span key={t} className="tag">{t}</span>)}</div>
             <p className="body" style={{ marginTop: 24 }}>
               See how this fits my wider <Link className="acc" to="/skills">tech stack</Link> and{" "}
               <Link className="acc" to="/experience">work experience</Link>.

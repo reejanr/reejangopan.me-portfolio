@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <script>
-      // Apply the saved theme before first paint (no flash). Dark is the default.
+      // Mark JS as available (enables scroll reveals) and apply the saved theme before first paint.
+      document.documentElement.classList.add("js");
+      // Failsafe: if the app hasn't started revealing content within 4s, show everything.
+      setTimeout(function () { if (!window.__reveal) document.documentElement.classList.remove("js"); }, 4000);
       try {
         var t = localStorage.getItem("theme");
         if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;

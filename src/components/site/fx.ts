@@ -86,22 +86,26 @@ export function useScramble<T extends HTMLElement>(text: string, delayMs = 250) 
     let frame = 0;
     let start = 0;
     const duration = 900;
+    // Mutate the existing text node (never replace it): a new text node would count as a
+    // new largest paint and push back Largest Contentful Paint.
+    const node = el.firstChild;
+    if (!(node instanceof Text)) return;
     const tick = (t: number) => {
       if (!start) start = t;
       const p = Math.min(1, (t - start) / duration);
       const settled = Math.floor(p * text.length);
-      el.textContent = text
+      node.data = text
         .split("")
         .map((ch, i) => (i < settled || ch === " " ? ch : GLYPHS[(Math.random() * GLYPHS.length) | 0]))
         .join("");
       if (p < 1) frame = requestAnimationFrame(tick);
-      else el.textContent = text;
+      else node.data = text;
     };
     const timer = window.setTimeout(() => (frame = requestAnimationFrame(tick)), delayMs);
     return () => {
       window.clearTimeout(timer);
       cancelAnimationFrame(frame);
-      el.textContent = text;
+      node.data = text;
     };
   }, [text, delayMs]);
   return ref;
@@ -118,4 +122,44 @@ export function useDubaiTime() {
     return () => window.clearInterval(id);
   }, []);
   return time;
+}
+
+const REVEAL = ".rv, .hw, .grow, .cmt, .stagger, .sec-head, .xp, .proj";
+
+// Adds .is-in to elements as they scroll into view (CSS does the animation).
+// Re-runs on every route change because <main> remounts.
+export function useReveal(key: string) {
+  useEffect(() => {
+    (window as unknown as { __reveal?: boolean }).__reveal = true;
+    const els = Array.from(document.querySelectorAll<HTMLElement>(REVEAL));
+    els.forEach((el) => {
+      if (el.classList.contains("stagger")) {
+        Array.from(el.children).forEach((c, i) => (c as HTMLElement).style.setProperty("--i", String(Math.min(i, 12))));
+      }
+    });
+    if (!("IntersectionObserver" in window) || reducedMotion()) {
+      els.forEach((el) => el.classList.add("is-in"));
+      return;
+    }
+    // Clipped (.hw) and zero-width (.cmt) elements have no visible area in their hidden
+    // state, so watch their parent and reveal them when it comes into view.
+    const watched = new Map<Element, HTMLElement[]>();
+    els.forEach((el) => {
+      if (el.classList.contains("is-in")) return;
+      const proxy = el.matches(".hw, .cmt") && el.parentElement ? el.parentElement : el;
+      watched.set(proxy, [...(watched.get(proxy) ?? []), el]);
+    });
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (!e.isIntersecting) continue;
+          watched.get(e.target)?.forEach((el) => el.classList.add("is-in"));
+          io.unobserve(e.target);
+        }
+      },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.01 },
+    );
+    watched.forEach((_, proxy) => io.observe(proxy));
+    return () => io.disconnect();
+  }, [key]);
 }

@@ -35,14 +35,14 @@ export default function About() {
       <section className="section-sm" aria-labelledby="how">
         <div className="wrap">
           <SectionHead n="01" label="how-i-work" title={<span id="how">How I <span className="serif acc">work</span></span>} />
-          <ol className="tags" style={{ listStyle: "none", padding: 0, margin: 0, gap: 10 }}>
+          <ol className="tags stagger" style={{ listStyle: "none", padding: 0, margin: 0, gap: 10 }}>
             {about.lifecycle.map((s, i) => (
-              <li key={s} className="tag rv" style={{ fontSize: 14, padding: "10px 14px" }}>
+              <li key={s} className="tag" style={{ fontSize: 14, padding: "10px 14px" }}>
                 <span className="acc">{String(i + 1).padStart(2, "0")}</span> {s}
               </li>
             ))}
           </ol>
-          <div className="feat-grid" style={{ marginTop: 48 }}>
+          <div className="feat-grid stagger" style={{ marginTop: 48 }}>
             {about.differentiators.map((d) => (
               <div key={d.title} className="feat">
                 <h3 className="disp">{d.title}</h3>
@@ -61,7 +61,7 @@ export default function About() {
       <section className="section-sm" aria-labelledby="faq">
         <div className="wrap">
           <SectionHead n="02" label="faq" title={<span id="faq">Frequently asked <span className="serif acc">questions</span></span>} />
-          <div>
+          <div className="stagger">
             {faqs.map((f) => (
               <details key={f.q} className="faq">
                 <summary className="disp">{f.q}<ArrowRight size={18} className="faq-ic" /></summary>

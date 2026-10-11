@@ -35,10 +35,10 @@ export default function Services() {
               <div>
                 <h2 className="disp h3">{s.title}</h2>
                 <p className="body" style={{ margin: "12px 0 0", fontSize: 17, maxWidth: 760 }}>{s.text}</p>
-                <ul className="svc-points">
+                <ul className="svc-points stagger">
                   {s.points.map((pt) => <li key={pt}><Check size={15} />{pt}</li>)}
                 </ul>
-                <div className="tags" style={{ marginTop: 18 }}>{s.tools.map((t) => <span key={t} className="tag">{t}</span>)}</div>
+                <div className="tags stagger" style={{ marginTop: 18 }}>{s.tools.map((t) => <span key={t} className="tag">{t}</span>)}</div>
                 <p className="body" style={{ margin: "18px 0 0", fontSize: 14.5 }}>
                   <span className="faint">Related work: </span>
                   {s.related.map((slug, j) => (

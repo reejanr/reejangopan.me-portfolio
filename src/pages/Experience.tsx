@@ -31,7 +31,7 @@ export default function Experience() {
               <div>
                 <h2 className="disp h3 rv">{e.role}</h2>
                 <div className="xp-co rv">{e.company} · {e.location}</div>
-                <ul>{e.points.map((pt) => <li key={pt}><Rich text={pt} /></li>)}</ul>
+                <ul className="stagger">{e.points.map((pt) => <li key={pt}><Rich text={pt} /></li>)}</ul>
                 {i === 0 && (
                   <p className="body" style={{ marginTop: 20 }}>
                     Related case studies:{" "}

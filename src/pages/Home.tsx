@@ -88,7 +88,7 @@ export default function Home() {
             <div>
               <h3 className="disp h3 rv">{current.role}</h3>
               <div className="xp-co rv">{current.company} · {current.location}</div>
-              <ul>
+              <ul className="stagger">
                 {current.points.slice(0, 4).map((pt) => <li key={pt}><Rich text={pt} /></li>)}
               </ul>
             </div>
@@ -110,7 +110,7 @@ export default function Home() {
             title={<span id="stack-title">Core <span className="serif acc">stack</span></span>}
             aside={<Link className="text-link" to="/skills">Full toolkit <ArrowRight /></Link>}
           />
-          <ul className="stackgrid" style={{ listStyle: "none", margin: 0, padding: 0 }}>
+          <ul className="stackgrid stagger" style={{ listStyle: "none", margin: 0, padding: 0 }}>
             {coreStack.map((t, i) => (
               <li key={t} className="sk spot">
                 <span className="sk-i">{String(i + 1).padStart(2, "0")}</span>
@@ -128,7 +128,7 @@ export default function Home() {
             title={<span id="svc-title">What I <span className="serif acc">build &amp; run</span></span>}
             aside={<Link className="text-link" to="/services">All services <ArrowRight /></Link>}
           />
-          <ul className="svc-grid">
+          <ul className="svc-grid stagger">
             {services.map((s) => (
               <li key={s.id} className="rv">
                 <Link to={`/services#${s.id}`} className="svc-card spot">

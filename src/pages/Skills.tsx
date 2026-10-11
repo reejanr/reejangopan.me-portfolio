@@ -17,7 +17,7 @@ export default function Skills() {
             </p>
           </div>
           <h2 className="mono faint" style={{ margin: "56px 0 16px" }}>Daily drivers</h2>
-          <ul className="stackgrid" style={{ listStyle: "none", margin: 0, padding: 0 }}>
+          <ul className="stackgrid stagger" style={{ listStyle: "none", margin: 0, padding: 0 }}>
             {coreStack.map((t, i) => (
               <li key={t} className="sk spot">
                 <span className="sk-i">{String(i + 1).padStart(2, "0")}</span>
@@ -31,7 +31,7 @@ export default function Skills() {
       <section className="section-sm" aria-labelledby="toolkit">
         <div className="wrap">
           <SectionHead n="04" label="full-toolkit" title={<span id="toolkit">Full <span className="serif acc">toolkit</span></span>} />
-          <dl style={{ margin: 0 }}>
+          <dl className="stagger" style={{ margin: 0 }}>
             {toolkit.map((r) => (
               <div key={r.label} className="skrow"><dt>{r.label}</dt><dd>{r.value}</dd></div>
             ))}
@@ -77,7 +77,7 @@ export default function Skills() {
             <h2 className="mono faint" style={{ margin: "0 0 20px" }}>
               <span className="code-font acc" style={{ textTransform: "none", letterSpacing: 0 }}>$ git checkout -b</span> currently-expanding
             </h2>
-            <div className="exp">{expanding.map((e) => <span key={e}>{e}</span>)}</div>
+            <div className="exp stagger">{expanding.map((e) => <span key={e}>{e}</span>)}</div>
           </div>
         </div>
       </section>

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { nav, profile, projects } from "@/data/site";
 import { useSeo } from "@/seo/useSeo";
-import { usePointerFx } from "./fx";
+import { usePointerFx, useReveal } from "./fx";
 import { ArrowUp, Close, Download, Menu, Moon, Sun } from "./Icons";
 
 function toggleTheme() {
@@ -72,7 +72,7 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="wrap">
-        <div className="footer-grid">
+        <div className="footer-grid stagger">
           <div>
             <Link to="/" className="brand"><span className="acc">~/</span>reejangopan<span className="faint">.me</span></Link>
             <p className="body" style={{ margin: "14px 0 0", maxWidth: 340 }}>
@@ -146,6 +146,7 @@ export function Layout({ children }: { children: ReactNode }) {
   const pctRef = useRef<HTMLSpanElement>(null);
   useScrollProgress(pctRef);
   usePointerFx();
+  useReveal(pathname);
   useSeo();
   // Animate page changes after the first load only (the first paint stays instant for LCP).
   const firstPath = useRef<string | null>(null);
