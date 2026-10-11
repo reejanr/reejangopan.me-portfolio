@@ -25,7 +25,7 @@ function Nav() {
     <header className="nav">
       <div className="wrap nav-row">
         <Link to="/" className="brand" aria-label={`${profile.name} — home`}>
-          <span className="acc">~/</span>reejan<span className="faint">.dev</span>
+          <span className="acc">~/</span>reejangopan<span className="faint">.me</span>
         </Link>
         <nav className="nav-links" aria-label="Main">
           {nav.map((n) => (
@@ -72,7 +72,7 @@ function Footer() {
       <div className="wrap">
         <div className="footer-grid">
           <div>
-            <Link to="/" className="brand"><span className="acc">~/</span>reejan<span className="faint">.dev</span></Link>
+            <Link to="/" className="brand"><span className="acc">~/</span>reejangopan<span className="faint">.me</span></Link>
             <p className="body" style={{ margin: "14px 0 0", maxWidth: 340 }}>
               {profile.name} (Reejan Gopan) — {profile.title} in {profile.location}. {profile.tagline}
             </p>
