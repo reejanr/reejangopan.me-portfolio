@@ -9,7 +9,7 @@ import { techKnowledge } from "./techKnowledge";
 import { guides, topicLabels, type Topic } from "./guides";
 
 type Doc = { id: string; ask: string; q: string; a: string; next?: string[] };
-export type LocalAnswer = { text: string; confident: boolean; suggestions: string[] };
+export type LocalAnswer = { text: string; confident: boolean; suggestions: string[]; id?: string };
 
 const url = (path: string) => `${SITE_URL}${path}`;
 const plain = (s: string) => s.replace(/\*\*/g, "");
@@ -27,6 +27,12 @@ export const PERSONAS = [
     q: "need a website need an app client build my website build my app hire developer freelance project quote my business website",
     a: `Happy to help you plan it. Reejan builds business websites, web apps and internal systems end to end — design, development, database, hosting, SEO and support.\n• Services: ${url("/services")}\n• Start a conversation: ${profile.email}\n\nUseful first reads:`,
     next: ["What do I need before building a website?", "What do I need before building a web app?", "Best tech stack for a business website?"],
+  },
+  {
+    id: "business", label: "I run a small or mid-size business",
+    q: "run a business business owner small business mid size company sme smb our company need it support set up our office managing director operations manager",
+    a: `Reejan can be your one technology partner — IT infrastructure, Microsoft 365, website, CRM, ERP, accounting system integration, automation and ongoing support, planned and set up in phases.\n• See what's included: ${url("/services#complete-business-setup")}\n• Talk it through: ${profile.email}`,
+    next: ["Can Reejan set up everything for my business?", "What is the process of hiring Reejan for a project?", "What can be automated in a small business?"],
   },
   {
     id: "founder", label: "I'm starting a business",
@@ -284,7 +290,11 @@ export function search(query: string, limit = 5): { doc: Doc; score: number; cov
     }
     if (personal && PROFILE.test(doc.id)) score *= 1.6;
     // General guides answer "how should I..." questions, not questions about Reejan himself.
-    if (doc.id.startsWith("g-")) score *= personal ? 0.35 : advice ? 1.2 : 0.85;
+    // "For businesses" guides describe what Reejan offers, so they stay relevant to personal questions.
+    if (doc.id.startsWith("g-business")) score *= 1.0;
+    else if (doc.id.startsWith("g-")) score *= personal ? 0.35 : advice ? 1.2 : 0.85;
+    // Visitor-type answers are chosen from buttons; typed questions should prefer specific answers.
+    if (doc.id.startsWith("persona-")) score *= 0.7;
     return { doc, score, coverage: hit / q.length };
   });
   return results.filter((r) => r.score > 0).sort((a, b) => b.score - a.score).slice(0, limit);
@@ -303,6 +313,16 @@ const SMALLTALK: [RegExp, string][] = [
   [/^(help|what can (i|you) (ask|do))\b/i, "Try asking about his projects (like WAQTI), his experience, his skills, whether he's open to roles, or what a technology like Supabase or RAG is."],
 ];
 
+const key = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+let ASK_MAP: Map<string, Doc> | null = null;
+function byAsk(): Map<string, Doc> {
+  if (!ASK_MAP) {
+    ASK_MAP = new Map();
+    for (const d of index().docs) if (!ASK_MAP.has(key(d.ask))) ASK_MAP.set(key(d.ask), d);
+  }
+  return ASK_MAP;
+}
+
 const DEFAULT_SUGGESTIONS = ["What has Reejan built?", "Is he open to new roles?", "What is his tech stack?"];
 
 export function answerLocally(query: string): LocalAnswer {
@@ -312,7 +332,12 @@ export function answerLocally(query: string): LocalAnswer {
   }
   if (!tokens(q).length && /\b(reejan|gopan|him|he|yourself)\b/i.test(q)) {
     const doc = index().docs.find((d) => d.id === "about")!;
-    return { text: doc.a, confident: true, suggestions: DEFAULT_SUGGESTIONS };
+    return { id: doc.id, text: doc.a, confident: true, suggestions: DEFAULT_SUGGESTIONS };
+  }
+  const exact = byAsk().get(key(q));
+  if (exact) {
+    const rel = search(q, 4).map((h) => h.doc.ask).filter((a) => a !== exact.ask).slice(0, 3);
+    return { id: exact.id, text: exact.a, confident: true, suggestions: exact.next ?? (rel.length ? rel : DEFAULT_SUGGESTIONS) };
   }
   const hits = search(q, 6);
   const top = hits[0];
@@ -320,7 +345,7 @@ export function answerLocally(query: string): LocalAnswer {
 
   // Confident only when every key word matched, or at least half matched strongly.
   if (top && top.score >= 2.2 && (top.coverage === 1 || (top.coverage >= 0.5 && top.score >= 6))) {
-    return { text: top.doc.a, confident: true, suggestions: top.doc.next ?? (suggestions.length ? suggestions : DEFAULT_SUGGESTIONS) };
+    return { id: top.doc.id, text: top.doc.a, confident: true, suggestions: top.doc.next ?? (suggestions.length ? suggestions : DEFAULT_SUGGESTIONS) };
   }
   const near = hits.slice(0, 3).map((h) => h.doc.ask);
   return {

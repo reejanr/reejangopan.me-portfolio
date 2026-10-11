@@ -2,12 +2,13 @@
 // website/app, and running a startup's tech. General advice — never claims about Reejan
 // beyond what his services and projects show.
 
-export type Topic = "stacks" | "scaling" | "planning" | "startup" | "security";
+export type Topic = "business" | "stacks" | "scaling" | "planning" | "startup" | "security";
 export type Guide = { topic: Topic; ask: string; k: string; a: string; next?: string[] };
 
 const S = "https://reejangopan.me/services";
 
 export const topicLabels: Record<Topic, string> = {
+  business: "For businesses",
   stacks: "Tech stacks",
   scaling: "Scaling",
   planning: "Before you build",
@@ -16,6 +17,165 @@ export const topicLabels: Record<Topic, string> = {
 };
 
 export const guides: Guide[] = [
+
+  // ======================= FOR BUSINESSES (one-stop setup by Reejan) =======================
+  {
+    topic: "business", ask: "Can Reejan set up everything for my business?",
+    k: "set up everything my business one stop end to end full setup complete it digital setup small business mid size company sme smb partner all in one it company outsource",
+    a: `Yes — for small and mid-size businesses Reejan can be the one technology partner for the whole setup:
+• **IT infrastructure:** office network, Wi-Fi, firewall, servers or cloud, Active Directory, laptops and printers
+• **Microsoft 365 & email:** accounts, domains, Teams, SharePoint, MFA and security policies
+• **Website & marketing:** a fast company website, SEO, Google Business Profile, GA4 and lead tracking
+• **CRM:** set up, pipelines, lead capture from the website and WhatsApp, follow-up automation
+• **ERP & business apps:** HR, attendance, payroll, operations, inventory — off-the-shelf or custom-built
+• **Accounting system:** set up and connected to sales and payroll, working with your accountant
+• **Automation & dashboards:** remove manual work and see the business in one place
+• **Support:** documentation, training and ongoing maintenance
+
+Proof: WAQTI, an internal ERP, usfdemolition.com and IT deployments for Dubai SMBs. Details: https://reejangopan.me/services#complete-business-setup`,
+    next: ["What is the process of hiring Reejan for a project?", "IT infrastructure setup for a new office?", "Off-the-shelf ERP or a custom ERP?"],
+  },
+  {
+    topic: "business", ask: "What is the process of hiring Reejan for a project?",
+    k: "engagement process steps hire hiring reejan project process consultation discovery audit roadmap what happens first",
+    a: `A typical engagement:
+1. **Discovery call** — your goals, team size, current tools and pain points
+2. **Audit** — network, devices, accounts, security, website and processes
+3. **Roadmap** — priorities, quick wins, costs and timeline, agreed with you
+4. **Set up & build** — in phases, so the business keeps running
+5. **Train & document** — guides and handover so your team is confident
+6. **Support & improve** — monitoring, updates, new users, new automations
+
+Start with an email to reejanr90@gmail.com describing your business and what's slowing it down.`,
+    next: ["Can Reejan set up everything for my business?", "What does it cost to set up IT for a small business?", "Managed IT support and maintenance?"],
+  },
+  {
+    topic: "business", ask: "IT infrastructure setup for a new office?",
+    k: "it infrastructure setup new office office setup network wifi wi-fi firewall server cabling switches router printers cctv biometric access devices laptops setup office it",
+    a: `New-office IT checklist:
+• **Internet & network:** business internet with backup line, router/firewall, managed switches, separate guest Wi-Fi
+• **Identity:** Microsoft 365 with Entra ID (cloud-only) or Windows Server + Active Directory where on-site servers are needed
+• **Devices:** laptops enrolled and managed (Intune), endpoint protection, printers and scanners
+• **Security:** MFA, Conditional Access, firewall rules, VPN for remote access
+• **Files & backup:** SharePoint/OneDrive, plus backups stored separately
+• **Physical:** CCTV and biometric access integrated with HR where useful
+• **Documentation:** network diagram, asset list and admin passwords in a vault
+
+Reejan has deployed this for Dubai SMBs (40% faster with standard checklists and scripts) and worked with Cisco networks, firewalls, CCTV and biometric systems. https://reejangopan.me/services#complete-business-setup`,
+    next: ["Cybersecurity basics for a small business?", "Microsoft 365 or Google Workspace?", "Backup strategy for a small business?"],
+  },
+  {
+    topic: "business", ask: "How do you set up a CRM for a business?",
+    k: "crm setup set up crm configure crm implement crm sales pipeline leads customer management hubspot zoho crm salesforce migration",
+    a: `CRM setup in practice:
+1. **Pick the CRM** for your size and budget — Zoho CRM, HubSpot or Dynamics 365
+2. **Design pipelines** that mirror how you actually sell (stages, owners, follow-up rules)
+3. **Import clean data** — contacts, companies, open deals
+4. **Capture leads automatically** from website forms, calls, WhatsApp and ads
+5. **Automate follow-ups** — tasks, reminders, emails, quote templates
+6. **Connect** to email, calendar and the accounting system (won deal → invoice)
+7. **Dashboards** for pipeline value and conversion, then **train the team**
+
+Reejan sets up lead capture and conversion tracking end to end. https://reejangopan.me/services#complete-business-setup`,
+    next: ["Which CRM and accounting tools should a startup use?", "How can a business automate its processes?", "What does a marketing tech stack need?"],
+  },
+  {
+    topic: "business", ask: "Off-the-shelf ERP or a custom ERP?",
+    k: "erp off the shelf custom erp odoo zoho one dynamics 365 sap business one which erp erp for small business erp implementation erp for sme",
+    a: `• **Off-the-shelf (Odoo, Zoho One, Dynamics 365 Business Central):** faster to start and standard for accounting, sales and inventory — best when your processes are fairly standard
+• **Custom ERP:** fits unusual workflows exactly — site-based workforces, complex overtime or payroll rules, industry-specific operations
+• **Hybrid (often best):** keep proven accounting software, and build custom modules for the parts that make your business different, connected by APIs
+
+Reejan builds custom business platforms (WAQTI: attendance, overtime, leave, payroll) and an internal ERP that connects to Zoho Books rather than rebuilding accounting. https://reejangopan.me/services#complete-business-setup`,
+    next: ["What is an ERP?", "Tell me about Internal ERP Platform", "How do I automate HR, attendance and payroll?"],
+  },
+  {
+    topic: "business", ask: "Can Reejan set up our accounting system?",
+    k: "accounting system accounts setup accounting software zoho books quickbooks xero tally vat e-invoicing invoicing finance system accounts software bank feeds",
+    a: `Yes — the technical side of it:
+• **Choose and set up** accounting software (Zoho Books, QuickBooks or Xero), VAT-ready for the UAE
+• **Configure** invoice templates, users and permissions, bank feeds and payment methods
+• **Connect** it to the CRM (won deals → invoices), payroll and the ERP so data isn't typed twice
+• **Prepare for e-invoicing** requirements and automate reminders and reports
+
+Your accountant still owns the chart of accounts, bookkeeping and VAT filing — Reejan makes the systems work together.`,
+    next: ["Which CRM and accounting tools should a startup use?", "Off-the-shelf ERP or a custom ERP?", "How can a business automate its processes?"],
+  },
+  {
+    topic: "business", ask: "Managed IT support and maintenance?",
+    k: "managed it support maintenance it support monthly ongoing support helpdesk it maintenance after setup outsourced it admin",
+    a: `After setup, ongoing support keeps everything healthy:
+• **User admin:** new joiners and leavers, licences, access reviews
+• **Security:** patching, endpoint protection, MFA, alerts
+• **Backups:** monitored and restore-tested
+• **Monitoring:** uptime of website, email and servers
+• **Helpdesk:** fixing issues for staff, from printers to permissions
+• **Improvements:** new automations, reports and features as the business grows
+
+Reejan does this every day at USF Group — Microsoft 365 for 50+ users and 99%+ uptime across servers, hosting and email.`,
+    next: ["Employee onboarding and offboarding IT checklist?", "Cybersecurity basics for a small business?", "How do I keep my app online (uptime, backups)?"],
+  },
+  {
+    topic: "business", ask: "What does it cost to set up IT for a small business?",
+    k: "cost it setup small business price budget how much it cost office it cost quote it setup pricing",
+    a: `It depends mainly on:
+• **Team size** and number of locations
+• **Hardware** needed (network equipment, laptops, servers)
+• **Licences** (Microsoft 365, CRM, accounting, ERP) — usually per user per month
+• **Custom development** — websites and business apps
+• **Support level** after setup
+
+A good setup pays back through less downtime, fewer manual hours and better security. For a tailored quote, email reejanr90@gmail.com with your team size and goals.`,
+    next: ["What is the process of hiring Reejan for a project?", "Can Reejan set up everything for my business?", "Build vs buy: SaaS or custom software?"],
+  },
+  {
+    topic: "business", ask: "Backup strategy for a small business?",
+    k: "backup strategy 3-2-1 backups data loss ransomware recovery restore backup plan business continuity",
+    a: `Follow the **3-2-1 rule**:
+• **3 copies** of important data
+• on **2 different types** of storage
+• with **1 copy off-site** (or in a separate cloud account)
+
+Plus:
+• Back up Microsoft 365 too — mail, OneDrive and SharePoint are not fully protected by default
+• Keep backups immutable or offline so ransomware can't encrypt them
+• **Test restores** regularly — an untested backup is a hope, not a plan
+• Document who restores what, and how fast (RPO/RTO)`,
+    next: ["Cybersecurity basics for a small business?", "How do I keep my app online (uptime, backups)?", "IT infrastructure setup for a new office?"],
+  },
+  {
+    topic: "business", ask: "Employee onboarding and offboarding IT checklist?",
+    k: "onboarding offboarding new employee joiner leaver it checklist access new staff user setup remove access",
+    a: `**New joiner:**
+• Create the Microsoft 365 account, assign licence and groups, enforce MFA
+• Prepare and enrol the laptop; install apps; add printer and Wi-Fi
+• Give access to the CRM, ERP and shared folders by role
+• Share an IT welcome guide
+
+**Leaver:**
+• Block sign-in immediately; reset MFA and revoke sessions
+• Convert the mailbox to shared or forward it; transfer files
+• Remove from apps and shared folders; collect and wipe devices
+• Record everything for audit
+
+Automating this with templates and Power Automate makes it consistent and fast.`,
+    next: ["Managed IT support and maintenance?", "How can a business automate its processes?", "What is Microsoft 365?"],
+  },
+  {
+    topic: "business", ask: "What can be automated in a small business?",
+    k: "what can be automated small business automation ideas examples automate tasks save time automations list",
+    a: `Common high-value automations:
+• **Sales:** website and WhatsApp leads → CRM → instant reply and follow-up tasks
+• **Finance:** invoices from won deals, payment reminders, expense approvals
+• **HR:** onboarding checklists, leave approvals, attendance → payroll
+• **Operations:** purchase requests and approvals, stock alerts, daily site reports
+• **IT:** user setup and removal, licence reports, backup checks
+• **Management:** weekly KPI reports emailed automatically
+• **AI:** categorising emails and tickets, summarising documents
+
+Reejan's own automation of reporting and IT ticket categorisation saves ~5 hours a week. https://reejangopan.me/services#complete-business-setup`,
+    next: ["How can a business automate its processes?", "How can a business use AI?", "How do you set up a CRM for a business?"],
+  },
   // ======================= TECH STACKS =======================
   {
     topic: "stacks", ask: "Best tech stack for a business website?",

@@ -153,7 +153,7 @@ export function getHead(rawPath: string): Head {
   if (path === "/services") {
     const title = `Services — ${profile.name}, Software Engineer Dubai`;
     const description =
-      "Full-stack development, workforce and ERP software, Supabase/PostgreSQL, AWS and Azure, AI automation, Microsoft 365 and technical SEO in Dubai, UAE.";
+      "Complete IT and digital setup for SMBs in Dubai: IT infrastructure, Microsoft 365, websites, CRM, ERP, automation, cloud and AI — by Reejan R Gopan.";
     return {
       title, description, path, ogType: "website",
       keywords: services.flatMap((s) => s.searchTerms),

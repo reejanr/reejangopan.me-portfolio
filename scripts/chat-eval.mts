@@ -9,7 +9,7 @@ const cases: [string, string][] = [
   ["where is he based", "location"], ["is he available for a job", "availability"], ["are you hiring? is he open to work", "availability"],
   ["work experience", "experience"], ["how many years experience", "experience"], ["where does he work now", "xp-0"],
   ["what did he do at TCS", "xp-2"], ["chimera group", "xp-1"], ["what has he built", "projects|faq-3"], ["tell me about waqti", "p-waqti"],
-  ["attendance app", "p-waqti|t-Workforce"], ["usf demolition website", "p-usf"], ["trading bot xauusd", "p-xauusd"], ["ERP", "t-ERP"],
+  ["attendance app", "p-waqti|t-Workforce"], ["usf demolition website", "p-usf"], ["trading bot xauusd", "p-xauusd"], ["ERP", "t-ERP|g-business"],
   ["what services do you offer", "faq-2|services"], ["can he build a react app", "t-React"], ["skills", "skills"], ["tech stack", "skills"],
   ["what databases does he know", "tk-Databases"], ["education", "education"], ["which college", "education"],
   ["certifications", "certifications"], ["is he microsoft certified", "certifications"], ["languages he speaks", "spoken"],
@@ -19,7 +19,7 @@ const cases: [string, string][] = [
   ["expereince with pyhton", "t-Python"], ["typscript", "t-TypeScript"], ["core web vitals", "t-Core Web Vitals"],
   ["does he know kotlin", "?"], ["what's the weather today", "?"], ["hello", "smalltalk"], ["thanks!", "smalltalk"],
   ["does he know C#", "t-C#"], ["c++", "t-C++"], ["node.js", "t-Node.js"], ["what is ci/cd", "t-CI/CD"], ["seo", "t-Technical SEO"],
-  ["vpn setup", "t-VPN|p-enterprise"],
+  ["vpn setup", "t-VPN|p-enterprise|g-business"],
   ["best tech stack for an ecommerce store", "g-stacks"], ["which stack for a saas startup", "g-stacks"], ["how to build a mobile app", "g-stacks"],
   ["how do i scale my web app", "g-scaling"], ["my database is slow", "g-scaling|t-Database indexing"], ["what is caching", "g-scaling"], ["how to make my website faster", "g-scaling"],
   ["what do i need before building a website", "g-planning"], ["how much does a website cost", "g-planning"], ["how long to build an app", "g-planning"],
@@ -27,15 +27,19 @@ const cases: [string, string][] = [
   ["how can i automate my business", "g-startup"], ["what software does a startup need", "g-startup"], ["automate payroll and attendance", "g-startup"],
   ["cybersecurity for small business", "g-security"], ["monolith vs microservices", "g-stacks"], ["node or python for backend", "g-stacks"],
   ["who built you", "smalltalk"], ["who made this chatbot", "bot|smalltalk"], ["how does this chatbot work", "bot-how"],
+  ["can you set up it for my whole company", "g-business"], ["it setup for new office", "g-business"], ["crm setup", "g-business"],
+  ["erp for small business", "g-business"], ["can he set up our accounting software", "g-business"], ["it support and maintenance", "g-business"],
+  ["backup strategy", "g-business"], ["what can be automated in my business", "g-business"], ["onboarding new employee it", "g-business"],
+  ["I run a small or mid-size business", "persona-business"],
   ["I'm a recruiter", "persona-recruiter"], ["I'm hiring / a recruiter", "persona-recruiter"], ["I need a website or app", "persona-client"],
-  ["I'm a developer / student", "persona-developer"], ["Just exploring", "persona-exploring"], ["I'm starting a business", "persona-founder"], ["i need a website for my business", "persona-client|g-planning|g-stacks"], ["i am starting a business", "persona-founder"],
+  ["I'm a developer / student", "persona-developer"], ["Just exploring", "persona-exploring"], ["I'm starting a business", "persona-founder"], ["i need a website for my business", "persona-client|g-planning|g-stacks"], ["i am starting a business", "persona-founder|g-startup"],
  ["results achievements", "impact"], ["does he know mongodb", "t-MongoDB"], ["flutter apps", "t-Flutter"],
 ];
 let pass = 0;
 for (const [q, want] of cases) {
   const a = answerLocally(q);
   const top = search(q, 1)[0];
-  const id = top?.doc.id ?? "-";
+  const id = a.id ?? top?.doc.id ?? "-";
   let ok: boolean;
   if (want === "?") ok = !a.confident;
   else if (want === "smalltalk") ok = a.confident && !top;

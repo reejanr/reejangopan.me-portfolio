@@ -356,6 +356,24 @@ export type Service = {
 // Each service maps to real work, so every keyword is backed by a project or role.
 export const services: Service[] = [
   {
+    id: "complete-business-setup",
+    title: "Complete IT & digital setup for SMBs",
+    searchTerms: ["IT company Dubai", "IT setup for small business UAE", "business automation Dubai", "CRM and ERP setup UAE"],
+    text: "One technology partner for small and mid-size businesses — from the office network and Microsoft 365 to the website, CRM, ERP, accounting system and the automations that connect them. Planned, set up, documented and supported.",
+    points: [
+      "IT infrastructure: network, Wi-Fi, firewall, servers, Active Directory, devices",
+      "Microsoft 365, business email, domains, security and backups",
+      "Company website, SEO, Google Business Profile and lead tracking",
+      "CRM setup, pipelines and lead automation",
+      "ERP and custom business apps: HR, attendance, payroll, operations, inventory",
+      "Accounting software setup and integration (with your accountant), VAT-ready",
+      "Process automation, dashboards and AI assistants",
+      "Training, documentation and ongoing support",
+    ],
+    tools: ["Microsoft 365", "Windows Server", "Entra ID", "Cloudflare", "React", "PostgreSQL", "Zoho", "Power Automate"],
+    related: ["enterprise-it-infrastructure-dubai-smbs", "waqti-workforce-management-platform", "internal-erp-platform", "usf-demolition-digital-platform"],
+  },
+  {
     id: "full-stack-development",
     title: "Full-stack web application development",
     searchTerms: ["Full-Stack Developer Dubai", "React developer Dubai", "TypeScript developer UAE", "web application developer UAE"],
