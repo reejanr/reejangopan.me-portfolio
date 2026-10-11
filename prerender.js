@@ -15,8 +15,12 @@ const preloads = [/^bricolage-grotesque-latin-wght-normal-.*\.woff2$/, /^geist-s
   .map((f) => `<link rel="preload" href="/assets/${f}" as="font" type="font/woff2" crossorigin />`)
   .join('\n    ')
 
-const template = fs
-  .readFileSync(toAbsolute('dist/index.html'), 'utf-8')
+// Inline the stylesheet so the first paint isn't blocked by a separate CSS request.
+const inlineCss = (html) =>
+  html.replace(/<link rel="stylesheet"[^>]*href="(\/assets\/[^"]+\.css)"[^>]*>/, (_, href) =>
+    `<style>${fs.readFileSync(toAbsolute('dist' + href), 'utf-8')}</style>`)
+
+const template = inlineCss(fs.readFileSync(toAbsolute('dist/index.html'), 'utf-8'))
   .replace('<!--app-head-->', `${preloads}\n    <!--app-head-->`)
 const { render, head, routes, llmsTxt, llmsFullTxt } = await import('./dist/server/entry-server.js')
 

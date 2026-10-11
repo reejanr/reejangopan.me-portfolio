@@ -24,8 +24,9 @@ function Nav() {
   return (
     <header className="nav">
       <div className="wrap nav-row">
-        <Link to="/" className="brand" aria-label={`${profile.name} — home`}>
+        <Link to="/" className="brand">
           <span className="acc">~/</span>reejangopan<span className="faint">.me</span>
+          <span className="sr-only"> — {profile.name}, home</span>
         </Link>
         <nav className="nav-links" aria-label="Main">
           {nav.map((n) => (
