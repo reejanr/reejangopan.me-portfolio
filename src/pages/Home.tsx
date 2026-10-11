@@ -17,7 +17,7 @@ export default function Home() {
           <div className="hero-grid">
             <div>
               <p className="pill in" style={{ margin: 0 }}>
-                <span className="dot" />{profile.location}{time && <span className="clock"> · {time} GST</span>} · Open to {profile.openTo}
+                <span className="dot" /><span>{profile.location}{time && <span className="clock"> · {time} GST</span>} · Open to {profile.openTo}</span>
               </p>
               <h1 id="hero-title" className="disp h1" style={{ marginTop: 28 }}>
                 <span className="ln"><span ref={nameRef}>{profile.name}</span></span>{" "}

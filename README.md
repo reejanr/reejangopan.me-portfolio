@@ -29,3 +29,19 @@ npm run preview  # serve the production build
 - `sitemap.xml` is generated at build time from the same route list; `robots.txt` points to it.
 - `404.html` is rendered with `noindex`.
 - `public/llms.txt` is a plain-text profile for AI crawlers.
+
+## AI chat assistant
+
+The "Ask AI about Reejan" widget calls `api/chat.ts`, a Vercel Function that answers from the
+site's own `llms-full.txt` (generated from `src/data/site.ts`) using Claude.
+
+Setup:
+
+1. Create an API key at https://console.anthropic.com and set a monthly **spend limit** there.
+2. In Vercel → Project → Settings → Environment Variables, add `ANTHROPIC_API_KEY`, then redeploy.
+3. Local development: copy `.env.example` to `.env`, add the key, and run `npm run dev`
+   (the dev server serves `/api/chat` the same way Vercel does).
+
+Without a key the widget stays visible and tells visitors the assistant is offline, with an email link.
+Built-in guards: same-site origin check, 600-character questions, last 12 messages only,
+per-visitor rate limits (8/minute, 60/day per server instance) and a 1,024-token answer cap.

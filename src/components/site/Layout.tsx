@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { nav, profile, projects } from "@/data/site";
 import { useSeo } from "@/seo/useSeo";
 import { usePointerFx, useReveal } from "./fx";
+import { ChatWidget } from "./ChatWidget";
 import { ArrowUp, Close, Download, Menu, Moon, Sun } from "./Icons";
 
 function toggleTheme() {
@@ -164,6 +165,7 @@ export function Layout({ children }: { children: ReactNode }) {
       <Nav />
       <main id="main" key={pathname} className={navigated ? "page-in" : undefined}>{children}</main>
       <Footer />
+      <ChatWidget />
       <div className="hud" aria-hidden="true">
         <span>scroll</span>
         <span className="bar"><span /></span>
