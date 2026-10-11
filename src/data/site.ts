@@ -4,6 +4,8 @@ export const SITE_URL = "https://reejangopan.me";
 
 export const profile = {
   name: "Reejan R Gopan",
+  // The brand name Google shows as the "site name" in search results.
+  siteName: "Reejan Gopan",
   // Every form of the name people search for. Used in structured data, copy and llms.txt.
   alternateNames: ["Reejan Gopan", "Reejan", "Reejan R. Gopan"],
   givenName: "Reejan",

@@ -73,8 +73,9 @@ const person = {
 const website = {
   "@type": "WebSite",
   "@id": `${SITE_URL}/#website`,
-  url: SITE_URL,
-  name: profile.name,
+  url: `${SITE_URL}/`,
+  name: profile.siteName,
+  alternateName: [profile.name, "reejangopan.me"],
   description: `Portfolio of ${profile.name}, ${profile.title} in Dubai.`,
   inLanguage: "en",
   publisher: { "@id": `${SITE_URL}/#person` },
@@ -119,7 +120,7 @@ export function getHead(rawPath: string): Head {
   const path = rawPath.replace(/\/+$/, "") || "/";
 
   if (path === "/") {
-    const title = `${profile.name} — ${profile.title} in Dubai`;
+    const title = `${profile.siteName} — ${profile.title} in Dubai`;
     const description =
       "Software & Systems Engineer in Dubai building production business apps, workforce platforms and cloud systems with React, TypeScript, PostgreSQL and Python.";
     return {
@@ -151,7 +152,7 @@ export function getHead(rawPath: string): Head {
   }
 
   if (path === "/services") {
-    const title = `Services — ${profile.name}, Software Engineer Dubai`;
+    const title = `Services — ${profile.siteName}, Software Engineer Dubai`;
     const description =
       "Complete IT and digital setup for SMBs in Dubai: IT infrastructure, Microsoft 365, websites, CRM, ERP, automation, cloud and AI — by Reejan R Gopan.";
     return {
@@ -183,7 +184,7 @@ export function getHead(rawPath: string): Head {
   }
 
   if (path === "/projects") {
-    const title = `Projects — ${profile.name}, Software Engineer`;
+    const title = `Projects — ${profile.siteName}, Software Engineer`;
     const description =
       "Projects by Reejan R Gopan: WAQTI workforce platform, USF Demolition web platform, a Python trading analysis system, IT infrastructure and an ERP.";
     return {
@@ -204,7 +205,7 @@ export function getHead(rawPath: string): Head {
 
   const project = projects.find((p) => path === `/projects/${p.slug}`);
   if (project) {
-    const title = project.seoTitle.length <= 44 ? `${project.seoTitle} | ${profile.name}` : project.seoTitle;
+    const title = project.seoTitle.length <= 44 ? `${project.seoTitle} | ${profile.siteName}` : project.seoTitle;
     return {
       title, description: project.seoDescription, path, ogType: "article", keywords: project.keywords,
       jsonLd: graph(
@@ -227,7 +228,7 @@ export function getHead(rawPath: string): Head {
   }
 
   if (path === "/experience") {
-    const title = `Experience — ${profile.name}, ${profile.title}`;
+    const title = `Experience — ${profile.siteName}, ${profile.title}`;
     const description =
       "Experience of Reejan R Gopan: IT Systems & Digital Transformation at USF Group Dubai, IT support at Chimera Group and network admin at TCS iON.";
     return {
@@ -248,7 +249,7 @@ export function getHead(rawPath: string): Head {
   }
 
   if (path === "/skills") {
-    const title = `Skills & Tech Stack — ${profile.name}`;
+    const title = `Skills & Tech Stack — ${profile.siteName}`;
     const description =
       "Reejan R Gopan's tech stack: React, TypeScript, Python, Node.js, PostgreSQL, Supabase, AWS, Azure, Docker, Microsoft 365 and Windows Server.";
     return {
@@ -258,7 +259,7 @@ export function getHead(rawPath: string): Head {
   }
 
   if (path === "/contact") {
-    const title = `Contact ${profile.name} — Software Engineer in Dubai`;
+    const title = `Contact ${profile.siteName} — Software Engineer in Dubai`;
     const description =
       "Contact Reejan R Gopan, Software & Systems Engineer in Dubai — email, phone, LinkedIn and CV. Open to Software, Full-Stack, Cloud and Systems roles.";
     return {
@@ -268,7 +269,7 @@ export function getHead(rawPath: string): Head {
   }
 
   return {
-    title: `Page not found | ${profile.name}`,
+    title: `Page not found | ${profile.siteName}`,
     description: "This page does not exist.",
     path, ogType: "website", robots: "noindex, follow", jsonLd: [],
   };
@@ -288,7 +289,7 @@ export function headToHtml(h: Head): string {
     h.keywords ? `<meta data-seo name="keywords" content="${esc(h.keywords.join(", "))}" />` : "",
     `<link data-seo rel="canonical" href="${url}" />`,
     `<meta data-seo property="og:type" content="${h.ogType}" />`,
-    `<meta data-seo property="og:site_name" content="${esc(profile.name)}" />`,
+    `<meta data-seo property="og:site_name" content="${esc(profile.siteName)}" />`,
     `<meta data-seo property="og:title" content="${esc(h.title)}" />`,
     `<meta data-seo property="og:description" content="${esc(h.description)}" />`,
     `<meta data-seo property="og:url" content="${url}" />`,
