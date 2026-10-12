@@ -127,7 +127,7 @@ function buildDocs(): Doc[] {
   add("impact", "What results has he delivered?",
     "results impact achievements numbers metrics uptime users saved hours accomplishments",
     stats.map((s) => `• ${s.prefix ?? ""}${s.value}${s.suffix} ${s.label.toLowerCase()}`).join("\n") +
-      "\n• 200+ prerendered routes on the USF Demolition platform\n• 40% faster IT setup for Dubai SMBs");
+      "\n• 4 USF Group websites with 300+ prerendered pages\n• 40% faster IT setup for Dubai SMBs");
   add("site", "How was this website built?",
     "this website site web page how was this website made portfolio site technology",
     "This site is built with React, TypeScript and Vite, prerendered to static HTML for speed and SEO, and hosted on Vercel. This assistant searches a knowledge base in your browser — free and instant.");

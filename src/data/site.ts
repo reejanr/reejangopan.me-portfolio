@@ -48,6 +48,7 @@ export type Project = {
   features: { title: string; text: string }[];
   outcomes: string[];
   link?: { label: string; href: string };
+  sites?: { name: string; href: string; text: string }[];
   seoTitle: string;
   seoDescription: string;
   keywords: string[];
@@ -90,36 +91,47 @@ export const projects: Project[] = [
     keywords: ["workforce management software", "attendance app", "payroll system", "Supabase", "PostgreSQL", "React"],
   },
   {
-    slug: "usf-demolition-digital-platform",
-    name: "USF Demolition Digital Platform",
+    slug: "usf-group-web-platforms",
+    name: "USF Group Web Platforms",
     short:
-      "Corporate web platform with 200+ prerendered routes, technical SEO, analytics, conversion tracking and performance optimization.",
-    category: "Web platform",
+      "Websites, technical SEO and GEO (AI-search optimisation) for the USF Group companies — usfdemolition.com, usfgrand.com, rental.usfme.com and usfme.com.",
+    category: "Web platforms · SEO & GEO",
     status: "Live",
     period: "2025 — present",
-    role: "Design, development, SEO, analytics & deployment",
-    result: "200+ prerendered routes · CI/CD via GitHub",
-    stack: ["React", "TypeScript", "Tailwind CSS", "Vite", "Vercel", "Cloudflare"],
+    role: "Design, development, SEO, GEO, analytics & deployment",
+    result: "4 company websites · 300+ prerendered pages",
+    stack: ["React", "TypeScript", "Tailwind CSS", "Vite", "Vercel", "Cloudflare", "JSON-LD", "GA4"],
     overview: [
-      "The corporate website for USF Demolition Works LLC — a fast, search-optimised platform covering demolition services, projects, equipment, tenders, vendor registration and careers.",
-      "Every route is prerendered to static HTML for speed and indexability, and deployed through GitHub to Vercel behind Cloudflare.",
+      "The web presence of USF Group in the UAE — a separate website for each group company, covering demolition, civil construction and heavy-equipment rental. Reejan designed, built and deployed the sites and runs their SEO, GEO and analytics.",
+      "Every site is built for speed and discoverability: pages are prerendered to static HTML, structured with schema.org data, and written so both Google and AI assistants such as ChatGPT, Gemini and Perplexity can understand and cite them.",
+    ],
+    problem:
+      "Each USF company needed its own credible, fast website that ranks for competitive UAE searches — demolition, civil works, excavator rental — and turns visits into calls, WhatsApp messages and enquiries.",
+    sites: [
+      { name: "usfdemolition.com", href: "https://usfdemolition.com", text: "USF Demolition Works LLC — demolition services, projects, equipment, tenders, vendor registration and careers, with 200+ prerendered routes and split sitemaps for pages, services, locations, projects, blog, jobs and images." },
+      { name: "usfgrand.com", href: "https://usfgrand.com", text: "USF GRAND Constructions LLC — civil contractor site for road works, earthworks, excavation, utilities and marine projects across Dubai, Abu Dhabi and Sharjah." },
+      { name: "rental.usfme.com", href: "https://rental.usfme.com", text: "USF Equipment Rental — 100+ page catalogue of excavators, long-reach machines, breakers, crushers and attachments for rent across the UAE." },
+      { name: "usfme.com", href: "https://usfme.com", text: "USF Group corporate website — the parent brand linking the group companies." },
     ],
     features: [
-      { title: "Prerendered architecture", text: "200+ statically prerendered routes for fast first paint and complete indexing." },
-      { title: "Technical SEO", text: "Sitemap architecture, robots directives, canonical URLs, metadata and JSON-LD structured data across service and location pages." },
-      { title: "Analytics & conversions", text: "GA4 and Google Tag Manager tracking for form submissions, calls, click-to-call, WhatsApp, directions and outbound clicks." },
+      { title: "Prerendered architecture", text: "Static, prerendered pages on every site for fast first paint and complete indexing — 300+ pages across the group." },
+      { title: "Technical SEO", text: "Sitemap indexes, robots directives, canonical URLs, metadata and JSON-LD structured data across service, location, project and equipment pages." },
+      { title: "GEO — AI search optimisation", text: "Entity-rich content, FAQ and organisation schema and clear answers so AI assistants and Google AI Overviews can find, understand and cite each company." },
+      { title: "Local SEO", text: "Location pages and Google Business Profile alignment for Dubai, Abu Dhabi, Sharjah and the wider UAE." },
+      { title: "Analytics & conversions", text: "GA4 and Google Tag Manager tracking for form submissions, calls, click-to-call, WhatsApp, directions and outbound clicks; Google Ads for demolition services." },
       { title: "Performance", text: "Core Web Vitals work on LCP, FCP, blocking time, image optimisation, lazy loading and transfer size, with a mobile-first focus." },
     ],
     outcomes: [
-      "200+ prerendered, indexable routes",
+      "4 company websites live under one consistent, fast stack",
+      "300+ prerendered, indexable pages with structured data",
       "CI/CD from GitHub to Vercel and Cloudflare",
-      "Technical SEO, GA4 tracking and Google Ads supporting organic and paid traffic in Dubai and Abu Dhabi",
+      "SEO, GEO, GA4 tracking and Google Ads supporting organic, AI-search and paid traffic in Dubai and Abu Dhabi",
     ],
     link: { label: "Visit usfdemolition.com", href: "https://usfdemolition.com" },
-    seoTitle: "USF Demolition Digital Platform — Case Study",
+    seoTitle: "USF Group Web Platforms — Websites, SEO & GEO Case Study",
     seoDescription:
-      "Case study: React and Vite corporate platform with 200+ prerendered routes, technical SEO, GA4 conversion tracking and Core Web Vitals work.",
-    keywords: ["technical SEO", "prerendering", "React website", "Core Web Vitals", "Vercel", "Cloudflare"],
+      "Case study: websites, technical SEO and GEO for USF Group in the UAE — usfdemolition.com, usfgrand.com, rental.usfme.com and usfme.com — by Reejan R Gopan.",
+    keywords: ["USF Demolition website", "USF Grand", "USF equipment rental", "website development Dubai", "technical SEO", "GEO AI search optimisation", "local SEO UAE", "construction company website", "equipment rental website", "prerendering", "Core Web Vitals"],
   },
   {
     slug: "xauusd-btcusd-trading-analysis-platform",
@@ -209,11 +221,11 @@ export const experience = [
     current: true,
     points: [
       "Developed **Waqti**, a workforce attendance app (Android + web) in React, TypeScript and Supabase/PostgreSQL, digitising attendance for site supervisors across multiple project sites.",
-      "Built and deployed **usfdemolition.com** with React, TypeScript and Tailwind — CI/CD through GitHub, hosted on Vercel and Cloudflare.",
+      "Built and deployed the **USF Group websites** — usfdemolition.com, usfgrand.com, rental.usfme.com and usfme.com — with React, TypeScript and Tailwind, CI/CD through GitHub to Vercel and Cloudflare.",
       "Administered **Microsoft 365 for 50+ users** — provisioning, licensing, Exchange Online, SharePoint, Teams and Conditional Access in Entra ID.",
       "Managed Windows Server 2019/2022, Active Directory, Group Policy, DNS, DHCP, VPS hosting and corporate email at **99%+ uptime**.",
       "Automated reporting and IT ticket categorisation with Python, LLM APIs and GitHub Copilot, **saving ~5 hours a week**.",
-      "Ran technical SEO, GA4 tracking and Google Ads for demolition services in Dubai and Abu Dhabi; enforced endpoint security, access reviews and patching.",
+      "Ran technical SEO, GEO (AI-search optimisation), GA4 tracking and Google Ads across the group's sites in Dubai and Abu Dhabi; enforced endpoint security, access reviews and patching.",
     ],
   },
   {
@@ -299,7 +311,7 @@ export const about = {
     "I’m Reejan R Gopan — also written Reejan Gopan — a Software & Systems Engineer based in Dubai. I build production business systems — workforce management, attendance, payroll and ERP platforms — and manage the infrastructure, security, websites, analytics and digital platforms behind them.",
   paragraphs: [
     "My work combines software engineering with real-world business operations. Instead of focusing only on code or only on IT administration, I work across the complete technology lifecycle — from understanding the business problem to running the system in production and improving it.",
-    "At USF Group in Dubai I built WAQTI, a workforce platform used for real field operations, and the company’s web platform with 200+ prerendered routes. Alongside development I administer Microsoft 365 for 50+ users, Windows Server and Active Directory, hosting, DNS and corporate email.",
+    "At USF Group in Dubai I built WAQTI, a workforce platform used for real field operations, and the group's websites — usfdemolition.com, usfgrand.com, rental.usfme.com and usfme.com — with 300+ prerendered pages, SEO and GEO. Alongside development I administer Microsoft 365 for 50+ users, Windows Server and Active Directory, hosting, DNS and corporate email.",
     "Before that I worked in IT procurement and support at Chimera Group in Dubai, and as a Network Administrator at TCS iON in India — the infrastructure foundation that shapes how I design and secure software today.",
   ],
   lifecycle: [
@@ -331,7 +343,7 @@ export const faqs = [
   },
   {
     q: "What has Reejan built?",
-    a: "Key projects include WAQTI, a workforce management platform for attendance, overtime, leave and payroll; the USF Demolition digital platform with 200+ prerendered routes and technical SEO; a Python trading analysis platform for XAUUSD and BTCUSD; IT infrastructure deployments for Dubai SMBs; and an internal ERP platform.",
+    a: "Key projects include WAQTI, a workforce management platform for attendance, overtime, leave and payroll; the USF Group web platforms (usfdemolition.com, usfgrand.com, rental.usfme.com, usfme.com) with 300+ prerendered pages, SEO and GEO; a Python trading analysis platform for XAUUSD and BTCUSD; IT infrastructure deployments for Dubai SMBs; and an internal ERP platform.",
   },
   {
     q: "Which technologies does Reejan work with?",
@@ -383,7 +395,7 @@ export const services: Service[] = [
       "Training, documentation and ongoing support",
     ],
     tools: ["Microsoft 365", "Windows Server", "Entra ID", "Cloudflare", "React", "PostgreSQL", "Zoho", "Power Automate"],
-    related: ["enterprise-it-infrastructure-dubai-smbs", "waqti-workforce-management-platform", "internal-erp-platform", "usf-demolition-digital-platform"],
+    related: ["enterprise-it-infrastructure-dubai-smbs", "waqti-workforce-management-platform", "internal-erp-platform", "usf-group-web-platforms"],
   },
   {
     id: "full-stack-development",
@@ -396,7 +408,7 @@ export const services: Service[] = [
     text: "Production web and mobile applications built with React, TypeScript and Next.js on Node.js, Express or Supabase back ends — designed around how the business actually works.",
     points: ["Dashboards, portals and internal tools", "Progressive web apps and Android clients", "Responsive, mobile-first interfaces", "CI/CD from GitHub to Vercel and Cloudflare"],
     tools: ["React", "TypeScript", "Next.js", "Node.js", "Express", "Tailwind CSS", "Flutter"],
-    related: ["waqti-workforce-management-platform", "usf-demolition-digital-platform"],
+    related: ["waqti-workforce-management-platform", "usf-group-web-platforms"],
   },
   {
     id: "business-systems",
@@ -435,7 +447,7 @@ export const services: Service[] = [
     text: "Deploying and running applications in production — hosting, CI/CD, domains, DNS, SSL and CDN — on AWS, Microsoft Azure, Vercel and Cloudflare.",
     points: ["CI/CD pipelines with GitHub", "AWS Lambda, S3, EC2, ELB and Kinesis", "Docker and Linux (Ubuntu) environments", "Domains, DNS, SSL, CDN and 99%+ uptime"],
     tools: ["AWS", "Microsoft Azure", "Vercel", "Cloudflare", "Docker", "Linux", "GitHub"],
-    related: ["usf-demolition-digital-platform", "enterprise-it-infrastructure-dubai-smbs"],
+    related: ["usf-group-web-platforms", "enterprise-it-infrastructure-dubai-smbs"],
   },
   {
     id: "ai-automation",
@@ -474,7 +486,7 @@ export const services: Service[] = [
     text: "Websites engineered to be found and to convert: prerendering, structured data, sitemaps, Core Web Vitals and GA4 conversion tracking for forms, calls and WhatsApp.",
     points: ["Prerendered, crawlable architectures", "Schema markup and sitemap architecture", "Core Web Vitals (LCP, FCP, CLS) optimisation", "GA4, Tag Manager and Google Ads tracking"],
     tools: ["GA4", "Google Tag Manager", "Search Console", "Google Ads", "Lighthouse"],
-    related: ["usf-demolition-digital-platform"],
+    related: ["usf-group-web-platforms"],
   },
 ];
 

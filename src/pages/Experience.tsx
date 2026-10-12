@@ -36,7 +36,7 @@ export default function Experience() {
                   <p className="body" style={{ marginTop: 20 }}>
                     Related case studies:{" "}
                     <Link className="acc" to={`/projects/${projects[0].slug}`}>WAQTI</Link> ·{" "}
-                    <Link className="acc" to={`/projects/${projects[1].slug}`}>USF Demolition platform</Link>
+                    <Link className="acc" to={`/projects/${projects[1].slug}`}>USF Group websites</Link>
                   </p>
                 )}
               </div>

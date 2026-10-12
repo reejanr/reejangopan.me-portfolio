@@ -32,7 +32,7 @@ export const guides: Guide[] = [
 • **Automation & dashboards:** remove manual work and see the business in one place
 • **Support:** documentation, training and ongoing maintenance
 
-Proof: WAQTI, an internal ERP, usfdemolition.com and IT deployments for Dubai SMBs. Details: https://reejangopan.me/services/complete-business-setup`,
+Proof: WAQTI, an internal ERP, the USF Group websites (usfdemolition.com, usfgrand.com, rental.usfme.com, usfme.com) and IT deployments for Dubai SMBs. Details: https://reejangopan.me/services/complete-business-setup`,
     next: ["What is the process of hiring Reejan for a project?", "IT infrastructure setup for a new office?", "Off-the-shelf ERP or a custom ERP?"],
   },
   {
@@ -188,7 +188,7 @@ Reejan's own automation of reporting and IT ticket categorisation saves ~5 hours
 • **Must-haves:** technical SEO, Google Analytics 4, a Google Business Profile, contact forms with spam protection
 
 **Why:** prerendered pages are faster, cheaper to host and safer than a server rendering every request.
-Reejan builds this kind of site — e.g. usfdemolition.com with 200+ prerendered routes: ${S}/full-stack-development`,
+Reejan builds this kind of site — e.g. the USF Group sites — usfdemolition.com, usfgrand.com and rental.usfme.com — with 300+ prerendered pages: ${S}/full-stack-development`,
     next: ["How do I improve website SEO?", "Website builder or custom website?", "What do I need before building a website?"],
   },
   {

@@ -9,7 +9,7 @@ const cases: [string, string][] = [
   ["where is he based", "location"], ["is he available for a job", "availability"], ["are you hiring? is he open to work", "availability"],
   ["work experience", "experience"], ["how many years experience", "experience"], ["where does he work now", "xp-0"],
   ["what did he do at TCS", "xp-2"], ["chimera group", "xp-1"], ["what has he built", "projects|faq-3"], ["tell me about waqti", "p-waqti"],
-  ["attendance app", "p-waqti|t-Workforce"], ["usf demolition website", "p-usf"], ["trading bot xauusd", "p-xauusd"], ["ERP", "t-ERP|g-business"],
+  ["attendance app", "p-waqti|t-Workforce"], ["usf demolition website", "p-usf"], ["usfgrand website", "p-usf"], ["rental.usfme.com", "p-usf|faq-3"], ["what is GEO", "t-GEO"], ["trading bot xauusd", "p-xauusd"], ["ERP", "t-ERP|g-business"],
   ["what services do you offer", "faq-2|services"], ["can he build a react app", "t-React"], ["skills", "skills"], ["tech stack", "skills"],
   ["what databases does he know", "tk-Databases"], ["education", "education"], ["which college", "education"],
   ["certifications", "certifications"], ["is he microsoft certified", "certifications"], ["languages he speaks", "spoken"],

@@ -6,6 +6,11 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/projects/usf-demolition-digital-platform",
+      "destination": "/projects/usf-group-web-platforms",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "www.reejangopan.me" }],
       "destination": "https://reejangopan.me/:path*",

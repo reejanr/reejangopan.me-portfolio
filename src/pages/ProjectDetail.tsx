@@ -58,9 +58,27 @@ export default function ProjectDetail() {
           </div>
         </section>
 
+        {p.sites && (
+          <section className="section-sm" aria-labelledby="sites">
+            <div className="wrap">
+              <h2 id="sites" className="disp h3 rv">Websites</h2>
+              <div className="feat-grid stagger">
+                {p.sites.map((s) => (
+                  <div key={s.href} className="feat">
+                    <h3 className="disp">
+                      <a className="text-link" href={s.href} target="_blank" rel="noopener noreferrer">{s.name} <ArrowUpRight /></a>
+                    </h3>
+                    <p>{s.text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         <section className="section-sm" aria-labelledby="built">
           <div className="wrap">
-            <SectionHead n="02" label="what-i-built" title={<span id="built">What I <span className="serif acc">built</span></span>} />
+            <SectionHead n="02"label="what-i-built" title={<span id="built">What I <span className="serif acc">built</span></span>} />
             <div className="feat-grid stagger">
               {p.features.map((f) => (
                 <div key={f.title} className="feat">
