@@ -32,7 +32,7 @@ export const guides: Guide[] = [
 • **Automation & dashboards:** remove manual work and see the business in one place
 • **Support:** documentation, training and ongoing maintenance
 
-Proof: WAQTI, an internal ERP, the USF Group websites (usfdemolition.com, usfgrand.com, rental.usfme.com, usfme.com) and IT deployments for Dubai SMBs. Details: https://reejangopan.me/services/complete-business-setup`,
+Proof: WAQTI, custom ERP and CRM systems, the USF Group websites (usfdemolition.com, usfgrand.com, rental.usfme.com, usfme.com) and IT deployments for Dubai SMBs. Details: https://reejangopan.me/services/complete-business-setup`,
     next: ["What is the process of hiring Reejan for a project?", "IT infrastructure setup for a new office?", "Off-the-shelf ERP or a custom ERP?"],
   },
   {
@@ -86,8 +86,8 @@ Reejan sets up lead capture and conversion tracking end to end. https://reejango
 • **Custom ERP:** fits unusual workflows exactly — site-based workforces, complex overtime or payroll rules, industry-specific operations
 • **Hybrid (often best):** keep proven accounting software, and build custom modules for the parts that make your business different, connected by APIs
 
-Reejan builds custom business platforms (WAQTI: attendance, overtime, leave, payroll) and an internal ERP that connects to Zoho Books rather than rebuilding accounting. https://reejangopan.me/services/complete-business-setup`,
-    next: ["What is an ERP?", "Tell me about Internal ERP Platform", "How do I automate HR, attendance and payroll?"],
+Reejan builds custom business platforms (WAQTI: attendance, overtime, leave, payroll) and custom ERP and CRM systems for companies, connecting to Zoho Books rather than rebuilding accounting. https://reejangopan.me/services/complete-business-setup`,
+    next: ["What is an ERP?", "Tell me about Custom ERP & CRM Systems", "How do I automate HR, attendance and payroll?"],
   },
   {
     topic: "business", ask: "Can Reejan set up our accounting system?",
@@ -603,7 +603,7 @@ Reejan's approach: identify the problem → design the solution → build → de
 • **Build** when the process is your competitive advantage, off-the-shelf tools force painful workarounds, or many tools need tying together
 • **Hybrid:** buy the standard parts and build the glue — integrations, automations and a custom app for the unique workflow
 
-Example: an internal ERP that connects to Zoho Books for accounting instead of rebuilding accounting.`,
+Example: a custom ERP that connects to Zoho Books for accounting instead of rebuilding accounting.`,
     next: ["How can a business automate its processes?", "Best tech stack for internal business tools?", "What tech does a startup company need?"],
   },
 
@@ -684,7 +684,7 @@ Reejan built exactly this in WAQTI: https://reejangopan.me/projects/waqti-workfo
 • **Connect them:** won deal → invoice automatically; payments update the CRM
 
 **Why:** a CRM stops leads falling through the cracks; cloud accounting saves hours every month and keeps you compliant.
-Reejan has evaluated Zoho Books and UAE e-invoicing integration for an internal ERP.`,
+Reejan has evaluated Zoho Books and UAE e-invoicing integration for the custom ERP systems he builds.`,
     next: ["How can a business automate its processes?", "What tech does a startup company need?", "What is an ERP?"],
   },
   {

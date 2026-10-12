@@ -103,7 +103,7 @@ export function CodeWindow() {
     <div
       className="ide"
       role="img"
-      aria-label="Code editor: reejan.ts — role Software & Systems Engineer; stack React, TypeScript, PostgreSQL, Supabase, Python; cloud AWS, Azure, Vercel; shipped WAQTI, USF Group websites, ERP; based in Dubai, UAE; available. Terminal: build and deploy to production."
+      aria-label="Code editor: reejan.ts — role Software & Systems Engineer; stack React, TypeScript, PostgreSQL, Supabase, Python; cloud AWS, Azure, Vercel; shipped WAQTI, USF Group websites, ERP & CRM; based in Dubai, UAE; available. Terminal: build and deploy to production."
     >
       <div className="ide-bar">
         <i /><i /><i />

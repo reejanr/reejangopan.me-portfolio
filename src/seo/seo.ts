@@ -284,7 +284,7 @@ export function getHead(rawPath: string): Head {
   if (path === "/projects") {
     const title = `Projects — ${profile.siteName}, Software Engineer`;
     const description =
-      "Projects by Reejan R Gopan: WAQTI workforce platform, the USF Group websites with SEO and GEO, a Python trading analysis system, IT infrastructure and an ERP.";
+      "Projects by Reejan R Gopan: WAQTI workforce platform, USF Group websites with SEO and GEO, custom ERP & CRM systems, IT infrastructure and a trading system.";
     return {
       title, description, path, ogType: "website",
       jsonLd: graph(

@@ -6,6 +6,11 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/projects/internal-erp-platform",
+      "destination": "/projects/custom-erp-crm-systems",
+      "permanent": true
+    },
+    {
       "source": "/projects/usf-demolition-digital-platform",
       "destination": "/projects/usf-group-web-platforms",
       "permanent": true
