@@ -32,7 +32,7 @@ export const guides: Guide[] = [
 • **Automation & dashboards:** remove manual work and see the business in one place
 • **Support:** documentation, training and ongoing maintenance
 
-Proof: WAQTI, an internal ERP, usfdemolition.com and IT deployments for Dubai SMBs. Details: https://reejangopan.me/services#complete-business-setup`,
+Proof: WAQTI, an internal ERP, usfdemolition.com and IT deployments for Dubai SMBs. Details: https://reejangopan.me/services/complete-business-setup`,
     next: ["What is the process of hiring Reejan for a project?", "IT infrastructure setup for a new office?", "Off-the-shelf ERP or a custom ERP?"],
   },
   {
@@ -61,7 +61,7 @@ Start with an email to reejanr90@gmail.com describing your business and what's s
 • **Physical:** CCTV and biometric access integrated with HR where useful
 • **Documentation:** network diagram, asset list and admin passwords in a vault
 
-Reejan has deployed this for Dubai SMBs (40% faster with standard checklists and scripts) and worked with Cisco networks, firewalls, CCTV and biometric systems. https://reejangopan.me/services#complete-business-setup`,
+Reejan has deployed this for Dubai SMBs (40% faster with standard checklists and scripts) and worked with Cisco networks, firewalls, CCTV and biometric systems. https://reejangopan.me/services/complete-business-setup`,
     next: ["Cybersecurity basics for a small business?", "Microsoft 365 or Google Workspace?", "Backup strategy for a small business?"],
   },
   {
@@ -76,7 +76,7 @@ Reejan has deployed this for Dubai SMBs (40% faster with standard checklists and
 6. **Connect** to email, calendar and the accounting system (won deal → invoice)
 7. **Dashboards** for pipeline value and conversion, then **train the team**
 
-Reejan sets up lead capture and conversion tracking end to end. https://reejangopan.me/services#complete-business-setup`,
+Reejan sets up lead capture and conversion tracking end to end. https://reejangopan.me/services/complete-business-setup`,
     next: ["Which CRM and accounting tools should a startup use?", "How can a business automate its processes?", "What does a marketing tech stack need?"],
   },
   {
@@ -86,7 +86,7 @@ Reejan sets up lead capture and conversion tracking end to end. https://reejango
 • **Custom ERP:** fits unusual workflows exactly — site-based workforces, complex overtime or payroll rules, industry-specific operations
 • **Hybrid (often best):** keep proven accounting software, and build custom modules for the parts that make your business different, connected by APIs
 
-Reejan builds custom business platforms (WAQTI: attendance, overtime, leave, payroll) and an internal ERP that connects to Zoho Books rather than rebuilding accounting. https://reejangopan.me/services#complete-business-setup`,
+Reejan builds custom business platforms (WAQTI: attendance, overtime, leave, payroll) and an internal ERP that connects to Zoho Books rather than rebuilding accounting. https://reejangopan.me/services/complete-business-setup`,
     next: ["What is an ERP?", "Tell me about Internal ERP Platform", "How do I automate HR, attendance and payroll?"],
   },
   {
@@ -173,7 +173,7 @@ Automating this with templates and Power Automate makes it consistent and fast.`
 • **Management:** weekly KPI reports emailed automatically
 • **AI:** categorising emails and tickets, summarising documents
 
-Reejan's own automation of reporting and IT ticket categorisation saves ~5 hours a week. https://reejangopan.me/services#complete-business-setup`,
+Reejan's own automation of reporting and IT ticket categorisation saves ~5 hours a week. https://reejangopan.me/services/complete-business-setup`,
     next: ["How can a business automate its processes?", "How can a business use AI?", "How do you set up a CRM for a business?"],
   },
   // ======================= TECH STACKS =======================
@@ -188,7 +188,7 @@ Reejan's own automation of reporting and IT ticket categorisation saves ~5 hours
 • **Must-haves:** technical SEO, Google Analytics 4, a Google Business Profile, contact forms with spam protection
 
 **Why:** prerendered pages are faster, cheaper to host and safer than a server rendering every request.
-Reejan builds this kind of site — e.g. usfdemolition.com with 200+ prerendered routes: ${S}#full-stack-development`,
+Reejan builds this kind of site — e.g. usfdemolition.com with 200+ prerendered routes: ${S}/full-stack-development`,
     next: ["How do I improve website SEO?", "Website builder or custom website?", "What do I need before building a website?"],
   },
   {
@@ -217,7 +217,7 @@ Add GA4 e-commerce tracking, product schema markup and fast product images from 
 • **Ops:** Vercel or AWS, error tracking (Sentry), uptime monitoring, automated backups
 
 **Why:** one language (TypeScript) end to end, a database that handles relationships and transactions properly, and managed services so a small team ships fast.
-Related: ${S}#backend-databases`,
+Related: ${S}/backend-databases`,
     next: ["How do I scale a web app?", "Monolith or microservices?", "Which database should I use?"],
   },
   {
@@ -243,7 +243,7 @@ Reejan's WAQTI runs as an Android app, a PWA and a web dashboard on one PostgreS
 • **Must-haves:** audit logs, exports to Excel/PDF, mobile-friendly screens for field staff
 
 **Why:** low-code is fastest for simple workflows; custom code pays off when logic is complex (overtime rules, payroll) or many people use it daily.
-Reejan built WAQTI this way: ${S}#business-systems`,
+Reejan built WAQTI this way: ${S}/business-systems`,
     next: ["How can a business automate its processes?", "Build vs buy: SaaS or custom software?", "Tell me about WAQTI"],
   },
   {
@@ -257,7 +257,7 @@ Reejan built WAQTI this way: ${S}#business-systems`,
 • **Quality:** a test set of real questions to measure answers before and after changes
 
 **Why:** grounding answers in your own data makes them accurate and up to date.
-Fun fact: I'm a lightweight version of this — Reejan built me to search a knowledge base in your browser. Related: ${S}#ai-automation`,
+Fun fact: I'm a lightweight version of this — Reejan built me to search a knowledge base in your browser. Related: ${S}/ai-automation`,
     next: ["What is RAG (Retrieval-Augmented Generation)?", "How does this chatbot work?", "How can a business use AI?"],
   },
   {
@@ -501,7 +501,7 @@ Reejan can help plan and build it: ${S}`,
 9. **Hosting & running costs**
 10. **Support plan:** who fixes issues and adds features after launch
 
-Reejan builds business web apps end to end: ${S}#business-systems`,
+Reejan builds business web apps end to end: ${S}/business-systems`,
     next: ["Fastest way to build an MVP?", "Best tech stack for a SaaS product?", "How long does it take to build a website or app?"],
   },
   {
@@ -539,7 +539,7 @@ For a quote on your project, email Reejan: reejanr90@gmail.com`,
 4. **Protect deliverability:** set **SPF, DKIM and DMARC** so your emails don't land in spam and can't be spoofed
 5. **Secure accounts:** MFA for everyone, admin roles kept minimal
 
-Reejan manages domains, DNS and corporate email at USF Group: ${S}#microsoft-365-it`,
+Reejan manages domains, DNS and corporate email at USF Group: ${S}/microsoft-365-it`,
     next: ["Microsoft 365 or Google Workspace?", "Website security essentials?", "What tech does a startup company need?"],
   },
   {
@@ -552,7 +552,7 @@ Reejan manages domains, DNS and corporate email at USF Group: ${S}#microsoft-365
 • **Authority:** links from relevant directories, partners and press
 • **Measure:** Google Search Console and GA4
 
-This portfolio follows all of these. Related: ${S}#technical-seo`,
+This portfolio follows all of these. Related: ${S}/technical-seo`,
     next: ["What is Technical SEO?", "How do I make a website load fast?", "What does a marketing tech stack need?"],
   },
   {
@@ -648,7 +648,7 @@ Reejan administers Microsoft 365 for 50+ users and is MS-900 certified.`,
 3. **Start with quick wins:** new lead → CRM + welcome email; invoice reminders; approval flows; employee onboarding checklists; weekly reports emailed automatically
 4. **Measure hours saved**, then automate the next process
 
-Reejan automated reporting and IT ticket categorisation with Python and LLM APIs, saving ~5 hours a week. Related: ${S}#ai-automation`,
+Reejan automated reporting and IT ticket categorisation with Python and LLM APIs, saving ~5 hours a week. Related: ${S}/ai-automation`,
     next: ["How can a business use AI?", "Build vs buy: SaaS or custom software?", "How do I automate HR, attendance and payroll?"],
   },
   {
@@ -758,3 +758,34 @@ Reejan enforces endpoint security, access reviews and patching at USF Group.`,
     next: ["What is Row Level Security?", "Website security essentials?", "What is audit logging?"],
   },
 ];
+
+// ---------------- public guide pages (/guides/<slug>) ----------------
+export const guideSlug = (ask: string) =>
+  ask.toLowerCase().replace(/&/g, " and ").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 80).replace(/-+$/, "");
+
+export const guideByAsk = (ask: string) => guides.find((x) => x.ask === ask);
+export const guideBySlug = (slug: string) => guides.find((x) => guideSlug(x.ask) === slug);
+
+export const topicIntros: Record<Topic, string> = {
+  business: "Running IT, systems and automation for small and mid-size companies.",
+  stacks: "Which technologies to choose for each kind of project — and why.",
+  scaling: "Keeping apps fast, reliable and affordable as they grow.",
+  planning: "What to decide before building a website or web app.",
+  startup: "Tools, processes and automation for new and growing companies.",
+  security: "Practical protection for websites, data and teams.",
+};
+
+// Plain-text summary of a guide (markdown, links and list markers removed) for meta descriptions and cards.
+export function guideSummary(g: Guide, max = 155): string {
+  let text = "";
+  for (const raw of g.a.split("\n")) {
+    const isItem = /^\s*(•|\d+\.)\s+/.test(raw);
+    const line = raw.replace(/^\s*(•|\d+\.)\s*/, "").replace(/\*\*/g, "").replace(/`/g, "").replace(/https?:\/\/\S+/g, "").trim();
+    if (!line) continue;
+    if (!text) text = line;
+    else if (isItem) text += /[:.]$/.test(text) ? ` ${line}` : `; ${line}`;
+    else text += /[.:!?]$/.test(text) ? ` ${line}` : `. ${line}`;
+  }
+  text = text.replace(/\s+/g, " ").trim();
+  return text.length <= max ? text : `${text.slice(0, max - 1).replace(/[\s,;:—-]+\S*$/, "")}…`;
+}

@@ -1,3 +1,4 @@
+import { guides, guideSlug, guideSummary, guideBySlug, topicLabels } from "@/chat/guides";
 import {
   SITE_URL, profile, projects, experience, coreStack, certifications, education, faqs,
   services, seoKeywords, toolkit,
@@ -9,6 +10,10 @@ export const routes: string[] = [
   "/",
   "/about",
   "/services",
+  ...services.map((s) => `/services/${s.id}`),
+  "/guides",
+  ...guides.map((g) => `/guides/${guideSlug(g.ask)}`),
+  "/how-this-site-is-built",
   "/projects",
   ...projects.map((p) => `/projects/${p.slug}`),
   "/experience",
@@ -179,6 +184,99 @@ export function getHead(rawPath: string): Head {
           },
         }),
         breadcrumbs([{ name: "Services", path }]),
+      ),
+    };
+  }
+
+  const service = services.find((s) => path === `/services/${s.id}`);
+  if (service) {
+    const title = service.seoTitle.length <= 45 ? `${service.seoTitle} | ${profile.siteName}` : service.seoTitle;
+    return {
+      title, description: service.seoDescription, path, ogType: "website", keywords: service.keywords,
+      jsonLd: graph(
+        page("WebPage", path, title, service.seoDescription, { mainEntity: { "@id": `${abs(path)}#service` } }),
+        {
+          "@type": "Service",
+          "@id": `${abs(path)}#service`,
+          name: service.title,
+          serviceType: service.title,
+          description: service.seoDescription,
+          provider: { "@id": `${SITE_URL}/#person` },
+          areaServed: [{ "@type": "City", name: "Dubai" }, { "@type": "Country", name: "United Arab Emirates" }],
+          url: abs(path),
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: service.title,
+            itemListElement: service.points.map((pt) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: pt } })),
+          },
+        },
+        breadcrumbs([{ name: "Services", path: "/services" }, { name: service.title, path }]),
+      ),
+    };
+  }
+
+  if (path === "/guides") {
+    const title = `Tech Guides for Businesses & Builders | ${profile.siteName}`;
+    const description =
+      "Practical guides on choosing a tech stack, scaling, planning a website or app, IT setup, CRM, ERP and automation for businesses in Dubai and the UAE.";
+    return {
+      title, description, path, ogType: "website",
+      keywords: ["tech stack guide", "how to scale a web app", "IT setup small business Dubai", "website planning checklist", "business automation"],
+      jsonLd: graph(
+        page("CollectionPage", path, title, description, {
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: guides.map((g, i) => ({ "@type": "ListItem", position: i + 1, name: g.ask, url: abs(`/guides/${guideSlug(g.ask)}`) })),
+          },
+        }),
+        breadcrumbs([{ name: "Guides", path }]),
+      ),
+    };
+  }
+
+  const guide = path.startsWith("/guides/") ? guideBySlug(path.slice("/guides/".length)) : undefined;
+  if (guide) {
+    const base = guide.ask.replace(/\?$/, "");
+    const title = base.length <= 44 ? `${base} | ${profile.siteName}` : base;
+    const description = guideSummary(guide);
+    return {
+      title, description, path, ogType: "article", keywords: guide.k.split(/\s+/).slice(0, 12),
+      jsonLd: graph(
+        page("WebPage", path, title, description, { mainEntity: { "@id": `${abs(path)}#article` } }),
+        {
+          "@type": "TechArticle",
+          "@id": `${abs(path)}#article`,
+          headline: guide.ask,
+          description,
+          articleSection: topicLabels[guide.topic],
+          author: { "@id": `${SITE_URL}/#person` },
+          publisher: { "@id": `${SITE_URL}/#person` },
+          datePublished: "2026-10-12",
+          dateModified: BUILT,
+          inLanguage: "en",
+          mainEntityOfPage: abs(path),
+          image: OG_IMAGE,
+        },
+        breadcrumbs([{ name: "Guides", path: "/guides" }, { name: guide.ask, path }]),
+      ),
+    };
+  }
+
+  if (path === "/how-this-site-is-built") {
+    const title = "How reejangopan.me Is Built — React, SSR & a BM25 Chatbot";
+    const description =
+      "Engineering behind this site: React + TypeScript, every page prerendered for SEO, JSON-LD structured data, GPU-friendly animations and a BM25 chatbot.";
+    return {
+      title, description, path, ogType: "article",
+      keywords: ["React TypeScript portfolio", "server-side rendering", "structured data", "BM25 search", "Reejan Gopan developer"],
+      jsonLd: graph(
+        page("WebPage", path, title, description, { mainEntity: { "@id": `${abs(path)}#article` } }),
+        {
+          "@type": "TechArticle", "@id": `${abs(path)}#article`, headline: "How this site is built", description,
+          author: { "@id": `${SITE_URL}/#person` }, publisher: { "@id": `${SITE_URL}/#person` },
+          datePublished: "2026-10-12", dateModified: BUILT, image: OG_IMAGE, mainEntityOfPage: abs(path),
+        },
+        breadcrumbs([{ name: "How this site is built", path }]),
       ),
     };
   }

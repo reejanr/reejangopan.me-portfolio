@@ -6,7 +6,7 @@ import {
   services, stats, toolkit,
 } from "../data/site";
 import { techKnowledge } from "./techKnowledge";
-import { guides, topicLabels, type Topic } from "./guides";
+import { guides, guideSlug, topicLabels, type Topic } from "./guides";
 
 type Doc = { id: string; ask: string; q: string; a: string; next?: string[] };
 export type LocalAnswer = { text: string; confident: boolean; suggestions: string[]; id?: string };
@@ -31,7 +31,7 @@ export const PERSONAS = [
   {
     id: "business", label: "I run a small or mid-size business",
     q: "run a business business owner small business mid size company sme smb our company need it support set up our office managing director operations manager",
-    a: `Reejan can be your one technology partner — IT infrastructure, Microsoft 365, website, CRM, ERP, accounting system integration, automation and ongoing support, planned and set up in phases.\n• See what's included: ${url("/services#complete-business-setup")}\n• Talk it through: ${profile.email}`,
+    a: `Reejan can be your one technology partner — IT infrastructure, Microsoft 365, website, CRM, ERP, accounting system integration, automation and ongoing support, planned and set up in phases.\n• See what's included: ${url("/services/complete-business-setup")}\n• Talk it through: ${profile.email}`,
     next: ["Can Reejan set up everything for my business?", "What is the process of hiring Reejan for a project?", "What can be automated in a small business?"],
   },
   {
@@ -105,7 +105,7 @@ function buildDocs(): Doc[] {
   services.forEach((s) => {
     add(`s-${s.id}`, `Can he help with ${s.title.toLowerCase()}?`,
       `${s.title} ${s.searchTerms.join(" ")} ${s.tools.join(" ")}`,
-      `**${s.title}** — ${s.text}\n${s.points.map((pt) => `• ${pt}`).join("\n")}\n\nMore: ${url(`/services#${s.id}`)}`);
+      `**${s.title}** — ${s.text}\n${s.points.map((pt) => `• ${pt}`).join("\n")}\n\nMore: ${url(`/services/${s.id}`)}`);
   });
   add("skills", "What is his tech stack?",
     "skills skill tech stack technologies technology tools know knows frameworks expertise strengths good at",
@@ -145,7 +145,7 @@ function buildDocs(): Doc[] {
   PERSONAS.forEach((p) => add(`persona-${p.id}`, p.label, p.q, p.a, p.next));
 
   // Practical guides: stacks, scaling, planning, startups, security
-  guides.forEach((g, i) => add(`g-${g.topic}-${i}`, g.ask, `${g.ask} ${g.k}`, g.a, g.next));
+  guides.forEach((g, i) => add(`g-${g.topic}-${i}`, g.ask, `${g.ask} ${g.k}`, `${g.a}\n\nFull guide: ${url(`/guides/${guideSlug(g.ask)}`)}`, g.next));
 
   // Technology knowledge bank
   techKnowledge.forEach((t) => {

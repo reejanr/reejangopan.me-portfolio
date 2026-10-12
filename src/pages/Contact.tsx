@@ -20,6 +20,7 @@ export default function Contact() {
               {profile.email}
             </a>
             <a className="btn btn-acc" href={profile.cv} download>Download CV <Download /></a>
+            <a className="btn btn-ghost" href={`${profile.whatsapp}?text=${encodeURIComponent("Hi Reejan, I found your website and would like to discuss a project.")}`} target="_blank" rel="noopener noreferrer">WhatsApp</a>
           </div>
         </div>
         <address className="ct rv" style={{ marginTop: 64, fontStyle: "normal" }}>

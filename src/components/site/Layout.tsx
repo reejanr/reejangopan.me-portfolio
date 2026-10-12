@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { nav, profile, projects } from "@/data/site";
+import { nav, profile, projects, services } from "@/data/site";
 import { useSeo } from "@/seo/useSeo";
 import { usePointerFx, useReveal } from "./fx";
 import { ChatWidget } from "./ChatWidget";
@@ -85,6 +85,13 @@ function Footer() {
             <ul>
               <li><Link to="/">Home</Link></li>
               {nav.map((n) => <li key={n.to}><Link to={n.to}>{n.label}</Link></li>)}
+              <li><Link to="/how-this-site-is-built">How this site is built</Link></li>
+            </ul>
+          </div>
+          <div>
+            <p className="fh">Services</p>
+            <ul>
+              {services.map((s) => <li key={s.id}><Link to={`/services/${s.id}`}>{s.title}</Link></li>)}
             </ul>
           </div>
           <div>
@@ -100,6 +107,7 @@ function Footer() {
             <ul>
               <li><a href={`mailto:${profile.email}`}>Email</a></li>
               <li><a href={profile.phoneHref}>Phone</a></li>
+              <li><a href={profile.whatsapp} target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
               <li><a href={profile.linkedin} target="_blank" rel="noopener noreferrer me">LinkedIn</a></li>
               <li><a href={profile.github} target="_blank" rel="noopener noreferrer me">GitHub</a></li>
               <li><a href={profile.cv} download>Download CV</a></li>

@@ -51,7 +51,12 @@ write('dist/404.html', page('/404'))
 
 // sitemap.xml generated from the same route list, so it never goes stale.
 const today = new Date().toISOString().slice(0, 10)
-const priority = (r) => (r === '/' ? '1.0' : r === '/projects' || r.startsWith('/projects/') ? '0.8' : '0.7')
+const priority = (r) =>
+  r === '/' ? '1.0'
+  : r === '/services' || r.startsWith('/services/') ? '0.9'
+  : r === '/projects' || r.startsWith('/projects/') || r === '/about' || r === '/contact' ? '0.8'
+  : r.startsWith('/guides/') ? '0.6'
+  : '0.7'
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${routes

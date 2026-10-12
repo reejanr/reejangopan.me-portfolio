@@ -20,6 +20,7 @@ export const profile = {
   email: "reejanr90@gmail.com",
   phone: "+971 52 712 3154",
   phoneHref: "tel:+971527123154",
+  whatsapp: "https://wa.me/971527123154",
   linkedin: "https://www.linkedin.com/in/reejan-r-gopan-38a8092b9",
   cv: "/Reejan_R_Gopan_CV.pdf",
   github: "https://github.com/reejanr",
@@ -287,6 +288,7 @@ export const nav = [
   { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
   { to: "/projects", label: "Projects" },
+  { to: "/guides", label: "Guides" },
   { to: "/experience", label: "Experience" },
   { to: "/skills", label: "Skills" },
   { to: "/contact", label: "Contact" },
@@ -353,12 +355,20 @@ export type Service = {
   points: string[];
   tools: string[];
   related: string[]; // project slugs
+  seoTitle: string; // page title (Dubai/UAE buyer searches)
+  seoDescription: string;
+  keywords: string[];
+  guides: string[]; // titles of related guides in src/chat/guides.ts
 };
 
 // Each service maps to real work, so every keyword is backed by a project or role.
 export const services: Service[] = [
   {
     id: "complete-business-setup",
+    seoTitle: "IT & Digital Setup for Small Businesses in Dubai",
+    seoDescription: "One partner for your company’s tech in Dubai: office IT, Microsoft 365, website, CRM, ERP, accounting integration, automation and support for SMBs.",
+    keywords: ["IT company Dubai", "IT setup for small business Dubai", "IT support Dubai", "CRM setup Dubai", "ERP for SMEs UAE", "business automation Dubai"],
+    guides: ["Can Reejan set up everything for my business?", "IT infrastructure setup for a new office?", "How do you set up a CRM for a business?", "Off-the-shelf ERP or a custom ERP?", "Can Reejan set up our accounting system?", "Managed IT support and maintenance?", "What can be automated in a small business?"],
     title: "Complete IT & digital setup for SMBs",
     searchTerms: ["IT company Dubai", "IT setup for small business UAE", "business automation Dubai", "CRM and ERP setup UAE"],
     text: "One technology partner for small and mid-size businesses — from the office network and Microsoft 365 to the website, CRM, ERP, accounting system and the automations that connect them. Planned, set up, documented and supported.",
@@ -377,6 +387,10 @@ export const services: Service[] = [
   },
   {
     id: "full-stack-development",
+    seoTitle: "Full-Stack Web App Development in Dubai — React & Next.js",
+    seoDescription: "Custom web applications, portals and dashboards in Dubai built with React, TypeScript, Next.js and Node.js — fast, secure and designed around your business.",
+    keywords: ["web app development Dubai", "React developer Dubai", "full-stack developer UAE", "Next.js developer Dubai", "custom software development Dubai"],
+    guides: ["Best tech stack for a business website?", "Best tech stack for a SaaS product?", "React, Next.js, Vue or Angular?", "Fastest way to build an MVP?", "What do I need before building a web app?"],
     title: "Full-stack web application development",
     searchTerms: ["Full-Stack Developer Dubai", "React developer Dubai", "TypeScript developer UAE", "web application developer UAE"],
     text: "Production web and mobile applications built with React, TypeScript and Next.js on Node.js, Express or Supabase back ends — designed around how the business actually works.",
@@ -386,6 +400,10 @@ export const services: Service[] = [
   },
   {
     id: "business-systems",
+    seoTitle: "Workforce, Payroll & ERP Software Development in the UAE",
+    seoDescription: "Attendance, overtime, leave, payroll and ERP systems for UAE businesses — replacing paper and spreadsheets with web and mobile apps, like WAQTI.",
+    keywords: ["attendance system UAE", "payroll software Dubai", "workforce management software UAE", "ERP developer Dubai", "HR software Dubai"],
+    guides: ["How do I automate HR, attendance and payroll?", "Off-the-shelf ERP or a custom ERP?", "Best tech stack for internal business tools?", "Build vs buy: SaaS or custom software?"],
     title: "Workforce, payroll & ERP software",
     searchTerms: ["workforce management software developer", "attendance system developer UAE", "payroll software developer Dubai", "ERP developer UAE"],
     text: "Business systems that replace paper and spreadsheets: attendance with GPS and selfie check-in, overtime engines, leave, payroll and HR workflows, and integrated ERP modules.",
@@ -395,6 +413,10 @@ export const services: Service[] = [
   },
   {
     id: "backend-databases",
+    seoTitle: "Supabase, PostgreSQL & API Development in Dubai",
+    seoDescription: "Secure back ends and databases: PostgreSQL schema design, Supabase with Row Level Security, REST APIs and integrations for Dubai and UAE businesses.",
+    keywords: ["Supabase developer", "PostgreSQL developer Dubai", "API development Dubai", "backend developer UAE", "database design Dubai"],
+    guides: ["Which database should I use?", "How do I scale a database?", "Node.js, Python or .NET for the back end?", "How do I protect customer data?"],
     title: "Back-end, database & API engineering",
     searchTerms: ["Supabase developer", "PostgreSQL developer Dubai", "REST API developer UAE", "Node.js developer Dubai"],
     text: "Relational data models, secure APIs and server-side business logic — with Row Level Security, role authorisation and audit logging built in from the start.",
@@ -404,6 +426,10 @@ export const services: Service[] = [
   },
   {
     id: "cloud-devops",
+    seoTitle: "Cloud & DevOps Services in Dubai — AWS, Azure, Vercel",
+    seoDescription: "Deploy and run apps reliably on AWS, Azure, Vercel and Cloudflare: CI/CD, Docker, domains, SSL, CDN, monitoring and cost control — 99%+ uptime.",
+    keywords: ["cloud engineer Dubai", "AWS consultant UAE", "Azure engineer Dubai", "DevOps engineer UAE", "website hosting Dubai"],
+    guides: ["Where should I host my website or app?", "How do I scale a web app?", "How do I keep my app online (uptime, backups)?", "How do I keep cloud costs low?", "What should I monitor in production?"],
     title: "Cloud, DevOps & deployment",
     searchTerms: ["Cloud Engineer Dubai", "AWS developer UAE", "Azure engineer Dubai", "DevOps engineer UAE"],
     text: "Deploying and running applications in production — hosting, CI/CD, domains, DNS, SSL and CDN — on AWS, Microsoft Azure, Vercel and Cloudflare.",
@@ -413,6 +439,10 @@ export const services: Service[] = [
   },
   {
     id: "ai-automation",
+    seoTitle: "AI Automation & Chatbot Development in Dubai",
+    seoDescription: "Python and LLM-powered automation, RAG knowledge bots and AI assistants for Dubai businesses — grounded in your data, measured in hours saved.",
+    keywords: ["AI automation Dubai", "AI chatbot development UAE", "LLM integration developer", "RAG chatbot Dubai", "Python automation Dubai"],
+    guides: ["How can a business use AI?", "Tech stack for an AI app or chatbot?", "How can a business automate its processes?", "What can be automated in a small business?"],
     title: "AI automation & LLM integration",
     searchTerms: ["AI automation Dubai", "LLM integration developer", "Python automation engineer UAE", "RAG developer"],
     text: "Python and LLM-powered automation for real operations — from reporting and IT ticket categorisation (saving ~5 hours a week) to retrieval-augmented assistants over company data.",
@@ -422,6 +452,10 @@ export const services: Service[] = [
   },
   {
     id: "microsoft-365-it",
+    seoTitle: "Microsoft 365 & IT Infrastructure Services in Dubai",
+    seoDescription: "Microsoft 365, Entra ID, Intune, Windows Server, Active Directory, networking and endpoint security for Dubai SMBs — set up, secured and supported.",
+    keywords: ["Microsoft 365 administrator Dubai", "Microsoft 365 setup Dubai", "IT infrastructure Dubai", "Active Directory Dubai", "network setup Dubai"],
+    guides: ["IT infrastructure setup for a new office?", "Microsoft 365 or Google Workspace?", "Cybersecurity basics for a small business?", "Employee onboarding and offboarding IT checklist?", "Backup strategy for a small business?"],
     title: "Microsoft 365 & IT infrastructure",
     searchTerms: ["Microsoft 365 administrator Dubai", "Systems Engineer Dubai", "IT infrastructure engineer UAE", "Active Directory administrator"],
     text: "Identity, collaboration and infrastructure for growing businesses — Microsoft 365 for 50+ users, Entra ID, Windows Server, Active Directory, networking and endpoint security.",
@@ -431,6 +465,10 @@ export const services: Service[] = [
   },
   {
     id: "technical-seo",
+    seoTitle: "Technical SEO & Website Speed Optimization in Dubai",
+    seoDescription: "Websites built to rank and convert in Dubai: technical SEO, schema, sitemaps, Core Web Vitals and GA4 conversion tracking for calls, forms and WhatsApp.",
+    keywords: ["technical SEO Dubai", "SEO expert Dubai", "website speed optimization UAE", "Core Web Vitals", "Google Ads tracking Dubai"],
+    guides: ["How do I improve website SEO?", "How do I make a website load fast?", "What does a marketing tech stack need?", "What should I test before launch?"],
     title: "Technical SEO & web performance",
     searchTerms: ["technical SEO Dubai", "Core Web Vitals optimisation", "website performance UAE", "GA4 conversion tracking"],
     text: "Websites engineered to be found and to convert: prerendering, structured data, sitemaps, Core Web Vitals and GA4 conversion tracking for forms, calls and WhatsApp.",

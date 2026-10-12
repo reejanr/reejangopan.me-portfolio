@@ -2,6 +2,7 @@ import {
   SITE_URL, about, certifications, coreStack, education, experience, faqs, languages, profile, projects,
   services, toolkit,
 } from "@/data/site";
+import { guides, guideSlug } from "@/chat/guides";
 
 // Plain-text profile for AI assistants and AI search (ChatGPT, Claude, Perplexity, Gemini…).
 // Generated at build time from the same content as the website, so it never drifts.
@@ -41,7 +42,12 @@ export function llmsTxt(): string {
     ...projects.map((p) => `- [${p.name}](${SITE_URL}/projects/${p.slug}): ${p.short} (${p.stack.join(", ")})`),
     "",
     "## Services",
-    ...services.map((s) => `- [${s.title}](${SITE_URL}/services#${s.id}): ${s.tools.join(", ")}`),
+    ...services.map((s) => `- [${s.title}](${SITE_URL}/services/${s.id}): ${s.tools.join(", ")}`),
+    "",
+    "## Guides",
+    ...guides.map((g) => `- [${g.ask}](${SITE_URL}/guides/${guideSlug(g.ask)})`),
+    "",
+    `- [How this site is built](${SITE_URL}/how-this-site-is-built): React + TypeScript, prerendering, structured data, BM25 chatbot`,
     "",
     "## Experience",
     ...experience.map((e) => `- ${e.role} — ${e.company}, ${e.location} (${e.period})`),

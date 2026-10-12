@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
-import type { Project } from "@/data/site";
+import { profile, type Project } from "@/data/site";
 import { ArrowUpRight, Check } from "./Icons";
 
 // "// 01 · featured-work" comment that types out on scroll.
@@ -178,7 +178,8 @@ export function ContactCta() {
         </h2>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 36 }}>
           <Link className="btn btn-acc" to="/contact">Get in touch <ArrowUpRight /></Link>
-          <Link className="btn btn-ghost" to="/projects">See all projects</Link>
+          <a className="btn btn-ghost" href={`${profile.whatsapp}?text=${encodeURIComponent("Hi Reejan, I found your website and would like to discuss a project.")}`} target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <Link className="btn btn-ghost" to="/services">Services</Link>
         </div>
       </div>
     </section>

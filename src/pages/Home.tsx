@@ -131,7 +131,7 @@ export default function Home() {
           <ul className="svc-grid stagger">
             {services.map((s) => (
               <li key={s.id} className="rv">
-                <Link to={`/services#${s.id}`} className="svc-card spot">
+                <Link to={`/services/${s.id}`} className="svc-card spot">
                   <span className="disp svc-card-t">{s.title}</span>
                   <span className="svc-card-d">{s.tools.slice(0, 4).join(" · ")}</span>
                 </Link>

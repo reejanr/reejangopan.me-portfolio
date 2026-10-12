@@ -33,7 +33,7 @@ export default function Services() {
                 <span className="proj-n">{String(i + 1).padStart(2, "0")}</span>
               </div>
               <div>
-                <h2 className="disp h3">{s.title}</h2>
+                <h2 className="disp h3"><Link to={`/services/${s.id}`} className="svc-title-link">{s.title}</Link></h2>
                 <p className="body" style={{ margin: "12px 0 0", fontSize: 17, maxWidth: 760 }}>{s.text}</p>
                 <ul className="svc-points stagger">
                   {s.points.map((pt) => <li key={pt}><Check size={15} />{pt}</li>)}
@@ -47,6 +47,9 @@ export default function Services() {
                       <Link className="acc" to={`/projects/${slug}`} style={{ fontWeight: 600 }}>{projectName(slug)}</Link>
                     </span>
                   ))}
+                </p>
+                <p style={{ margin: "14px 0 0" }}>
+                  <Link className="text-link" to={`/services/${s.id}`}>Details & free consultation <ArrowRight /></Link>
                 </p>
                 <p className="faint" style={{ margin: "10px 0 0", fontSize: 13 }}>
                   Relevant for: {s.searchTerms.join(" · ")}
