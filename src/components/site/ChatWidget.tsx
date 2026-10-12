@@ -1,4 +1,5 @@
-import { lazy, Suspense, useCallback, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Close } from "./Icons";
 
 // The panel (and its knowledge base + search engine) loads only when someone opens the chat.
@@ -24,6 +25,20 @@ export const BotAvatar = ({ size = 28 }: { size?: number }) => (
 export function ChatWidget() {
   const [open, setOpen] = useState(false);
   const close = useCallback(() => setOpen(false), []);
+  const { pathname } = useLocation();
+  const isPhone = () => window.matchMedia("(max-width: 760px), (max-height: 500px)").matches;
+
+  // On phones the chat is full-screen: close it when the visitor navigates to another page.
+  useEffect(() => {
+    if (isPhone()) setOpen(false);
+  }, [pathname]);
+
+  // While the full-screen chat is open on a phone, the page behind must not scroll.
+  useEffect(() => {
+    const lock = open && isPhone();
+    document.documentElement.classList.toggle("chat-open", lock);
+    return () => document.documentElement.classList.remove("chat-open");
+  }, [open]);
   // Start fetching the panel code as soon as the visitor shows intent.
   const preload = () => void import("./ChatPanel");
 
@@ -34,12 +49,15 @@ export function ChatWidget() {
         className="chat-launch"
         aria-expanded={open}
         aria-controls="chat-panel"
+        aria-label={open ? "Close chat" : "Ask Ree, Reejan's AI assistant"}
         onClick={() => setOpen((o) => !o)}
         onPointerEnter={preload}
         onFocus={preload}
       >
         {open ? <Close size={18} /> : <span className="chat-launch-av"><BotAvatar size={26} /></span>}
-        <span className="chat-launch-t">{open ? "Close" : "Ask Ree about Reejan"}</span>
+        <span className="chat-launch-t" aria-hidden="true">
+          {open ? "Close" : <><span className="lt-long">Ask Ree about Reejan</span><span className="lt-short">Ask Ree</span></>}
+        </span>
       </button>
       {open && (
         <Suspense fallback={<div className="chat-panel chat-loading" aria-busy="true" />}>

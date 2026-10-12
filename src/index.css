@@ -521,7 +521,7 @@ html:not(.js) .proj::after, html:not(.js) .xp::before { transform: none; }
 .faq p { margin: 0 0 22px; max-width: 760px; font-size: 16px; line-height: 1.7; color: var(--muted); }
 
 /* ---------- services ---------- */
-.svc-block { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 24px; padding: 40px 0; border-top: 1px solid var(--line); scroll-margin-top: 96px; }
+.svc-block { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 24px; padding: 40px 0; border-top: 1px solid var(--line); }
 .svc-block:last-of-type { border-bottom: 1px solid var(--line); }
 .svc-points { list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 32px; }
 .svc-points li { display: flex; gap: 10px; font-size: 15.5px; line-height: 1.5; color: var(--fg-2); }
@@ -687,3 +687,40 @@ p a.acc:hover, .body a.acc:hover { text-decoration-thickness: 2px; }
   .mobile-menu a[aria-current="page"] { color: var(--acc-ink); }
 }
 @media (max-width: 760px) { .steps { grid-template-columns: minmax(0, 1fr); } .lead-actions .btn { flex: 1 1 auto; } }
+
+/* ---------- mobile & touch hardening ---------- */
+html.chat-open, html.chat-open body, html.menu-open, html.menu-open body { overflow: hidden; }
+html.menu-open .chat-launch { display: none; }
+.lt-short { display: none; }
+@media (max-width: 760px) {
+  .lt-long { display: none; }
+  .lt-short { display: inline; }
+  .chat-launch { padding: 0 16px 0 12px; gap: 8px; }
+  /* full-screen chat follows the *visible* viewport, so the on-screen keyboard can't hide the input */
+  .chat-panel { top: 0; bottom: auto; height: 100vh; height: 100dvh; }
+  .chat-list { padding: 14px; }
+  .chat-head { padding-top: max(14px, env(safe-area-inset-top)); }
+  .chat-form { padding-bottom: max(12px, env(safe-area-inset-bottom)); }
+  /* the phone menu scrolls on its own when it is taller than the screen (e.g. landscape) */
+  .mobile-menu[data-open="true"] { max-height: calc(100vh - 68px); max-height: calc(100dvh - 68px); overflow-y: auto; overscroll-behavior: contain; }
+}
+@media (max-width: 1024px) {
+  .mobile-menu[data-open="true"] { max-height: calc(100vh - 68px); max-height: calc(100dvh - 68px); overflow-y: auto; overscroll-behavior: contain; }
+}
+@media (max-width: 360px) {
+  .chat-launch-t { display: none; }
+  .chat-launch { width: 52px; padding: 0; justify-content: center; }
+}
+/* finger-sized tap targets on touch screens */
+@media (pointer: coarse) {
+  .chat-chip, .chat-topic { min-height: 44px; }
+  .chat-close, .icon-btn { width: 44px; height: 44px; }
+  .tag { min-height: 36px; display: inline-flex; align-items: center; }
+  .crumbs a { min-height: 44px; }
+}
+
+/* phones held sideways (short screens) also get the full-screen chat */
+@media (max-height: 500px) {
+  .chat-panel { inset: 0; top: 0; bottom: auto; width: auto; height: 100vh; height: 100dvh; border-radius: 0; border: 0; z-index: 120; padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }
+  .chat-welcome .bot-av { display: none; }
+}

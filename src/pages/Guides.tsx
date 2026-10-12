@@ -25,7 +25,7 @@ export default function Guides() {
       </section>
 
       {topics.map((t, ti) => (
-        <section key={t} id={t} className="section-sm" aria-labelledby={`h-${t}`} style={{ scrollMarginTop: 96 }}>
+        <section key={t} id={t} className="section-sm" aria-labelledby={`h-${t}`}>
           <div className="wrap">
             <Comment n={String(ti + 1).padStart(2, "0")} label={t} />
             <div className="sec-head">

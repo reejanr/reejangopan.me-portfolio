@@ -22,6 +22,11 @@ function Nav() {
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
   useEffect(() => setOpen(false), [pathname]);
+  // Lock the page behind the open phone menu (and hide the chat button over it).
+  useEffect(() => {
+    document.documentElement.classList.toggle("menu-open", open);
+    return () => document.documentElement.classList.remove("menu-open");
+  }, [open]);
 
   return (
     <header className="nav">
@@ -163,7 +168,15 @@ export function Layout({ children }: { children: ReactNode }) {
   const navigated = pathname !== firstPath.current;
 
   useEffect(() => {
-    if (!hash) window.scrollTo(0, 0);
+    if (!hash) {
+      window.scrollTo(0, 0);
+    } else {
+      // Client-side navigation doesn't jump to #anchors by itself — do it once the page has rendered.
+      const jump = () => document.getElementById(decodeURIComponent(hash.slice(1)))?.scrollIntoView();
+      requestAnimationFrame(jump);
+      const t = window.setTimeout(jump, 250); // again once fonts and layout have settled
+      return () => window.clearTimeout(t);
+    }
     window.dispatchEvent(new Event("scroll"));
   }, [pathname, hash]);
 

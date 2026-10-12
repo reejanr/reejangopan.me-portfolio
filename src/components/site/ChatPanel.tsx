@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useRef, useState, type FormEvent, type KeyboardEvent, type ReactNode } from "react";
+import { Link } from "react-router-dom";
 import { profile } from "@/data/site";
 import { answerLocally, PERSONAS, topics } from "@/chat/engine";
 import { Close } from "./Icons";
@@ -14,7 +15,8 @@ type AiState = "unknown" | "on" | "off";
 const TOPICS = topics();
 
 // Minimal, safe rendering: **bold**, links for URLs and emails, line breaks via CSS.
-function render(text: string): ReactNode[] {
+// Links to this site navigate inside the app (no reload); `onNav` lets the panel react (e.g. close on phones).
+function render(text: string, onNav: () => void): ReactNode[] {
   return text.split(/(\*\*[^*]+\*\*)/g).map((part, i) => {
     if (/^\*\*[^*]+\*\*$/.test(part)) return <strong key={i}>{part.slice(2, -2)}</strong>;
     return (
@@ -22,14 +24,17 @@ function render(text: string): ReactNode[] {
         {part.split(/(https?:\/\/[^\s)]+|[\w.+-]+@[\w-]+(?:\.[\w-]+)+)/g).map((seg, j) => {
           if (/^https?:\/\//.test(seg)) {
             const clean = seg.replace(/[.,;:]+$/, "");
-            const internal = clean.startsWith("https://reejangopan.me");
-            return (
-              <Fragment key={j}>
-                <a href={internal ? clean.replace("https://reejangopan.me", "") || "/" : clean}
-                  {...(internal ? {} : { target: "_blank", rel: "noopener noreferrer" })}>{clean.replace(/^https?:\/\//, "")}</a>
-                {seg.slice(clean.length)}
-              </Fragment>
-            );
+            const tail = seg.slice(clean.length);
+            const label = clean.replace(/^https?:\/\//, "");
+            if (clean.startsWith("https://reejangopan.me")) {
+              const path = clean.replace("https://reejangopan.me", "") || "/";
+              // The CV is a file, not a page — let the browser download it.
+              const link = /\.[a-z0-9]+$/i.test(path)
+                ? <a href={path}>{label}</a>
+                : <Link to={path} onClick={onNav}>{label}</Link>;
+              return <Fragment key={j}>{link}{tail}</Fragment>;
+            }
+            return <Fragment key={j}><a href={clean} target="_blank" rel="noopener noreferrer">{label}</a>{tail}</Fragment>;
           }
           if (/^[\w.+-]+@[\w-]+(?:\.[\w-]+)+$/.test(seg)) return <a key={j} href={`mailto:${seg}`}>{seg}</a>;
           return seg;
@@ -58,9 +63,10 @@ export default function ChatPanel({ onClose }: { onClose: () => void }) {
   const abortRef = useRef<AbortController | null>(null);
 
   useEffect(() => inputRef.current?.focus(), []);
+  // Follow the conversation — but start at the top so the welcome message is visible on small screens.
   useEffect(() => {
     const el = listRef.current;
-    if (el) el.scrollTop = el.scrollHeight;
+    if (el && messages.length) el.scrollTop = el.scrollHeight;
   }, [messages, busy]);
   useEffect(() => {
     const onKey = (e: globalThis.KeyboardEvent) => e.key === "Escape" && onClose();
@@ -70,6 +76,11 @@ export default function ChatPanel({ onClose }: { onClose: () => void }) {
       abortRef.current?.abort();
     };
   }, [onClose]);
+
+  // After tapping a site link on a phone, close the full-screen chat so the page is visible.
+  const onLinkNav = () => {
+    if (window.matchMedia("(max-width: 760px), (max-height: 500px)").matches) onClose();
+  };
 
   const setLast = (patch: Partial<Msg>) =>
     setMessages((m) => [...m.slice(0, -1), { ...m[m.length - 1], ...patch }]);
@@ -222,7 +233,7 @@ export default function ChatPanel({ onClose }: { onClose: () => void }) {
           m.role === "assistant" && m.content === "" ? null : (
             <Fragment key={i}>
               <div className={`chat-msg ${m.role === "user" ? "me" : "bot"}`}>
-                {m.role === "assistant" ? render(m.content) : m.content}
+                {m.role === "assistant" ? render(m.content, onLinkNav) : m.content}
               </div>
               {m.suggestions && i === messages.length - 1 && !busy && (
                 <div className="chat-suggest">
