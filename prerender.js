@@ -6,10 +6,10 @@ const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
 const toAbsolute = (p) => path.resolve(__dirname, p)
 const SITE_URL = 'https://reejangopan.me'
 
-// Preload the two fonts used above the fold (heading + body) so the first paint
-// uses the right typefaces and the hero heading (the LCP element) is not delayed.
+// Preload the fonts used above the fold (heading, body, and the mono labels/tags) so the
+// first paint uses the right typefaces: no late swap that re-wraps text and shifts the layout.
 const assets = fs.readdirSync(toAbsolute('dist/assets'))
-const preloads = [/^bricolage-grotesque-latin-wght-normal-.*\.woff2$/, /^geist-sans-latin-400-normal-.*\.woff2$/]
+const preloads = [/^bricolage-grotesque-latin-wght-normal-.*\.woff2$/, /^geist-sans-latin-400-normal-.*\.woff2$/, /^jetbrains-mono-latin-400-normal-.*\.woff2$/]
   .map((re) => assets.find((f) => re.test(f)))
   .filter(Boolean)
   .map((f) => `<link rel="preload" href="/assets/${f}" as="font" type="font/woff2" crossorigin />`)
