@@ -39,7 +39,7 @@ const SNIPPETS: { file: string; title: string; text: string; code: string }[] = 
   {
     file: "src/chat/engine.ts",
     title: "A search engine for the chatbot, written from scratch",
-    text: "Ree, the site's assistant, ranks answers with BM25 — the classic search-engine scoring function — plus synonym expansion, stemming and Damerau-Levenshtein typo correction. It runs entirely in the browser: free, instant and private.",
+    text: "Devv, the site's assistant, ranks answers with BM25 — the classic search-engine scoring function — plus synonym expansion, stemming and Damerau-Levenshtein typo correction. It runs entirely in the browser: free, instant and private.",
     code: [
       "for (const t of queryTerms) {",
       "  const f = termFreq[doc].get(t);",

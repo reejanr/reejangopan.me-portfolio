@@ -26,7 +26,7 @@ const cases: [string, string][] = [
   ["setup business email and domain", "g-planning"], ["how to improve seo", "g-planning"], ["microsoft 365 vs google workspace", "g-startup"],
   ["how can i automate my business", "g-startup"], ["what software does a startup need", "g-startup"], ["automate payroll and attendance", "g-startup"],
   ["cybersecurity for small business", "g-security"], ["monolith vs microservices", "g-stacks"], ["node or python for backend", "g-stacks"],
-  ["who built you", "smalltalk"], ["who made this chatbot", "bot|smalltalk"], ["how does this chatbot work", "bot-how"],
+  ["who built you", "smalltalk"], ["who made this chatbot", "bot|smalltalk"], ["who is devv", "bot|smalltalk"], ["how does this chatbot work", "bot-how"],
   ["can you set up it for my whole company", "g-business"], ["it setup for new office", "g-business"], ["crm setup", "g-business"],
   ["erp for small business", "g-business"], ["can he set up our accounting software", "g-business"], ["it support and maintenance", "g-business"],
   ["backup strategy", "g-business"], ["what can be automated in my business", "g-business"], ["onboarding new employee it", "g-business"],

@@ -199,7 +199,7 @@ export default function ChatPanel({ onClose }: { onClose: () => void }) {
       <header className="chat-head">
         <span className="chat-avatar" aria-hidden="true"><BotAvatar size={32} /></span>
         <div>
-          <h2 id="chat-title" className="chat-title">Ree · Reejan's AI assistant</h2>
+          <h2 id="chat-title" className="chat-title">Devv · Reejan's AI assistant</h2>
           <p className="chat-sub"><span className="dot" />Built by Reejan · {ai === "on" ? "knowledge base + AI" : "instant answers"}</p>
         </div>
         <button type="button" className="icon-btn chat-close" aria-label="Close chat" onClick={onClose}>
@@ -217,7 +217,7 @@ export default function ChatPanel({ onClose }: { onClose: () => void }) {
         <div className="chat-welcome">
           <BotAvatar size={44} />
           <div className="chat-msg bot">
-            Hi, I'm <strong>Ree</strong> — the assistant Reejan designed and built for this site. I know his projects, skills and
+            Hi, I'm <strong>Devv</strong> — the assistant Reejan designed and built for this site. I know his projects, skills and
             experience, and I can help with tech stacks, scaling, planning a website or app, and automating a business.
             <br /><br />Who's visiting today?
           </div>
@@ -268,7 +268,7 @@ export default function ChatPanel({ onClose }: { onClose: () => void }) {
           <Send />
         </button>
       </form>
-      <p className="chat-note">Ree answers from Reejan's knowledge base and can make mistakes. For anything important, email {profile.email}.</p>
+      <p className="chat-note">Devv answers from Reejan's knowledge base and can make mistakes. For anything important, email {profile.email}.</p>
     </section>
   );
 }

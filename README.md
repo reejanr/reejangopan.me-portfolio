@@ -40,7 +40,7 @@ Works **free, with no API key**. Answers come from a knowledge base that runs in
   (each with a "how Reejan uses it" line backed by his CV), and `src/chat/guides.ts` — 44 practical
   guides: choosing a tech stack per project type and why, scaling, planning a website or app, startup
   tooling and business automation, and security.
-- "Ree", the assistant (built by Reejan), greets visitors by type — recruiter, client, founder,
+- "Devv", the assistant (built by Reejan), greets visitors by type — recruiter, client, founder,
   developer — and offers a topic menu; every menu question is checked by the eval script.
 - The chat panel and knowledge base load only when someone opens the chat (code-split, ~16 KB gzipped).
 - Adding knowledge: add an entry to `techKnowledge.ts`, or edit `site.ts` — new projects, services and

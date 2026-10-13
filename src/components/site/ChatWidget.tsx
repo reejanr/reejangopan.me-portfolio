@@ -5,7 +5,7 @@ import { Close } from "./Icons";
 // The panel (and its knowledge base + search engine) loads only when someone opens the chat.
 const ChatPanel = lazy(() => import("./ChatPanel"));
 
-// "Ree" — the assistant's avatar: a small robot whose eyes blink and antenna pulses.
+// "Devv" — the assistant's avatar: a small robot whose eyes blink and antenna pulses.
 export const BotAvatar = ({ size = 28 }: { size?: number }) => (
   <svg className="bot-av" width={size} height={size} viewBox="0 0 40 40" aria-hidden="true" focusable="false">
     <line x1="20" y1="4.5" x2="20" y2="9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
@@ -49,14 +49,14 @@ export function ChatWidget() {
         className="chat-launch"
         aria-expanded={open}
         aria-controls="chat-panel"
-        aria-label={open ? "Close chat" : "Ask Ree, Reejan's AI assistant"}
+        aria-label={open ? "Close chat" : "Ask Devv, Reejan's AI assistant"}
         onClick={() => setOpen((o) => !o)}
         onPointerEnter={preload}
         onFocus={preload}
       >
         {open ? <Close size={18} /> : <span className="chat-launch-av"><BotAvatar size={26} /></span>}
         <span className="chat-launch-t" aria-hidden="true">
-          {open ? "Close" : <><span className="lt-long">Ask Ree about Reejan</span><span className="lt-short">Ask Ree</span></>}
+          {open ? "Close" : <><span className="lt-long">Ask Devv about Reejan</span><span className="lt-short">Ask Devv</span></>}
         </span>
       </button>
       {open && (

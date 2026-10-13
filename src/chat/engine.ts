@@ -135,8 +135,8 @@ function buildDocs(): Doc[] {
 
   // About this assistant
   add("bot", "Who built this chatbot?",
-    "who made created developed designed you this chatbot chat bot assistant ree creator built by",
-    "I'm **Ree**, the assistant on this site — designed and built by Reejan R Gopan. I answer from a knowledge base about Reejan and the technologies he works with, searching it right in your browser so answers are instant and free. It's the retrieval idea behind RAG.",
+    "who made created developed designed you this chatbot chat bot assistant devv creator built by",
+    "I'm **Devv**, the assistant on this site — designed and built by Reejan R Gopan. I answer from a knowledge base about Reejan and the technologies he works with, searching it right in your browser so answers are instant and free. It's the retrieval idea behind RAG.",
     ["How does this chatbot work?", "Tech stack for an AI app or chatbot?", "What has Reejan built?"]);
   add("bot-how", "How does this chatbot work?",
     "how does this chatbot work how do you work rag knowledge base search engine bm25 technology behind chatbot",
@@ -307,7 +307,7 @@ const SMALLTALK: [RegExp, string][] = [
   [/\b(thank|thanks|thx|cheers|great|awesome|nice|cool|perfect)\b/i, "You're welcome! Anything else you'd like to know about Reejan or his work?"],
   [/^(bye|goodbye|see you|cya)\b/i, `Thanks for visiting! You can always reach Reejan at ${profile.email}.`],
   [/\b(who|what) are you\b|\bare you (a )?(bot|ai|human|real)\b/i,
-    "I'm **Ree**, the assistant Reejan designed and built for this site. I answer from a knowledge base about him and the technologies he works with — instantly, right in your browser."],
+    "I'm **Devv**, the assistant Reejan designed and built for this site. I answer from a knowledge base about him and the technologies he works with — instantly, right in your browser."],
   [/\b(who|which) (made|built|created|developed|designed|programmed) you\b|\bwho is your (creator|developer|maker)\b/i,
     "Reejan R Gopan designed and built me — a lightweight RAG assistant that searches this site's knowledge base right in your browser."],
   [/^(help|what can (i|you) (ask|do))\b/i, "Try asking about his projects (like WAQTI), his experience, his skills, whether he's open to roles, or what a technology like Supabase or RAG is."],

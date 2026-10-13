@@ -632,7 +632,7 @@ p a.acc:hover, .body a.acc:hover { text-decoration-thickness: 2px; }
 }
 @media print { .chat-launch, .chat-panel { display: none !important; } }
 
-/* ---------- Ree, the assistant avatar ---------- */
+/* ---------- Devv, the assistant avatar ---------- */
 .bot-av { display: block; color: var(--fg); overflow: visible; }
 .bot-head { fill: var(--acc); }
 .bot-ear { fill: var(--acc); opacity: 0.8; }
