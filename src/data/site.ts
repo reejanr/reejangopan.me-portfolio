@@ -10,13 +10,13 @@ export const profile = {
   alternateNames: ["Reejan Gopan", "Reejan", "Reejan R. Gopan"],
   givenName: "Reejan",
   familyName: "Gopan",
-  title: "Software & Systems Engineer",
+  title: "Full-Stack Software Engineer",
   tagline:
-    "I build production business applications, workforce platforms, automation tools, and digital systems.",
+    "Building scalable enterprise software, intelligent automation solutions and production-ready digital platforms.",
   summary:
-    "2+ years across full-stack development, cloud infrastructure and enterprise IT in the UAE and India — solving real operational problems from workforce attendance and payroll to business websites and cloud deployments.",
+    "Full-Stack Software Engineer and IT systems professional in Dubai with 2+ years across enterprise applications, workforce management, cloud infrastructure and AI-enabled software in the UAE and India.",
   location: "Dubai, UAE",
-  openTo: "Software, Full-Stack, Cloud & Systems roles",
+  openTo: "Full-Stack, Enterprise Application, AI Application & Cloud Engineering roles",
   email: "reejanr90@gmail.com",
   phone: "+971 52 712 3154",
   phoneHref: "tel:+971527123154",
@@ -25,6 +25,28 @@ export const profile = {
   cv: "/Reejan_R_Gopan_CV.pdf",
   github: "https://github.com/reejanr",
 };
+
+// Homepage hero positioning. The job title in the Experience section stays as it is.
+export const hero = {
+  focus: ["Enterprise Applications", "AI Engineering", "Cloud & DevOps"],
+  tagline: "Building scalable enterprise software, intelligent automation solutions and production-ready digital platforms.",
+  chips: ["Full-Stack Development", "Enterprise Systems", "AI-Assisted Engineering"],
+};
+
+// Engineering practices. Scenarios are described in general terms: no employee records or
+// production data are shown on this site.
+export const practices = [
+  { title: "System architecture", text: "Modular systems with clear backend boundaries, explicit data flows and deliberate API design." },
+  { title: "Database engineering", text: "Schemas, constraints, transactions, indexing and migrations, so correctness is enforced by the database and not only by application code." },
+  { title: "Concurrency and reliability", text: "Race-condition prevention, idempotency, duplicate detection and retry handling, for example the overtime integrity checks in WAQTI." },
+  { title: "Security", text: "Role-based access control, row-level security, secure sessions, audit logs and protection of sensitive data." },
+  { title: "Testing", text: "Unit, integration, end-to-end and database regression testing." },
+  { title: "Delivery", text: "Git branching, pull requests, CI checks, deployments and rollback planning." },
+  { title: "Production operations", text: "Monitoring, incident investigation, backup verification and performance profiling." },
+];
+
+export const confidentiality =
+  "Most of this work was built for USF Group and is not open source. To protect the company, its employees and its systems, this site does not publish proprietary source code, employee records, attendance photos, payroll data, credentials or private infrastructure details. Examples are described in general terms, and screenshots or demos are shared only where authorised.";
 
 export const stats = [
   { value: 2, suffix: "+", label: "Years in software, cloud & enterprise IT" },
@@ -91,6 +113,74 @@ export const projects: Project[] = [
     keywords: ["workforce management software", "attendance app", "payroll system", "Supabase", "PostgreSQL", "React"],
   },
   {
+    slug: "devv-ai-workforce-copilot",
+    name: "DEVV — AI Workforce Copilot",
+    short:
+      "An AI assistant integrated with the WAQTI workforce platform, using a retrieval engine and role-aware knowledge to answer questions and support administrators securely.",
+    category: "AI application",
+    status: "Production integration, limited rollout",
+    period: "2026 — present",
+    role: "Design, integration & development",
+    result: "Role-aware answers; rollout is currently limited and not open to all employees",
+    stack: ["LLM provider integration", "Retrieval engine", "Role-aware access control"],
+    overview: [
+      "DEVV is an AI copilot for the WAQTI workforce platform. It combines a retrieval engine with a large language model so answers come from the platform's own knowledge, and what each person can see depends on their role.",
+      "It is integrated in production, but rollout is deliberately limited at the moment: it is not available to every employee.",
+    ],
+    problem:
+      "Supervisors and administrators spend time looking up policies, procedures and records. A general-purpose chatbot cannot be trusted with that: it does not know the company's rules, and it must never reveal information to someone who is not allowed to see it.",
+    features: [
+      { title: "Retrieval engine", text: "Answers are grounded in retrieved company knowledge instead of the model's memory alone." },
+      { title: "Role-aware knowledge", text: "Retrieval respects the asker's role, so each person only receives information they are authorised to see." },
+      { title: "LLM provider integration", text: "A provider-integration layer that keeps the model behind the application's own authorisation and logging." },
+      { title: "Secure admin assistance", text: "Assistance for administrators that works inside the platform's existing permission model." },
+    ],
+    outcomes: [
+      "Integrated into the production platform with a controlled, limited rollout",
+      "Authorisation is enforced by the application, not left to the model",
+    ],
+    seoTitle: "DEVV — AI Workforce Copilot (Case Study)",
+    seoDescription:
+      "Case study of DEVV, an AI copilot with retrieval and role-aware knowledge integrated into a workforce management platform, by Reejan R Gopan.",
+    keywords: ["AI copilot", "retrieval augmented generation", "role-aware AI", "LLM integration", "enterprise AI assistant"],
+  },
+  {
+    slug: "custom-erp-crm-systems",
+    name: "Custom ERP & CRM Systems",
+    short:
+      "Custom ERP and CRM systems built for companies — HR, payroll, operations, accounting, sales pipelines and customer management in one place.",
+    category: "Enterprise application",
+    status: "In development",
+    period: "2025 — present",
+    role: "Requirements, architecture & full-stack development",
+    result: "In development — one system for operations, finance and customers",
+    stack: ["React", "TypeScript", "PostgreSQL", "Supabase", "REST APIs"],
+    overview: [
+      "Custom ERP and CRM systems built for companies that had outgrown spreadsheets and disconnected tools. Each one is shaped around how that business actually works, instead of forcing the team into a generic product.",
+      "The ERP side runs people, operations and finance; the CRM side tracks leads, customers and sales. Both sit on one relational PostgreSQL database, so management sees the whole business in one place.",
+    ],
+    problem:
+      "Companies were running HR, operations, sales and accounting across spreadsheets, email and separate apps — data was duplicated, follow-ups were missed and nobody had a single, reliable view of the business.",
+    features: [
+      { title: "ERP — people & payroll", text: "Employee records, HR workflows, attendance-linked payroll, leave and document management." },
+      { title: "ERP — operations", text: "Projects, operational processes, approvals, documents and administration with role-based access." },
+      { title: "ERP — finance (planned)", text: "Planned: accounting workflows, invoicing and integration with accounting software such as Zoho Books, with UAE e-invoicing readiness. These are on the roadmap and not yet implemented." },
+      { title: "CRM — leads & pipeline", text: "Lead capture from website forms, calls and WhatsApp, sales pipeline stages, follow-up reminders and ownership by salesperson." },
+      { title: "CRM — customers", text: "Customer and contact records, quotations, activity history and a full view of every client relationship." },
+      { title: "Reporting & automation", text: "Management dashboards, automated notifications and reports, and audit logs on a secure PostgreSQL core." },
+    ],
+    outcomes: [
+      "Design goal: one source of truth for operations, finance and customers",
+      "Design goal: fewer missed follow-ups with a tracked sales pipeline",
+      "Design goal: less manual data entry through automation and integrations",
+      "Design goal: role-based access and audit trails for accountability",
+    ],
+    seoTitle: "Custom ERP & CRM Development for Companies in Dubai, UAE",
+    seoDescription:
+      "Custom ERP and CRM systems for companies in Dubai — HR, payroll, operations, accounting, leads and sales pipelines — built by Reejan R Gopan.",
+    keywords: ["custom ERP development Dubai", "custom CRM development UAE", "ERP developer Dubai", "CRM software UAE", "HR and payroll system", "PostgreSQL", "React"],
+  },
+  {
     slug: "usf-group-web-platforms",
     name: "USF Group Web Platforms",
     short:
@@ -100,7 +190,7 @@ export const projects: Project[] = [
     period: "2025 — present",
     role: "Design, development, SEO, GEO, analytics & deployment",
     result: "4 company websites · 300+ prerendered pages",
-    stack: ["React", "TypeScript", "Tailwind CSS", "Vite", "Vercel", "Cloudflare", "JSON-LD", "GA4"],
+    stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vite", "Vercel", "Cloudflare", "JSON-LD", "GA4"],
     overview: [
       "The web presence of USF Group in the UAE — a separate website for each group company, covering demolition, civil construction and heavy-equipment rental. Reejan designed, built and deployed the sites and runs their SEO, GEO and analytics.",
       "Every site is built for speed and discoverability: pages are prerendered to static HTML, structured with schema.org data, and written so both Google and AI assistants such as ChatGPT, Gemini and Perplexity can understand and cite them.",
@@ -108,9 +198,9 @@ export const projects: Project[] = [
     problem:
       "Each USF company needed its own credible, fast website that ranks for competitive UAE searches — demolition, civil works, excavator rental — and turns visits into calls, WhatsApp messages and enquiries.",
     sites: [
-      { name: "usfdemolition.com", href: "https://usfdemolition.com", text: "USF Demolition Works LLC — demolition services, projects, equipment, tenders, vendor registration and careers, with 200+ prerendered routes and split sitemaps for pages, services, locations, projects, blog, jobs and images." },
-      { name: "usfgrand.com", href: "https://usfgrand.com", text: "USF GRAND Constructions LLC — civil contractor site for road works, earthworks, excavation, utilities and marine projects across Dubai, Abu Dhabi and Sharjah." },
-      { name: "rental.usfme.com", href: "https://rental.usfme.com", text: "USF Equipment Rental — 100+ page catalogue of excavators, long-reach machines, breakers, crushers and attachments for rent across the UAE." },
+      { name: "usfdemolition.com", href: "https://usfdemolition.com", text: "Built with Next.js on Vercel. USF Demolition Works LLC — demolition services, projects, equipment, tenders, vendor registration and careers, with 200+ prerendered routes and split sitemaps for pages, services, locations, projects, blog, jobs and images." },
+      { name: "usfgrand.com", href: "https://usfgrand.com", text: "Built with React and Vite. USF GRAND Constructions LLC — civil contractor site for road works, earthworks, excavation, utilities and marine projects across Dubai, Abu Dhabi and Sharjah." },
+      { name: "rental.usfme.com", href: "https://rental.usfme.com", text: "Built with React and Vite. USF Equipment Rental — 100+ page catalogue of excavators, long-reach machines, breakers, crushers and attachments for rent across the UAE." },
       { name: "usfme.com", href: "https://usfme.com", text: "USF Group corporate website — the parent brand linking the group companies." },
     ],
     features: [
@@ -131,7 +221,7 @@ export const projects: Project[] = [
     seoTitle: "USF Group Web Platforms — Websites, SEO & GEO Case Study",
     seoDescription:
       "Case study: websites, technical SEO and GEO for USF Group in the UAE — usfdemolition.com, usfgrand.com, rental.usfme.com and usfme.com — by Reejan R Gopan.",
-    keywords: ["USF Demolition website", "USF Grand", "USF equipment rental", "website development Dubai", "technical SEO", "GEO AI search optimisation", "local SEO UAE", "construction company website", "equipment rental website", "prerendering", "Core Web Vitals"],
+    keywords: ["Next.js website development Dubai", "USF Demolition website", "USF Grand", "USF equipment rental", "website development Dubai", "technical SEO", "GEO AI search optimisation", "local SEO UAE", "construction company website", "equipment rental website", "prerendering", "Core Web Vitals"],
   },
   {
     slug: "xauusd-btcusd-trading-analysis-platform",
@@ -184,42 +274,6 @@ export const projects: Project[] = [
       "Windows Server, Active Directory, Microsoft 365, Entra ID, VPN and endpoint security deployments for Dubai SMBs — 40% faster setup through standardised scripts.",
     keywords: ["IT infrastructure Dubai", "Microsoft 365 administrator", "Active Directory", "Windows Server"],
   },
-  {
-    slug: "custom-erp-crm-systems",
-    name: "Custom ERP & CRM Systems",
-    short:
-      "Custom ERP and CRM systems built for companies — HR, payroll, operations, accounting, sales pipelines and customer management in one place.",
-    category: "Enterprise application",
-    status: "Delivered",
-    period: "2025 — present",
-    role: "Requirements, architecture & full-stack development",
-    result: "One system for operations, finance and customers",
-    stack: ["React", "TypeScript", "PostgreSQL", "Supabase", "REST APIs"],
-    overview: [
-      "Custom ERP and CRM systems built for companies that had outgrown spreadsheets and disconnected tools. Each one is shaped around how that business actually works, instead of forcing the team into a generic product.",
-      "The ERP side runs people, operations and finance; the CRM side tracks leads, customers and sales. Both sit on one relational PostgreSQL database, so management sees the whole business in one place.",
-    ],
-    problem:
-      "Companies were running HR, operations, sales and accounting across spreadsheets, email and separate apps — data was duplicated, follow-ups were missed and nobody had a single, reliable view of the business.",
-    features: [
-      { title: "ERP — people & payroll", text: "Employee records, HR workflows, attendance-linked payroll, leave and document management." },
-      { title: "ERP — operations", text: "Projects, operational processes, approvals, documents and administration with role-based access." },
-      { title: "ERP — finance", text: "Accounting workflows, invoicing and integration with accounting software such as Zoho Books, with UAE e-invoicing readiness." },
-      { title: "CRM — leads & pipeline", text: "Lead capture from website forms, calls and WhatsApp, sales pipeline stages, follow-up reminders and ownership by salesperson." },
-      { title: "CRM — customers", text: "Customer and contact records, quotations, activity history and a full view of every client relationship." },
-      { title: "Reporting & automation", text: "Management dashboards, automated notifications and reports, and audit logs on a secure PostgreSQL core." },
-    ],
-    outcomes: [
-      "One source of truth for operations, finance and customers",
-      "Fewer missed follow-ups with a tracked sales pipeline",
-      "Less manual data entry through automation and integrations",
-      "Role-based access and audit trails for accountability",
-    ],
-    seoTitle: "Custom ERP & CRM Development for Companies in Dubai, UAE",
-    seoDescription:
-      "Custom ERP and CRM systems for companies in Dubai — HR, payroll, operations, accounting, leads and sales pipelines — built by Reejan R Gopan.",
-    keywords: ["custom ERP development Dubai", "custom CRM development UAE", "ERP developer Dubai", "CRM software UAE", "HR and payroll system", "PostgreSQL", "React"],
-  },
 ];
 
 export const experience = [
@@ -270,8 +324,8 @@ export const experience = [
 ];
 
 export const coreStack = [
-  "React", "TypeScript", "Python", "Node.js", "PostgreSQL", "Supabase",
-  "Next.js", "AWS", "Azure", "Docker", "Microsoft 365", "Windows Server",
+  "React", "Next.js", "TypeScript", "Python", "Node.js", "PostgreSQL",
+  "Supabase", "Tailwind CSS", "Vercel", "Microsoft 365", "Windows Server", "Active Directory",
 ];
 
 export const toolkit = [
@@ -287,7 +341,7 @@ export const toolkit = [
   { label: "Testing & analytics", value: "Selenium, GA4, Google Search Console, technical SEO, Google Ads" },
 ];
 
-export const expanding = ["C#", "ASP.NET Core", "Docker", "Azure"];
+export const expanding = ["Go", "Kubernetes", "Terraform", "GraphQL", "Vue.js", "Nuxt.js"];
 
 export const education = {
   degree: "Bachelor of Computer Applications (BCA)",
@@ -308,22 +362,22 @@ export const languages = [
 ];
 
 export const nav = [
-  { to: "/about", label: "About" },
-  { to: "/services", label: "Services" },
   { to: "/projects", label: "Projects" },
-  { to: "/guides", label: "Guides" },
-  { to: "/experience", label: "Experience" },
   { to: "/skills", label: "Skills" },
+  { to: "/ai-engineering", label: "AI Engineering" },
+  { to: "/experience", label: "Experience" },
+  { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ];
 
 export const about = {
   intro:
-    "I’m Reejan R Gopan — also written Reejan Gopan — a Software & Systems Engineer based in Dubai. I build production business systems — workforce management, attendance, payroll and ERP platforms — and manage the infrastructure, security, websites, analytics and digital platforms behind them.",
+    "I’m Reejan R Gopan (also written Reejan Gopan), a Full-Stack Software Engineer and IT Systems professional based in Dubai, UAE, specializing in enterprise applications, business automation, cloud infrastructure, and AI-enabled software solutions.",
   paragraphs: [
-    "My work combines software engineering with real-world business operations. Instead of focusing only on code or only on IT administration, I work across the complete technology lifecycle — from understanding the business problem to running the system in production and improving it.",
-    "At USF Group in Dubai I built WAQTI, a workforce platform used for real field operations, and the group's websites — usfdemolition.com, usfgrand.com, rental.usfme.com and usfme.com — with 300+ prerendered pages, SEO and GEO. Alongside development I administer Microsoft 365 for 50+ users, Windows Server and Active Directory, hosting, DNS and corporate email.",
-    "Before that I worked in IT procurement and support at Chimera Group in Dubai, and as a Network Administrator at TCS iON in India — the infrastructure foundation that shapes how I design and secure software today.",
+    "My experience spans the complete software delivery lifecycle — from understanding operational challenges and designing application architecture to developing secure systems, managing databases, deploying applications, and maintaining production infrastructure.",
+    "At USF Group, I work across enterprise workforce management, HRMS and payroll systems, web applications, business process automation, corporate infrastructure, and cloud-based platforms.",
+    "My key engineering projects include WAQTI, a production workforce management platform; DEVV, an AI-powered business copilot; and custom ERP initiatives.",
+    "I primarily work with TypeScript, JavaScript, React, Next.js, Python, PostgreSQL, Supabase, and modern cloud development tools. I also use AI-assisted development workflows to support implementation, testing, code review, and software delivery.",
   ],
   lifecycle: [
     "Identify the problem", "Design the solution", "Build the application", "Design the database",
@@ -336,17 +390,29 @@ export const about = {
     { title: "Security by design", text: "Role-based access, Row Level Security, server-side authorisation and audit trails are part of the architecture, not an afterthought." },
   ],
   direction:
-    "My direction is toward full-stack engineering, cloud and DevOps, and AI-enabled enterprise systems — designing and operating complete platforms from infrastructure to application.",
+    "My career focus is building secure, maintainable, scalable enterprise software that solves real business problems. I’m interested in Full-Stack Software Engineering, Enterprise Application Development, AI Application Engineering, and Cloud Engineering opportunities.",
 };
 
 export const faqs = [
   {
+    q: "What roles is Reejan R Gopan looking for?",
+    a: "Reejan is interested in Full-Stack Software Engineering, Enterprise Application Development, AI Application Engineering and Cloud Engineering roles, and is based in Dubai, UAE.",
+  },
+  {
+    q: "Does Reejan work with AI?",
+    a: "Yes. He builds AI-enabled software — LLM API integration, retrieval with BM25, and DEVV, a role-aware AI copilot with a limited rollout — and uses AI-assisted development tools such as Codex, Claude Code and GitHub Copilot. He builds applications that use trained models; he does not present himself as a machine-learning researcher.",
+  },
+  {
+    q: "Which websites has Reejan built with Next.js?",
+    a: "usfdemolition.com, the website of USF Demolition Works LLC, is built with Next.js and deployed on Vercel. The other USF Group sites, usfgrand.com and rental.usfme.com, are React and Vite builds.",
+  },
+  {
     q: "Who is Reejan R Gopan?",
-    a: "Reejan R Gopan is a Software & Systems Engineer based in Dubai, UAE. He builds production business applications, workforce platforms, automation tools and digital systems, and has 2+ years of experience across full-stack development, cloud infrastructure and enterprise IT in the UAE and India.",
+    a: "Reejan R Gopan is a Full-Stack Software Engineer based in Dubai, UAE. He builds production business applications, workforce platforms, automation tools and digital systems, and has 2+ years of experience across full-stack development, cloud infrastructure and enterprise IT in the UAE and India.",
   },
   {
     q: "Are Reejan Gopan and Reejan R Gopan the same person?",
-    a: "Yes. Reejan R Gopan also goes by Reejan Gopan or simply Reejan. It is the same Dubai-based Software & Systems Engineer, and reejangopan.me is his official website.",
+    a: "Yes. Reejan R Gopan also goes by Reejan Gopan or simply Reejan. It is the same Dubai-based Full-Stack Software Engineer, and reejangopan.me is his official website.",
   },
   {
     q: "What services does Reejan Gopan offer?",
@@ -504,9 +570,27 @@ export const services: Service[] = [
 // Search phrases the site targets — every one is backed by a project, role or service above.
 export const seoKeywords = [
   "Reejan R Gopan", "Reejan Gopan", "Reejan",
-  "Software Engineer Dubai", "Systems Engineer Dubai", "Full-Stack Developer Dubai", "React Developer Dubai",
+  "Full-Stack Software Engineer Dubai", "Software Engineer UAE", "Enterprise Application Developer UAE", "AI Application Engineer Dubai", "Next.js Developer Dubai", "Cloud & DevOps Engineer Dubai", "Software Engineer Dubai", "Systems Engineer Dubai", "Full-Stack Developer Dubai", "React Developer Dubai",
   "TypeScript Developer UAE", "Supabase Developer", "PostgreSQL Developer Dubai", "Node.js Developer Dubai",
   "Cloud Engineer Dubai", "AWS Developer UAE", "Azure Engineer Dubai", "Microsoft 365 Administrator Dubai",
   "Workforce Management Software Developer", "ERP Developer UAE", "Payroll Software Developer Dubai",
   "AI Automation Dubai", "Python Developer Dubai", "Technical SEO Dubai", "Web Application Developer UAE",
+];
+
+// Skills grouped by category and by how well each is evidenced. "demonstrated" means it appears in a
+// project or role on this site. Anything else is working knowledge or still being learned, and is
+// never described as production experience.
+export type SkillGroup = { category: string; demonstrated: string[]; working: string[]; learning: string[] };
+export const skillMatrix: SkillGroup[] = [
+  { category: "Programming languages", demonstrated: ["TypeScript", "JavaScript", "Python", "SQL", "HTML5", "CSS3"], working: ["C#", "Java", "C++", "PHP", "Dart"], learning: ["Go", "Rust", "Kotlin", "Bash / PowerShell"] },
+  { category: "Frontend engineering", demonstrated: ["React", "Next.js", "Tailwind CSS", "shadcn/ui", "Vite", "Progressive web apps", "Responsive design"], working: ["Flutter"], learning: ["Vue.js", "Nuxt.js", "Angular"] },
+  { category: "Backend & API engineering", demonstrated: ["Node.js", "Flask", "REST APIs"], working: ["Express", "ASP.NET Core", "Microservices"], learning: ["FastAPI", "Spring Boot", "Laravel", "GraphQL", "WebSockets"] },
+  { category: "Databases", demonstrated: ["PostgreSQL", "Supabase", "Row Level Security", "Schema migrations"], working: ["MySQL", "MongoDB", "Firestore", "Pinecone"], learning: ["Redis", "SQL Server"] },
+  { category: "Cloud & DevOps", demonstrated: ["Git & GitHub", "Vercel", "Cloudflare", "CI/CD deployments"], working: ["Docker", "Linux (Ubuntu)", "AWS", "Microsoft Azure", "Netlify"], learning: ["Kubernetes", "Terraform", "GitHub Actions", "Jenkins", "Nginx"] },
+  { category: "AI engineering", demonstrated: ["LLM API integration", "BM25 retrieval", "Role-aware retrieval", "AI-assisted development (Codex, Claude Code, GitHub Copilot)"], working: ["RAG", "Embeddings & vector search", "Google Gemini & Vertex AI", "Prompt engineering"], learning: ["LLM evaluation", "AI observability and cost control"] },
+  { category: "Enterprise applications", demonstrated: ["Workforce management", "Attendance & payroll logic", "Role-based access", "Business process automation"], working: ["ERP & CRM modules (in development)"], learning: ["Accounting-software integrations"] },
+  { category: "Software architecture & security", demonstrated: ["RBAC", "Row Level Security", "Audit logging", "Server-side authorisation", "Idempotency & retry handling"], working: ["SSL/TLS", "Conditional Access"], learning: [] },
+  { category: "IT infrastructure", demonstrated: ["Microsoft 365", "Windows Server 2019/2022", "Active Directory", "Group Policy", "Entra ID", "DNS & DHCP", "VPN"], working: ["Exchange Online", "SharePoint", "Teams", "Intune", "Cisco routers & switches", "Firewalls", "Endpoint security", "Patch management"], learning: [] },
+  { category: "Testing & quality engineering", demonstrated: ["Unit, integration and end-to-end testing", "Database regression testing"], working: ["Selenium", "Playwright"], learning: [] },
+  { category: "SEO, performance & analytics", demonstrated: ["Technical SEO", "GEO (AI-search optimisation)", "JSON-LD structured data", "Core Web Vitals", "GA4", "Google Search Console", "Google Ads"], working: [], learning: [] },
 ];

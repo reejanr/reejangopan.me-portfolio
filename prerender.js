@@ -54,7 +54,7 @@ const today = new Date().toISOString().slice(0, 10)
 const priority = (r) =>
   r === '/' ? '1.0'
   : r === '/services' || r.startsWith('/services/') ? '0.9'
-  : r === '/projects' || r.startsWith('/projects/') || r === '/about' || r === '/contact' ? '0.8'
+  : r === '/projects' || r.startsWith('/projects/') || r === '/about' || r === '/contact' || r === '/ai-engineering' ? '0.8'
   : r.startsWith('/guides/') ? '0.6'
   : '0.7'
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

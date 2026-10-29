@@ -1,4 +1,4 @@
-import { projects } from "@/data/site";
+import { confidentiality, projects } from "@/data/site";
 import { Breadcrumbs, Comment, ContactCta, ProjectRow } from "@/components/site/Parts";
 
 export default function Projects() {
@@ -20,6 +20,14 @@ export default function Projects() {
       <section aria-label="Project list" style={{ paddingBottom: 40 }}>
         <div className="wrap">
           {projects.map((p, i) => <ProjectRow key={p.slug} p={p} i={i} headingLevel={2} />)}
+        </div>
+      </section>
+      <section aria-labelledby="confidentiality" style={{ paddingBottom: 56 }}>
+        <div className="wrap">
+          <div className="panel rv">
+            <h2 id="confidentiality" className="mono acc" style={{ margin: 0 }}>Privacy &amp; confidentiality</h2>
+            <p className="body" style={{ margin: "12px 0 0", maxWidth: 820 }}>{confidentiality}</p>
+          </div>
         </div>
       </section>
       <ContactCta />

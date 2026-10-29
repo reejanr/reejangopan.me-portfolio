@@ -1,4 +1,4 @@
-import { certifications, coreStack, education, expanding, languages, toolkit } from "@/data/site";
+import { certifications, coreStack, education, languages, skillMatrix } from "@/data/site";
 import { Breadcrumbs, Comment, ContactCta, SectionHead } from "@/components/site/Parts";
 import { Check } from "@/components/site/Icons";
 
@@ -13,10 +13,10 @@ export default function Skills() {
             <Comment n="03" label="stack" />
             <h1 id="page-title" className="disp h1 hw">Skills &amp; <span className="serif acc">stack</span></h1>
             <p className="lead" style={{ maxWidth: 680, marginTop: 24 }}>
-              The languages, frameworks, cloud platforms and systems I use to build and run production software.
+              Organised by category and by evidence. “Demonstrated” skills appear in a project or role on this site; “working knowledge” means I have used the technology but it is not a flagship project; “currently learning” is still on my roadmap and is never presented as production experience.
             </p>
           </div>
-          <h2 className="mono faint" style={{ margin: "56px 0 16px" }}>Daily drivers</h2>
+          <h2 className="mono faint" style={{ margin: "56px 0 16px" }}>Demonstrated in projects and roles</h2>
           <ul className="stackgrid stagger" style={{ listStyle: "none", margin: 0, padding: 0 }}>
             {coreStack.map((t, i) => (
               <li key={t} className="sk spot">
@@ -28,14 +28,27 @@ export default function Skills() {
         </div>
       </section>
 
-      <section className="section-sm" aria-labelledby="toolkit">
+      <section className="section-sm" aria-labelledby="matrix">
         <div className="wrap">
-          <SectionHead n="04" label="full-toolkit" title={<span id="toolkit">Full <span className="serif acc">toolkit</span></span>} />
-          <dl className="stagger" style={{ margin: 0 }}>
-            {toolkit.map((r) => (
-              <div key={r.label} className="skrow"><dt>{r.label}</dt><dd>{r.value}</dd></div>
+          <SectionHead n="04" label="skills-by-category" title={<span id="matrix">Skills by <span className="serif acc">category</span></span>} />
+          <div className="stagger">
+            {skillMatrix.map((g) => (
+              <section key={g.category} className="skcat" aria-label={g.category}>
+                <h3 className="disp h3">{g.category}</h3>
+                <dl style={{ margin: 0 }}>
+                  {([
+                    ["Demonstrated", g.demonstrated],
+                    ["Working knowledge", g.working],
+                    ["Currently learning", g.learning],
+                  ] as const).map(([label, items]) =>
+                    items.length ? (
+                      <div key={label} className="skrow"><dt>{label}</dt><dd>{items.join(", ")}</dd></div>
+                    ) : null,
+                  )}
+                </dl>
+              </section>
             ))}
-          </dl>
+          </div>
         </div>
       </section>
 
@@ -72,12 +85,6 @@ export default function Skills() {
                 </dl>
               </div>
             </div>
-          </div>
-          <div style={{ marginTop: 64 }}>
-            <h2 className="mono faint" style={{ margin: "0 0 20px" }}>
-              <span className="code-font acc" style={{ textTransform: "none", letterSpacing: 0 }}>$ git checkout -b</span> currently-expanding
-            </h2>
-            <div className="exp stagger">{expanding.map((e) => <span key={e}>{e}</span>)}</div>
           </div>
         </div>
       </section>

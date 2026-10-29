@@ -18,6 +18,7 @@ export const routes: string[] = [
   ...projects.map((p) => `/projects/${p.slug}`),
   "/experience",
   "/skills",
+  "/ai-engineering",
   "/contact",
 ];
 
@@ -63,14 +64,21 @@ const person = {
   knowsAbout: Array.from(new Set([
     ...coreStack,
     ...toolkit.flatMap((t) => t.value.split(/,\s*/)).map((v) => v.replace(/\s*\(.*?\)/, "")),
-    "Full-stack development", "Workforce management systems", "Payroll systems", "ERP development",
-    "Cloud infrastructure", "DevOps", "AI automation", "Technical SEO",
+    "Full-stack development", "Enterprise application development", "Workforce management systems", "Payroll systems", "ERP development",
+    "Cloud infrastructure", "DevOps", "AI application engineering", "LLM API integration", "BM25 retrieval", "Role-based access control",
+    "PostgreSQL row level security", "AI automation", "Technical SEO",
   ])),
   makesOffer: services.map((s) => ({
     "@type": "Offer",
     itemOffered: { "@type": "Service", name: s.title, description: s.text, areaServed: "United Arab Emirates" },
   })),
   homeLocation: { "@type": "City", name: "Dubai" },
+  hasOccupation: {
+    "@type": "Occupation",
+    name: profile.title,
+    occupationLocation: { "@type": "City", name: "Dubai" },
+    skills: coreStack.join(", "),
+  },
   knowsLanguage: ["English", "Malayalam"],
   sameAs: [profile.linkedin, profile.github],
 };
@@ -125,9 +133,9 @@ export function getHead(rawPath: string): Head {
   const path = rawPath.replace(/\/+$/, "") || "/";
 
   if (path === "/") {
-    const title = `${profile.siteName} — ${profile.title} in Dubai`;
+    const title = `${profile.siteName} — ${profile.title} in Dubai, UAE`;
     const description =
-      "Software & Systems Engineer in Dubai building production business apps, workforce platforms and cloud systems with React, TypeScript, PostgreSQL and Python.";
+      "Full-Stack Software Engineer in Dubai: enterprise applications, AI engineering and cloud & DevOps. React, Next.js, TypeScript, Python, PostgreSQL, Supabase.";
     return {
       title, description, path, ogType: "profile",
       keywords: seoKeywords,
@@ -138,7 +146,7 @@ export function getHead(rawPath: string): Head {
   if (path === "/about") {
     const title = `About Reejan Gopan (${profile.name}) — Dubai`;
     const description =
-      "About Reejan R Gopan, a Dubai-based Software & Systems Engineer building workforce, payroll and ERP systems and running the cloud, security and IT behind them.";
+      "About Reejan R Gopan, a Dubai-based Full-Stack Software Engineer and IT systems professional building enterprise applications, automation, cloud and AI-enabled software.";
     return {
       title, description, path, ogType: "profile",
       keywords: [...profile.alternateNames, profile.name, "Software Engineer Dubai", "Systems Engineer UAE"],
@@ -284,7 +292,7 @@ export function getHead(rawPath: string): Head {
   if (path === "/projects") {
     const title = `Projects — ${profile.siteName}, Software Engineer`;
     const description =
-      "Projects by Reejan R Gopan: WAQTI workforce platform, USF Group websites with SEO and GEO, custom ERP & CRM systems, IT infrastructure and a trading system.";
+      "Case studies by Reejan R Gopan: WAQTI workforce platform, DEVV AI copilot, ERP, Next.js and React websites for USF Group, trading platform and IT infrastructure.";
     return {
       title, description, path, ogType: "website",
       jsonLd: graph(
@@ -309,14 +317,17 @@ export function getHead(rawPath: string): Head {
       jsonLd: graph(
         page("WebPage", path, title, project.seoDescription, {
           mainEntity: {
-            "@type": project.slug.startsWith("waqti") ? "SoftwareApplication" : "CreativeWork",
+            "@type": project.slug.startsWith("waqti") || project.slug.startsWith("devv") ? "SoftwareApplication" : "CreativeWork",
+            creativeWorkStatus: project.status,
             name: project.name,
             description: project.short,
             author: { "@id": `${SITE_URL}/#person` },
             keywords: [...project.stack, ...project.keywords].join(", "),
             ...(project.slug.startsWith("waqti")
               ? { applicationCategory: "BusinessApplication", operatingSystem: "Web, Android" }
-              : {}),
+              : project.slug.startsWith("devv")
+                ? { applicationCategory: "BusinessApplication", operatingSystem: "Web" }
+                : {}),
             ...(project.link ? { sameAs: project.link.href } : {}),
           },
         }),
@@ -356,10 +367,20 @@ export function getHead(rawPath: string): Head {
     };
   }
 
+  if (path === "/ai-engineering") {
+    const title = `AI Engineering — ${profile.siteName}`;
+    const description =
+      "AI engineering by Reejan R Gopan: LLM applications and copilots, retrieval with BM25 and vector search, reliability, role-aware security and AI-assisted development.";
+    return {
+      title, description, path, ogType: "website",
+      jsonLd: graph(page("WebPage", path, title, description), breadcrumbs([{ name: "AI Engineering", path }])),
+    };
+  }
+
   if (path === "/contact") {
     const title = `Contact ${profile.siteName} — Software Engineer in Dubai`;
     const description =
-      "Contact Reejan R Gopan, Software & Systems Engineer in Dubai — email, phone, LinkedIn and CV. Open to Software, Full-Stack, Cloud and Systems roles.";
+      "Contact Reejan R Gopan, Full-Stack Software Engineer in Dubai: email, LinkedIn and CV. Open to Full-Stack, Enterprise, AI and Cloud Engineering roles.";
     return {
       title, description, path, ogType: "website",
       jsonLd: graph(page("ContactPage", path, title, description), breadcrumbs([{ name: "Contact", path }])),

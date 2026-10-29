@@ -61,13 +61,31 @@ export default function ChatPanel({ onClose }: { onClose: () => void }) {
   const listRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const abortRef = useRef<AbortController | null>(null);
+  // Follow new text only while the reader is at the bottom; otherwise offer a jump button.
+  const stuckRef = useRef(true);
+  const [atBottom, setAtBottom] = useState(true);
 
   useEffect(() => inputRef.current?.focus(), []);
   // Follow the conversation — but start at the top so the welcome message is visible on small screens.
   useEffect(() => {
     const el = listRef.current;
-    if (el && messages.length) el.scrollTop = el.scrollHeight;
+    if (!el || !messages.length) return;
+    if (messages[messages.length - 1].role === "user") stuckRef.current = true; // sending always jumps down
+    if (stuckRef.current) el.scrollTop = el.scrollHeight;
   }, [messages, busy]);
+  const onListScroll = () => {
+    const el = listRef.current;
+    if (!el) return;
+    const near = el.scrollHeight - el.scrollTop - el.clientHeight < 80;
+    stuckRef.current = near;
+    setAtBottom(near);
+  };
+  const jumpToLatest = () => {
+    const el = listRef.current;
+    if (!el) return;
+    stuckRef.current = true;
+    el.scrollTo({ top: el.scrollHeight, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  };
   useEffect(() => {
     const onKey = (e: globalThis.KeyboardEvent) => e.key === "Escape" && onClose();
     window.addEventListener("keydown", onKey);
@@ -213,7 +231,7 @@ export default function ChatPanel({ onClose }: { onClose: () => void }) {
         ))}
       </nav>
 
-      <div className="chat-list" ref={listRef} aria-live="polite">
+      <div className="chat-list" ref={listRef} role="log" aria-live="polite" aria-label="Conversation" tabIndex={0} onScroll={onListScroll}>
         <div className="chat-welcome">
           <BotAvatar size={44} />
           <div className="chat-msg bot">
@@ -249,6 +267,9 @@ export default function ChatPanel({ onClose }: { onClose: () => void }) {
           <div className="chat-msg bot chat-typing" aria-label="Assistant is typing">
             <i /><i /><i />
           </div>
+        )}
+        {!atBottom && messages.length > 0 && (
+          <button type="button" className="chat-jump" onClick={jumpToLatest}>Latest ↓</button>
         )}
       </div>
 
