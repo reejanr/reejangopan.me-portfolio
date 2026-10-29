@@ -23,6 +23,19 @@ export default function Contact() {
             <a className="btn btn-ghost" href={`${profile.whatsapp}?text=${encodeURIComponent("Hi Reejan, I found your website and would like to discuss a project.")}`} target="_blank" rel="noopener noreferrer">WhatsApp</a>
           </div>
         </div>
+        <div className="lead-box rv" style={{ marginTop: 56 }}>
+          <div>
+            <p className="disp h3" style={{ margin: 0 }}>Hiring or recruiting?</p>
+            <p className="body" style={{ margin: "10px 0 0" }}>
+              I am open to {profile.openTo}. Send the role title, team and location and I will reply with my CV, relevant case studies and my availability.
+            </p>
+          </div>
+          <div className="lead-actions">
+            <a className="btn btn-acc" href={`mailto:${profile.email}?subject=${encodeURIComponent("Role enquiry for Reejan Gopan")}`}>Email about a role</a>
+            <a className="btn btn-ghost" href={profile.cv} download>Download CV <Download /></a>
+            <a className="btn btn-ghost" href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
         <address className="ct rv" style={{ marginTop: 64, fontStyle: "normal" }}>
           <a href={`mailto:${profile.email}`}><span className="mono faint">Email</span><div className="ct-v">{profile.email}</div></a>
           <a href={profile.phoneHref}><span className="mono faint">Phone</span><div className="ct-v">{profile.phone}</div></a>

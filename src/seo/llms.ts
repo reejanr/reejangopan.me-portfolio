@@ -47,6 +47,7 @@ export function llmsTxt(): string {
     "## Guides",
     ...guides.map((g) => `- [${g.ask}](${SITE_URL}/guides/${guideSlug(g.ask)})`),
     "",
+    `- [AI engineering](${SITE_URL}/ai-engineering): LLM applications, retrieval (BM25, RAG), reliability and role-aware security`,
     `- [How this site is built](${SITE_URL}/how-this-site-is-built): React + TypeScript, prerendering, structured data, BM25 chatbot`,
     "",
     "## Experience",

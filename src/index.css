@@ -387,7 +387,8 @@ img, svg { max-width: 100%; }
 @property --num { syntax: "<integer>"; inherits: false; initial-value: 0; }
 @property --sp { syntax: "<integer>"; inherits: false; initial-value: 0; }
 .count { --num: var(--to); counter-reset: c var(--num); animation: count 1.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s both; }
-.count::before { content: counter(c); }
+.count::before { content: attr(data-p) counter(c); }
+.count::after { content: attr(data-s); color: var(--acc-ink); }
 @keyframes count { from { --num: 0; } to { --num: var(--to); } }
 
 /* ---------- scroll-driven animations (progressive enhancement) ---------- */
@@ -734,3 +735,98 @@ html.menu-open .chat-launch { display: none; }
   .chat-panel { inset: 0; top: 0; bottom: auto; width: auto; height: 100vh; height: 100dvh; border-radius: 0; border: 0; z-index: 120; padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }
   .chat-welcome .bot-av { display: none; }
 }
+
+/* ---------- more scroll motion (driven by useScrollFx in fx.ts) ----------
+   --sx is the element's progress through the viewport (0 entering → 1 leaving).
+   Uses the individual `translate` / `scale` properties so reveal transforms are untouched. */
+.nav { transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s, background-color 0.3s; }
+html[data-nav="hidden"] .nav { transform: translateY(-100%); }
+html[data-scrolled="true"] .nav { box-shadow: 0 10px 30px -18px rgba(0, 0, 0, 0.45); }
+
+.sx { will-change: translate, scale; }
+.sx-par   { translate: 0 calc((0.5 - var(--sx, 0.5)) * 90px); }
+.sx-drift { translate: 0 calc((var(--sx, 0.5) - 0.5) * 140px); }
+.sx-rise  { translate: 0 calc(max(0, 0.45 - var(--sx, 0.5)) * 160px); }
+.sx-scale { scale: calc(0.93 + min(var(--sx, 0.5) * 2.4, 1) * 0.07); }
+.sx-zoom  { scale: calc(0.82 + min(var(--sx, 0.5) * 1.8, 1) * 0.18); transform-origin: 0 50%; }
+.sx-slide { translate: calc(max(0, 0.4 - var(--sx, 0.5)) * 140px) 0; }
+.sx-slide:nth-child(even) { translate: calc(max(0, 0.4 - var(--sx, 0.5)) * -140px) 0; }
+
+/* paragraph that fills in as you read down the page */
+.sx-fill {
+  color: transparent;
+  background: linear-gradient(to bottom, var(--fg) 0 44%, var(--faint) 56% 100%) 0 100% / 100% 220% no-repeat;
+  -webkit-background-clip: text; background-clip: text;
+  background-position: 0 calc(100% - min(max(0, (var(--sx, 0.5) - 0.2) * 2.2), 1) * 100%);
+}
+html:not(.js) .sx-fill { color: var(--fg); background: none; }
+@media (max-width: 760px) { .sx-slide, .sx-slide:nth-child(even) { translate: none; } .sx-par, .sx-drift { translate: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .sx, .sx-fill { translate: none !important; scale: none !important; }
+  .sx-fill { color: var(--fg); background: none; }
+  html[data-nav="hidden"] .nav { transform: none; }
+}
+
+/* ---------- type motion (useTextFx) ---------- */
+/* words light up in sequence as the paragraph travels up the screen */
+.words .w { opacity: calc(0.14 + 0.86 * min(max(0, (var(--sx, 0.5) * 3 - 0.15 - var(--wi) / var(--wn)) * 3), 1)); }
+
+/* blinking terminal caret after each section heading, a few blinks once it has been revealed */
+.js .sec-head h2.hw::after { content: "_"; margin-left: 0.06em; color: var(--acc); opacity: 0; font-weight: 400; }
+.js .sec-head h2.hw.is-in::after { animation: caret 1s steps(1) 0.9s 6; }
+@keyframes caret { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .words .w { opacity: 1; }
+  .js .sec-head h2.hw::after { animation: none; }
+}
+@media print { .band { display: none; } }
+
+/* ---------- more developer-flavoured scroll touches ---------- */
+/* "$ scroll --down" hint under the hero; fades once the page has been scrolled */
+.scroll-hint { display: flex; align-items: center; gap: 10px; margin: 36px 0 0; font-family: "JetBrains Mono", "Mono Fallback", monospace; font-size: 12.5px; color: var(--faint); transition: opacity 0.4s; }
+.scroll-hint i { width: 1px; height: 28px; background: linear-gradient(var(--acc), transparent); transform-origin: 0 0; animation: hintdrop 1.8s cubic-bezier(0.6, 0, 0.3, 1) infinite; }
+@keyframes hintdrop { 0% { transform: scaleY(0); } 50% { transform: scaleY(1); } 100% { transform: scaleY(1); opacity: 0; } }
+html[data-scrolled="true"] .scroll-hint { opacity: 0; }
+
+/* the scroll HUD names the section you are in */
+.hud .sec { max-width: 22ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--acc-ink); }
+.hud .sec:empty { display: none; }
+@media (max-width: 760px) { .hud .sec { display: none; } }
+
+/* big type leans with scroll speed (--skew is written by useScrollFx) */
+.band-row, .proj-t, .svc-card-t { transform: skewX(calc(var(--skew, 0) * -1deg)); transform-origin: 0 50%; }
+
+/* an accent glow that drifts down the page with the scroll position */
+html::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(480px circle at 88% calc(12% + var(--p, 0) * 70%), var(--acc-soft), transparent 70%);
+}
+
+/* terminal line in the footer */
+.tline { display: block; margin-top: 36px; color: var(--faint); }
+@media (prefers-reduced-motion: reduce) { .scroll-hint i { animation: none; } .band-row, .proj-t, .svc-card-t { transform: none; } }
+@media print { .scroll-hint { display: none; } }
+
+/* chat: jump back to the newest message after reading earlier ones */
+.chat-list:focus-visible { outline-offset: -3px; }
+.chat-jump {
+  position: sticky; bottom: 0; align-self: center; flex: none; margin-top: auto; padding: 8px 16px; min-height: 36px;
+  border-radius: 999px; border: 1px solid var(--line-2); background: var(--acc); color: var(--on-acc);
+  font: 600 13px "Geist Sans", system-ui, sans-serif; cursor: pointer; box-shadow: var(--shadow);
+}
+
+/* ---------- AI / Code / Secure band: oversized words that glide left to right by themselves ---------- */
+.band { overflow: hidden; padding: clamp(28px, 5vw, 64px) 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.band-row { display: flex; width: max-content; font-size: clamp(56px, 11vw, 170px); font-weight: 800; letter-spacing: -0.045em; line-height: 1; white-space: nowrap; text-transform: uppercase; animation: bandltr 38s linear infinite; will-change: translate; }
+.band-row > span { padding-right: clamp(28px, 4vw, 64px); }
+.band-row + .band-row { margin-top: 8px; animation-duration: 56s; }
+.band-row .o { color: transparent; -webkit-text-stroke: 1px var(--outline); }
+.band:hover .band-row { animation-play-state: paused; }
+/* two identical halves, so moving by half its width loops seamlessly */
+@keyframes bandltr { from { translate: -50% 0; } to { translate: 0 0; } }
+@media (prefers-reduced-motion: reduce) { .band-row { animation: none; translate: none; } }
+
+/* skills by category */
+.skcat { padding: 28px 0 8px; border-top: 1px solid var(--line); }
+.skcat .h3 { margin: 0 0 8px; }

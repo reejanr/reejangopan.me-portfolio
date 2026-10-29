@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
-import { coreStack, experience, profile, projects, services, stats } from "@/data/site";
-import { CodeWindow, ContactCta, Network, ProjectRow, Rich, SectionHead, Ticker } from "@/components/site/Parts";
+import { coreStack, experience, hero, practices, profile, projects, services, stats } from "@/data/site";
+import { routes } from "@/seo/seo";
+import { CodeWindow, ContactCta, Network, ProjectRow, Rich, ScrollBand, SectionHead, Ticker } from "@/components/site/Parts";
 import { ArrowRight, ArrowUpRight, Download } from "@/components/site/Icons";
+import { guides, guideSlug } from "@/chat/guides";
 import { useDubaiTime, useScramble } from "@/components/site/fx";
 
 export default function Home() {
@@ -22,11 +24,14 @@ export default function Home() {
               <h1 id="hero-title" className="disp h1" style={{ marginTop: 28 }}>
                 <span className="ln"><span ref={nameRef}>{profile.name}</span></span>{" "}
                 <span className="in d1" style={{ display: "block", marginTop: 18, fontSize: "clamp(24px, 2.6vw, 34px)", lineHeight: 1.2, letterSpacing: "-0.02em", fontWeight: 600 }}>
-                  Software &amp; Systems <span className="serif acc" style={{ fontSize: "1.12em" }}>Engineer</span>
+                  Full-Stack Software <span className="serif acc" style={{ fontSize: "1.12em" }}>Engineer</span>
                 </span>
               </h1>
-              <p className="lead in d2" style={{ margin: "24px 0 0", maxWidth: 580, color: "var(--fg)" }}>{profile.tagline}</p>
-              <p className="body in d3" style={{ margin: "14px 0 0", maxWidth: 580 }}>{profile.summary}</p>
+              <p className="in d2" style={{ margin: "20px 0 0", fontFamily: "\"JetBrains Mono\", \"Mono Fallback\", monospace", fontSize: 14, letterSpacing: "0.02em", color: "var(--acc-ink)" }}>{hero.focus.join(" • ")}</p>
+              <p className="lead in d2" style={{ margin: "16px 0 0", maxWidth: 580, color: "var(--fg)" }}>{hero.tagline}</p>
+              <ul className="tags in d3" style={{ margin: "18px 0 0", padding: 0, listStyle: "none" }}>
+                {hero.chips.map((c) => <li key={c} className="tag">{c}</li>)}
+              </ul>
               <div className="hero-actions in d4">
                 <a className="btn btn-acc" href={profile.cv} download>Download CV <Download /></a>
                 <Link className="btn btn-ghost" to="/projects">View projects <ArrowUpRight /></Link>
@@ -37,15 +42,13 @@ export default function Home() {
               <CodeWindow />
             </div>
           </div>
+          <p className="scroll-hint in d5" aria-hidden="true"><span>$ scroll --down</span><i /></p>
           <div className="stats in d5">
             {stats.map((s) => (
               <div key={s.label}>
                 <p className="disp stat-v" style={{ margin: 0 }}>
                   <span className="sr-only">{`${s.prefix ?? ""}${s.value}${s.suffix}`}</span>
-                  <span aria-hidden="true">
-                    {s.prefix}<span className="count" style={{ ["--to" as string]: s.value }} />
-                    <span className="acc">{s.suffix}</span>
-                  </span>
+                  <span className="count" aria-hidden="true" data-p={s.prefix ?? ""} data-s={s.suffix} style={{ ["--to" as string]: s.value }} />
                 </p>
                 <p className="stat-l" style={{ marginBottom: 0 }}>{s.label}</p>
               </div>
@@ -72,10 +75,64 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section" aria-labelledby="case-title">
+        <div className="wrap">
+          <SectionHead
+            n="02" label="featured-case-study"
+            title={<span id="case-title">Featured <span className="serif acc">case study</span></span>}
+            aside={<Link className="text-link" to={`/projects/${projects[0].slug}`}>Read the case study <ArrowRight /></Link>}
+          />
+          <div className="grid-2 rv" style={{ gap: "28px 64px", alignItems: "start" }}>
+            <div>
+              <h3 className="disp h3" style={{ margin: 0 }}>{projects[0].name}</h3>
+              <p className="mono faint" style={{ margin: "10px 0 0" }}>{projects[0].status} · {projects[0].role}</p>
+              <p className="body" style={{ margin: "18px 0 0" }}>{projects[0].problem}</p>
+            </div>
+            <div>
+              <ul className="tags" style={{ margin: 0, padding: 0, listStyle: "none" }}>
+                {projects[0].stack.map((t) => <li key={t} className="tag">{t}</li>)}
+              </ul>
+              <ul style={{ margin: "20px 0 0", padding: 0, listStyle: "none" }}>
+                {projects[0].features.slice(0, 4).map((f) => (
+                  <li key={f.title} className="body" style={{ margin: "0 0 10px" }}><strong>{f.title}.</strong> {f.text}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section" aria-labelledby="practices-title">
+        <div className="wrap">
+          <SectionHead n="03" label="engineering-practices" title={<span id="practices-title">Engineering <span className="serif acc">practices</span></span>} />
+          <dl className="stagger" style={{ margin: 0 }}>
+            {practices.map((p) => (
+              <div key={p.title} className="skrow"><dt>{p.title}</dt><dd>{p.text}</dd></div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      <section className="section" aria-labelledby="ai-title">
+        <div className="wrap">
+          <SectionHead
+            n="04" label="ai-engineering"
+            title={<span id="ai-title">AI engineering <span className="serif acc">&amp; automation</span></span>}
+            aside={<Link className="text-link" to="/ai-engineering">AI engineering <ArrowRight /></Link>}
+          />
+          <p className="lead rv" style={{ maxWidth: 760, margin: 0 }}>
+            Retrieval-grounded assistants, role-aware access and AI-assisted development, built so the application, not the model, decides who sees what.
+          </p>
+          <ul className="tags stagger" style={{ margin: "24px 0 0", padding: 0, listStyle: "none" }}>
+            {["LLM API integration", "BM25 retrieval", "Role-aware retrieval", "AI-assisted development", "Process automation"].map((t) => <li key={t} className="tag">{t}</li>)}
+          </ul>
+        </div>
+      </section>
+
       <section className="section" aria-labelledby="xp-title">
         <div className="wrap">
           <SectionHead
-            n="02" label="experience"
+            n="05" label="experience"
             title={<span id="xp-title">Experience</span>}
             aside={<Link className="text-link" to="/experience">Full experience <ArrowRight /></Link>}
           />
@@ -102,11 +159,30 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section" aria-labelledby="evidence-title">
+        <div className="wrap">
+          <SectionHead n="06" label="evidence" title={<span id="evidence-title">The work, <span className="serif acc">in numbers</span></span>} />
+          <div className="stats stagger">
+            {[
+              { v: "6", l: "WAQTI operational roles documented in the case study" },
+              { v: "4", l: "USF Group websites built and run" },
+              { v: String(projects.length), l: "Featured projects, each with its own case study" },
+              { v: String(routes.length), l: "Pages prerendered on this portfolio's last build" },
+            ].map((e) => (
+              <div key={e.l}>
+                <p className="disp stat-v" style={{ margin: 0 }}>{e.v}</p>
+                <p className="stat-l" style={{ marginBottom: 0 }}>{e.l}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="section" aria-labelledby="stack-title" style={{ position: "relative", overflow: "hidden" }}>
         <div className="wm" aria-hidden="true">&lt;/&gt;</div>
         <div className="wrap" style={{ position: "relative" }}>
           <SectionHead
-            n="03" label="stack"
+            n="07" label="stack"
             title={<span id="stack-title">Core <span className="serif acc">stack</span></span>}
             aside={<Link className="text-link" to="/skills">Full toolkit <ArrowRight /></Link>}
           />
@@ -121,10 +197,32 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section" aria-labelledby="writing-title">
+        <div className="wrap">
+          <SectionHead
+            n="08" label="technical-writing"
+            title={<span id="writing-title">Technical <span className="serif acc">writing</span></span>}
+            aside={<Link className="text-link" to="/guides">All guides <ArrowRight /></Link>}
+          />
+          <ul className="svc-grid stagger">
+            {guides.slice(0, 3).map((g) => (
+              <li key={g.ask} className="rv">
+                <Link to={`/guides/${guideSlug(g.ask)}`} className="svc-card spot">
+                  <span className="disp svc-card-t">{g.ask}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <p className="body" style={{ marginTop: 20 }}>
+            See also <Link className="acc" to="/how-this-site-is-built">how this site is built</Link>, including its BM25 assistant.
+          </p>
+        </div>
+      </section>
+
       <section className="section" aria-labelledby="svc-title">
         <div className="wrap">
           <SectionHead
-            n="04" label="services"
+            n="09" label="services"
             title={<span id="svc-title">What I <span className="serif acc">build &amp; run</span></span>}
             aside={<Link className="text-link" to="/services">All services <ArrowRight /></Link>}
           />
@@ -140,6 +238,8 @@ export default function Home() {
           </ul>
         </div>
       </section>
+
+      <ScrollBand a={["AI", "Code", "Secure", "Automate"]} b={["Build", "Deploy", "Cloud", "Systems"]} />
 
       <ContactCta />
     </>

@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { profile, type Project } from "@/data/site";
+import { routes } from "@/seo/seo";
 import { ArrowUpRight, Check } from "./Icons";
 
 // "// 01 · featured-work" comment that types out on scroll.
@@ -83,7 +84,7 @@ const P = ({ children }: { children: ReactNode }) => <span className="p">{childr
 export function CodeWindow() {
   const code: Line[] = [
     { n: 16, t: 0.35, d: 0.6, c: <><span className="k">const</span> <span className="v">reejan</span> <P>=</P> <P>{"{"}</P></> },
-    { n: 38, t: 0.75, d: 1.0, c: <>{"  role"}<P>:</P> <S>Software &amp; Systems Engineer</S><P>,</P></> },
+    { n: 38, t: 0.75, d: 1.0, c: <>{"  role"}<P>:</P> <S>Full-Stack Software Engineer</S><P>,</P></> },
     { n: 32, t: 0.65, d: 1.8, c: <>{"  stack"}<P>:</P> <P>[</P><S>React</S><P>,</P> <S>TypeScript</S><P>,</P></> },
     { n: 40, t: 0.8, d: 2.5, c: <>{"    "}<S>PostgreSQL</S><P>,</P> <S>Supabase</S><P>,</P> <S>Python</S><P>],</P></> },
     { n: 36, t: 0.7, d: 3.35, c: <>{"  cloud"}<P>:</P> <P>[</P><S>AWS</S><P>,</P> <S>Azure</S><P>,</P> <S>Vercel</S><P>],</P></> },
@@ -94,7 +95,7 @@ export function CodeWindow() {
   ];
   const term: Line[] = [
     { n: 15, t: 0.35, d: 6.4, c: <><P>$</P> npm run build</> },
-    { n: 25, t: 0.01, d: 7.0, c: <><span className="ok">✓</span> 200+ routes prerendered</> },
+    { n: 25, t: 0.01, d: 7.0, c: <><span className="ok">✓</span> {routes.length} routes prerendered</> },
     { n: 15, t: 0.35, d: 7.4, c: <><P>$</P> deploy --prod</> },
     { n: 20, t: 0.01, d: 8.0, c: <><span className="ok">✓</span> live in production</> },
   ];
@@ -103,7 +104,7 @@ export function CodeWindow() {
     <div
       className="ide"
       role="img"
-      aria-label="Code editor: reejan.ts — role Software & Systems Engineer; stack React, TypeScript, PostgreSQL, Supabase, Python; cloud AWS, Azure, Vercel; shipped WAQTI, USF Group websites, ERP & CRM; based in Dubai, UAE; available. Terminal: build and deploy to production."
+      aria-label="Code editor: reejan.ts — role Full-Stack Software Engineer; stack React, TypeScript, PostgreSQL, Supabase, Python; cloud AWS, Azure, Vercel; shipped WAQTI, USF Group websites, ERP & CRM; based in Dubai, UAE; available. Terminal: build and deploy to production."
     >
       <div className="ide-bar">
         <i /><i /><i />
@@ -183,5 +184,31 @@ export function ContactCta() {
         </div>
       </div>
     </section>
+  );
+}
+
+// A terminal line that types itself out when scrolled into view (same mechanics as Comment).
+export function TypedLine({ text }: { text: string }) {
+  return (
+    <span className="cmt tline" style={{ ["--c" as string]: text.length }} aria-hidden="true">
+      {text}
+    </span>
+  );
+}
+
+// Big words that glide left to right on their own (decorative; the loop is pure CSS).
+export function ScrollBand({ a, b }: { a: string[]; b: string[] }) {
+  const row = (items: string[], cls: string, outline: boolean) => (
+    <div className={`band-row disp ${cls}`}>
+      {[...items, ...items].map((t, i) => (
+        <span key={t + i} className={outline ? "o" : undefined}>{t}</span>
+      ))}
+    </div>
+  );
+  return (
+    <div className="band" aria-hidden="true">
+      {row(a, "band-a", false)}
+      {row(b, "band-b", true)}
+    </div>
   );
 }

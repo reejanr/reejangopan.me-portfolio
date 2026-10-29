@@ -2,8 +2,9 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { nav, profile, projects, services } from "@/data/site";
 import { useSeo } from "@/seo/useSeo";
-import { usePointerFx, useReveal } from "./fx";
+import { usePointerFx, useReveal, useScrollFx, useTextFx } from "./fx";
 import { ChatWidget } from "./ChatWidget";
+import { TypedLine } from "./Parts";
 import { ArrowUp, Close, Download, Menu, Moon, Sun } from "./Icons";
 
 function toggleTheme() {
@@ -90,6 +91,8 @@ function Footer() {
             <ul>
               <li><Link to="/">Home</Link></li>
               {nav.map((n) => <li key={n.to}><Link to={n.to}>{n.label}</Link></li>)}
+              <li><Link to="/services">Services</Link></li>
+              <li><Link to="/guides">Guides</Link></li>
               <li><Link to="/how-this-site-is-built">How this site is built</Link></li>
             </ul>
           </div>
@@ -119,6 +122,7 @@ function Footer() {
             </ul>
           </div>
         </div>
+        <TypedLine text={'$ echo "thanks for scrolling"'} />
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} {profile.name} · Dubai, UAE</span>
           <a href="#top" style={{ display: "inline-flex", alignItems: "center", gap: 8, minHeight: 44 }}>
@@ -132,7 +136,7 @@ function Footer() {
 
 // Writes scroll progress (0–100) into --p on <html> and into the HUD readout.
 // Plain scroll events, so it works in every browser.
-function useScrollProgress(pctRef: React.RefObject<HTMLSpanElement>) {
+function useScrollProgress(pctRef: React.RefObject<HTMLSpanElement>, secRef: React.RefObject<HTMLSpanElement>) {
   useEffect(() => {
     let frame = 0;
     const update = () => {
@@ -142,6 +146,14 @@ function useScrollProgress(pctRef: React.RefObject<HTMLSpanElement>) {
       const p = max > 0 ? Math.min(1, Math.max(0, el.scrollTop / max)) : 0;
       document.documentElement.style.setProperty("--p", p.toFixed(4));
       if (pctRef.current) pctRef.current.textContent = String(Math.round(p * 100));
+      // name of the section being read: the last '// 02 · experience' comment above 45% of the screen
+      if (secRef.current) {
+        let label = "";
+        document.querySelectorAll<HTMLElement>(".cmt").forEach((c) => {
+          if (c.getBoundingClientRect().top < window.innerHeight * 0.45) label = (c.textContent ?? "").replace(/^\/\/\s*/, "");
+        });
+        if (secRef.current.textContent !== label) secRef.current.textContent = label;
+      }
     };
     const onScroll = () => { if (!frame) frame = requestAnimationFrame(update); };
     update();
@@ -152,15 +164,18 @@ function useScrollProgress(pctRef: React.RefObject<HTMLSpanElement>) {
       window.removeEventListener("resize", onScroll);
       cancelAnimationFrame(frame);
     };
-  }, [pctRef]);
+  }, [pctRef, secRef]);
 }
 
 export function Layout({ children }: { children: ReactNode }) {
   const { pathname, hash } = useLocation();
   const pctRef = useRef<HTMLSpanElement>(null);
-  useScrollProgress(pctRef);
+  const secRef = useRef<HTMLSpanElement>(null);
+  useScrollProgress(pctRef, secRef);
   usePointerFx();
   useReveal(pathname);
+  useTextFx(pathname);
+  useScrollFx(pathname);
   useSeo();
   // Animate page changes after the first load only (the first paint stays instant for LCP).
   const firstPath = useRef<string | null>(null);
@@ -189,6 +204,7 @@ export function Layout({ children }: { children: ReactNode }) {
       <ChatWidget />
       <div className="hud" aria-hidden="true">
         <span>scroll</span>
+        <span className="sec" ref={secRef} />
         <span className="bar"><span /></span>
         <span className="pct" ref={pctRef}>0</span>
         <span>%</span>

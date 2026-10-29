@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { about, faqs, profile } from "@/data/site";
+import { about, confidentiality, faqs, profile } from "@/data/site";
 import { Breadcrumbs, Comment, ContactCta, SectionHead } from "@/components/site/Parts";
 import { ArrowRight, Download } from "@/components/site/Icons";
 
@@ -12,7 +12,7 @@ export default function About() {
           <div style={{ marginTop: 32 }}>
             <Comment n="00" label="about" />
             <h1 id="page-title" className="disp h1 hw">About <span className="serif acc">Reejan</span></h1>
-            <p className="lead" style={{ maxWidth: 820, marginTop: 28, color: "var(--fg)" }}>{about.intro}</p>
+            <p className="lead sx-fill" style={{ maxWidth: 820, marginTop: 28 }}>{about.intro}</p>
           </div>
         </div>
       </section>
@@ -50,7 +50,8 @@ export default function About() {
               </div>
             ))}
           </div>
-          <p className="lead rv" style={{ marginTop: 40, maxWidth: 820 }}>{about.direction}</p>
+          <p className="lead rv sx-fill" style={{ marginTop: 40, maxWidth: 820 }}>{about.direction}</p>
+          <p className="body" style={{ marginTop: 16, maxWidth: 820 }}>{confidentiality}</p>
           <p className="body" style={{ marginTop: 16 }}>
             See the <Link className="acc" to="/projects">projects</Link> and the full{" "}
             <Link className="acc" to="/skills">tech stack</Link>.
