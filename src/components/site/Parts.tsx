@@ -56,7 +56,7 @@ export function ProjectRow({ p, i, headingLevel = 3 }: { p: Project; i: number; 
         {p.result && (
           <div className="proj-m"><Check size={14} />{p.result}</div>
         )}
-        <div className="tags stagger">{p.stack.map((t) => <span key={t} className="tag">{t}</span>)}</div>
+        {p.stack.length > 0 && <div className="tags stagger">{p.stack.map((t) => <span key={t} className="tag">{t}</span>)}</div>}
       </div>
       <ArrowUpRight size={28} className="proj-a" />
     </Link>

@@ -39,7 +39,7 @@ export function llmsTxt(): string {
     `- [Contact](${SITE_URL}/contact)`,
     "",
     "## Projects",
-    ...projects.map((p) => `- [${p.name}](${SITE_URL}/projects/${p.slug}): ${p.short} (${p.stack.join(", ")})`),
+    ...projects.map((p) => `- [${p.name}](${SITE_URL}/projects/${p.slug}): ${p.short}${p.stack.length ? ` (${p.stack.join(", ")})` : ""}`),
     "",
     "## Services",
     ...services.map((s) => `- [${s.title}](${SITE_URL}/services/${s.id}): ${s.tools.join(", ")}`),
@@ -47,6 +47,7 @@ export function llmsTxt(): string {
     "## Guides",
     ...guides.map((g) => `- [${g.ask}](${SITE_URL}/guides/${guideSlug(g.ask)})`),
     "",
+    `- [Engineering playbook](${SITE_URL}/engineering-playbook): architecture, data integrity, security, scale, reliability, CI/CD and audits`,
     `- [AI engineering](${SITE_URL}/ai-engineering): LLM applications, retrieval (BM25, RAG), reliability and role-aware security`,
     `- [How this site is built](${SITE_URL}/how-this-site-is-built): React + TypeScript, prerendering, structured data, BM25 chatbot`,
     "",
@@ -83,7 +84,7 @@ export function llmsFullTxt(): string {
       `### ${p.name}`,
       `URL: ${SITE_URL}/projects/${p.slug}`,
       `Category: ${p.category} · Status: ${p.status} · Timeline: ${p.period} · Role: ${p.role}`,
-      `Stack: ${p.stack.join(", ")}`,
+      ...(p.stack.length ? [`Stack: ${p.stack.join(", ")}`] : []),
       ...p.overview,
       ...(p.problem ? [`Problem: ${p.problem}`] : []),
       ...p.features.map((f) => `- ${f.title}: ${f.text}`),
@@ -110,5 +111,7 @@ export function llmsFullTxt(): string {
     "",
     "## FAQ",
     ...faqs.flatMap((f) => [`### ${f.q}`, f.a, ""]),
+    "## Engineering knowledge (general guidance Reejan publishes at /engineering-playbook)",
+    ...guides.filter((g) => g.topic === "engineering").flatMap((g) => [`### ${g.ask}`, `URL: ${SITE_URL}/guides/${guideSlug(g.ask)}`, plain(g.a), ""]),
   ].join("\n");
 }

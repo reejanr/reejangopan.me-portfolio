@@ -118,7 +118,7 @@ export default function Engineering() {
           <SectionHead n="05" label="next" title={<>Want this quality <span className="serif acc">for your business?</span></>} />
           <p className="body" style={{ maxWidth: 680 }}>
             The same approach powers his client work — see the <Link className="acc" to="/projects">case studies</Link>,
-            the <Link className="acc" to="/services">services</Link> and the <Link className="acc" to="/guides">tech guides</Link>.
+            the <Link className="acc" to="/services">services</Link> and the <Link className="acc" to="/guides">tech guides</Link> and the <Link className="acc" to="/engineering-playbook">engineering playbook</Link>.
           </p>
           <div style={{ marginTop: 32 }}><LeadCta /></div>
         </div>

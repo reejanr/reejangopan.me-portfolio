@@ -97,7 +97,8 @@ function buildDocs(): Doc[] {
   projects.forEach((p) => {
     add(`p-${p.slug}`, `Tell me about ${p.name.split(" — ")[0]}`,
       `${p.name} ${p.slug.replace(/-/g, " ")} ${p.category} ${p.keywords.join(" ")} ${p.stack.join(" ")}`,
-      `**${p.name}** (${p.status})\n${p.short}${p.result ? `\nResult: ${p.result}.` : ""}\nBuilt with: ${p.stack.join(", ")}.\n\nCase study: ${url(`/projects/${p.slug}`)}`);
+      `**${p.name}** (${p.status})\n${p.short}${p.result ? `\nResult: ${p.result}.` : ""}${p.stack.length ? `
+Built with: ${p.stack.join(", ")}.` : ""}\n\nCase study: ${url(`/projects/${p.slug}`)}`);
   });
   add("services", "What services does he offer?",
     "services service offer help can he do what does he do freelance consulting work with",

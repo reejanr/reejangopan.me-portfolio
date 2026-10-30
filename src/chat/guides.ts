@@ -2,7 +2,11 @@
 // website/app, and running a startup's tech. General advice — never claims about Reejan
 // beyond what his services and projects show.
 
-export type Topic = "business" | "stacks" | "scaling" | "planning" | "startup" | "security";
+import { engineeringGuides } from "./engineeringGuides";
+import { fundamentalsGuides } from "./fundamentalsGuides";
+import { advancedGuides } from "./advancedGuides";
+
+export type Topic = "business" | "stacks" | "scaling" | "planning" | "startup" | "security" | "engineering";
 export type Guide = { topic: Topic; ask: string; k: string; a: string; next?: string[] };
 
 const S = "https://reejangopan.me/services";
@@ -14,9 +18,13 @@ export const topicLabels: Record<Topic, string> = {
   planning: "Before you build",
   startup: "Startups & automation",
   security: "Security",
+  engineering: "Enterprise engineering",
 };
 
 export const guides: Guide[] = [
+  ...engineeringGuides,
+  ...fundamentalsGuides,
+  ...advancedGuides,
 
   // ======================= FOR BUSINESSES (one-stop setup by Reejan) =======================
   {
@@ -773,6 +781,7 @@ export const topicIntros: Record<Topic, string> = {
   planning: "What to decide before building a website or web app.",
   startup: "Tools, processes and automation for new and growing companies.",
   security: "Practical protection for websites, data and teams.",
+  engineering: "Architecture, data, security, scale, reliability and delivery — the full software-engineering playbook.",
 };
 
 // Plain-text summary of a guide (markdown, links and list markers removed) for meta descriptions and cards.

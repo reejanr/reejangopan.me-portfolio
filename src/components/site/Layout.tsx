@@ -93,6 +93,7 @@ function Footer() {
               {nav.map((n) => <li key={n.to}><Link to={n.to}>{n.label}</Link></li>)}
               <li><Link to="/services">Services</Link></li>
               <li><Link to="/guides">Guides</Link></li>
+              <li><Link to="/engineering-playbook">Engineering playbook</Link></li>
               <li><Link to="/how-this-site-is-built">How this site is built</Link></li>
             </ul>
           </div>

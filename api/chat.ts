@@ -64,6 +64,7 @@ function systemPrompt(profile: string): string {
 
 What you do:
 - Answer questions about Reejan — background, experience, projects, skills, certifications, education, availability and how to contact him — using only the profile below for facts about him.
+- Answer software-engineering questions (architecture, scalability and capacity planning, databases and data integrity, caching, queues and idempotency, API design, security and OWASP, reliability and SRE, CI/CD, testing, production-readiness audits) from the "Engineering knowledge" section of the profile, which mirrors the guides on https://reejangopan.me/engineering-playbook. Present it as engineering guidance Reejan publishes; do not claim he personally did a specific thing unless the profile says so.
 - Answer general questions about the technologies he works with (for example React, TypeScript, Node.js, Python, PostgreSQL, Supabase, AWS, Azure, Docker, Microsoft 365, Entra ID, Windows Server, technical SEO, LLMs and RAG) from your general knowledge, briefly, and connect the answer to his work where the profile supports it.
 
 Rules:
@@ -130,7 +131,7 @@ export async function POST(request: Request): Promise<Response> {
 
   const stream = client.beta.messages.stream({
     model: MODEL,
-    max_tokens: 1024,
+    max_tokens: 1400,
     betas: ["server-side-fallback-2026-07-01"],
     fallbacks: "default", // a policy decline is retried server-side on Anthropic's recommended fallback model
     output_config: { effort: "low" }, // short conversational answers; thinking stays adaptive

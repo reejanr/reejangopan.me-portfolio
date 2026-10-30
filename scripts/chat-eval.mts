@@ -34,6 +34,8 @@ const cases: [string, string][] = [
   ["I'm a recruiter", "persona-recruiter"], ["I'm hiring / a recruiter", "persona-recruiter"], ["I need a website or app", "persona-client"],
   ["I'm a developer / student", "persona-developer"], ["Just exploring", "persona-exploring"], ["I'm starting a business", "persona-founder"], ["i need a website for my business", "persona-client|g-planning|g-stacks"], ["i am starting a business", "persona-founder|g-startup"],
  ["results achievements", "impact"], ["does he know mongodb", "t-MongoDB"], ["flutter apps", "t-Flutter"],
+ ["how do i plan for 100000 users", "g-engineering"], ["what is idempotency", "g-engineering|t-"], ["how to prevent double booking", "g-engineering"], ["what are rpo and rto", "g-engineering"],
+ ["how to load test with k6", "g-engineering"], ["what are the golden signals and slos", "g-engineering"], ["zero downtime database migration", "g-engineering"], ["do i need kubernetes", "g-engineering|g-stacks"], ["owasp top 10 threats", "g-engineering|g-security"], ["how to audit production readiness", "g-engineering"], ["what is sdlc", "g-engineering"], ["explain cap theorem", "g-engineering"], ["what is stride threat modelling", "g-engineering"], ["multi tenant saas design", "g-engineering"], ["canary release and feature flags", "g-engineering"], ["what is chaos engineering", "g-engineering"], ["incident management postmortem", "g-engineering"], ["soc 2 and iso 27001", "g-engineering"], ["opentelemetry tracing", "g-engineering"], ["what is big o notation", "g-engineering"], ["what is docker and terraform", "g-engineering"], ["git branching strategy", "g-engineering"], ["solid principles", "g-engineering"], ["what is ddd and cqrs", "g-engineering"],
 ];
 let pass = 0;
 for (const [q, want] of cases) {
