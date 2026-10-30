@@ -87,9 +87,9 @@ export const projects: Project[] = [
     period: "2025 — present",
     role: "Design, full-stack development, database & deployment",
     result: "Digitised attendance for site supervisors across multiple project sites",
-    stack: ["React", "TypeScript", "Supabase", "PostgreSQL", "PWA", "Android"],
+    stack: [],
     overview: [
-      "WAQTI is a workforce management platform built for a multi-site construction and demolition business. It replaces paper attendance and manual calculations with a supervisor Android app, a progressive web app and a web dashboard on one PostgreSQL core.",
+      "WAQTI is a workforce management platform built for a multi-site construction and demolition business. It replaces paper attendance and manual calculations with a supervisor Android app, a progressive web app and a web dashboard on one central database.",
       "It covers the workforce lifecycle from check-in to payroll, and is designed so supervisors on site need as few taps as possible.",
     ],
     problem:
@@ -100,17 +100,17 @@ export const projects: Project[] = [
       { title: "Overtime engine", text: "Normal, additional, Sunday and public-holiday overtime with sessions, approvals, claims and audit logs." },
       { title: "Leave", text: "Employee leave requests, annual and labour leave, Document Controller processing and admin approvals." },
       { title: "Payroll", text: "Attendance-based daily salary, absence deductions, overtime calculation, payslips and payroll-period closing." },
-      { title: "Security & data", text: "PostgreSQL data model for staff, sites and attendance on Supabase, Row Level Security, server-side RPC, role authorisation and audit logging." },
+      { title: "Security & data", text: "Secure data model for staff, sites and attendance, row-level access control, role authorisation and audit logging." },
     ],
     outcomes: [
       "Attendance digitised for site supervisors across multiple project sites",
       "Six operational roles served: Admin, Employee, Supervisor, Engineer, HSE and Document Controller",
-      "Web, PWA and Android clients on a single PostgreSQL source of truth",
+      "Web, mobile and Android clients on a single source of truth",
     ],
     seoTitle: "WAQTI Workforce Management Platform — Case Study",
     seoDescription:
-      "Case study: WAQTI, a React, TypeScript and Supabase/PostgreSQL workforce platform for attendance, overtime, leave and payroll, built by Reejan R Gopan in Dubai.",
-    keywords: ["workforce management software", "attendance app", "payroll system", "Supabase", "PostgreSQL", "React"],
+      "Case study: WAQTI, a workforce platform for attendance, overtime, leave and payroll, built by Reejan R Gopan in Dubai.",
+    keywords: ["workforce management software", "attendance app", "payroll system"],
   },
   {
     slug: "devv-ai-workforce-copilot",
@@ -154,10 +154,10 @@ export const projects: Project[] = [
     period: "2025 — present",
     role: "Requirements, architecture & full-stack development",
     result: "In development — one system for operations, finance and customers",
-    stack: ["React", "TypeScript", "PostgreSQL", "Supabase", "REST APIs"],
+    stack: [],
     overview: [
       "Custom ERP and CRM systems built for companies that had outgrown spreadsheets and disconnected tools. Each one is shaped around how that business actually works, instead of forcing the team into a generic product.",
-      "The ERP side runs people, operations and finance; the CRM side tracks leads, customers and sales. Both sit on one relational PostgreSQL database, so management sees the whole business in one place.",
+      "The ERP side runs people, operations and finance; the CRM side tracks leads, customers and sales. Both sit on one central database, so management sees the whole business in one place.",
     ],
     problem:
       "Companies were running HR, operations, sales and accounting across spreadsheets, email and separate apps — data was duplicated, follow-ups were missed and nobody had a single, reliable view of the business.",
@@ -167,7 +167,7 @@ export const projects: Project[] = [
       { title: "ERP — finance (planned)", text: "Planned: accounting workflows, invoicing and integration with accounting software such as Zoho Books, with UAE e-invoicing readiness. These are on the roadmap and not yet implemented." },
       { title: "CRM — leads & pipeline", text: "Lead capture from website forms, calls and WhatsApp, sales pipeline stages, follow-up reminders and ownership by salesperson." },
       { title: "CRM — customers", text: "Customer and contact records, quotations, activity history and a full view of every client relationship." },
-      { title: "Reporting & automation", text: "Management dashboards, automated notifications and reports, and audit logs on a secure PostgreSQL core." },
+      { title: "Reporting & automation", text: "Management dashboards, automated notifications and reports, and audit logs on a secure core." },
     ],
     outcomes: [
       "Design goal: one source of truth for operations, finance and customers",
@@ -178,7 +178,7 @@ export const projects: Project[] = [
     seoTitle: "Custom ERP & CRM Development for Companies in Dubai, UAE",
     seoDescription:
       "Custom ERP and CRM systems for companies in Dubai — HR, payroll, operations, accounting, leads and sales pipelines — built by Reejan R Gopan.",
-    keywords: ["custom ERP development Dubai", "custom CRM development UAE", "ERP developer Dubai", "CRM software UAE", "HR and payroll system", "PostgreSQL", "React"],
+    keywords: ["custom ERP development Dubai", "custom CRM development UAE", "ERP developer Dubai", "CRM software UAE", "HR and payroll system"],
   },
   {
     slug: "usf-group-web-platforms",

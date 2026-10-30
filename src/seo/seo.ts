@@ -14,6 +14,7 @@ export const routes: string[] = [
   "/guides",
   ...guides.map((g) => `/guides/${guideSlug(g.ask)}`),
   "/how-this-site-is-built",
+  "/engineering-playbook",
   "/projects",
   ...projects.map((p) => `/projects/${p.slug}`),
   "/experience",
@@ -285,6 +286,25 @@ export function getHead(rawPath: string): Head {
           datePublished: "2026-10-12", dateModified: BUILT, image: OG_IMAGE, mainEntityOfPage: abs(path),
         },
         breadcrumbs([{ name: "How this site is built", path }]),
+      ),
+    };
+  }
+
+  if (path === "/engineering-playbook") {
+    const title = "Enterprise Software Engineering Playbook — Architecture, Security & Scale";
+    const description =
+      "Software engineering handbook: architecture, capacity planning, data integrity, security, reliability, CI/CD, load testing and production-readiness audits — a reference by Reejan R Gopan.";
+    return {
+      title, description, path, ogType: "article",
+      keywords: ["software architecture", "enterprise software engineering", "system design", "scalability", "OWASP", "SRE", "CI/CD", "database design", "Reejan Gopan"],
+      jsonLd: graph(
+        page("WebPage", path, title, description, { mainEntity: { "@id": `${abs(path)}#article` } }),
+        {
+          "@type": "TechArticle", "@id": `${abs(path)}#article`, headline: "Enterprise software engineering playbook", description,
+          author: { "@id": `${SITE_URL}/#person` }, publisher: { "@id": `${SITE_URL}/#person` },
+          datePublished: "2026-10-30", dateModified: BUILT, image: OG_IMAGE, mainEntityOfPage: abs(path),
+        },
+        breadcrumbs([{ name: "Engineering playbook", path }]),
       ),
     };
   }

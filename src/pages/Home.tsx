@@ -4,6 +4,7 @@ import { routes } from "@/seo/seo";
 import { CodeWindow, ContactCta, Network, ProjectRow, Rich, ScrollBand, SectionHead, Ticker } from "@/components/site/Parts";
 import { ArrowRight, ArrowUpRight, Download } from "@/components/site/Icons";
 import { guides, guideSlug } from "@/chat/guides";
+import { principles, roadmap } from "@/data/playbook";
 import { useDubaiTime, useScramble } from "@/components/site/fx";
 
 export default function Home() {
@@ -89,10 +90,7 @@ export default function Home() {
               <p className="body" style={{ margin: "18px 0 0" }}>{projects[0].problem}</p>
             </div>
             <div>
-              <ul className="tags" style={{ margin: 0, padding: 0, listStyle: "none" }}>
-                {projects[0].stack.map((t) => <li key={t} className="tag">{t}</li>)}
-              </ul>
-              <ul style={{ margin: "20px 0 0", padding: 0, listStyle: "none" }}>
+              <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
                 {projects[0].features.slice(0, 4).map((f) => (
                   <li key={f.title} className="body" style={{ margin: "0 0 10px" }}><strong>{f.title}.</strong> {f.text}</li>
                 ))}
@@ -110,6 +108,35 @@ export default function Home() {
               <div key={p.title} className="skrow"><dt>{p.title}</dt><dd>{p.text}</dd></div>
             ))}
           </dl>
+        </div>
+      </section>
+
+      <section className="section" aria-labelledby="handbook-title">
+        <div className="wrap">
+          <SectionHead
+            n="03+" label="engineering-handbook"
+            title={<span id="handbook-title">Software engineering <span className="serif acc">handbook</span></span>}
+            aside={<Link className="text-link" to="/engineering-playbook">Read the handbook <ArrowRight /></Link>}
+          />
+          <p className="lead rv" style={{ maxWidth: 760, margin: 0 }}>
+            Architecture, data integrity, security, scalability, reliability and delivery — the methods behind production-grade systems, explained in full.
+          </p>
+          <ul className="pb-cards stagger" style={{ marginTop: 32 }}>
+            {principles.map((c) => (
+              <li key={c.title} className="pb-card spot"><h3 className="disp">{c.title}</h3><p>{c.text}</p></li>
+            ))}
+          </ul>
+          <ol className="pb-road stagger" style={{ marginTop: 24 }}>
+            {roadmap.slice(0, 3).map((r) => (
+              <li key={r.p}><span className="pb-p">{r.p}</span><div><h3 className="disp">{r.name}</h3><p>{r.text}</p></div></li>
+            ))}
+          </ol>
+          <ul className="tags stagger" style={{ margin: "24px 0 0", padding: 0, listStyle: "none" }}>
+            {["Architecture", "Data integrity", "Security", "Scalability", "Reliability & SRE", "CI/CD", "Testing", "Cloud & DevOps", "Audits"].map((t) => <li key={t} className="tag">{t}</li>)}
+          </ul>
+          <div className="rv" style={{ marginTop: 28 }}>
+            <Link className="btn btn-acc" to="/engineering-playbook">Open the engineering handbook <ArrowUpRight /></Link>
+          </div>
         </div>
       </section>
 

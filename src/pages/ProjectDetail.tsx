@@ -36,7 +36,7 @@ export default function ProjectDetail() {
               <div><dt>Role</dt><dd>{p.role}</dd></div>
               <div><dt>Timeline</dt><dd>{p.period}</dd></div>
               <div><dt>Status</dt><dd>{p.status}</dd></div>
-              <div><dt>Stack</dt><dd>{p.stack.slice(0, 4).join(", ")}</dd></div>
+              {p.stack.length > 0 && <div><dt>Stack</dt><dd>{p.stack.slice(0, 4).join(", ")}</dd></div>}
             </dl>
           </div>
         </header>
@@ -102,16 +102,16 @@ export default function ProjectDetail() {
           </div>
         </section>
 
-        <section className="section-sm" aria-labelledby="tech">
+        {p.stack.length > 0 && <section className="section-sm" aria-labelledby="tech">
           <div className="wrap">
             <h2 id="tech" className="mono faint" style={{ margin: "0 0 16px" }}>Technology</h2>
-            <div className="tags stagger">{p.stack.map((t) => <span key={t} className="tag">{t}</span>)}</div>
+            {p.stack.length > 0 && <div className="tags stagger">{p.stack.map((t) => <span key={t} className="tag">{t}</span>)}</div>}
             <p className="body" style={{ marginTop: 24 }}>
               See how this fits my wider <Link className="acc" to="/skills">tech stack</Link> and{" "}
               <Link className="acc" to="/experience">work experience</Link>.
             </p>
           </div>
-        </section>
+        </section>}
       </article>
 
       <nav className="section-sm" aria-label="More projects">
