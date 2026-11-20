@@ -14,17 +14,26 @@
       "source": "/projects/usf-demolition-digital-platform",
       "destination": "/projects/usf-group-web-platforms",
       "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.reejangopan.me" }],
-      "destination": "https://reejangopan.me/:path*",
-      "permanent": true
     }
+  ],
+  "rewrites": [
+    { "source": "/system-design", "destination": "/system-design/index" },
+    { "source": "/system-design/learn/:path*", "destination": "/system-design/index" },
+    { "source": "/system-design/practice", "destination": "/system-design/index" },
+    { "source": "/system-design/lab", "destination": "/system-design/index" },
+    { "source": "/system-design/atlas", "destination": "/system-design/index" },
+    { "source": "/system-design/atlas/compare", "destination": "/system-design/index" },
+    { "source": "/system-design/atlas/challenge/:slug", "destination": "/system-design/index" },
+    { "source": "/system-design/atlas/:slug", "destination": "/system-design/index" },
+    { "source": "/system-design/cheatsheets", "destination": "/system-design/index" }
   ],
   "headers": [
     {
       "source": "/assets/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/system-design/assets/(.*)",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     },
     {

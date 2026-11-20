@@ -26,8 +26,8 @@ function render(text: string, onNav: () => void): ReactNode[] {
             const clean = seg.replace(/[.,;:]+$/, "");
             const tail = seg.slice(clean.length);
             const label = clean.replace(/^https?:\/\//, "");
-            if (clean.startsWith("https://reejangopan.me")) {
-              const path = clean.replace("https://reejangopan.me", "") || "/";
+            if (clean.startsWith("https://www.reejangopan.me") || clean.startsWith("https://reejangopan.me")) {
+              const path = clean.replace(/^https:\/\/(?:www\.)?reejangopan\.me/, "") || "/";
               // The CV is a file, not a page — let the browser download it.
               const link = /\.[a-z0-9]+$/i.test(path)
                 ? <a href={path}>{label}</a>

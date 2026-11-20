@@ -35,4 +35,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://reejangopan.me/sitemap.xml
+Sitemap: https://www.reejangopan.me/sitemap.xml

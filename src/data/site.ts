@@ -1,6 +1,6 @@
 // Single source of truth for all portfolio content, page metadata and structured data.
 
-export const SITE_URL = "https://reejangopan.me";
+export const SITE_URL = "https://www.reejangopan.me";
 
 export const profile = {
   name: "Reejan R Gopan",
