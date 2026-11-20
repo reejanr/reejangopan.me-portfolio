@@ -21,6 +21,7 @@ export const routes: string[] = [
   "/experience",
   "/skills",
   "/ai-engineering",
+  "/devv",
   "/contact",
 ];
 
@@ -399,6 +400,30 @@ export function getHead(rawPath: string): Head {
     return {
       title, description, path, ogType: "website",
       jsonLd: graph(page("WebPage", path, title, description), breadcrumbs([{ name: "AI Engineering", path }])),
+    };
+  }
+
+  if (path === "/devv") {
+    const title = `Devv AI Assistant — Knowledge, Retrieval & RAG | ${profile.siteName}`;
+    const description =
+      "Explore Devv, Reejan Gopan's portfolio AI assistant: browser-based BM25 retrieval, project and engineering knowledge, grounded answers, optional AI fallback and RAG architecture.";
+    return {
+      title, description, path, ogType: "website",
+      keywords: ["Devv AI assistant", "BM25 chatbot", "RAG assistant", "portfolio AI assistant", "Reejan Gopan AI"],
+      jsonLd: graph(
+        page("WebPage", path, title, description, { mainEntity: { "@id": `${abs(path)}#software` } }),
+        {
+          "@type": "SoftwareApplication",
+          "@id": `${abs(path)}#software`,
+          name: "Devv AI Assistant",
+          applicationCategory: "BusinessApplication",
+          operatingSystem: "Web",
+          description,
+          author: { "@id": `${SITE_URL}/#person` },
+          url: abs(path),
+        },
+        breadcrumbs([{ name: "Devv AI Assistant", path }]),
+      ),
     };
   }
 

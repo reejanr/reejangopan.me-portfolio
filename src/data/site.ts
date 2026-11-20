@@ -366,6 +366,7 @@ export const nav: { to: string; label: string; document?: boolean }[] = [
   { to: "/skills", label: "Skills" },
   { to: "/system-design/", label: "System Design", document: true },
   { to: "/ai-engineering", label: "AI Engineering" },
+  { to: "/devv", label: "Devv AI" },
   { to: "/experience", label: "Experience" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },

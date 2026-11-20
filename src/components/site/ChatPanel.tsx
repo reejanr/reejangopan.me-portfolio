@@ -53,9 +53,9 @@ const Send = () => (
 const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-export default function ChatPanel({ onClose }: { onClose: () => void }) {
+export default function ChatPanel({ onClose, initialPrompt = "" }: { onClose: () => void; initialPrompt?: string }) {
   const [messages, setMessages] = useState<Msg[]>([]);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState(initialPrompt);
   const [busy, setBusy] = useState(false);
   const [ai, setAi] = useState<AiState>("unknown");
   const listRef = useRef<HTMLDivElement>(null);
@@ -66,6 +66,9 @@ export default function ChatPanel({ onClose }: { onClose: () => void }) {
   const [atBottom, setAtBottom] = useState(true);
 
   useEffect(() => inputRef.current?.focus(), []);
+  useEffect(() => {
+    if (initialPrompt) setInput(initialPrompt);
+  }, [initialPrompt]);
   // Follow the conversation — but start at the top so the welcome message is visible on small screens.
   useEffect(() => {
     const el = listRef.current;
@@ -218,7 +221,7 @@ export default function ChatPanel({ onClose }: { onClose: () => void }) {
         <span className="chat-avatar" aria-hidden="true"><BotAvatar size={32} /></span>
         <div>
           <h2 id="chat-title" className="chat-title">Devv · Reejan's AI assistant</h2>
-          <p className="chat-sub"><span className="dot" />Built by Reejan · {ai === "on" ? "knowledge base + AI" : "instant answers"}</p>
+          <p className="chat-sub"><span className="dot" />Built by Reejan · {ai === "on" ? "knowledge base + AI" : "instant answers"} · <Link to="/devv" onClick={onLinkNav}>How it works</Link></p>
         </div>
         <button type="button" className="icon-btn chat-close" aria-label="Close chat" onClick={onClose}>
           <Close size={18} />
@@ -280,7 +283,7 @@ export default function ChatPanel({ onClose }: { onClose: () => void }) {
           ref={inputRef}
           rows={1}
           maxLength={600}
-          placeholder="Ask about skills, projects, experience…"
+          placeholder="Ask about projects, engineering, skills…"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={onKeyDown}

@@ -24,21 +24,40 @@ export const BotAvatar = ({ size = 28 }: { size?: number }) => (
 
 export function ChatWidget() {
   const [open, setOpen] = useState(false);
+  const [initialPrompt, setInitialPrompt] = useState("");
+  const [phone, setPhone] = useState(false);
   const close = useCallback(() => setOpen(false), []);
   const { pathname } = useLocation();
-  const isPhone = () => window.matchMedia("(max-width: 760px), (max-height: 500px)").matches;
 
-  // On phones the chat is full-screen: close it when the visitor navigates to another page.
   useEffect(() => {
-    if (isPhone()) setOpen(false);
+    const query = window.matchMedia("(max-width: 760px), (max-height: 500px)");
+    const update = () => setPhone(query.matches);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    const onOpen = (event: Event) => {
+      const prompt = (event as CustomEvent<{ prompt?: string }>).detail?.prompt ?? "";
+      setInitialPrompt(prompt);
+      setOpen(true);
+    };
+    window.addEventListener("devv:open", onOpen);
+    return () => window.removeEventListener("devv:open", onOpen);
+  }, []);
+
+  // A route change should never leave a floating conversation covering the new page.
+  useEffect(() => {
+    setOpen(false);
   }, [pathname]);
 
-  // While the full-screen chat is open on a phone, the page behind must not scroll.
+  // Keep the document lock in sync with viewport changes and phone rotation.
   useEffect(() => {
-    const lock = open && isPhone();
+    const lock = open && phone;
     document.documentElement.classList.toggle("chat-open", lock);
     return () => document.documentElement.classList.remove("chat-open");
-  }, [open]);
+  }, [open, phone]);
   // Start fetching the panel code as soon as the visitor shows intent.
   const preload = () => void import("./ChatPanel");
 
@@ -50,7 +69,10 @@ export function ChatWidget() {
         aria-expanded={open}
         aria-controls="chat-panel"
         aria-label={open ? "Close chat" : "Ask Devv, Reejan's AI assistant"}
-        onClick={() => setOpen((o) => !o)}
+        onClick={() => {
+          setInitialPrompt("");
+          setOpen((o) => !o);
+        }}
         onPointerEnter={preload}
         onFocus={preload}
       >
@@ -60,8 +82,15 @@ export function ChatWidget() {
         </span>
       </button>
       {open && (
-        <Suspense fallback={<div className="chat-panel chat-loading" aria-busy="true" />}>
-          <ChatPanel onClose={close} />
+        <Suspense fallback={
+          <div className="chat-panel chat-loading" role="status" aria-live="polite" aria-label="Loading Devv's knowledge">
+            <BotAvatar size={48} />
+            <strong className="disp">Loading Devv</strong>
+            <span>Preparing the knowledge index…</span>
+            <i aria-hidden="true" />
+          </div>
+        }>
+          <ChatPanel onClose={close} initialPrompt={initialPrompt} />
         </Suspense>
       )}
     </>

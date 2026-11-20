@@ -142,7 +142,11 @@ Built with: ${p.stack.join(", ")}.` : ""}\n\nCase study: ${url(`/projects/${p.sl
   add("bot-how", "How does this chatbot work?",
     "how does this chatbot work how do you work rag knowledge base search engine bm25 technology behind chatbot",
     "Reejan built me as a lightweight RAG system:\n• Everything on this site plus 150+ technology, planning and startup guides form my knowledge base\n• Your question is matched against it by a search engine (BM25) that understands synonyms and typos\n• The best match is shown with links and follow-up suggestions — all inside your browser, with no server cost\n• If I'm not sure, I say so instead of guessing",
-    ["Tech stack for an AI app or chatbot?", "What is RAG (Retrieval-Augmented Generation)?", "Who built this chatbot?"]);
+    ["What knowledge does Devv have?", "Tech stack for an AI app or chatbot?", "What is RAG (Retrieval-Augmented Generation)?"]);
+  add("bot-knowledge", "What knowledge does Devv have?",
+    "devv knowledge full knowledge topics coverage what can devv answer know details knowledge base",
+    `Devv's knowledge covers:\n• Reejan's profile, experience, education, certifications and availability\n• Published projects, outcomes, services and contact routes\n• Engineering guides on architecture, security, scale, data, reliability, testing and delivery\n• Technology explainers and practical planning guides for websites, applications, startups and business automation\n\nExplore the complete knowledge map and trust model: ${url("/devv")}`,
+    ["How does this chatbot work?", "What has Reejan built?", "What is his tech stack?"]);
   PERSONAS.forEach((p) => add(`persona-${p.id}`, p.label, p.q, p.a, p.next));
 
   // Practical guides: stacks, scaling, planning, startups, security
@@ -363,6 +367,7 @@ export type MenuTopic = { id: string; label: string; asks: string[] };
 export function topics(): MenuTopic[] {
   const byTopic = (t: Topic) => guides.filter((g) => g.topic === t).map((g) => g.ask);
   return [
+    { id: "devv", label: "Devv AI", asks: ["What knowledge does Devv have?", "How does this chatbot work?", "Who built this chatbot?", "What is RAG?"] },
     { id: "about", label: "About Reejan", asks: ["Who is Reejan?", "Is he open to new roles?", "What is his work experience?", "What certifications does he have?", "How can I contact Reejan?", "Can I download his CV?"] },
     { id: "work", label: "Projects", asks: ["What has Reejan built?", ...projects.map((p) => `Tell me about ${p.name.split(" — ")[0]}`)] },
     { id: "skills", label: "Skills", asks: ["What is his tech stack?", "Does he know AWS?", "What is his experience with Supabase?", "Does he know Microsoft 365?", "Does he work with AI?"] },

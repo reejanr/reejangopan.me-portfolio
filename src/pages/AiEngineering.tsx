@@ -58,6 +58,12 @@ export default function AiEngineering() {
           <SectionHead n="01" label="scope" title={<span id="scope-title">What this <span className="serif acc">is, and is not</span></span>} />
           <ul className="svc-grid stagger">
             <li className="rv">
+              <Link to="/devv" className="svc-card spot">
+                <span className="disp svc-card-t">Explore the Devv AI module</span>
+                <span className="svc-card-d">Knowledge map, BM25 retrieval flow, trust model and a live assistant you can test.</span>
+              </Link>
+            </li>
+            <li className="rv">
               <div className="svc-card">
                 <span className="disp svc-card-t">AI application development</span>
                 <span className="svc-card-d">Building products that call models through an API: copilots, chatbots and retrieval. This is the focus of this page.</span>
