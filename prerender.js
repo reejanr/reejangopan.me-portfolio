@@ -4,7 +4,7 @@ import url from 'node:url'
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
 const toAbsolute = (p) => path.resolve(__dirname, p)
-const SITE_URL = 'https://reejangopan.me'
+const SITE_URL = 'https://www.reejangopan.me'
 
 // Preload the fonts used above the fold (heading, body, and the mono labels/tags) so the
 // first paint uses the right typefaces: no late swap that re-wraps text and shifts the layout.
