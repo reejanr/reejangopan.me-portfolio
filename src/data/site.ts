@@ -361,9 +361,10 @@ export const languages = [
   { name: "Malayalam", level: "Native" },
 ];
 
-export const nav = [
+export const nav: { to: string; label: string; document?: boolean }[] = [
   { to: "/projects", label: "Projects" },
   { to: "/skills", label: "Skills" },
+  { to: "/system-design/", label: "System Design", document: true },
   { to: "/ai-engineering", label: "AI Engineering" },
   { to: "/experience", label: "Experience" },
   { to: "/about", label: "About" },

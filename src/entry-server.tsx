@@ -1,9 +1,9 @@
 import ReactDOMServer from "react-dom/server";
 import { StaticRouter } from "react-router-dom";
 import App from "./App";
-import { getHead, headToHtml, routes } from "./seo/seo";
+import { getHead, headToHtml, routes, sitemapRoutes } from "./seo/seo";
 
-export { routes };
+export { routes, sitemapRoutes };
 export { llmsTxt, llmsFullTxt } from "./seo/llms";
 
 export function render(url: string) {

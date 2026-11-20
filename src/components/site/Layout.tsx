@@ -38,7 +38,9 @@ function Nav() {
         </Link>
         <nav className="nav-links" aria-label="Main">
           {nav.map((n) => (
-            <NavLink key={n.to} to={n.to}>{n.label}</NavLink>
+            n.document
+              ? <a key={n.to} href={n.to}>{n.label}</a>
+              : <NavLink key={n.to} to={n.to}>{n.label}</NavLink>
           ))}
         </nav>
         <div className="nav-actions">
@@ -65,7 +67,9 @@ function Nav() {
         <div className="wrap">
           <NavLink to="/" end>Home</NavLink>
           {nav.map((n) => (
-            <NavLink key={n.to} to={n.to}>{n.label}</NavLink>
+            n.document
+              ? <a key={n.to} href={n.to}>{n.label}</a>
+              : <NavLink key={n.to} to={n.to}>{n.label}</NavLink>
           ))}
           <a href={profile.cv} download>Download CV</a>
         </div>
@@ -90,11 +94,14 @@ function Footer() {
             <p className="fh">Pages</p>
             <ul>
               <li><Link to="/">Home</Link></li>
-              {nav.map((n) => <li key={n.to}><Link to={n.to}>{n.label}</Link></li>)}
+              {nav.map((n) => (
+                <li key={n.to}>
+                  {n.document ? <a href={n.to}>{n.label}</a> : <Link to={n.to}>{n.label}</Link>}
+                </li>
+              ))}
               <li><Link to="/services">Services</Link></li>
               <li><Link to="/guides">Guides</Link></li>
               <li><Link to="/engineering-playbook">Engineering playbook</Link></li>
-              <li><a href="/system-design/">System design course</a></li>
               <li><Link to="/how-this-site-is-built">How this site is built</Link></li>
             </ul>
           </div>

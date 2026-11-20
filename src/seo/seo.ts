@@ -3,6 +3,7 @@ import {
   SITE_URL, profile, projects, experience, coreStack, certifications, education, faqs,
   services, seoKeywords, toolkit,
 } from "@/data/site";
+import { systemDesignRoutes } from "./systemDesignRoutes";
 
 // Every route the site serves. prerender.js renders each one to static HTML
 // and builds sitemap.xml from this list.
@@ -22,6 +23,10 @@ export const routes: string[] = [
   "/ai-engineering",
   "/contact",
 ];
+
+// The portfolio routes above are prerendered. The bundled System Design SPA is
+// already built in public/, so its routes are added only to discovery surfaces.
+export const sitemapRoutes = [...routes, ...systemDesignRoutes];
 
 export type Head = {
   title: string;

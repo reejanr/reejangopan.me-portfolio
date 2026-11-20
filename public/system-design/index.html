@@ -4,7 +4,44 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/system-design/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>System Design · Interactive Course</title>
+    <title>System Design Course — Interactive Lessons & Architecture Atlas | Reejan Gopan</title>
+    <meta name="description" content="Learn system design through interactive lessons, practice questions, a design lab, architecture diagrams, challenges and printable cheatsheets." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="System Design Course — Interactive Lessons & Architecture Atlas" />
+    <meta property="og:description" content="Interactive system design lessons, practice, architecture diagrams, challenges and cheatsheets." />
+    <meta property="og:image" content="https://www.reejangopan.me/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      (() => {
+        const path = location.pathname.replace(/\/+$/, "") || "/system-design";
+        const canonical = new URL(path, "https://www.reejangopan.me").href;
+        const link = document.createElement("link");
+        link.rel = "canonical";
+        link.href = canonical;
+        document.head.appendChild(link);
+        const ogUrl = document.createElement("meta");
+        ogUrl.setAttribute("property", "og:url");
+        ogUrl.content = canonical;
+        document.head.appendChild(ogUrl);
+      })();
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Interactive System Design Course",
+        "description": "Interactive lessons, practice questions, a design lab, architecture atlas, challenges and cheatsheets for learning system design.",
+        "url": "https://www.reejangopan.me/system-design",
+        "isAccessibleForFree": true,
+        "educationalLevel": "Beginner to intermediate",
+        "provider": {
+          "@type": "Person",
+          "name": "Reejan R Gopan",
+          "url": "https://www.reejangopan.me/"
+        }
+      }
+    </script>
     <script type="module" crossorigin src="/system-design/assets/index-BAy-kZJU.js"></script>
     <link rel="stylesheet" crossorigin href="/system-design/assets/index-CKl1isPd.css">
   </head>
