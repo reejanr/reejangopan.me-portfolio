@@ -1,0 +1,38 @@
+erDiagram
+    learners {
+        int id PK
+        int auth_subject
+    }
+    lessons {
+        int id PK
+        int module_id
+        int version
+    }
+    lesson_progress {
+        int learner_id FK
+        int lesson_id FK
+        int completed_at
+    }
+    quiz_attempts {
+        int id PK
+        int learner_id FK
+        int lesson_id FK
+        int score
+    }
+    saved_designs {
+        int id PK
+        int learner_id FK
+        int diagram_json
+    }
+    bookmarks {
+        int id PK
+        int learner_id FK
+        int lesson_id FK
+    }
+    learners ||--o{ lesson_progress : "related"
+    lessons ||--o{ lesson_progress : "related"
+    learners ||--o{ quiz_attempts : "related"
+    lessons ||--o{ quiz_attempts : "related"
+    learners ||--o{ saved_designs : "related"
+    learners ||--o{ bookmarks : "related"
+    lessons ||--o{ bookmarks : "related"

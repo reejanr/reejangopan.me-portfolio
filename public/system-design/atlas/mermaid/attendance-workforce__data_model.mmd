@@ -1,0 +1,39 @@
+erDiagram
+    employees {
+        int id PK
+        int employee_code
+    }
+    work_sites {
+        int id PK
+        int geofence
+    }
+    attendance {
+        int id PK
+        int employee_id FK
+        int work_date
+        int shift_start
+    }
+    gps_evidence {
+        int id PK
+        int attendance_id FK
+        int quality
+        int coordinates
+    }
+    site_transfers {
+        int id PK
+        int attendance_id FK
+        int from_site FK
+        int to_site FK
+    }
+    cost_allocations {
+        int id PK
+        int attendance_id FK
+        int site_id FK
+        int cost_minor
+    }
+    employees ||--o{ attendance : "related"
+    attendance ||--o{ gps_evidence : "related"
+    attendance ||--o{ site_transfers : "related"
+    work_sites ||--o{ site_transfers : "related"
+    attendance ||--o{ cost_allocations : "related"
+    work_sites ||--o{ cost_allocations : "related"

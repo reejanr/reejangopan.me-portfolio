@@ -1,0 +1,30 @@
+flowchart LR
+    n00["Request key"]
+    n01["Hash ring router"]
+    n02["Node 1"]
+    n03["Node 2"]
+    n04["Node 3"]
+    n05["Virtual nodes"]
+    n00 -->|"hash"| n01
+    n01 -->|"range A"| n02
+    n01 -->|"range B"| n03
+    n01 -->|"range C"| n04
+    n05 -->|"rebalance"| n01
+    classDef client fill:#DAEAFB,stroke:#406D9F,color:#153857;
+    classDef edge fill:#D8E7FF,stroke:#6C91D0,color:#213F69;
+    classDef app fill:#E5DFFC,stroke:#8D7AC2,color:#423A78;
+    classDef db fill:#FCE6CC,stroke:#D4A16E,color:#754820;
+    classDef cache fill:#D6EFE0,stroke:#6AB295,color:#215D46;
+    classDef queue fill:#FCF0CB,stroke:#CBA24A,color:#735317;
+    classDef worker fill:#D4F3F0,stroke:#58A69C,color:#235C5A;
+    classDef external fill:#E8ECF2,stroke:#8293A7,color:#42556D;
+    classDef security fill:#F8DEEE,stroke:#C979AA,color:#763C5E;
+    classDef obs fill:#E8ECF2,stroke:#8293A7,color:#42556D;
+    classDef issue fill:#FDE2E0,stroke:#D97D77,color:#963E39;
+    classDef recovery fill:#CFF0D9,stroke:#61A47F,color:#235D3C;
+    class n00 client;
+    class n01 app;
+    class n02 db;
+    class n03 db;
+    class n04 db;
+    class n05 worker;

@@ -1,0 +1,15 @@
+sequenceDiagram
+    autonumber
+    participant p0 as Editor
+    participant p1 as Catalog DB
+    participant p2 as Outbox Stream
+    participant p3 as Indexer
+    participant p4 as Search Index
+    participant p5 as Search API
+    p0->>p1: Commit product change
+    p1->>p2: Reliable change event
+    p2->>p3: Consume with retry and dedup
+    p3->>p4: Upsert searchable document
+    p5->>p4: Search and filter
+    p4->>p5: Return matching IDs
+    p5->>p1: Optional authoritative details

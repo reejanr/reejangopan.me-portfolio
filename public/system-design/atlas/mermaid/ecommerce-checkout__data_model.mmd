@@ -1,0 +1,38 @@
+erDiagram
+    users {
+        int id PK
+        string email
+    }
+    orders {
+        int id PK
+        int buyer_id FK
+        string status
+        int total_minor
+    }
+    order_items {
+        int id PK
+        int order_id FK
+        int sku_id FK
+        int qty
+    }
+    skus {
+        int id PK
+        int current_stock
+    }
+    stock_reservations {
+        int id PK
+        int sku_id FK
+        int order_id FK
+        int expires_at
+    }
+    outbox {
+        int id PK
+        int order_id FK
+        string event_type
+    }
+    users ||--o{ orders : "related"
+    orders ||--o{ order_items : "related"
+    skus ||--o{ order_items : "related"
+    skus ||--o{ stock_reservations : "related"
+    orders ||--o{ stock_reservations : "related"
+    orders ||--o{ outbox : "related"

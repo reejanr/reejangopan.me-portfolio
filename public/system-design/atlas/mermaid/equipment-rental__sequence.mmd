@@ -1,0 +1,16 @@
+sequenceDiagram
+    autonumber
+    participant p0 as Contractor
+    participant p1 as Catalog
+    participant p2 as Lead API
+    participant p3 as Vendor
+    participant p4 as Quote Service
+    participant p5 as Notification
+    p0->>p1: Search equipment and emirate
+    p1->>p2: Request quote
+    p2->>p3: Ask to confirm current availability
+    p3->>p2: Available / unavailable with details
+    p2->>p4: Create versioned quotation
+    p4->>p0: Show quote and expiry
+    p0->>p2: Accept quotation
+    p2->>p5: Notify supplier of intent

@@ -1,0 +1,36 @@
+erDiagram
+    merchants {
+        int id PK
+        string name
+    }
+    payment_intents {
+        int id PK
+        int merchant_id FK
+        string status
+        int amount_minor
+    }
+    idempotency_keys {
+        int key PK
+        int merchant_id FK
+        int request_hash
+    }
+    provider_attempts {
+        int id PK
+        int payment_id FK
+        int provider_ref
+        string status
+    }
+    webhook_receipts {
+        int id PK
+        int provider_event_id
+    }
+    ledger_entries {
+        int id PK
+        int payment_id FK
+        int debit_credit
+        int amount_minor
+    }
+    merchants ||--o{ payment_intents : "related"
+    merchants ||--o{ idempotency_keys : "related"
+    payment_intents ||--o{ provider_attempts : "related"
+    payment_intents ||--o{ ledger_entries : "related"

@@ -1,0 +1,30 @@
+flowchart LR
+    n00["Tenant user"]
+    n01["Session auth"]
+    n02["Policy engine"]
+    n03["Tenant-aware API"]
+    n04["Row-level DB rules"]
+    n05["Audit trail"]
+    n00 -->|"authenticate"| n01
+    n01 -->|"tenant + role"| n02
+    n02 -->|"allow or deny"| n03
+    n03 -->|"scoped SQL"| n04
+    n02 -->|"decision"| n05
+    classDef client fill:#DAEAFB,stroke:#406D9F,color:#153857;
+    classDef edge fill:#D8E7FF,stroke:#6C91D0,color:#213F69;
+    classDef app fill:#E5DFFC,stroke:#8D7AC2,color:#423A78;
+    classDef db fill:#FCE6CC,stroke:#D4A16E,color:#754820;
+    classDef cache fill:#D6EFE0,stroke:#6AB295,color:#215D46;
+    classDef queue fill:#FCF0CB,stroke:#CBA24A,color:#735317;
+    classDef worker fill:#D4F3F0,stroke:#58A69C,color:#235C5A;
+    classDef external fill:#E8ECF2,stroke:#8293A7,color:#42556D;
+    classDef security fill:#F8DEEE,stroke:#C979AA,color:#763C5E;
+    classDef obs fill:#E8ECF2,stroke:#8293A7,color:#42556D;
+    classDef issue fill:#FDE2E0,stroke:#D97D77,color:#963E39;
+    classDef recovery fill:#CFF0D9,stroke:#61A47F,color:#235D3C;
+    class n00 client;
+    class n01 security;
+    class n02 security;
+    class n03 app;
+    class n04 db;
+    class n05 worker;

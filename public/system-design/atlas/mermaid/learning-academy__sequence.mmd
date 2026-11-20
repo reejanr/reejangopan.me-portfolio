@@ -1,0 +1,14 @@
+sequenceDiagram
+    autonumber
+    participant p0 as Learner
+    participant p1 as Browser Stage
+    participant p2 as Lesson Assets
+    participant p3 as Progress API
+    participant p4 as Progress DB
+    participant p5 as Analytics
+    p0->>p1: Next animation step
+    p1->>p2: Load declarative scene locally
+    p1->>p0: Render without server roundtrip
+    p1->>p3: Save completed lesson milestone
+    p3->>p4: Upsert user progress
+    p3->>p5: Aggregated analytics event

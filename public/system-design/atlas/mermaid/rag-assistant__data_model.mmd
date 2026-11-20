@@ -1,0 +1,35 @@
+erDiagram
+    documents {
+        int id PK
+        int owner_scope
+        int version
+    }
+    document_acl {
+        int doc_id FK
+        int principal_id
+        int permission
+    }
+    chunks {
+        int id PK
+        int document_id FK
+        int checksum
+    }
+    embeddings {
+        int chunk_id FK
+        int model_version
+        int vector_ref
+    }
+    retrieval_events {
+        int id PK
+        int user_id
+        int query_id
+    }
+    answer_citations {
+        int query_id FK
+        int chunk_id FK
+        int span
+    }
+    documents ||--o{ document_acl : "related"
+    documents ||--o{ chunks : "related"
+    chunks ||--o{ embeddings : "related"
+    chunks ||--o{ answer_citations : "related"

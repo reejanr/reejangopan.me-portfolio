@@ -1,0 +1,20 @@
+flowchart LR
+    subgraph z0["Internet"]
+       n0["Learner"]
+    end
+    subgraph z1["Edge"]
+       n1["Cloudflare static edge"]
+       n3["Worker progress API"]
+    end
+    subgraph z2["Browser"]
+       n2["Local SVG animation"]
+    end
+    subgraph z3["Managed Data"]
+       n4["Supabase Auth"]
+       n5["Supabase SQL"]
+    end
+    n0 -->|"assets"| n1
+    n1 -->|"download"| n2
+    n2 -->|"milestones"| n3
+    n3 -->|"verify token"| n4
+    n3 -->|"user progress"| n5

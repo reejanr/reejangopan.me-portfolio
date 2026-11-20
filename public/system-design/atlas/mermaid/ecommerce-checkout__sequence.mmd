@@ -1,0 +1,16 @@
+sequenceDiagram
+    autonumber
+    participant p0 as Buyer
+    participant p1 as Checkout API
+    participant p2 as Inventory DB
+    participant p3 as Payment PSP
+    participant p4 as Order DB
+    participant p5 as Outbox Worker
+    p0->>p1: Checkout with idempotency key
+    p1->>p2: Atomic stock hold
+    p2->>p1: Hold confirmed
+    p1->>p3: Authorize with stable key
+    p3->>p1: Authorization outcome
+    p1->>p4: Commit order and outbox together
+    p1->>p0: Accepted, order reference
+    p4->>p5: Publish committed fulfillment event

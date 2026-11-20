@@ -1,0 +1,16 @@
+sequenceDiagram
+    autonumber
+    participant p0 as Tenant User
+    participant p1 as Session
+    participant p2 as API Policy
+    participant p3 as Tenant SQL
+    participant p4 as Audit Trail
+    participant p5 as External IdP
+    p0->>p1: Authenticate
+    p1->>p5: Validate identity
+    p5->>p1: Signed identity result
+    p1->>p2: Tenant ID and privileges
+    p2->>p3: Tenant-scoped statement with RLS
+    p3->>p2: Filtered results
+    p2->>p4: Record tenant-specific access
+    p2->>p0: Authorized response

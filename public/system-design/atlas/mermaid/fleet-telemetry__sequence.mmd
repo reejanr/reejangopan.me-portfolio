@@ -1,0 +1,14 @@
+sequenceDiagram
+    autonumber
+    participant p0 as Tracker
+    participant p1 as Secure Ingest
+    participant p2 as Event Broker
+    participant p3 as Geo Processor
+    participant p4 as Time Series DB
+    participant p5 as Alert Worker
+    p0->>p1: Signed coordinates and timestamp
+    p1->>p2: Append telemetry
+    p2->>p3: Process keyed stream
+    p3->>p4: Write historic points
+    p3->>p5: Emit credible boundary crossing
+    p5->>p0: Optional device notification

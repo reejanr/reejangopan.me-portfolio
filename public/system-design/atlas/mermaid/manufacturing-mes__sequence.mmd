@@ -1,0 +1,14 @@
+sequenceDiagram
+    autonumber
+    participant p0 as PLC Sensor
+    participant p1 as Local Controller
+    participant p2 as Edge Gateway
+    participant p3 as Local Historian
+    participant p4 as Cloud API
+    participant p5 as Analytics
+    p0->>p1: Machine state
+    p1->>p1: Maintain local safety control
+    p1->>p2: Noncritical telemetry
+    p2->>p3: Persist during WAN outage
+    p2->>p4: Upload buffered data when online
+    p4->>p5: Business dashboards

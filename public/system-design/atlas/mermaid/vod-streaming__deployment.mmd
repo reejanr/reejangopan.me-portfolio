@@ -1,0 +1,22 @@
+flowchart LR
+    subgraph z0["Internet"]
+       n0["Viewer"]
+    end
+    subgraph z1["Control Plane"]
+       n1["Playback control"]
+       n2["Content steering"]
+       n6["DRM"]
+    end
+    subgraph z2["CDN Edge"]
+       n3["Regional edge A"]
+       n4["Regional edge B"]
+    end
+    subgraph z3["Origin"]
+       n5["Object source"]
+    end
+    n0 -->|"play"| n1
+    n1 -->|"entitlement"| n6
+    n1 -->|"edge selection"| n2
+    n0 -->|"chunks"| n3
+    n0 -->|"fallback"| n4
+    n3 -->|"miss"| n5
