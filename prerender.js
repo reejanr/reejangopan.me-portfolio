@@ -22,7 +22,7 @@ const inlineCss = (html) =>
 
 const template = inlineCss(fs.readFileSync(toAbsolute('dist/index.html'), 'utf-8'))
   .replace('<!--app-head-->', `${preloads}\n    <!--app-head-->`)
-const { render, head, routes, llmsTxt, llmsFullTxt } = await import('./dist/server/entry-server.js')
+const { render, head, routes, sitemapRoutes, llmsTxt, llmsFullTxt } = await import('./dist/server/entry-server.js')
 
 const write = (file, html) => {
   const abs = toAbsolute(file)
@@ -53,13 +53,16 @@ write('dist/404.html', page('/404'))
 const today = new Date().toISOString().slice(0, 10)
 const priority = (r) =>
   r === '/' ? '1.0'
+  : r === '/system-design' ? '0.9'
+  : r.startsWith('/system-design/learn/') ? '0.8'
+  : r.startsWith('/system-design/') ? '0.7'
   : r === '/services' || r.startsWith('/services/') ? '0.9'
   : r === '/projects' || r.startsWith('/projects/') || r === '/about' || r === '/contact' || r === '/ai-engineering' ? '0.8'
   : r.startsWith('/guides/') ? '0.6'
   : '0.7'
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${routes
+${sitemapRoutes
   .map(
     (r) => `  <url>
     <loc>${SITE_URL}${r === '/' ? '/' : r}</loc>
@@ -71,7 +74,7 @@ ${routes
 </urlset>
 `
 fs.writeFileSync(toAbsolute('dist/sitemap.xml'), sitemap)
-console.log(`sitemap.xml: ${routes.length} urls`)
+console.log(`sitemap.xml: ${sitemapRoutes.length} urls (${routes.length} prerendered + ${sitemapRoutes.length - routes.length} system design)`)
 
 // Plain-text profiles for AI assistants and AI search, generated from the same content.
 fs.writeFileSync(toAbsolute('dist/llms.txt'), llmsTxt())

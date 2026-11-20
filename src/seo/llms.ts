@@ -36,6 +36,7 @@ export function llmsTxt(): string {
     `- [Projects](${SITE_URL}/projects): case studies`,
     `- [Experience](${SITE_URL}/experience): roles at USF Group, Chimera Group and TCS iON`,
     `- [Skills](${SITE_URL}/skills): tech stack, education and certifications`,
+    `- [System Design course](${SITE_URL}/system-design/): interactive lessons, practice, design lab, architecture atlas and cheatsheets`,
     `- [Contact](${SITE_URL}/contact)`,
     "",
     "## Projects",
