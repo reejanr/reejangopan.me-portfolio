@@ -1,0 +1,36 @@
+erDiagram
+    events {
+        int id PK
+        int starts_at
+    }
+    seats {
+        int id PK
+        int event_id FK
+        int seat_label
+    }
+    holds {
+        int id PK
+        int seat_id FK
+        int expires_at
+        int holder_id
+    }
+    orders {
+        int id PK
+        int buyer_id
+        string status
+    }
+    tickets {
+        int id PK
+        int seat_id FK
+        int order_id FK
+    }
+    payments {
+        int id PK
+        int order_id FK
+        int provider_ref
+    }
+    events ||--o{ seats : "related"
+    seats ||--o{ holds : "related"
+    seats ||--o{ tickets : "related"
+    orders ||--o{ tickets : "related"
+    orders ||--o{ payments : "related"

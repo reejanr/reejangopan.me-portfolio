@@ -1,0 +1,27 @@
+flowchart LR
+    subgraph z0["Public"]
+       n0["Customer"]
+    end
+    subgraph z1["Edge"]
+       n1["API firewall"]
+    end
+    subgraph z2["Trusted App"]
+       n2["Transfer service"]
+    end
+    subgraph z3["Core Banking"]
+       n3["Ledger database"]
+    end
+    subgraph z4["Partner Boundary"]
+       n4["Rail connector"]
+    end
+    subgraph z5["Operations"]
+       n5["Reconciliation"]
+       n6["Immutable audit"]
+    end
+    n0 -->|"authenticated"| n1
+    n1 -->|"request"| n2
+    n2 -->|"transaction"| n3
+    n2 -->|"stable ref"| n4
+    n4 -->|"provider report"| n5
+    n5 -->|"confirm outcome"| n3
+    n2 -->|"audit trail"| n6

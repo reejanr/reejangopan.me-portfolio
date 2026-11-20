@@ -1,0 +1,34 @@
+erDiagram
+    stores {
+        int id PK
+        int tenant_id
+    }
+    terminals {
+        int id PK
+        int store_id FK
+    }
+    local_operations {
+        string uuid PK
+        int terminal_id FK
+        int created_at
+        string sync_state
+    }
+    sales {
+        int id PK
+        string source_uuid
+        int store_id FK
+    }
+    sale_lines {
+        int id PK
+        int sale_id FK
+        int sku_id
+    }
+    sync_conflicts {
+        int id PK
+        string source_uuid
+        int reason
+    }
+    stores ||--o{ terminals : "related"
+    terminals ||--o{ local_operations : "related"
+    stores ||--o{ sales : "related"
+    sales ||--o{ sale_lines : "related"

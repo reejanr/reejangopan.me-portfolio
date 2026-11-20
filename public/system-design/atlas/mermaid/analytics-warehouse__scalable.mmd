@@ -1,0 +1,48 @@
+flowchart LR
+    n00["Analyst"]
+    n01["CDN / WAF / edge"]
+    n02["API entry + identity"]
+    n03["Query service"]
+    n04["Ingestion connectors"]
+    n05["Transformation jobs"]
+    n06["Warehouse tables"]
+    n07["Result cache"]
+    n08["Event ingestion"]
+    n09["ETL workers"]
+    n10["Raw object lake"]
+    n11["BI dashboards"]
+    n00 -->|"requests"| n01
+    n01 -->|"allowed traffic"| n02
+    n02 -->|"route"| n03
+    n03 -->|"authoritative writes"| n06
+    n03 -->|"subsystem"| n04
+    n04 -->|"domain flow"| n05
+    n03 -->|"safe reads"| n07
+    n03 -->|"outbox / events"| n08
+    n08 -->|"consume"| n09
+    n09 -->|"persist / project"| n10
+    n05 -->|"external interface"| n11
+    classDef client fill:#DAEAFB,stroke:#406D9F,color:#153857;
+    classDef edge fill:#D8E7FF,stroke:#6C91D0,color:#213F69;
+    classDef app fill:#E5DFFC,stroke:#8D7AC2,color:#423A78;
+    classDef db fill:#FCE6CC,stroke:#D4A16E,color:#754820;
+    classDef cache fill:#D6EFE0,stroke:#6AB295,color:#215D46;
+    classDef queue fill:#FCF0CB,stroke:#CBA24A,color:#735317;
+    classDef worker fill:#D4F3F0,stroke:#58A69C,color:#235C5A;
+    classDef external fill:#E8ECF2,stroke:#8293A7,color:#42556D;
+    classDef security fill:#F8DEEE,stroke:#C979AA,color:#763C5E;
+    classDef obs fill:#E8ECF2,stroke:#8293A7,color:#42556D;
+    classDef issue fill:#FDE2E0,stroke:#D97D77,color:#963E39;
+    classDef recovery fill:#CFF0D9,stroke:#61A47F,color:#235D3C;
+    class n00 client;
+    class n01 edge;
+    class n02 security;
+    class n03 app;
+    class n04 app;
+    class n05 app;
+    class n06 db;
+    class n07 cache;
+    class n08 queue;
+    class n09 worker;
+    class n10 db;
+    class n11 external;

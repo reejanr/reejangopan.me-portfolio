@@ -1,0 +1,27 @@
+flowchart LR
+    subgraph z0["Internet"]
+       n0["Player A"]
+       n1["Player B"]
+    end
+    subgraph z1["Global Edge"]
+       n2["Geo dispatcher"]
+    end
+    subgraph z2["EU Region"]
+       n3["EU game server"]
+    end
+    subgraph z3["APAC Region"]
+       n4["APAC game server"]
+    end
+    subgraph z4["Control Plane"]
+       n5["Match registry"]
+    end
+    subgraph z5["Data"]
+       n6["Game results"]
+    end
+    n0 -->|"match"| n2
+    n1 -->|"match"| n2
+    n2 -->|"regional"| n3
+    n2 -->|"regional"| n4
+    n3 -->|"durable outcome"| n6
+    n4 -->|"durable outcome"| n6
+    n2 -->|"lookup"| n5

@@ -1,0 +1,37 @@
+erDiagram
+    suppliers {
+        int id PK
+        int verified
+    }
+    equipment {
+        int id PK
+        int supplier_id FK
+        int category
+    }
+    rental_leads {
+        int id PK
+        int buyer_id
+        string status
+    }
+    availability_checks {
+        int id PK
+        int lead_id FK
+        int equipment_id FK
+        int checked_at
+    }
+    quotations {
+        int id PK
+        int lead_id FK
+        int version
+        int expires_at
+    }
+    lead_events {
+        int id PK
+        int lead_id FK
+        string event_type
+    }
+    suppliers ||--o{ equipment : "related"
+    equipment ||--o{ availability_checks : "related"
+    rental_leads ||--o{ availability_checks : "related"
+    rental_leads ||--o{ quotations : "related"
+    rental_leads ||--o{ lead_events : "related"

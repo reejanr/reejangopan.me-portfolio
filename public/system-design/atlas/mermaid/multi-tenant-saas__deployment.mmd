@@ -1,0 +1,22 @@
+flowchart LR
+    subgraph z0["Public"]
+       n0["Tenant A"]
+       n1["Tenant B"]
+    end
+    subgraph z1["Application"]
+       n2["Shared API"]
+    end
+    subgraph z2["Security"]
+       n3["Auth + tenant policy"]
+    end
+    subgraph z3["Data"]
+       n4["Tenant-aware SQL"]
+    end
+    subgraph z4["Operations"]
+       n5["Audit store"]
+    end
+    n0 -->|"identity A"| n3
+    n1 -->|"identity B"| n3
+    n3 -->|"principal scope"| n2
+    n2 -->|"RLS enforced"| n4
+    n3 -->|"access decision"| n5

@@ -1,0 +1,24 @@
+flowchart LR
+    subgraph z0["Internet"]
+       n0["Public internet"]
+    end
+    subgraph z1["Edge"]
+       n1["WAF + global router"]
+    end
+    subgraph z2["Zone A"]
+       n2["Checkout A"]
+       n4["Primary SQL"]
+    end
+    subgraph z3["Zone B"]
+       n3["Checkout B"]
+       n5["SQL standby"]
+    end
+    subgraph z4["Operations"]
+       n6["Recovery observer"]
+    end
+    n0 -->|"request"| n1
+    n1 -->|"traffic"| n2
+    n1 -->|"failover"| n3
+    n2 -->|"writes"| n4
+    n4 -->|"replicate"| n5
+    n6 -->|"health"| n1

@@ -1,0 +1,17 @@
+sequenceDiagram
+    autonumber
+    participant p0 as Viewer
+    participant p1 as Playback API
+    participant p2 as Content Steering
+    participant p3 as CDN Edge
+    participant p4 as Object Origin
+    participant p5 as DRM
+    p0->>p1: Request title playback
+    p1->>p5: Verify entitlement / rights
+    p5->>p1: Playback policy
+    p1->>p2: Select suitable rendition and edge
+    p2->>p0: Signed manifest / edge URLs
+    p0->>p3: Request adaptive bitrate chunks
+    p3->>p4: Cache miss only
+    p4->>p3: Media segment bytes
+    p3->>p0: Chunk delivery

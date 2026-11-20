@@ -1,0 +1,17 @@
+sequenceDiagram
+    autonumber
+    participant p0 as Employee App
+    participant p1 as Location OS
+    participant p2 as Attendance API
+    participant p3 as Policy Engine
+    participant p4 as Attendance DB
+    participant p5 as Review Queue
+    p0->>p1: Fresh GPS attempt #1
+    p1->>p0: Weak or timed-out fix
+    p0->>p1: Attempt #2 when appropriate
+    p1->>p0: Best valid evidence or no fix
+    p0->>p2: Submit status and evidence
+    p2->>p3: Evaluate location switch, permission, mock status
+    p3->>p2: Verified, unverified, or blocked
+    p2->>p4: Store policy outcome and raw evidence
+    p2->>p5: Flag uncertainty / outside-site reason

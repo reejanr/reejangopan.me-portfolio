@@ -1,0 +1,16 @@
+sequenceDiagram
+    autonumber
+    participant p0 as Merchant
+    participant p1 as Payment API
+    participant p2 as Idempotency DB
+    participant p3 as Provider
+    participant p4 as Webhook Intake
+    participant p5 as Ledger
+    p0->>p1: Request with stable idempotency key
+    p1->>p2: Claim key atomically
+    p1->>p3: Create or capture via provider key
+    p3->>p1: Result or uncertain timeout
+    p1->>p2: Store final or pending state
+    p1->>p0: Return prior state on retry
+    p3->>p4: Authenticated webhook event
+    p4->>p5: Dedup then post exactly one ledger effect

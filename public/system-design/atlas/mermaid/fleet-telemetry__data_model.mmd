@@ -1,0 +1,36 @@
+erDiagram
+    vehicles {
+        int id PK
+        int fleet_id
+    }
+    devices {
+        int id PK
+        int vehicle_id FK
+        int public_key
+    }
+    gps_points {
+        int id PK
+        int device_id FK
+        int event_time
+        int accuracy_m
+    }
+    geofences {
+        int id PK
+        int site_id
+        int polygon
+    }
+    alerts {
+        int id PK
+        int vehicle_id FK
+        int rule_id
+    }
+    alert_events {
+        int id PK
+        int alert_id FK
+        int point_id FK
+    }
+    vehicles ||--o{ devices : "related"
+    devices ||--o{ gps_points : "related"
+    vehicles ||--o{ alerts : "related"
+    alerts ||--o{ alert_events : "related"
+    gps_points ||--o{ alert_events : "related"

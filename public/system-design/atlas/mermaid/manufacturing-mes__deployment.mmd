@@ -1,0 +1,18 @@
+flowchart LR
+    subgraph z0["Plant OT"]
+       n0["PLC sensors"]
+       n1["Local safety controller"]
+       n2["Edge historian"]
+    end
+    subgraph z1["DMZ"]
+       n3["WAN relay"]
+    end
+    subgraph z2["Cloud"]
+       n4["Cloud ingest"]
+       n5["Analytics warehouse"]
+    end
+    n0 -->|"local signals"| n1
+    n1 -->|"history"| n2
+    n2 -->|"buffer"| n3
+    n3 -->|"resume"| n4
+    n4 -->|"project"| n5

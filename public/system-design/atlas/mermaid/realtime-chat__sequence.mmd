@@ -1,0 +1,17 @@
+sequenceDiagram
+    autonumber
+    participant p0 as Sender
+    participant p1 as Gateway
+    participant p2 as Message Store
+    participant p3 as Delivery Stream
+    participant p4 as Receiver
+    participant p5 as Push Provider
+    p0->>p1: Send client message id
+    p1->>p2: Append with dedup key
+    p2->>p1: Ack and sequence offset
+    p1->>p0: Accepted with message id
+    p1->>p3: Publish committed message
+    p3->>p4: Push if connected
+    p3->>p5: Notify offline device
+    p4->>p1: Reconnect with last offset
+    p1->>p2: Replay missing messages

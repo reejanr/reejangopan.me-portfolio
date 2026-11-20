@@ -1,0 +1,35 @@
+erDiagram
+    patients {
+        int id PK
+        int identifier
+    }
+    care_teams {
+        int id PK
+        int org_id
+    }
+    team_members {
+        int team_id FK
+        int clinician_id
+    }
+    consents {
+        int id PK
+        int patient_id FK
+        int scope
+        int expires_at
+    }
+    encounters {
+        int id PK
+        int patient_id FK
+        int team_id FK
+    }
+    access_audit {
+        int id PK
+        int encounter_id FK
+        int actor_id
+        int purpose
+    }
+    patients ||--o{ consents : "related"
+    patients ||--o{ encounters : "related"
+    care_teams ||--o{ encounters : "related"
+    care_teams ||--o{ team_members : "related"
+    encounters ||--o{ access_audit : "related"

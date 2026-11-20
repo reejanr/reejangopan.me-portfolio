@@ -1,0 +1,15 @@
+sequenceDiagram
+    autonumber
+    participant p0 as Clinician
+    participant p1 as Clinical API
+    participant p2 as Identity / Consent
+    participant p3 as Patient DB
+    participant p4 as Audit Store
+    participant p5 as Lab Gateway
+    p0->>p1: Request patient encounter
+    p1->>p2: Check role, purpose and consent
+    p2->>p1: Allow minimal necessary scope
+    p1->>p3: Fetch scoped record
+    p1->>p4: Log actor, purpose and access
+    p1->>p0: Return authorized clinical summary
+    p5->>p3: Ingest validated lab results

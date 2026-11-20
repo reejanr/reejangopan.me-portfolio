@@ -1,0 +1,16 @@
+sequenceDiagram
+    autonumber
+    participant p0 as Customer
+    participant p1 as Transfer API
+    participant p2 as Risk + Limits
+    participant p3 as Account Ledger
+    participant p4 as Payment Rail
+    participant p5 as Reconciliation
+    p0->>p1: Transfer request + unique key
+    p1->>p2: Validate ownership and controls
+    p2->>p1: Decision
+    p1->>p3: Create pending balanced entries
+    p1->>p4: Submit stable transfer reference
+    p4->>p1: Success or unknown timeout
+    p1->>p5: Resolve uncertain provider state
+    p5->>p3: Finalize or reverse based on evidence

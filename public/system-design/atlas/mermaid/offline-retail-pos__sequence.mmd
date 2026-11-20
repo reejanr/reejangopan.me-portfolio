@@ -1,0 +1,16 @@
+sequenceDiagram
+    autonumber
+    participant p0 as Cashier
+    participant p1 as POS App
+    participant p2 as Local Journal
+    participant p3 as Sync Gateway
+    participant p4 as Sales DB
+    participant p5 as Reconcile Worker
+    p0->>p1: Create sale while offline
+    p1->>p2: Write immutable local operation
+    p1->>p0: Provisional local receipt
+    p1->>p3: Reconnect and upload batch
+    p3->>p4: Dedup by operation UUID
+    p4->>p3: Committed server version
+    p3->>p1: Sync acknowledgement and conflicts
+    p4->>p5: Investigate conflicting receipts

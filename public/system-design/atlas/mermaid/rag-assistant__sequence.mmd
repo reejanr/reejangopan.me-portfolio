@@ -1,0 +1,16 @@
+sequenceDiagram
+    autonumber
+    participant p0 as User
+    participant p1 as Assistant API
+    participant p2 as Identity Policy
+    participant p3 as Retriever
+    participant p4 as LLM Provider
+    participant p5 as Answer Audit
+    p0->>p1: Question
+    p1->>p2: User and document scope
+    p2->>p3: Allowed index filter
+    p3->>p1: Citable relevant excerpts
+    p1->>p4: System policy and untrusted context
+    p4->>p1: Draft answer with source locations
+    p1->>p5: Log policy-safe metadata
+    p1->>p0: Answer with citations

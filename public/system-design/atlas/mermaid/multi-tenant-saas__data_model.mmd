@@ -1,0 +1,35 @@
+erDiagram
+    tenants {
+        int id PK
+        int billing_plan
+    }
+    users {
+        int id PK
+        int identity_sub
+    }
+    tenant_memberships {
+        int user_id FK
+        int tenant_id FK
+        int role
+    }
+    projects {
+        int id PK
+        int tenant_id FK
+        int title
+    }
+    tasks {
+        int id PK
+        int tenant_id FK
+        int project_id FK
+    }
+    audit_events {
+        int id PK
+        int tenant_id FK
+        int actor_id FK
+    }
+    tenants ||--o{ tenant_memberships : "related"
+    users ||--o{ tenant_memberships : "related"
+    tenants ||--o{ projects : "related"
+    projects ||--o{ tasks : "related"
+    tenants ||--o{ tasks : "related"
+    tenants ||--o{ audit_events : "related"

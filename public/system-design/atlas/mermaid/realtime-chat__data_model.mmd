@@ -1,0 +1,37 @@
+erDiagram
+    users {
+        int id PK
+        int handle
+    }
+    channels {
+        int id PK
+        string type
+    }
+    memberships {
+        int channel_id FK
+        int user_id FK
+        int role
+    }
+    messages {
+        int id PK
+        int channel_id FK
+        int author_id FK
+        int seq
+    }
+    delivery_cursors {
+        int channel_id FK
+        int user_id FK
+        int last_seen_seq
+    }
+    message_events {
+        int id PK
+        int message_id FK
+        string event_type
+    }
+    users ||--o{ memberships : "related"
+    channels ||--o{ memberships : "related"
+    channels ||--o{ messages : "related"
+    users ||--o{ messages : "related"
+    users ||--o{ delivery_cursors : "related"
+    channels ||--o{ delivery_cursors : "related"
+    messages ||--o{ message_events : "related"
