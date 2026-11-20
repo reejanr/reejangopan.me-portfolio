@@ -136,6 +136,7 @@ export default function Home() {
           </ul>
           <div className="rv" style={{ marginTop: 28 }}>
             <Link className="btn btn-acc" to="/engineering-playbook">Open the engineering handbook <ArrowUpRight /></Link>
+            {" "}<a className="btn btn-ghost" href="/system-design/">Try the system design course <ArrowUpRight /></a>
           </div>
         </div>
       </section>
