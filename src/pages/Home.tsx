@@ -154,6 +154,9 @@ export default function Home() {
           <ul className="tags stagger" style={{ margin: "24px 0 0", padding: 0, listStyle: "none" }}>
             {["LLM API integration", "BM25 retrieval", "Role-aware retrieval", "AI-assisted development", "Process automation"].map((t) => <li key={t} className="tag">{t}</li>)}
           </ul>
+          <div className="rv" style={{ marginTop: 28 }}>
+            <Link className="btn btn-acc" to="/devv">Explore Devv AI</Link>
+          </div>
         </div>
       </section>
 

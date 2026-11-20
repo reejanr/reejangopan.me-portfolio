@@ -193,7 +193,13 @@ export function Layout({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (!hash) {
+      // Route changes should start at the top immediately. Temporarily bypass the global
+      // smooth-scroll rule so the old page is not animated underneath the new one.
+      const root = document.documentElement;
+      const previous = root.style.scrollBehavior;
+      root.style.scrollBehavior = "auto";
       window.scrollTo(0, 0);
+      root.style.scrollBehavior = previous;
     } else {
       // Client-side navigation doesn't jump to #anchors by itself — do it once the page has rendered.
       const jump = () => document.getElementById(decodeURIComponent(hash.slice(1)))?.scrollIntoView();

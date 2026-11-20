@@ -13,10 +13,16 @@ export function usePointerFx() {
     let magnet: HTMLElement | null = null;
     let frame = 0;
     let last: PointerEvent | null = null;
+    let tilt: HTMLElement | null = null;
 
     const release = () => {
       if (magnet) magnet.style.transform = "";
       magnet = null;
+      if (tilt) {
+        tilt.style.removeProperty("--rx");
+        tilt.style.removeProperty("--ry");
+      }
+      tilt = null;
     };
 
     const apply = () => {
@@ -40,6 +46,22 @@ export function usePointerFx() {
         const dy = e.clientY - (r.top + r.height / 2);
         btn.style.transform = `translate(${dx * 0.18}px, ${dy * 0.28}px)`;
         magnet = btn;
+      }
+
+      const nextTilt = target?.closest?.(".tilt") as HTMLElement | null;
+      if (nextTilt !== tilt) {
+        if (tilt) {
+          tilt.style.removeProperty("--rx");
+          tilt.style.removeProperty("--ry");
+        }
+        tilt = nextTilt;
+      }
+      if (tilt) {
+        const r = tilt.getBoundingClientRect();
+        const px = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width / 2)) / (r.width / 2)));
+        const py = Math.max(-1, Math.min(1, (e.clientY - (r.top + r.height / 2)) / (r.height / 2)));
+        tilt.style.setProperty("--rx", `${(-py * 4).toFixed(2)}deg`);
+        tilt.style.setProperty("--ry", `${(px * 5).toFixed(2)}deg`);
       }
 
       const ide = document.querySelector(".ide") as HTMLElement | null;
@@ -182,7 +204,7 @@ const SCRUB: Record<string, string> = {
 };
 
 // Scroll effects for every page:
-//  - header hides while reading down and returns on the first scroll up (data-nav on <html>)
+//  - the sticky header remains stable while its shadow reflects scroll state
 //  - elements marked in SCRUB follow their viewport progress (--sx)
 //  - the technology marquees speed up with scroll velocity
 export function useScrollFx(key: string) {
@@ -231,11 +253,10 @@ export function useScrollFx(key: string) {
       velocity += (dy - velocity) * 0.18;
       root.style.setProperty("--skew", Math.max(-7, Math.min(7, velocity * 0.3)).toFixed(2));
 
-      // header: hide when scrolling down past the first screenful, show on any upward scroll
-      const menuOpen = root.classList.contains("menu-open");
+      // Keep primary navigation available at every scroll position. Hiding it on downward
+      // scroll caused a delayed transform when users reversed direction on touch devices.
       root.dataset.scrolled = y > 24 ? "true" : "false";
-      if (menuOpen || y < 120 || dy < -2) root.dataset.nav = "shown";
-      else if (dy > 2) root.dataset.nav = "hidden";
+      root.dataset.nav = "shown";
 
       // scrubbed elements
       const vh = window.innerHeight;
