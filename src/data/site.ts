@@ -325,7 +325,7 @@ export const experience = [
 
 export const coreStack = [
   "React", "Next.js", "TypeScript", "Python", "Node.js", "PostgreSQL",
-  "Supabase", "Tailwind CSS", "Vercel", "Microsoft 365", "Windows Server", "Active Directory",
+  "Supabase", "Tailwind CSS", "Cloudflare", "Microsoft 365", "Windows Server", "Nuxt.js",
 ];
 
 export const toolkit = [
@@ -341,7 +341,7 @@ export const toolkit = [
   { label: "Testing & analytics", value: "Selenium, GA4, Google Search Console, technical SEO, Google Ads" },
 ];
 
-export const expanding = ["Go", "Kubernetes", "Terraform", "GraphQL", "Vue.js", "Nuxt.js"];
+export const expanding = ["Go", "Kubernetes", "Terraform", "GraphQL", "Vue.js"];
 
 export const education = {
   degree: "Bachelor of Computer Applications (BCA)",
@@ -585,10 +585,10 @@ export const seoKeywords = [
 export type SkillGroup = { category: string; demonstrated: string[]; working: string[]; learning: string[] };
 export const skillMatrix: SkillGroup[] = [
   { category: "Programming languages", demonstrated: ["TypeScript", "JavaScript", "Python", "SQL", "HTML5", "CSS3"], working: ["C#", "Java", "C++", "PHP", "Dart"], learning: ["Go", "Rust", "Kotlin", "Bash / PowerShell"] },
-  { category: "Frontend engineering", demonstrated: ["React", "Next.js", "Tailwind CSS", "shadcn/ui", "Vite", "Progressive web apps", "Responsive design"], working: ["Flutter"], learning: ["Vue.js", "Nuxt.js", "Angular"] },
+  { category: "Frontend engineering", demonstrated: ["React", "Next.js", "Tailwind CSS", "shadcn/ui", "Vite", "Progressive web apps", "Responsive design"], working: ["Nuxt.js", "Flutter"], learning: ["Vue.js", "Angular"] },
   { category: "Backend & API engineering", demonstrated: ["Node.js", "Flask", "REST APIs"], working: ["Express", "ASP.NET Core", "Microservices"], learning: ["FastAPI", "Spring Boot", "Laravel", "GraphQL", "WebSockets"] },
   { category: "Databases", demonstrated: ["PostgreSQL", "Supabase", "Row Level Security", "Schema migrations"], working: ["MySQL", "MongoDB", "Firestore", "Pinecone"], learning: ["Redis", "SQL Server"] },
-  { category: "Cloud & DevOps", demonstrated: ["Git & GitHub", "Vercel", "Cloudflare", "CI/CD deployments"], working: ["Docker", "Linux (Ubuntu)", "AWS", "Microsoft Azure", "Netlify"], learning: ["Kubernetes", "Terraform", "GitHub Actions", "Jenkins", "Nginx"] },
+  { category: "Cloud & DevOps", demonstrated: ["Git & GitHub", "Cloudflare", "CI/CD deployments"], working: ["Docker", "Linux (Ubuntu)", "AWS", "Microsoft Azure", "Netlify"], learning: ["Kubernetes", "Terraform", "GitHub Actions", "Jenkins", "Nginx"] },
   { category: "AI engineering", demonstrated: ["LLM API integration", "BM25 retrieval", "Role-aware retrieval", "AI-assisted development (Codex, Claude Code, GitHub Copilot)"], working: ["RAG", "Embeddings & vector search", "Google Gemini & Vertex AI", "Prompt engineering"], learning: ["LLM evaluation", "AI observability and cost control"] },
   { category: "Enterprise applications", demonstrated: ["Workforce management", "Attendance & payroll logic", "Role-based access", "Business process automation"], working: ["ERP & CRM modules (in development)"], learning: ["Accounting-software integrations"] },
   { category: "Software architecture & security", demonstrated: ["RBAC", "Row Level Security", "Audit logging", "Server-side authorisation", "Idempotency & retry handling"], working: ["SSL/TLS", "Conditional Access"], learning: [] },
