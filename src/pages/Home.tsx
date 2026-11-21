@@ -60,7 +60,7 @@ export default function Home() {
 
       <Ticker
         a={["React", "TypeScript", "JavaScript", "Python", "Node.js", "Next.js", "PostgreSQL", "Supabase", "MySQL", "MongoDB", "Express", "Flask", "ASP.NET Core", "Tailwind CSS"]}
-        b={["AWS", "Azure", "Docker", "Linux", "CI/CD", "GitHub", "Vercel", "Cloudflare", "Microsoft 365", "Entra ID", "Windows Server", "Active Directory", "Gemini", "Vertex AI", "RAG", "Pinecone"]}
+        b={["AWS", "Azure", "Docker", "Linux", "CI/CD", "GitHub", "Cloudflare", "Cloudflare Workers", "Microsoft 365", "Entra ID", "Windows Server", "Nuxt.js", "Gemini", "Vertex AI", "RAG", "Pinecone"]}
       />
 
       <section className="section" aria-labelledby="work-title">
